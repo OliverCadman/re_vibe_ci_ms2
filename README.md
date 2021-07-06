@@ -1,5 +1,5 @@
 # Re:Vibe
-*Re:Vibe* is an interactive ear training platform built with HTML, CSS and JavaScript, for music students of all ages and abilities who would like to improve their ears through the exercises that Re:Vibe provides. Whether the user is taking their first steps into the world of music, or are skilled in reading music and want to improve their ability to play by ear or in an ensemble, Re:Vibe serves as a user friendly, aesthetic platform that musicians enjoy training with time after time.
+*Re:Vibe* is an interactive ear training platform game built with HTML, CSS and JavaScript, for music students of all ages and abilities who would like to improve their ears through the exercises that Re:Vibe provides. Whether the user is taking their first steps into the world of music, or are skilled in reading music and want to improve their ability to play by ear or in an ensemble, Re:Vibe serves as a user friendly, aesthetic platform that musicians enjoy training with time after time.
 
 The website features a welcome page, a home page holding the training platform, a page featuring tips to practice ear training, and a contact page for users to submit feedback/questions to the site owner. 
 
@@ -55,22 +55,68 @@ As a returning visitor, I want...
 4. To see a leaderboard in the challenge section, detailing the high scores submitted by other users of the website, so that I feel stimulated and challenged.
 5. To be kept up-to-date about any new features that have been added to the website.
 
-##### Importance/Feasibility Table
+##### In or Out?
 
-| Feature/Opportunity | Importance (score out of 5) | Feasibility/Viability (score out of 5) |
-|---|---|---|
-| Introduction/welcome page outlining the role of the website | 4 | 5 |
-| Graphical User Interface (GUI) to hold the training exercises | 5 | 5 |
-| A visual tally of correct or incorrect answers | 5 | 5 |
-| Symbols to indicate how many lives the user has left | 5 | 5 |
-| Audio cues when a user submits a correct/incorrect answer | 3 | 5 |
-| A visual display of the musical notation when a correct answer is submitted | 5 | 4 |
-| Modal pop up windows when a challenge is completed or when the user has lost all their lives | 5 | 5 |
-| Degrees of difficulty ranging between Beginner, Intermediate and Advanced | 4 | 3 |
-| Challenge mode (timed run of musical interval/chord recognition exercises) | 3 | 2 |
-| A page detailing practice tips/general resources to inspire musicians | 2 | 5 |
-| Functionality for user to create a profile to save and track their progress | 4 | 0 |
-| A contact page for users to get in touch with site owner | 5 | 5 |
-| **Total** | 50 | 49 |
+Below is a table to weight the importance of features in first release, against the feasibility of implementation.
+
+| Feature/Opportunity | Importance (score out of 5) | Feasibility/Viability (score out of 5) | In or Out? |
+|---|---|---|---|
+| Introduction/welcome page stating the role of the website | 4 | 5 | In |
+| Graphical User Interface (GUI) to hold the training exercises | 5 | 5 | In |
+| Interval Training Mode | 5 | 5 | In
+| Chord Training Mode | 5 | 5 | In
+| A score tally of correct or incorrect answers | 5 | 5 | In |
+| Symbols to indicate how many lives the user has left | 5 | 5 | In |
+| Audio cues when a user submits a correct/incorrect answer | 3 | 5 | In |
+| A visual display of the musical notation when a correct answer is submitted | 5 | 4 | In |
+| Modal pop up windows when a challenge is completed or when the user has lost all their lives | 5 | 5 | In |
+| Degrees of difficulty ranging between Beginner, Intermediate and Advanced | 4 | 3 | Out |
+| Challenge mode (timed run of musical interval/chord recognition exercises) | 3 | 2 | Out |
+| Leaderboard for registered users to display their high scores | 1 | 0 | Out
+| A page detailing practice tips/general resources to inspire musicians | 2 | 5 | In |
+| Functionality for user to create a profile to save and track their progress | 4 | 0 | Out |
+| A contact page for users to get in touch with site owner | 5 | 5 | In |
+| 404 Page | 5 | 5 | In |
+| **Total** | 61 | (Average viability x Number of Items) 59 |
+
+### Scope
+
+Unfortunately, due to the trade-offs the developer has to take into consideration, the first release of *Re:Vibe* will not feature many of the training modes that are features on competitor's websites. Therefore, the first release will be modeled as a game as opposed to a fully comprehensive training platform. The pitfall of having these trade-offs in the first release will hopefully be offset by the enjoyable user experience, in comparison to competitor's websites.
+
+Main features for a Minimal Viable Product:
+
+* Welcome landing page
+* Graphical User Interface
+* Interval Training Mode
+* Chord Training Mode
+* Score tally
+* Lives-left symbols
+* Audio cues for correct/incorrect answers
+* Visual "reveal" of musical notation when correct answer is submitted.
+* Modal Popups for Completed Games/Game Over
+* Practice Page
+* Contact Page
+* 404 Page
+
+Features for future releases:
+
+* Difficulty modes (Beginner, Intermediate, Advanced) - This is the most important feature to be implemented, and will be implemented in the first release should the developer have enough time and resources before deadline.
+* Challenge Mode
+* Functionality/database for user to create profile, and save their progress
+* Melody Matching 
+* Rhythm Identifier 
+* Jazz Progressions Identifier 
+* Scale Identifier
+* Perfect Pitch Training
+
+
+
+
+
+
+
+
+
+
 
 
