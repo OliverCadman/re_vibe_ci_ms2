@@ -109,6 +109,32 @@ Features for future releases:
 * Scale Identifier
 * Perfect Pitch Training
 
+### Structure
+
+The structure of the website is listed in the bullet-points, in order from top to bottom level.
+
+1. Landing Page
+
+The first page the user will see when entering the page. This page contains:
+
+* Brand logo
+
+* Image of a sleek, one-line drawing of an ear.
+
+* Call-to-action button inviting the user to enter the platform.
+
+2. Home/Game Page
+
+* Navigation Bar - A navigation bar will be displayed at the top level of the page, with the brand logo on the far left, and navigation links on the far right.
+
+* Game Instructions - A short, concise overview of how to use the platform will be displayed. 
+
+* Graphical Use Interface - Where the game/training will be undertaken.
+
+* Footer - Social media/Github Links will be displayed at the bottom level.
+
+
+
 
 
 
