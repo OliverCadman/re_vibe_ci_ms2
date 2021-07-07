@@ -125,13 +125,58 @@ The first page the user will see when entering the page. This page contains:
 
 2. Home/Game Page
 
-* Navigation Bar - A navigation bar will be displayed at the top level of the page, with the brand logo on the far left, and navigation links on the far right.
+   1. Main Page
+
+* Navigation Bar - A navigation bar will be displayed at the top level of the page, with the brand logo on the far left, and navigation links on the far right. Will collapse to hamburger icon with dropdown list on mobile screen sizes.
 
 * Game Instructions - A short, concise overview of how to use the platform will be displayed. 
 
-* Graphical Use Interface - Where the game/training will be undertaken.
+* Graphical Use Interface (GUI) - Where the game/training will be undertaken.
 
 * Footer - Social media/Github Links will be displayed at the bottom level.
+
+   2. Modal Windows (displayed when user completes game, or game is over)
+
+   * Header - Congratulating or commiserating visitor.
+
+   * An elaboration on the congratulations or commiserations.
+
+   * An invitation to play again, or try the chord identifier.
+
+
+3. Practice Tips Page 
+
+* Navigation Bar
+
+* Two pieces of content side-by-side: on the left, a graphic illustration of a character practicing a musical instrument, and on the right, some tips on how to practice an instrument effectively.
+
+* Footer
+
+4. Contact Page
+
+* Navigation Bar
+
+* A short paragraph inviting the user to submit any questions or feedback.
+
+* Contact form in the center of the page
+
+* The developer's Github details
+
+* Footer
+
+### Skeleton
+
+Links to the wireframes are listed below:
+
+[Landing Page](assets/wireframes/revibe-landing.pdf)
+[Home/Game Page](assets/wireframes/revibe-homepage.pdf)
+[Practice Tips Page](assets/wireframes/revibe-practicetips.pdf)
+[Contact Page](assets/wireframes/revibe-contact.pdf)
+
+
+
+
+
 
 
 
