@@ -168,10 +168,10 @@ The first page the user will see when entering the page. This page contains:
 
 Links to the wireframes are listed below:
 
-[Landing Page](assets/wireframes/revibe-landing.pdf)
-[Home/Game Page](assets/wireframes/revibe-homepage.pdf)
-[Practice Tips Page](assets/wireframes/revibe-practicetips.pdf)
-[Contact Page](assets/wireframes/revibe-contact.pdf)
+* [Landing Page](assets/wireframes/revibe-landing.pdf)
+* [Home/Game Page](assets/wireframes/revibe-homepage.pdf)
+* [Practice Tips Page](assets/wireframes/revibe-practicetips.pdf)
+* [Contact Page](assets/wireframes/revibe-contact.pdf)
 
 
 
