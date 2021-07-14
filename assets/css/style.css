@@ -1,25 +1,76 @@
 /* Google Fonts */ 
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400&display=swap');
 
+body {
+    background-color: #23272a;
+    height: 100%;
+    width: 100%;
+}
 
+.navbar {
+    background-color: #ffffff;
+    width: 100%; /* To enable application of ml-auto to navbar-nav class */
+    
+}
 
+#navbar-mobile-toggler {
+    color:#23272a;
+    font-size: 40px;
+}
 
+.navbar-brand {
+    margin-left: 5px;
+}
 
+.navbar-brand,
+.navbar-nav li a {
+    color: #23272a;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-decoration: none;
+    margin-left: 5px;
+}
 
+.navbar-nav {
+    margin-left: auto;
+}
 
+.nav-link:hover {
+    color: #23272a;
+    text-decoration: underline;
+}
 
-
-
+ul li a.active {
+    text-decoration: underline;
+}
 
 
 /* Media Query - iPad Device Size */
 @media screen and (min-width: 768px) {
 
+/* Navigation Bar */
+
+.navbar-brand {
+    margin-left: 15px;
+}
+
+.navbar-nav {
+    margin-right: 15px;
+}
+
+.navbar-nav li {
+margin-left: 40px;
+ 
+}
+
 }
 
 
 /* Media Query - Laptop Device Size and up */
-@media screen and (min-width 992px) {
+@media screen and (min-width: 992px) {
+
+
 
 }
 
