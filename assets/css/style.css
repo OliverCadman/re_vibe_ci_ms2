@@ -7,6 +7,8 @@ body {
     width: 100%;
 }
 
+/* ----------- Navigation Bar (Global CSS) ------------ */
+
 .navbar {
     background-color: #c4b3d4;
     width: 100%; /* To enable application of ml-auto to navbar-nav class */
@@ -45,6 +47,43 @@ ul li a.active {
     text-decoration: underline;
 }
 
+/* --------------- Title Page ----------------- */
+
+.title-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #23272a
+}
+
+.ear-training {
+  margin-top: 1.5rem;
+  font-family: "Work Sans", sans-serif;
+  color: #fafafa;
+  text-align: center;
+}
+
+.ear-training.hidden {
+  opacity: 0;
+}
+
+.ear-training button {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #fafafa;
+  border: 2px solid #fafafa;
+  background-color: black;
+}
+
+.ear-training button:hover {
+  background: #fafafa;
+  color: rgb(25, 25, 25);
+}
+
+
+
 /* ----- Game Section ----- */
 
 #game-section {
@@ -80,6 +119,25 @@ ul li a.active {
 
 /* Media Query - iPad Device Size */
 @media screen and (min-width: 768px) {
+
+/* -------------- Title Page --------------- */
+
+#logo-heading {
+    transform: scale(1.5);
+    margin-bottom: 2rem;
+  }
+
+  .logo {
+    margin-bottom: 1.3rem 0;
+  }
+
+  .ear-training h2 {
+    font-size: 2.5rem;
+  }
+
+  .ear-training button {
+    font-size: 1.5rem;
+  }
 
 /* Navigation Bar */
 
