@@ -8,7 +8,7 @@ body {
 }
 
 .navbar {
-    background-color: #ffffff;
+    background-color: #c4b3d4;
     width: 100%; /* To enable application of ml-auto to navbar-nav class */
     
 }
@@ -51,6 +51,15 @@ ul li a.active {
     padding-top: 90px;
     background-color: #23272a;
     color: #fafafa;
+    min-height: 750px;
+}
+
+#game-container {
+    background: url('../images/revibe-game-background.png') no-repeat;
+    background-position: 50%;
+    background-size: 300px 274px;
+    min-height: 75vh;
+
 }
 
 /* Header */
@@ -95,7 +104,7 @@ ul li a.active {
 }
 
 #header-quote {
-    font-size: 3rem;
+    font-size: 2.3rem;
 }
 
 .quote-source {
@@ -103,10 +112,22 @@ ul li a.active {
     font-weight: 100;
 }
 
+#game-container {
+    background-size: 500px 457px;
+    height: 50px;
+}
 
+}
 
 /* Media Query - Laptop Device Size and up */
 @media screen and (min-width: 992px) {
+
+/* Game Section */
+
+#header-quote {
+    font-size: 3rem;
+}
+
 
 
 
