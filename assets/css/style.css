@@ -10,13 +10,13 @@ body {
 /* ----------- Navigation Bar (Global CSS) ------------ */
 
 .navbar {
-    background-color: #c4b3d4;
+    background-color: #23272a;
     width: 100%; /* To enable application of ml-auto to navbar-nav class */
     
 }
 
 #navbar-mobile-toggler {
-    color:#23272a;
+    color:#fafafa;
     font-size: 40px;
 }
 
@@ -26,7 +26,7 @@ body {
 
 .navbar-brand,
 .navbar-nav li a {
-    color: #23272a;
+    color: #fafafa;
     font-family: 'Work Sans', sans-serif;
     font-size: 2rem;
     font-weight: 300;
@@ -103,9 +103,11 @@ ul li a.active {
 
 /* Header */
 #header-quote {
+    margin-top: 20px;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 2rem;
     text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 #quotation-marks-left {
@@ -143,6 +145,8 @@ ul li a.active {
 
 .navbar-brand {
     margin-left: 15px;
+    font-size: 2.2rem;
+    font-weight: 400;
 }
 
 .navbar-nav {
@@ -154,6 +158,11 @@ ul li a.active {
  margin-left: 20px;
  
 }
+
+.navbar-nav li a  {
+    font-size: 1.5rem;
+}
+
 
 /* Game Section */
 
@@ -179,6 +188,16 @@ ul li a.active {
 
 /* Media Query - Laptop Device Size and up */
 @media screen and (min-width: 992px) {
+
+/* ----------- Navigation Bar ----------- */
+
+.navbar-brand {
+    font-size: 3rem;
+}
+
+.navbar-nav li a  {
+    font-size: 2.3rem;
+}
 
 /* Game Section */
 
