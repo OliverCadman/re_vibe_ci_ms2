@@ -22,45 +22,55 @@ const tones = [
 
 // Web Audio API Synthesizer
 
-let audioContext = new AudioContext(); 
+let audioContext = new AudioContext();
 
 // buffer variable creates one 'mono' channel
 
-const buffer = audioContext.createBuffer( 
+const buffer = audioContext.createBuffer(
   1,
-  audioContext.sampleRate * 1, // creates one second of audio data 
+  audioContext.sampleRate * 1, // creates one second of audio data
   audioContext.sampleRate
 );
 
 const masterGainControl = audioContext.createGain(); // primaryGainControl provides control of audio volume
-masterGainControl.gain.setValueAtTime(0.05, 0); // The first parameter sets the value of the gain.
+masterGainControl.gain.setValueAtTime(0.2, 0); // The first parameter sets the value of the gain.
 
 // masterGainControl is connected to the final end point of audioContext. All subsequent audio nodes created will then be connected to the masterGainControl.
-masterGainControl.connect(audioContext.destination); 
+masterGainControl.connect(audioContext.destination);
 
-const gameContainer = document.getElementById('game-container'); // Variable created to contain buttons, to test the functionality of the forEach loop 
-
+const gameContainer = document.getElementById("game-container"); // Variable created to contain buttons, to test the functionality of the forEach loop
 
 /* forEach method will loop over all elements in the 'tones' object array 
 and create an oscillator for each note. The 'frequency' key is passed in
 as a parameter and assigned to the frequency property of the oscillator variable */
-tones.forEach(({note, frequency}) => {
+tones.forEach(({ note, frequency }) => {
   const noteButton = document.createElement("button");
   noteButton.innerText = note;
 
   // Event listeners are for testing purposes only
   noteButton.addEventListener("click", () => {
-    const noteOscillator = audioContext.createOscillator();
-    noteOscillator.type = "sine";
-    noteOscillator.frequency.setValueAtTime(
+    const noteOscillatorOne = audioContext.createOscillator(); // Create Oscillator for sine wave
+    noteOscillatorOne.type = "sine";
+    noteOscillatorOne.frequency.setValueAtTime(
       frequency,
       audioContext.currentTime
     );
-    noteOscillator.connect(masterGainControl);
-    noteOscillator.start();
-    noteOscillator.stop(audioContext.currentTime + 1);
+
+    const noteOscillatorTwo = audioContext.createOscillator(); // Create Oscillator for square wave
+    noteOscillatorTwo.type = "square";
+    noteOscillatorTwo.frequency.setValueAtTime(
+      frequency,
+      audioContext.currentTime
+    );
+
+     
+     noteOscillatorOne.connect(masterGainControl);
+     noteOscillatorOne.start();
+     noteOscillatorOne.stop(audioContext.currentTime + 1);
+     
+    
   });
   
-  gameContainer.appendChild(noteButton); 
 
-})
+  gameContainer.appendChild(noteButton);
+});
