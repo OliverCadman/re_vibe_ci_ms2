@@ -27,9 +27,9 @@ let audioContext = new AudioContext();
 // buffer variable creates one 'mono' channel
 
 const buffer = audioContext.createBuffer(
-  1,
-  audioContext.sampleRate * 1, // creates one second of audio data
-  audioContext.sampleRate
+    1,
+    audioContext.sampleRate * 1, // creates one second of audio data
+    audioContext.sampleRate
 );
 
 const masterGainControl = audioContext.createGain(); // primaryGainControl provides control of audio volume
@@ -44,36 +44,59 @@ const gameContainer = document.getElementById("game-container"); // Variable cre
 and create an oscillator for each note. The 'frequency' key is passed in
 as a parameter and assigned to the frequency property of the oscillator variable */
 tones.forEach(({ note, frequency }) => {
-  const noteButton = document.createElement("button");
-  noteButton.innerText = note;
+    const noteButton = document.createElement("button");
+    noteButton.innerText = note;
 
   // Event listeners are for testing purposes only
-  noteButton.addEventListener("click", () => {
+    noteButton.addEventListener("click", () => {
     const noteOscillatorOne = audioContext.createOscillator(); // Create Oscillator for sine wave
     noteOscillatorOne.type = "sine";
     noteOscillatorOne.frequency.setValueAtTime(
-      frequency,
-      audioContext.currentTime
+        frequency,
+        audioContext.currentTime
     );
 
     const noteOscillatorTwo = audioContext.createOscillator(); // Create Oscillator for square wave
     noteOscillatorTwo.type = "square";
     noteOscillatorTwo.frequency.setValueAtTime(
-      frequency,
-      audioContext.currentTime
+        frequency,
+        audioContext.currentTime
     );
 
     const sawFilter = audioContext.createBiquadFilter(); // Create Low Pass Filter (for second oscillator)
     sawFilter.type = "lowpass";
-    sawFilter.frequency.value = 600;
+    sawFilter.frequency.value = 300;
+
+
+    // ADSR (Attack, Decay, Sustain, Release) Envelope to shape gain curve of the sound
+    const attackTime = 0.1;
+    const decayTime = 0.5;
+    const sustainLevel = 0.6;
+    const releaseTime = 0.8;
+    const now = audioContext.currentTime;
+
+    const envelope = audioContext.createGain(); // Creates gain node to use to build envelope curve
+    envelope.gain.setValueAtTime(0, 0);
+    
+    // First parameter is the value that the gain will change to. Second parameter represents the time taken to reach the value from last instance of AudioContext ('now').
+    envelope.gain.linearRampToValueAtTime(1, now + attackTime);
+    envelope.gain.linearRampToValueAtTime(
+        sustainLevel,
+        now + attackTime + decayTime
+    );
+    envelope.gain.setValueAtTime(sustainLevel, 1 - releaseTime);
+    envelope.gain.linearRampToValueAtTime(0, now + 1);
 
      
-     noteOscillatorOne.connect(masterGainControl);
+    // Hooks up the oscillators to audio processors, then to masterGainControl
+     noteOscillatorOne.connect(envelope) 
+     envelope.connect(masterGainControl);
      noteOscillatorOne.start();
      noteOscillatorOne.stop(audioContext.currentTime + 1);
 
-     noteOscillatorTwo.connect(sawFilter);
-     sawFilter.connect(masterGainControl);
+     noteOscillatorTwo.connect(sawFilter)
+     sawFilter.connect(envelope);
+     envelope.connect(masterGainControl);
      noteOscillatorTwo.start();
      noteOscillatorTwo.stop(audioContext.currentTime + 1);
      
