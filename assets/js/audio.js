@@ -32,3 +32,8 @@ const buffer = audioContext.createBuffer(
   audioContext.sampleRate
 );
 
+const masterGainControl = audioContext.createGain(); // primaryGainControl provides control of audio volume
+masterGainControl.gain.setValueAtTime(0.05, 0); // The first parameter sets the value of the gain.
+
+// masterGainControl is connected to the final end point of audioContext. All subsequent audio nodes created will then be connected to the masterGainControl.
+masterGainControl.connect(audioContext.destination); 
