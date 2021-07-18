@@ -38,11 +38,29 @@ masterGainControl.gain.setValueAtTime(0.05, 0); // The first parameter sets the 
 // masterGainControl is connected to the final end point of audioContext. All subsequent audio nodes created will then be connected to the masterGainControl.
 masterGainControl.connect(audioContext.destination); 
 
+const gameContainer = document.getElementById('game-container'); // Variable created to contain buttons, to test the functionality of the forEach loop 
+
 
 /* forEach method will loop over all elements in the 'tones' object array 
 and create an oscillator for each note. The 'frequency' key is passed in
 as a parameter and assigned to the frequency property of the oscillator variable */
 tones.forEach(({note, frequency}) => {
- 
+  const noteButton = document.createElement("button");
+  noteButton.innerText = note;
+
+  // Event listeners are for testing purposes only
+  noteButton.addEventListener("click", () => {
+    const noteOscillator = audioContext.createOscillator();
+    noteOscillator.type = "sine";
+    noteOscillator.frequency.setValueAtTime(
+      frequency,
+      audioContext.currentTime
+    );
+    noteOscillator.connect(masterGainControl);
+    noteOscillator.start();
+    noteOscillator.stop(audioContext.currentTime + 1);
+  });
+  
+  gameContainer.appendChild(noteButton); 
 
 })
