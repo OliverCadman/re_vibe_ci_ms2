@@ -63,10 +63,19 @@ tones.forEach(({ note, frequency }) => {
       audioContext.currentTime
     );
 
+    const sawFilter = audioContext.createBiquadFilter(); // Create Low Pass Filter (for second oscillator)
+    sawFilter.type = "lowpass";
+    sawFilter.frequency.value = 600;
+
      
      noteOscillatorOne.connect(masterGainControl);
      noteOscillatorOne.start();
      noteOscillatorOne.stop(audioContext.currentTime + 1);
+
+     noteOscillatorTwo.connect(sawFilter);
+     sawFilter.connect(masterGainControl);
+     noteOscillatorTwo.start();
+     noteOscillatorTwo.stop(audioContext.currentTime + 1);
      
     
   });
