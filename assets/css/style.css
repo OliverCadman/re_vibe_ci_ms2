@@ -95,7 +95,7 @@ ul li a.active {
   background: url("../images/revibe-game-background.png") no-repeat;
   background-position: 50%;
   background-size: 320px 292px;
-  min-height: 50vh;
+  min-height: 60vh;
 }
 
 .speaker-icon-wrapper {
@@ -226,6 +226,14 @@ ul li a.active {
   #game-container {
     min-height: 75vh;
     background-size: 600px 548px;
+  }
+
+  .speaker-icon {
+      font-size: 4rem;
+  }
+
+  #begin-training button {
+      font-size: 1.4rem;
   }
 }
 
