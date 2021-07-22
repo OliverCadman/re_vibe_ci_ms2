@@ -1,50 +1,49 @@
-/* Google Fonts */ 
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200;300;400;500&display=swap');
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200;300;400;500&display=swap");
 
 body {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 /* ----------- Navigation Bar (Global CSS) ------------ */
 
 .navbar {
-    background-color: #23272a;
-    width: 100%; /* To enable application of ml-auto to navbar-nav class */
-    
+  background-color: #23272a;
+  width: 100%; /* To enable application of ml-auto to navbar-nav class */
 }
 
 #navbar-mobile-toggler {
-    color:#fafafa;
-    font-size: 40px;
+  color: #fafafa;
+  font-size: 40px;
 }
 
 .navbar-brand {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .navbar-brand,
 .navbar-nav li a {
-    color: #fafafa;
-    font-family: 'Work Sans', sans-serif;
-    font-size: 2rem;
-    font-weight: 300;
-    text-decoration: none;
-    margin-left: 5px;
+  color: #fafafa;
+  font-family: "Work Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  text-decoration: none;
+  margin-left: 5px;
 }
 
 .navbar-nav {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .nav-link:hover {
-    color: #23272a;
-    text-decoration: underline;
+  color: #23272a;
+  text-decoration: underline;
 }
 
 ul li a.active {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* --------------- Title Page ----------------- */
@@ -55,7 +54,7 @@ ul li a.active {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #23272a
+  background-color: #23272a;
 }
 
 .ear-training {
@@ -82,56 +81,73 @@ ul li a.active {
   color: rgb(25, 25, 25);
 }
 
-
-
 /* ----- Game Section ----- */
 
 #game-section {
-    padding-top: 90px;
-    background-color: #23272a;
-    color: #fafafa;
-    min-height: 750px;
+  padding-top: 90px;
+  background-color: #23272a;
+  color: #fafafa;
+  min-height: 750px;
 }
 
 #game-container {
-    position: relative;
-    background: url('../images/revibe-game-background.png') no-repeat;
-    background-position: 50%;
-    background-size: 300px 274px;
-    min-height: 50vh;
-
+  position: relative;
+  background: url("../images/revibe-game-background.png") no-repeat;
+  background-position: 50%;
+  background-size: 320px 292px;
+  min-height: 50vh;
 }
 
 .speaker-icon-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 47%;
+  position: absolute;
+  top: 50%;
+  left: 43%;
+}
+
+.speaker-icon-wrapper p {
+  text-align: center;
+}
+
+#begin-training {
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 65%;
+  text-align: center;
+}
+
+#begin-training button {
+  font-size: 0.7rem;
+}
+
+.speaker-icon {
+  font-size: 2.4rem;
+  color: #e7782d;
 }
 
 /* Header */
 #header-quote {
-    margin-top: 20px;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+  margin-top: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 #quotation-marks-left {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 #quotation-marks-right {
-    margin-left: 10px;
+  margin-left: 10px;
 }
-
 
 /* Media Query - iPad Device Size */
 @media screen and (min-width: 768px) {
+  /* -------------- Title Page --------------- */
 
-/* -------------- Title Page --------------- */
-
-#logo-heading {
+  #logo-heading {
     transform: scale(1.5);
     margin-bottom: 2rem;
   }
@@ -148,82 +164,72 @@ ul li a.active {
     font-size: 1.5rem;
   }
 
-/* Navigation Bar */
+  /* Navigation Bar */
 
-.navbar-brand {
+  .navbar-brand {
     margin-left: 15px;
     font-size: 2.2rem;
     font-weight: 400;
-}
+  }
 
-.navbar-nav {
+  .navbar-nav {
     margin-right: 5px;
-   
-}
+  }
 
-.navbar-nav li {
- margin-left: 20px;
- 
-}
+  .navbar-nav li {
+    margin-left: 20px;
+  }
 
-.navbar-nav li a  {
+  .navbar-nav li a {
     font-size: 1.5rem;
-}
+  }
 
+  /* Game Section */
 
-/* Game Section */
-
-#game-section {
+  #game-section {
     padding-top: 92px;
-}
+  }
 
-#header-quote {
+  #header-quote {
     font-size: 2.3rem;
-}
+  }
 
-.quote-source {
-    font-family: 'Work Sans', sans-serif;
+  .quote-source {
+    font-family: "Work Sans", sans-serif;
     font-weight: 100;
-}
+  }
 
-#game-container {
+  #game-container {
     background-size: 500px 457px;
     height: 50px;
-}
-
+  }
 }
 
 /* Media Query - Laptop Device Size and up */
 @media screen and (min-width: 992px) {
+  /* ----------- Navigation Bar ----------- */
 
-/* ----------- Navigation Bar ----------- */
-
-.navbar-brand {
+  .navbar-brand {
     font-size: 3rem;
-}
+  }
 
-.navbar-nav li a  {
+  .navbar-nav li a {
     font-size: 2.3rem;
-}
+  }
 
-/* Game Section */
+  /* Game Section */
 
-#header-quote {
+  #header-quote {
     font-size: 3rem;
-}
+  }
 
-#game-container {
+  #game-container {
     min-height: 75vh;
-}
-
-
-
-
+  }
 }
 
 /* Media Query - iPad Pro Device Size: Referenced from 'https://fjorgedigital.com/insights/blog/how-can-i-target-only-an-ipad-pro/' */
 @media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5) {
-
 }
 
 
