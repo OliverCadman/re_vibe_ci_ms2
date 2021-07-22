@@ -125,30 +125,50 @@
     </nav>
     <section>
       <div class="container-fluid" id="game-section">
-        <div class="row">
-          <div class="col-12 col-md-4 col-lg-3">
-            <div class="header d-none d-md-block">
-              <h1 id="header-quote">
-                <span id="quotation-marks-left">❝</span>Nobody can hear you read
-                music<span id="quotation-marks-right">❞</span>
+        <!-- Duplicate of header and paragraph content to apply specific positioning for iPad device size only -->
+        <div class="row justify-content-between">
+          <div class="col-4 d-sm-none d-lg-none d-md-block">
+             <h1 class="header-quote">
+                <span class="quotation-marks-left">❝</span>Nobody can hear you read
+                music<span class="quotation-marks-right">❞</span>
               </h1>
-              <p class="quote-source">Erroll Garner</p>
-            </div>
+               <p class="quote-source">Erroll Garner</p>
+          </div>
+          <div class="col-6 d-sm-none d-lg-none d-md-block">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam
               explicabo, eum exercitationem sequi adipisci error ex omnis. Nulla
               qui expedita ad accusantium, rerum alias cupiditate?
             </p>
           </div>
-          <div class="col-12 col-lg-6">
+        </div>
+        <!-- Duplicate of header and paragraph content to apply specific positioning for laptop and mobile -->
+        <div class="row">
+          <div class="col-12 col-md-3 col-lg-3">
+            <div class="header d-none d-lg-block">
+              <h1 class="header-quote">
+                <span class="quotation-marks-left">❝</span>Nobody can hear you read
+                music<span class="quotation-marks-right">❞</span>
+              </h1>
+              <p class="quote-source">Erroll Garner</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-12 col-lg-6">
             <div id="game-container">
               <div class="speaker-icon-wrapper justify-content-center">
                 <span><i class="fas fa-volume-up speaker-icon"></i></span>
-                <div id="start-game">
+              </div>
+              <div id="begin-training">
                   <button class="btn btn-secondary">Begin Training</button>
                 </div>
-              </div>
             </div>
+          </div>
+          <div class="col-12 col-lg-3 d-md-none d-sm-block d-lg-block">
+             <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam
+              explicabo, eum exercitationem sequi adipisci error ex omnis. Nulla
+              qui expedita ad accusantium, rerum alias cupiditate?
+            </p>
           </div>
         </div>
       </div>
