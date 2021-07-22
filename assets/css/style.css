@@ -81,13 +81,29 @@ ul li a.active {
   color: rgb(25, 25, 25);
 }
 
+/* ---- Header ---- */
+.header-quote {
+  margin-top: 20px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.quotation-marks-left {
+  margin-right: 10px;
+}
+
+.quotation-marks-right {
+  margin-left: 10px;
+}
+
 /* ----- Game Section ----- */
 
 #game-section {
   padding-top: 90px;
   background-color: #23272a;
   color: #fafafa;
-  min-height: 750px;
 }
 
 #game-container {
@@ -126,21 +142,24 @@ ul li a.active {
   color: #e7782d;
 }
 
-/* Header */
-#header-quote {
-  margin-top: 20px;
-  font-family: "Roboto Condensed", sans-serif;
+/* ----- Footer ----- */
+
+footer {
+  background-color: #23272a;
+}
+
+.footer-icons-wrapper {
+    padding-left: 0;
+}
+.footer-icons ul {
+  display: inline-block;
+  list-style-type: none;
   font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 }
 
-#quotation-marks-left {
-  margin-right: 10px;
-}
-
-#quotation-marks-right {
-  margin-left: 10px;
+.footer-icons ul li a {
+  text-decoration: none;
+  color: #e7782d;
 }
 
 /* Media Query - iPad Device Size */
@@ -190,8 +209,8 @@ ul li a.active {
     padding-top: 92px;
   }
 
-  #header-quote {
-    font-size: 2.3rem;
+  .header-quote {
+    font-size: 2rem;
   }
 
   .quote-source {
@@ -201,13 +220,14 @@ ul li a.active {
 
   #game-container {
     background-size: 500px 457px;
-    height: 50px;
+    height: 75vh;
   }
 }
 
 /* Media Query - Laptop Device Size and up */
 @media screen and (min-width: 992px) {
-  /* ----------- Navigation Bar ----------- */
+    
+  /* ---- Navigation Bar ---- */
 
   .navbar-brand {
     font-size: 3rem;
@@ -217,23 +237,34 @@ ul li a.active {
     font-size: 2.3rem;
   }
 
-  /* Game Section */
+  /* ---- Game Section ----  */
 
-  #header-quote {
+  .header-quote {
     font-size: 3rem;
   }
 
   #game-container {
-    min-height: 75vh;
+    min-height: 80vh;
     background-size: 600px 548px;
   }
 
   .speaker-icon {
-      font-size: 4rem;
+    font-size: 4rem;
   }
 
   #begin-training button {
-      font-size: 1.4rem;
+    font-size: 1.4rem;
+  }
+
+  /* ---- Footer ---- */
+
+  .footer-icons {
+    font-size: 2rem;
+  }
+
+  .footer-icons ul li a:hover {
+    color: #fafafa;
+    transition: 0.3s ease-in-out;
   }
 }
 
@@ -243,7 +274,7 @@ ul li a.active {
 
 /* Adjusting Game Container background image size for mobile device sizes listed in Chrome DevTools. */
 /* iPhone 6/7/8 Plus */
-@media only screen and (min-width: 414px) and (max-width: 414px) and (max-height: 736px){
+@media only screen and (min-width: 414px) and (max-width: 414px) and (max-height: 736px) {
   #game-container {
     background-size: 400px 366px;
   }
@@ -254,7 +285,7 @@ ul li a.active {
   #game-container {
     background-size: 400px 366px;
     height: 60vh;
-  }  
+  }
 }
 
 /* iPhone X */
@@ -262,7 +293,7 @@ ul li a.active {
   #game-container {
     background-size: 375px 343px;
     height: 40vh;
-  }  
+  }
 }
 
 /* Pixel 2 XL */
@@ -270,7 +301,7 @@ ul li a.active {
   #game-container {
     background-size: 375px 343px;
     height: 10vh;
-  }  
+  }
 }
 
 /* Galaxy S5 & Moto G4 */
@@ -278,5 +309,5 @@ ul li a.active {
   #game-container {
     background-size: 360px 329px;
     height: 60vh;
-  }  
+  }
 }
