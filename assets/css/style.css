@@ -94,11 +94,18 @@ ul li a.active {
 }
 
 #game-container {
+    position: relative;
     background: url('../images/revibe-game-background.png') no-repeat;
     background-position: 50%;
     background-size: 300px 274px;
-    min-height: 75vh;
+    min-height: 50vh;
 
+}
+
+.speaker-icon-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 47%;
 }
 
 /* Header */
@@ -203,6 +210,10 @@ ul li a.active {
 
 #header-quote {
     font-size: 3rem;
+}
+
+#game-container {
+    min-height: 75vh;
 }
 
 
