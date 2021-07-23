@@ -114,13 +114,15 @@ function createTones(frequency) {
   // Hooks up the oscillators to audio processors, then to masterGainControl
   noteOscillatorOne.connect(envelope);
   envelope.connect(sineGain);
-  sineGain.connect(masterGainControl);
+  sineGain.connect(reverb);
+  reverb.connect(masterGainControl);
   noteOscillatorOne.start();
   noteOscillatorOne.stop(audioContext.currentTime + 1);
 
   noteOscillatorTwo.connect(sawFilter);
   sawFilter.connect(envelope);
-  envelope.connect(masterGainControl);
+  envelope.connect(reverb);
+  reverb.connect(masterGainControl);
   noteOscillatorTwo.start();
   noteOscillatorTwo.stop(audioContext.currentTime + 1);
 
