@@ -30,6 +30,37 @@ function createTones(frequency) {
 
   audioContext = new AudioContext();
 
+  /* Build Convolver using Impulse Response to create reverb.
+     Code referenced from 'https://middleearmedia.com/web-audio-api-convolver-node/' */
+  function createReverb() {
+    let convolver = audioContext.createConvolver();
+    let ajaxRequest = new XMLHttpRequest();
+    ajaxRequest.open("GET", impulseURL, true);
+    ajaxRequest.responseType = "arraybuffer";
+    console.log(ajaxRequest);
+
+    ajaxRequest.onload = function () {
+      let impulseResponse = ajaxRequest.response;
+
+      audioContext.decodeAudioData(
+        impulseResponse,
+        function (buffer) {
+          myImpulseBuffer = buffer;
+          convolver.buffer = myImpulseBuffer;
+          convolver.loop = true;
+          convolver.normalize = true;
+          convolver.connect(masterGainControl);
+        },
+        function (e) {
+          "Error decoding audio data" + e.err;
+        }
+      );
+    };
+    ajaxRequest.send();
+
+    return convolver;
+  }
+
   const masterGainControl = audioContext.createGain(); // primaryGainControl provides control of audio volume
   masterGainControl.gain.setValueAtTime(0.5, 0); // The first parameter sets the value of the gain.
 
@@ -77,7 +108,8 @@ function createTones(frequency) {
   envelope.gain.setValueAtTime(sustainLevel, 1 - releaseTime);
   envelope.gain.linearRampToValueAtTime(0, now + 1);
 
- 
+  // Invoke createReverb() function and assign it to 'reverb' variable
+  let reverb = createReverb();
 
   // Hooks up the oscillators to audio processors, then to masterGainControl
   noteOscillatorOne.connect(envelope);
@@ -91,10 +123,6 @@ function createTones(frequency) {
   envelope.connect(masterGainControl);
   noteOscillatorTwo.start();
   noteOscillatorTwo.stop(audioContext.currentTime + 1);
-
-  
-
-  
 
   return audioContext;
 }
