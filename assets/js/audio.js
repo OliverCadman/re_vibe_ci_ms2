@@ -45,7 +45,7 @@ function createTones(frequency) {
     audioContext.currentTime
   );
   const sineGain = audioContext.createGain();
-  sineGain.gain.setValueAtTime(0.1, 0);
+  sineGain.gain.value = 0.2;
 
   const noteOscillatorTwo = audioContext.createOscillator(); // Create Oscillator for square wave
   noteOscillatorTwo.type = "sawtooth";
