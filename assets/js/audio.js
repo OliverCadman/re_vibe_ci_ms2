@@ -20,46 +20,78 @@ const tones = [
   { note: "C5", frequency: 523.25 },
 ];
 
+const intervals = [
+  {
+    cOctave: {
+      frequency1: 261.63,
+      frequency2: 523.25,
+    },
+
+    cMinorSecond: {
+      frequency1: 261.63,
+      frequency2: 277.18,
+    },
+
+    cMajorSecond: {
+      frequency1: 261.63,
+      frequency2: 293.66,
+    },
+
+    cMinorThird: {
+      frequency1: 261.63,
+      frequency2: 311.13,
+    },
+
+    cMajorThird: {
+      frequency1: 261.63,
+      frequency2: 326.63,
+    },
+
+    cPerfectFourth: {
+      frequency1: 261.63,
+      frequency2: 349.23,
+    },
+
+    cAugmentedFourth: {
+      frequency1: 261.63,
+      frequency2: 369.99,
+    },
+
+    cPerfectFifth: {
+      frequency1: 261.63,
+      frequency2: 392,
+    },
+
+    cMinorSixth: {
+      frequency1: 261.63,
+      frequency2: 415.3,
+    },
+
+    cMajorSixth: {
+      frequency1: 261.63,
+      frequency2: 440,
+    },
+
+    cMinorSeventh: {
+      frequency1: 261.63,
+      frequency2: 466.16,
+    },
+
+    cMajorSeventh: {
+      frequency1: 261.63,
+      frequency2: 493.88,
+    },
+  },
+];
+
 // URL to source of Impulse Response, to be used to create convolution reverb.
-const impulseURL =
-  "../assets/impulse-response/JFKUnderpass.wav";
+const impulseURL = "../assets/impulse-response/impulse-response-2.wav";
 
 // Web Audio API Synthesizer
-function createTones(frequency) {
+function createTones(interval1, interval2) {
   let audioContext = window.AudioContext || window.webkitAudioContext;
 
   audioContext = new AudioContext();
-
-  /* Build Convolver using Impulse Response to create reverb.
-     Code referenced from 'https://middleearmedia.com/web-audio-api-convolver-node/' */
-  function createReverb() {
-    let convolver = audioContext.createConvolver();
-    let ajaxRequest = new XMLHttpRequest();
-    ajaxRequest.open("GET", impulseURL, true);
-    ajaxRequest.responseType = "arraybuffer";
-    console.log(ajaxRequest);
-
-    ajaxRequest.onload = function () {
-      let impulseResponse = ajaxRequest.response;
-
-      audioContext.decodeAudioData(
-        impulseResponse,
-        function (buffer) {
-          myImpulseBuffer = buffer;
-          convolver.buffer = myImpulseBuffer;
-          convolver.loop = true;
-          convolver.normalize = true;
-          convolver.connect(masterGainControl);
-        },
-        function (e) {
-          "Error decoding audio data" + e.err;
-        }
-      );
-    };
-    ajaxRequest.send();
-
-    return convolver;
-  }
 
   const masterGainControl = audioContext.createGain(); // primaryGainControl provides control of audio volume
   masterGainControl.gain.setValueAtTime(0.5, 0); // The first parameter sets the value of the gain.
@@ -72,16 +104,16 @@ function createTones(frequency) {
   noteOscillatorOne.type = "sine";
   noteOscillatorOne.frequency.setValueAtTime(
     // Get value of 'frequency' key of 'tones' array and assign it to oscillator frequency
-    frequency,
+    interval1,
     audioContext.currentTime
   );
   const sineGain = audioContext.createGain();
-  sineGain.gain.value = 0.2;
+  sineGain.gain.value = 1;
 
   const noteOscillatorTwo = audioContext.createOscillator(); // Create Oscillator for square wave
-  noteOscillatorTwo.type = "sawtooth";
+  noteOscillatorTwo.type = "sine";
   noteOscillatorTwo.frequency.setValueAtTime(
-    frequency,
+    interval2,
     audioContext.currentTime
   );
 
@@ -90,41 +122,35 @@ function createTones(frequency) {
   sawFilter.frequency.value = 50;
 
   // ADSR (Attack, Decay, Sustain, Release) Envelope to shape gain curve of the sound
-  const attackTime = 0.01;
-  const decayTime = 0.5;
-  const sustainLevel = 1;
-  const releaseTime = 0.8;
+  const attackTime = 0.03;
+  const decayTime = 0.3;
+  const sustainLevel = 0.1;
+  const releaseTime = 1;
   const now = audioContext.currentTime;
 
   const envelope = audioContext.createGain(); // Creates gain node to use to build envelope curve
   envelope.gain.setValueAtTime(0, 0);
 
   // First parameter is the value that the gain will change to. Second parameter represents the time taken to reach the value from last instance of AudioContext ('now').
-  envelope.gain.linearRampToValueAtTime(1, now + attackTime);
+  envelope.gain.linearRampToValueAtTime(0.5, now + attackTime);
   envelope.gain.linearRampToValueAtTime(
     sustainLevel,
     now + attackTime + decayTime
   );
   envelope.gain.setValueAtTime(sustainLevel, 1 - releaseTime);
-  envelope.gain.linearRampToValueAtTime(0, now + 1);
-
-  // Invoke createReverb() function and assign it to 'reverb' variable
-  let reverb = createReverb();
+  envelope.gain.linearRampToValueAtTime(0, now + 2);
 
   // Hooks up the oscillators to audio processors, then to masterGainControl
   noteOscillatorOne.connect(envelope);
   envelope.connect(sineGain);
-  sineGain.connect(reverb);
-  reverb.connect(masterGainControl);
-  noteOscillatorOne.start();
-  noteOscillatorOne.stop(audioContext.currentTime + 1);
+  sineGain.connect(masterGainControl);
+  noteOscillatorOne.start(now);
+  noteOscillatorOne.stop(now + 2);
 
-  noteOscillatorTwo.connect(sawFilter);
-  sawFilter.connect(envelope);
-  envelope.connect(reverb);
-  reverb.connect(masterGainControl);
-  noteOscillatorTwo.start();
-  noteOscillatorTwo.stop(audioContext.currentTime + 1);
+  noteOscillatorTwo.connect(envelope);
+  envelope.connect(masterGainControl);
+  noteOscillatorTwo.start(now + 1);
+  noteOscillatorTwo.stop(now + 2);
 
   return audioContext;
 }
