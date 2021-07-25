@@ -99,16 +99,22 @@ document.addEventListener("DOMContentLoaded", () => {
 function runGame() {
   let interval = playInterval();
 
-  nextInterval();
+ 
 
-  if (answerList.length === 6) {
-  }
   console.log(nextInterval());
 }
 
 function getAnswers() {
   let newAnswerArray = shuffleAnswers(answerList);
-
+  if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
+    newAnswerArray = newAnswerArray.splice(0, 9);
+  } else if (correctAnswersRemaining <= 9 && correctAnswersRemaining >= 5) {
+    newAnswerArray = newAnswerArray.splice(0, 8);
+  } else if (correctAnswersRemaining <= 4 && correctAnswersRemaining >= 2) {
+    newAnswerArray = newAnswerArray.splice(0, 6);
+  } else if (correctAnswersRemaining === 1) {
+    newAnswerArray = newAnswerArray.splice(0, 3);
+  }
 
   return newAnswerArray;
 }
