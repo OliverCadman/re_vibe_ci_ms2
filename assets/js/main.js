@@ -22,7 +22,7 @@ let answerList = [
   "Major Sixth",
   "Minor Seventh",
   "Major Seventh",
-  "Octave",
+  "Octave"
 ];
 
 const intervalList = [
@@ -97,35 +97,53 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function runGame() {
- 
+  let interval = playInterval();
 
-    let interval = getInterval();
-    console.log(interval)
+  let newArray = shuffleArray(answerList);
+  console.log(newArray)
 }
 
-function checkAnswer() {
+function nextInterval() {
 
 }
+
+/* shuffleArray will randomly shuffle the elements of the answerList array, using the Fisher-Yates shuffle algorithm.
+Code referenced from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
+function shuffleArray(array) {
+  let currentIndex = array.length, randomIndex;
+
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex --;
+
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
+function checkAnswer() {}
 
 function getInterval() {
-    let getRandomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 1 and 12, to get random index of intervals object array
+  let getRandomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 1 and 12
 
-    let randomInterval = intervalList[getRandomIndex];
+  let randomInterval = intervalList[getRandomIndex]; // getRandomIndex used to access random index of intervalList array
 
-    return randomInterval;
-};
+  return randomInterval;
+}
 
 function playInterval() {
-  let generatedInterval = getInterval();
+  let generatedInterval = getInterval(); // Invoking getInterval to get random interval
 
+  // Accessing frequency properties of random interval
   let firstNote = generatedInterval.frequency1;
 
   let secondNote = generatedInterval.frequency2;
 
-  console.log(generatedInterval)
+  console.log(generatedInterval);
 
-  createTones(firstNote, secondNote)
-};
-
+  // Invoking createTones function to play two frequencies
+  createTones(firstNote, secondNote); 
+}
 
 
