@@ -111,6 +111,10 @@ function playInterval() {
 
     let randomInterval = intervalList[getRandomIndex];
 
+    let firstNote = randomInterval.frequency1;
+
+    let secondNote = randomInterval.frequency2;
+
     
 }
 
