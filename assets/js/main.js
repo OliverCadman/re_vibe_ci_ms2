@@ -107,7 +107,11 @@ function checkAnswer() {
 }
 
 function playInterval() {
+    let getRandomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 1 and 12, to get random index of intervals object array
 
+    let randomInterval = intervalList[getRandomIndex];
+
+    
 }
 
 
