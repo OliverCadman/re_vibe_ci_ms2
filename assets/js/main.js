@@ -6,7 +6,7 @@ let userAnswer;
 
 let correctAnswer;
 
-let correctAnswersRemaining = 20;
+let correctAnswersRemaining = 3;
 
 let livesRemaining = 3;
 
@@ -22,7 +22,7 @@ let answerList = [
   "Major Sixth",
   "Minor Seventh",
   "Major Seventh",
-  "Octave"
+  "Octave",
 ];
 
 const intervalList = [
@@ -59,7 +59,7 @@ const intervalList = [
   {
     interval: "augmented fourth",
     frequency1: 261.63,
-    frequency2: 523.25,
+    frequency2: 369.99,
   },
   {
     interval: "perfect fifth",
@@ -99,24 +99,31 @@ document.addEventListener("DOMContentLoaded", () => {
 function runGame() {
   let interval = playInterval();
 
-  let newArray = shuffleArray(answerList);
-  console.log(newArray)
+  nextInterval();
+
+  if (answerList.length === 6) {
+  }
+  console.log(nextInterval());
 }
 
-function nextInterval() {
+function getAnswers() {
 
 }
 
 /* shuffleArray will randomly shuffle the elements of the answerList array, using the Fisher-Yates shuffle algorithm.
 Code referenced from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
-function shuffleArray(array) {
-  let currentIndex = array.length, randomIndex;
+function shuffleAnswers(array) {
+  let currentIndex = array.length,
+    randomIndex;
 
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex --;
+    currentIndex--;
 
-    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
   }
 
   return array;
@@ -143,7 +150,5 @@ function playInterval() {
   console.log(generatedInterval);
 
   // Invoking createTones function to play two frequencies
-  createTones(firstNote, secondNote); 
+  createTones(firstNote, secondNote);
 }
-
-
