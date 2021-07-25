@@ -25,74 +25,75 @@ let answerList = [
   "Octave",
 ];
 
-const intervals = [
+const intervalList = [
   {
-    cOctave: {
-      frequency1: 261.63,
-      frequency2: 523.25,
-    },
-
-    cMinorSecond: {
-      frequency1: 261.63,
-      frequency2: 277.18,
-    },
-
-    cMajorSecond: {
-      frequency1: 261.63,
-      frequency2: 293.66,
-    },
-
-    cMinorThird: {
-      frequency1: 261.63,
-      frequency2: 311.13,
-    },
-
-    cMajorThird: {
-      frequency1: 261.63,
-      frequency2: 326.63,
-    },
-
-    cPerfectFourth: {
-      frequency1: 261.63,
-      frequency2: 349.23,
-    },
-
-    cAugmentedFourth: {
-      frequency1: 261.63,
-      frequency2: 369.99,
-    },
-
-    cPerfectFifth: {
-      frequency1: 261.63,
-      frequency2: 392,
-    },
-
-    cMinorSixth: {
-      frequency1: 261.63,
-      frequency2: 415.3,
-    },
-
-    cMajorSixth: {
-      frequency1: 261.63,
-      frequency2: 440,
-    },
-
-    cMinorSeventh: {
-      frequency1: 261.63,
-      frequency2: 466.16,
-    },
-
-    cMajorSeventh: {
-      frequency1: 261.63,
-      frequency2: 493.88,
-    },
+    interval: "octave",
+    frequency1: 261.63,
+    frequency2: 523.25,
+  },
+  {
+    interval: "minor second",
+    frequency1: 261.63,
+    frequency2: 277.18,
+  },
+  {
+    interval: "major second",
+    frequency1: 261.63,
+    frequency2: 293.66,
+  },
+  {
+    interval: "minor third",
+    frequency1: 261.63,
+    frequency2: 311.13,
+  },
+  {
+    interval: "major third",
+    frequency1: 261.63,
+    frequency2: 326.63,
+  },
+  {
+    interval: "perfect fourth",
+    frequency1: 261.63,
+    frequency2: 349.23,
+  },
+  {
+    interval: "augmented fourth",
+    frequency1: 261.63,
+    frequency2: 523.25,
+  },
+  {
+    interval: "perfect fifth",
+    frequency1: 261.63,
+    frequency2: 392,
+  },
+  {
+    interval: "minor sixth",
+    frequency1: 261.63,
+    frequency2: 415.3,
+  },
+  {
+    interval: "major sixth",
+    frequency1: 261.63,
+    frequency2: 440,
+  },
+  {
+    interval: "minor seventh",
+    frequency1: 261.63,
+    frequency2: 466.16,
+  },
+  {
+    interval: "major seventh",
+    frequency1: 261.63,
+    frequency2: 493.88,
   },
 ];
 
-document.addEventListener('DOMContentLoaded', () => {
-  let runGameButton = document.getElementById('begin-training-btn');
-  runGameButton.addEventListener('click', () => {
+// Waits for DOM content to fully load before executing function
+document.addEventListener("DOMContentLoaded", () => {
+  let runGameButton = document.getElementById("begin-training-btn");
+  runGameButton.addEventListener("click", () => {
     runGame();
-  })
-})
+  });
+});
+
 
