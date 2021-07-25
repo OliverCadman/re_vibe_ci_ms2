@@ -97,7 +97,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function runGame() {
-  let getRandomIndex = Math.ceil(Math.random() * 12)
-  console.log(getRandomIndex)
+ 
+
+
 }
+
+function checkAnswer() {
+
+}
+
+function playInterval() {
+
+}
+
+
 
