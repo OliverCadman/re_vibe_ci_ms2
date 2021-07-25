@@ -99,24 +99,33 @@ document.addEventListener("DOMContentLoaded", () => {
 function runGame() {
  
 
-    playInterval();
+    let interval = getInterval();
+    console.log(interval)
 }
 
 function checkAnswer() {
 
 }
 
-function playInterval() {
+function getInterval() {
     let getRandomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 1 and 12, to get random index of intervals object array
 
     let randomInterval = intervalList[getRandomIndex];
 
-    let firstNote = randomInterval.frequency1;
+    return randomInterval;
+};
 
-    let secondNote = randomInterval.frequency2;
+function playInterval() {
+  let generatedInterval = getInterval();
 
-    return createTones(firstNote, secondNote);
-}
+  let firstNote = generatedInterval.frequency1;
+
+  let secondNote = generatedInterval.frequency2;
+
+  console.log(generatedInterval)
+
+  createTones(firstNote, secondNote)
+};
 
 
 
