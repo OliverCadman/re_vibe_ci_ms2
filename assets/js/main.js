@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function runGame() {
  
 
-
+    playInterval();
 }
 
 function checkAnswer() {
@@ -115,7 +115,7 @@ function playInterval() {
 
     let secondNote = randomInterval.frequency2;
 
-    
+    return createTones(firstNote, secondNote);
 }
 
 
