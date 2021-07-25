@@ -107,7 +107,10 @@ function runGame() {
 }
 
 function getAnswers() {
+  let newAnswerArray = shuffleAnswers(answerList);
 
+
+  return newAnswerArray;
 }
 
 /* shuffleArray will randomly shuffle the elements of the answerList array, using the Fisher-Yates shuffle algorithm.
