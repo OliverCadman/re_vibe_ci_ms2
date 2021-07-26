@@ -97,31 +97,26 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function runGame() {
+  $("#begin-training-btn").remove();
 
-  $('#begin-training-btn').remove();
-  
+  let answerOptions = getAnswers(); // invokes getAnswers() function to grab values of answerList array and assign it to variable
 
+  let answerContainer = document.getElementById("answer-container");
+ 
 }
 
 function getAnswers() {
   let newAnswerArray = shuffleAnswers(answerList); // Invoke shuffleAnswers function passing in answerList array as parameter;
-  
-    if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
-      newAnswerArray = newAnswerArray.splice(0, 9);
-     
-    
-    } else if (correctAnswersRemaining <= 9 && correctAnswersRemaining >= 5) {
-      newAnswerArray = newAnswerArray.splice(0, 8);
-    
-    } else if (correctAnswersRemaining <= 4 && correctAnswersRemaining >= 2) {
-      newAnswerArray = newAnswerArray.splice(0, 6);
-     
-    } else if (correctAnswersRemaining <= 1) {
-    
-      newAnswerArray = newAnswerArray.splice(0, 3);
-    }
-  
 
+  if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
+    newAnswerArray = newAnswerArray.splice(0, 9);
+  } else if (correctAnswersRemaining <= 9 && correctAnswersRemaining >= 5) {
+    newAnswerArray = newAnswerArray.splice(0, 8);
+  } else if (correctAnswersRemaining <= 4 && correctAnswersRemaining >= 2) {
+    newAnswerArray = newAnswerArray.splice(0, 6);
+  } else if (correctAnswersRemaining <= 1) {
+    newAnswerArray = newAnswerArray.splice(0, 3);
+  }
 
   return newAnswerArray;
 }
@@ -154,9 +149,7 @@ function getInterval() {
 
   console.log(randomInterval);
 
- 
   return randomInterval;
-  
 }
 
 function playInterval() {
@@ -171,6 +164,4 @@ function playInterval() {
   createTones(firstNote, secondNote);
 
   return generatedInterval;
-
-
 }
