@@ -6,7 +6,7 @@ let userAnswer;
 
 let correctAnswer;
 
-let correctAnswersRemaining = 3;
+let correctAnswersRemaining = 15;
 
 let livesRemaining = 3;
 
@@ -97,24 +97,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function runGame() {
-  let interval = playInterval();
 
- 
+  $('#begin-training-btn').remove();
+  
 
-  console.log(nextInterval());
 }
 
 function getAnswers() {
-  let newAnswerArray = shuffleAnswers(answerList);
-  if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
-    newAnswerArray = newAnswerArray.splice(0, 9);
-  } else if (correctAnswersRemaining <= 9 && correctAnswersRemaining >= 5) {
-    newAnswerArray = newAnswerArray.splice(0, 8);
-  } else if (correctAnswersRemaining <= 4 && correctAnswersRemaining >= 2) {
-    newAnswerArray = newAnswerArray.splice(0, 6);
-  } else if (correctAnswersRemaining === 1) {
-    newAnswerArray = newAnswerArray.splice(0, 3);
-  }
+  let newAnswerArray = shuffleAnswers(answerList); // Invoke shuffleAnswers function passing in answerList array as parameter;
+  
+    if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
+      newAnswerArray = newAnswerArray.splice(0, 9);
+     
+    
+    } else if (correctAnswersRemaining <= 9 && correctAnswersRemaining >= 5) {
+      newAnswerArray = newAnswerArray.splice(0, 8);
+    
+    } else if (correctAnswersRemaining <= 4 && correctAnswersRemaining >= 2) {
+      newAnswerArray = newAnswerArray.splice(0, 6);
+     
+    } else if (correctAnswersRemaining <= 1) {
+    
+      newAnswerArray = newAnswerArray.splice(0, 3);
+    }
+  
+
 
   return newAnswerArray;
 }
@@ -141,11 +148,15 @@ function shuffleAnswers(array) {
 function checkAnswer() {}
 
 function getInterval() {
-  let getRandomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 1 and 12
+  let getRandomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 0 and 12
 
   let randomInterval = intervalList[getRandomIndex]; // getRandomIndex used to access random index of intervalList array
 
+  console.log(randomInterval);
+
+ 
   return randomInterval;
+  
 }
 
 function playInterval() {
@@ -156,8 +167,10 @@ function playInterval() {
 
   let secondNote = generatedInterval.frequency2;
 
-  console.log(generatedInterval);
-
   // Invoking createTones function to play two frequencies
   createTones(firstNote, secondNote);
+
+  return generatedInterval;
+
+
 }
