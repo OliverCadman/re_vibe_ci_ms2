@@ -103,6 +103,16 @@ function runGame() {
 
   let answerContainer = document.getElementById("answer-container");
  
+  let answerButtons = "";
+
+  // loops over answerOptions variable and creates button upon each iteration
+  for (i = 0; i < answerOptions.length; i++) {
+    answerButtons += `<button>${answerOptions[i]}</button>`;
+  }
+
+  answerContainer.innerHTML = answerButtons; // Adds buttons from for loop to answerContainer div
+
+  playInterval();
 }
 
 function getAnswers() {
