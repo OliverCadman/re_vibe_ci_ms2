@@ -6,7 +6,7 @@ let userAnswer;
 
 let correctAnswer;
 
-let correctAnswersRemaining = 15;
+let correctAnswersRemaining = 14;
 
 let livesRemaining = 3;
 
@@ -27,62 +27,62 @@ let answerList = [
 
 const intervalList = [
   {
-    interval: "octave",
+    interval: "Octave",
     frequency1: 261.63,
     frequency2: 523.25,
   },
   {
-    interval: "minor second",
+    interval: "Minor Second",
     frequency1: 261.63,
     frequency2: 277.18,
   },
   {
-    interval: "major second",
+    interval: "Major Second",
     frequency1: 261.63,
     frequency2: 293.66,
   },
   {
-    interval: "minor third",
+    interval: "Minor Third",
     frequency1: 261.63,
     frequency2: 311.13,
   },
   {
-    interval: "major third",
+    interval: "Major Third",
     frequency1: 261.63,
     frequency2: 326.63,
   },
   {
-    interval: "perfect fourth",
+    interval: "Perfect Fourth",
     frequency1: 261.63,
     frequency2: 349.23,
   },
   {
-    interval: "augmented fourth",
+    interval: "Augmented Fourth",
     frequency1: 261.63,
     frequency2: 369.99,
   },
   {
-    interval: "perfect fifth",
+    interval: "Perfect Fifth",
     frequency1: 261.63,
     frequency2: 392,
   },
   {
-    interval: "minor sixth",
+    interval: "Minor Sixth",
     frequency1: 261.63,
     frequency2: 415.3,
   },
   {
-    interval: "major sixth",
+    interval: "Major Sixth",
     frequency1: 261.63,
     frequency2: 440,
   },
   {
-    interval: "minor seventh",
+    interval: "Minor Seventh",
     frequency1: 261.63,
     frequency2: 466.16,
   },
   {
-    interval: "major seventh",
+    interval: "Major Seventh",
     frequency1: 261.63,
     frequency2: 493.88,
   },
@@ -97,12 +97,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function runGame() {
-  $("#begin-training-btn").remove();
+  // $("#begin-training-btn").remove();
+
+  getInterval(); // invoke getInterval 
 
   let answerOptions = getAnswers(); // invokes getAnswers() function to grab values of answerList array and assign it to variable
 
+  console.log(answerOptions);
   let answerContainer = document.getElementById("answer-container");
- 
+
   let answerButtons = "";
 
   // loops over answerOptions variable and creates button upon each iteration
@@ -111,22 +114,42 @@ function runGame() {
   }
 
   answerContainer.innerHTML = answerButtons; // Adds buttons from for loop to answerContainer div
+}
 
-  playInterval();
+function nextQuestion() {
+
 }
 
 function getAnswers() {
-  let newAnswerArray = shuffleAnswers(answerList); // Invoke shuffleAnswers function passing in answerList array as parameter;
+  let correctAnswerObject = getInterval(); // invoke getInterval() function to get interval object that's being played
+  let correctInterval = correctAnswerObject.interval; // pull interval name out of correctAnswerObject
 
-  if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
-    newAnswerArray = newAnswerArray.splice(0, 9);
-  } else if (correctAnswersRemaining <= 9 && correctAnswersRemaining >= 5) {
-    newAnswerArray = newAnswerArray.splice(0, 8);
-  } else if (correctAnswersRemaining <= 4 && correctAnswersRemaining >= 2) {
-    newAnswerArray = newAnswerArray.splice(0, 6);
-  } else if (correctAnswersRemaining <= 1) {
-    newAnswerArray = newAnswerArray.splice(0, 3);
-  }
+  console.log(correctInterval);
+
+    if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
+      answerList = answerList.splice(0, 2);
+      !answerList.includes(correctInterval) // if answerList array doesn't contain correct interval, push it into the array
+        ? answerList.push(correctInterval)
+        : null;
+    } else if (correctAnswersRemaining <= 9 && correctAnswersRemaining >= 5) {
+      answerList = answerList.splice(0, 3);
+      !answerList.includes(correctInterval)
+        ? answerList.push(correctInterval)
+        : null;
+    } else if (correctAnswersRemaining <= 4 && correctAnswersRemaining >= 2) {
+      answerList = answerList.splice(0, 6);
+      !answerList.includes(correctInterval)
+        ? answerList.push(correctInterval)
+        : null;
+    } else if (correctAnswersRemaining <= 1) {
+      answerList = answerList.splice(0, 3);
+      !answerList.includes(correctInterval) 
+        ? answerList.push(correctInterval)
+        : null;
+    }
+  
+
+  let newAnswerArray = shuffleAnswers(answerList); // Invoke shuffleAnswers function passing in new answerList array as parameter;
 
   return newAnswerArray;
 }
@@ -155,23 +178,19 @@ function checkAnswer() {}
 function getInterval() {
   let getRandomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 0 and 12
 
-  let randomInterval = intervalList[getRandomIndex]; // getRandomIndex used to access random index of intervalList array
+  let randomInterval = intervalList[getRandomIndex]; // getRandomIndex used to access random index of intervalList array;
 
-  console.log(randomInterval);
+  playInterval(randomInterval);
 
   return randomInterval;
 }
 
-function playInterval() {
-  let generatedInterval = getInterval(); // Invoking getInterval to get random interval
+function playInterval(interval) {
+// Accessing frequency properties of random interval
+  let firstNote = interval.frequency1;
 
-  // Accessing frequency properties of random interval
-  let firstNote = generatedInterval.frequency1;
-
-  let secondNote = generatedInterval.frequency2;
+  let secondNote = interval.frequency2;
 
   // Invoking createTones function to play two frequencies
   createTones(firstNote, secondNote);
-
-  return generatedInterval;
 }
