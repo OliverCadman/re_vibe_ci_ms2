@@ -98,7 +98,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function runGame() {
   // $("#begin-training-btn").remove();
+  let answerCountdown = document.createElement('p');
 
+  answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`
+
+  document.getElementById('correct-answers-remaining').appendChild(answerCountdown)
   
   nextQuestion();
 }
@@ -122,35 +126,34 @@ function nextQuestion() {
 }
 
 function getAnswers(interval) {
-  let correctAnswerObject = interval// invoke getInterval() function to get interval object that's being played
-  let correctInterval = correctAnswerObject.interval; // pull interval name out of correctAnswerObject
+  let correctAnswerObject = interval; // invoke getInterval() function to get interval object that's being played
+  let correctInterval = correctAnswerObject.interval; // pull interval name out of correctAnswerObject;
+
+  let newAnswerArray = shuffleAnswers(answerList); // Invoke shuffleAnswers function passing in new answerList array as parameter;
 
   console.log(correctInterval);
 
-    if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
-      answerList = answerList.splice(0, 2);
-      !answerList.includes(correctInterval) // if answerList array doesn't contain correct interval, push it into the array
-        ? answerList.push(correctInterval)
-        : null;
-    } else if (correctAnswersRemaining <= 9 && correctAnswersRemaining >= 5) {
-      answerList = answerList.splice(0, 3);
-      !answerList.includes(correctInterval)
-        ? answerList.push(correctInterval)
-        : null;
-    } else if (correctAnswersRemaining <= 4 && correctAnswersRemaining >= 2) {
-      answerList = answerList.splice(0, 6);
-      !answerList.includes(correctInterval)
-        ? answerList.push(correctInterval)
-        : null;
-    } else if (correctAnswersRemaining <= 1) {
-      answerList = answerList.splice(0, 3);
-      !answerList.includes(correctInterval) 
-        ? answerList.push(correctInterval)
-        : null;
-    }
-  
-
-  let newAnswerArray = shuffleAnswers(answerList); // Invoke shuffleAnswers function passing in new answerList array as parameter;
+  if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
+    answerList = answerList.splice(0, 5);
+    !answerList.includes(correctInterval) // if answerList array doesn't contain correct interval, push it into the array
+      ? answerList.push(correctInterval)
+      : null;
+  } else if (correctAnswersRemaining <= 9 && correctAnswersRemaining >= 5) {
+    answerList = answerList.splice(0, 3);
+    !answerList.includes(correctInterval)
+      ? answerList.push(correctInterval)
+      : null;
+  } else if (correctAnswersRemaining <= 4 && correctAnswersRemaining >= 2) {
+    answerList = answerList.splice(0, 6);
+    !answerList.includes(correctInterval)
+      ? answerList.push(correctInterval)
+      : null;
+  } else if (correctAnswersRemaining <= 1) {
+    answerList = answerList.splice(0, 3);
+    !answerList.includes(correctInterval)
+      ? answerList.push(correctInterval)
+      : null;
+  }
 
   return newAnswerArray;
 }
