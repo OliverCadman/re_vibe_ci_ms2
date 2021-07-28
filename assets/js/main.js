@@ -196,13 +196,19 @@ function shuffleAnswers(array) {
 }
 
 function checkAnswer(e, userInput) {
-  console.log(e.target.textContent)
+  
   
   return correctAnswer
 }
 
+function getRandomIndex() {
+  let randomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 0 and 12;
+
+  return randomIndex;
+};
+
 function getInterval() {
-  let getRandomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 0 and 12
+  
 
   let randomInterval = intervalList[getRandomIndex]; // getRandomIndex used to access random index of intervalList array;
 
