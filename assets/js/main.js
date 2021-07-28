@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
   runGameButton.addEventListener("click", () => {
     runGame();
   });
+  
 });
 
 function runGame() {
@@ -105,6 +106,8 @@ function runGame() {
   document.getElementById('correct-answers-remaining').appendChild(answerCountdown)
   
   nextQuestion();
+
+
 }
 
 function nextQuestion() {
@@ -119,10 +122,25 @@ function nextQuestion() {
 
   // loops over answerOptions variable and creates button upon each iteration
   for (i = 0; i < answerOptions.length; i++) {
-    answerButtons += `<button class="btn btn-light">${answerOptions[i]}</button>`;
+    answerButtons += `<button class="btn btn-light" id="answer-btn">${answerOptions[i]}</button>`;
   }
 
   answerContainer.innerHTML = answerButtons; // Adds buttons from for loop to answerContainer div
+
+  let answerButton = document.getElementsByTagName('button'); 
+
+  
+  // Loop through answer buttons and add click event listeners to grab values of click to check answer
+  for (button of answerButton) { 
+    if(button.getAttribute('id') === 'answer-btn') {
+      button.addEventListener('click', () => {
+        console.log('hello')
+      })
+
+    }
+  }
+    
+  
 }
 
 function getAnswers(interval) {
@@ -177,7 +195,11 @@ function shuffleAnswers(array) {
   return array;
 }
 
-function checkAnswer() {}
+function checkAnswer(e, userInput) {
+  console.log(e)
+  
+  return correctAnswer
+}
 
 function getInterval() {
   let getRandomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 0 and 12
