@@ -99,9 +99,14 @@ document.addEventListener("DOMContentLoaded", () => {
 function runGame() {
   // $("#begin-training-btn").remove();
 
-  getInterval(); // invoke getInterval 
+  
+  nextQuestion();
+}
 
-  let answerOptions = getAnswers(); // invokes getAnswers() function to grab values of answerList array and assign it to variable
+function nextQuestion() {
+  let interval = getInterval(); // invoke getInterval, and assign it to interval variable
+
+  let answerOptions = getAnswers(interval); // invokes getAnswers() function to grab values of answerList array and assign it to variable
 
   console.log(answerOptions);
   let answerContainer = document.getElementById("answer-container");
@@ -110,18 +115,14 @@ function runGame() {
 
   // loops over answerOptions variable and creates button upon each iteration
   for (i = 0; i < answerOptions.length; i++) {
-    answerButtons += `<button>${answerOptions[i]}</button>`;
+    answerButtons += `<button class="btn btn-light">${answerOptions[i]}</button>`;
   }
 
   answerContainer.innerHTML = answerButtons; // Adds buttons from for loop to answerContainer div
 }
 
-function nextQuestion() {
-
-}
-
-function getAnswers() {
-  let correctAnswerObject = getInterval(); // invoke getInterval() function to get interval object that's being played
+function getAnswers(interval) {
+  let correctAnswerObject = interval// invoke getInterval() function to get interval object that's being played
   let correctInterval = correctAnswerObject.interval; // pull interval name out of correctAnswerObject
 
   console.log(correctInterval);
