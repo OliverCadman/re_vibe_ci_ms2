@@ -133,8 +133,8 @@ function nextQuestion() {
   // Loop through answer buttons and add click event listeners to grab values of click to check answer
   for (button of answerButton) { 
     if(button.getAttribute('id') === 'answer-btn') {
-      button.addEventListener('click', () => {
-        console.log('hello')
+      button.addEventListener('click', (e) => {
+       checkAnswer(e);
       })
 
     }
@@ -196,7 +196,7 @@ function shuffleAnswers(array) {
 }
 
 function checkAnswer(e, userInput) {
-  console.log(e)
+  console.log(e.target.textContent)
   
   return correctAnswer
 }
