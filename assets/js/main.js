@@ -30,19 +30,19 @@ function runGame() {
   $("#begin-training-btn").remove();
   questions = [];
   questionCount = 15;
-
+  questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
     questions[question] = interval; // creates object array of 15 randomly generated intervals to be used in game
   }
 
-  nextQuestion();
+  nextQuestion(questionIndex);
 }
 
-function nextQuestion() {
+function nextQuestion(currentInterval) {
   // Initialize question index and pass it into questions object array to access relative index
   questionIndex = 0;
-  let answerOptions = getAnswers(questions[questionIndex]); // invokes getAnswers() function to grab values of answerList array and assign it to variable
+  let answerOptions = getAnswers(questions[currentInterval]); // invokes getAnswers() function to grab values of answerList array and assign it to variable
 
   console.log(answerOptions);
   let answerContainer = document.getElementById("answer-container");
@@ -52,7 +52,7 @@ function nextQuestion() {
 
   // loops over answerOptions variable and creates button upon each iteration
   for (i = 0; i < answerOptions.length; i++) {
-    answerButtons += `<button class="btn btn-light" id="answer-btn">${answerOptions[i]}</button>`;
+    answerButtons += `<button class="btn btn-light" data-type="submit">${answerOptions[i]}</button>`;
   }
 
   answerContainer.innerHTML = answerButtons; // Adds buttons from for loop to answerContainer div
@@ -61,7 +61,7 @@ function nextQuestion() {
 
   // Loop through answer buttons and add click event listeners to grab values of click to check answer
   for (button of answerButton) {
-    if (button.getAttribute("id") === "answer-btn") {
+    if (button.getAttribute("data-type") === "submit") {
       button.addEventListener("click", (e) => {
         checkAnswer(e);
       });
@@ -79,7 +79,7 @@ function getAnswers(interval) {
   let newAnswerArray = shuffleAnswers(answerList); // Invoke shuffleAnswers function passing in new answerList array as parameter;
 
   console.log(correctInterval);
-
+  
   if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
     answerList = answerList.splice(0, 5);
     !answerList.includes(correctInterval) // if answerList array doesn't contain correct interval, push it into the array
