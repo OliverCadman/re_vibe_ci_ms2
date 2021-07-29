@@ -95,7 +95,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function runGame() {
-  
+  questions = [];
+  answers = [];
+  questionCount = 15;
+
+  for (let question = 0; question < questionCount.length; question++) {
+    
+  }
+
   let answerCountdown = document.createElement("p");
 
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
@@ -103,8 +110,6 @@ function runGame() {
   document
     .getElementById("correct-answers-remaining")
     .appendChild(answerCountdown);
-
-    for 
 
   nextQuestion();
 }
