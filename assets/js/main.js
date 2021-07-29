@@ -76,31 +76,6 @@ function getAnswers(interval) {
 
   let newAnswerArray = shuffleAnswers(answerList); // Invoke shuffleAnswers function passing in new answerList array as parameter;
 
-  console.log(correctInterval);
-  if (newAnswerArray.length === 12) {
-    if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
-      answerList = answerList.splice(0, 5);
-      !answerList.includes(correctInterval) // if answerList array doesn't contain correct interval, push it into the array
-        ? answerList.push(correctInterval)
-        : null;
-    } else if (correctAnswersRemaining <= 9 && correctAnswersRemaining >= 5) {
-      answerList = answerList.splice(0, 3);
-      !answerList.includes(correctInterval)
-        ? answerList.push(correctInterval)
-        : null;
-    } else if (correctAnswersRemaining <= 4 && correctAnswersRemaining >= 2) {
-      answerList = answerList.splice(0, 6);
-      !answerList.includes(correctInterval)
-        ? answerList.push(correctInterval)
-        : null;
-    } else if (correctAnswersRemaining <= 1) {
-      answerList = answerList.splice(0, 3);
-      !answerList.includes(correctInterval)
-        ? answerList.push(correctInterval)
-        : null;
-    }
-  }
-
   return newAnswerArray;
 }
 
@@ -134,9 +109,15 @@ function checkAnswer(e, questionIndex) {
       nextQuestion(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
     }
   } else {
+    livesRemaining--
     $(".lives-left-icon")[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
+    console.log(livesRemaining)
   }
-  return correctAnswer;
+
+  if(livesRemaining === 0) {
+    
+  }
+    return correctAnswer;
 }
 
 function getInterval() {
