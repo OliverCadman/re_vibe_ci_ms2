@@ -1,6 +1,7 @@
 let questions;
 let answers;
 let questionIndex;
+let questionCount;
 let interval1;
 let interval2;
 let userAnswer;
@@ -99,8 +100,9 @@ function runGame() {
   answers = [];
   questionCount = 15;
 
-  for (let question = 0; question < questionCount.length; question++) {
-    
+  for (let question = 0; question < questionCount; question++) {
+    let interval = getInterval();
+    console.log(interval)
   }
 
   let answerCountdown = document.createElement("p");
@@ -204,7 +206,6 @@ function getInterval() {
   let randomIndex = getRandomIndex();
   let randomInterval = intervalList[randomIndex]; // getRandomIndex used to access random index of intervalList array;
 
-  playInterval(randomInterval);
 
   return randomInterval;
 }
