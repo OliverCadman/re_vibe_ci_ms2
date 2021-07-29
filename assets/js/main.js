@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function runGame() {
+  $('#begin-training-btn').remove();
   questions = [];
   questionCount = 15;
 
@@ -119,8 +120,16 @@ function shuffleAnswers(array) {
   return array;
 }
 
-function checkAnswer(e, userInput) {
-  console.log(e.target.textContent);
+function checkAnswer(e) {
+  let userInput = e.target.textContent;
+  answerCountdown = 15;
+  
+  if (userInput === questions[questionIndex].interval) {
+    console.log('hello')
+    
+  } else {
+    console.log('goodbye')
+  }
   return correctAnswer;
 }
 
