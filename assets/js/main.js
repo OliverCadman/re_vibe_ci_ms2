@@ -41,7 +41,6 @@ function runGame() {
 
 function nextQuestion(currentInterval) {
   // Initialize question index and pass it into questions object array to access relative index
-  questionIndex = 0;
   let answerOptions = getAnswers(questions[currentInterval]); // invokes getAnswers() function to grab values of answerList array and assign it to variable
 
   console.log(answerOptions);
@@ -63,14 +62,13 @@ function nextQuestion(currentInterval) {
   for (button of answerButton) {
     if (button.getAttribute("data-type") === "submit") {
       button.addEventListener("click", (e) => {
-        checkAnswer(e);
+        checkAnswer(e, currentInterval); // Pass in currentInterval, which corresponds to incrementing question index
       });
     }
   }
 
-  playInterval(questions[questionIndex]); // Invokes playInterval function, passing in index of questions object array
+  playInterval(questions[currentInterval]); // Invokes playInterval function, passing in index of questions object array
 }
- 
 
 function getAnswers(interval) {
   let correctAnswerObject = interval; // invoke getInterval() function to get interval object that's being played
@@ -79,27 +77,28 @@ function getAnswers(interval) {
   let newAnswerArray = shuffleAnswers(answerList); // Invoke shuffleAnswers function passing in new answerList array as parameter;
 
   console.log(correctInterval);
-  
-  if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
-    answerList = answerList.splice(0, 5);
-    !answerList.includes(correctInterval) // if answerList array doesn't contain correct interval, push it into the array
-      ? answerList.push(correctInterval)
-      : null;
-  } else if (correctAnswersRemaining <= 9 && correctAnswersRemaining >= 5) {
-    answerList = answerList.splice(0, 3);
-    !answerList.includes(correctInterval)
-      ? answerList.push(correctInterval)
-      : null;
-  } else if (correctAnswersRemaining <= 4 && correctAnswersRemaining >= 2) {
-    answerList = answerList.splice(0, 6);
-    !answerList.includes(correctInterval)
-      ? answerList.push(correctInterval)
-      : null;
-  } else if (correctAnswersRemaining <= 1) {
-    answerList = answerList.splice(0, 3);
-    !answerList.includes(correctInterval)
-      ? answerList.push(correctInterval)
-      : null;
+  if (newAnswerArray.length === 12) {
+    if (correctAnswersRemaining <= 15 && correctAnswersRemaining >= 10) {
+      answerList = answerList.splice(0, 5);
+      !answerList.includes(correctInterval) // if answerList array doesn't contain correct interval, push it into the array
+        ? answerList.push(correctInterval)
+        : null;
+    } else if (correctAnswersRemaining <= 9 && correctAnswersRemaining >= 5) {
+      answerList = answerList.splice(0, 3);
+      !answerList.includes(correctInterval)
+        ? answerList.push(correctInterval)
+        : null;
+    } else if (correctAnswersRemaining <= 4 && correctAnswersRemaining >= 2) {
+      answerList = answerList.splice(0, 6);
+      !answerList.includes(correctInterval)
+        ? answerList.push(correctInterval)
+        : null;
+    } else if (correctAnswersRemaining <= 1) {
+      answerList = answerList.splice(0, 3);
+      !answerList.includes(correctInterval)
+        ? answerList.push(correctInterval)
+        : null;
+    }
   }
 
   return newAnswerArray;
@@ -124,17 +123,16 @@ function shuffleAnswers(array) {
   return array;
 }
 
-function checkAnswer(e) {
+function checkAnswer(e, questionIndex) {
   let userInput = e.target.textContent;
-  let questionIndex = 0;
+   console.log(questionIndex)
 
   if (userInput === questions[questionIndex].interval) {
     correctAnswersRemaining--;
-    questionIndex ++ // Increment question index when correct answer submitted
-    if(questionIndex < questionCount) {
+    questionIndex++; // Increment question index when correct answer submitted
+    if (questionIndex < questionCount) {
       nextQuestion(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
     }
-    console.log(correctAnswersRemaining);
   } else {
     $(".lives-left-icon")[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
   }
