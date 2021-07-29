@@ -1,5 +1,4 @@
 let questions;
-let answers;
 let questionIndex;
 let questionCount;
 let interval1;
@@ -97,13 +96,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function runGame() {
   questions = [];
-  answers = [];
   questionCount = 15;
 
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
-    console.log(interval)
-  }
+    questions[question] = interval; // creates object array of 15 randomly generated intervals to be used in game
+  };
 
   let answerCountdown = document.createElement("p");
 
@@ -117,9 +115,9 @@ function runGame() {
 }
 
 function nextQuestion() {
-  let interval = getInterval(); // invoke getInterval, and assign it to interval variable
-
-  let answerOptions = getAnswers(interval); // invokes getAnswers() function to grab values of answerList array and assign it to variable
+ // Initialize question index and pass it into questions object array to access relative index
+  questionIndex = 0;
+  let answerOptions = getAnswers(questions[questionIndex]); // invokes getAnswers() function to grab values of answerList array and assign it to variable
 
   console.log(answerOptions);
   let answerContainer = document.getElementById("answer-container");
@@ -143,6 +141,8 @@ function nextQuestion() {
       });
     }
   }
+
+  playInterval(questions[questionIndex]); // Invokes playInterval function, passing in index of questions object array
 }
 
 function getAnswers(interval) {
@@ -205,7 +205,6 @@ function checkAnswer(e, userInput) {
 function getInterval() {
   let randomIndex = getRandomIndex();
   let randomInterval = intervalList[randomIndex]; // getRandomIndex used to access random index of intervalList array;
-
 
   return randomInterval;
 }
