@@ -10,13 +10,6 @@ let livesRemaining = 3;
 
 let answerCountdown = document.createElement("p");
 
-answerCountdown.innerHTML = `Correct Answers Remaining: ${
-  correctAnswer ? correctAnswersRemaining - 1 : correctAnswersRemaining
-}`;
-
-document
-  .getElementById("correct-answers-remaining")
-  .appendChild(answerCountdown);
 
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,6 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function runGame() {
   $("#begin-training-btn").remove();
+  
+
+  answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
+
+  document
+    .getElementById("correct-answers-remaining")
+    .appendChild(answerCountdown);
+
   questions = [];
   questionCount = 15;
   questionIndex = 0;
@@ -104,6 +105,7 @@ function checkAnswer(e, questionIndex) {
 
   if (userInput === questions[questionIndex].interval) {
     correctAnswersRemaining--;
+    answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`
     questionIndex++; // Increment question index when correct answer submitted
     if (questionIndex < questionCount) {
       nextQuestion(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
@@ -111,6 +113,7 @@ function checkAnswer(e, questionIndex) {
   } else {
     livesRemaining--
     $(".lives-left-icon")[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
+
     console.log(livesRemaining)
   }
 
