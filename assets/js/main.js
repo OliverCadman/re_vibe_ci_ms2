@@ -1,13 +1,11 @@
+let questions;
+let answers;
+let questionIndex;
 let interval1;
-
 let interval2;
-
 let userAnswer;
-
 let correctAnswer;
-
-let correctAnswersRemaining = 14;
-
+let correctAnswersRemaining = 15;
 let livesRemaining = 3;
 
 let answerList = [
@@ -94,20 +92,21 @@ document.addEventListener("DOMContentLoaded", () => {
   runGameButton.addEventListener("click", () => {
     runGame();
   });
-  
 });
 
 function runGame() {
-  // $("#begin-training-btn").remove();
-  let answerCountdown = document.createElement('p');
-
-  answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`
-
-  document.getElementById('correct-answers-remaining').appendChild(answerCountdown)
   
+  let answerCountdown = document.createElement("p");
+
+  answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
+
+  document
+    .getElementById("correct-answers-remaining")
+    .appendChild(answerCountdown);
+
+    for 
+
   nextQuestion();
-
-
 }
 
 function nextQuestion() {
@@ -127,20 +126,16 @@ function nextQuestion() {
 
   answerContainer.innerHTML = answerButtons; // Adds buttons from for loop to answerContainer div
 
-  let answerButton = document.getElementsByTagName('button'); 
+  let answerButton = document.getElementsByTagName("button");
 
-  
   // Loop through answer buttons and add click event listeners to grab values of click to check answer
-  for (button of answerButton) { 
-    if(button.getAttribute('id') === 'answer-btn') {
-      button.addEventListener('click', (e) => {
-       checkAnswer(e);
-      })
-
+  for (button of answerButton) {
+    if (button.getAttribute("id") === "answer-btn") {
+      button.addEventListener("click", (e) => {
+        checkAnswer(e);
+      });
     }
   }
-    
-  
 }
 
 function getAnswers(interval) {
@@ -196,29 +191,27 @@ function shuffleAnswers(array) {
 }
 
 function checkAnswer(e, userInput) {
-  
-  
-  return correctAnswer
+  console.log(e.target.textContent);
+  return correctAnswer;
 }
 
-function getRandomIndex() {
-  let randomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 0 and 12;
-
-  return randomIndex;
-};
-
 function getInterval() {
-  
-
-  let randomInterval = intervalList[getRandomIndex]; // getRandomIndex used to access random index of intervalList array;
+  let randomIndex = getRandomIndex();
+  let randomInterval = intervalList[randomIndex]; // getRandomIndex used to access random index of intervalList array;
 
   playInterval(randomInterval);
 
   return randomInterval;
 }
 
+function getRandomIndex() {
+  let randomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 0 and 12;
+
+  return randomIndex;
+}
+
 function playInterval(interval) {
-// Accessing frequency properties of random interval
+  // Accessing frequency properties of random interval
   let firstNote = interval.frequency1;
 
   let secondNote = interval.frequency2;
