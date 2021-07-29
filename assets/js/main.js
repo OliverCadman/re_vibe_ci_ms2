@@ -69,7 +69,8 @@ function nextQuestion() {
   }
 
   playInterval(questions[questionIndex]); // Invokes playInterval function, passing in index of questions object array
-} 
+}
+ 
 
 function getAnswers(interval) {
   let correctAnswerObject = interval; // invoke getInterval() function to get interval object that's being played
@@ -125,11 +126,13 @@ function shuffleAnswers(array) {
 
 function checkAnswer(e) {
   let userInput = e.target.textContent;
+  let questionIndex = 0;
 
   if (userInput === questions[questionIndex].interval) {
     correctAnswersRemaining--;
+    questionIndex ++ // Increment question index when correct answer submitted
     if(questionIndex < questionCount) {
-      nextQuestion();
+      nextQuestion(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
     }
     console.log(correctAnswersRemaining);
   } else {
