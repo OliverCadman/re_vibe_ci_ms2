@@ -27,20 +27,20 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function runGame() {
-  $('#begin-training-btn').remove();
+  $("#begin-training-btn").remove();
   questions = [];
   questionCount = 15;
 
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
     questions[question] = interval; // creates object array of 15 randomly generated intervals to be used in game
-  };
+  }
 
   nextQuestion();
 }
 
 function nextQuestion() {
- // Initialize question index and pass it into questions object array to access relative index
+  // Initialize question index and pass it into questions object array to access relative index
   questionIndex = 0;
   let answerOptions = getAnswers(questions[questionIndex]); // invokes getAnswers() function to grab values of answerList array and assign it to variable
 
@@ -48,7 +48,7 @@ function nextQuestion() {
   let answerContainer = document.getElementById("answer-container");
 
   let answerButtons = "";
-  $(answerButtons).empty() // clears list of answer options for previous interval played, when user inputs next question.
+  $(answerButtons).empty(); // clears list of answer options for previous interval played, when user inputs next question.
 
   // loops over answerOptions variable and creates button upon each iteration
   for (i = 0; i < answerOptions.length; i++) {
@@ -69,7 +69,7 @@ function nextQuestion() {
   }
 
   playInterval(questions[questionIndex]); // Invokes playInterval function, passing in index of questions object array
-}
+} 
 
 function getAnswers(interval) {
   let correctAnswerObject = interval; // invoke getInterval() function to get interval object that's being played
@@ -125,16 +125,15 @@ function shuffleAnswers(array) {
 
 function checkAnswer(e) {
   let userInput = e.target.textContent;
-  
 
-
-  
   if (userInput === questions[questionIndex].interval) {
-    correctAnswersRemaining -- ;
-    console.log(correctAnswersRemaining)
-    
+    correctAnswersRemaining--;
+    if(questionIndex < questionCount) {
+      nextQuestion();
+    }
+    console.log(correctAnswersRemaining);
   } else {
-    $('.lives-left-icon')[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
+    $(".lives-left-icon")[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
   }
   return correctAnswer;
 }
