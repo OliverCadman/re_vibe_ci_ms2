@@ -8,6 +8,16 @@ let correctAnswer;
 let correctAnswersRemaining = 15;
 let livesRemaining = 3;
 
+let answerCountdown = document.createElement("p");
+
+answerCountdown.innerHTML = `Correct Answers Remaining: ${
+  correctAnswer ? correctAnswersRemaining - 1 : correctAnswersRemaining
+}`;
+
+document
+  .getElementById("correct-answers-remaining")
+  .appendChild(answerCountdown);
+
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", () => {
   let runGameButton = document.getElementById("begin-training-btn");
@@ -26,14 +36,6 @@ function runGame() {
     questions[question] = interval; // creates object array of 15 randomly generated intervals to be used in game
   };
 
-  let answerCountdown = document.createElement("p");
-
-  answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
-
-  document
-    .getElementById("correct-answers-remaining")
-    .appendChild(answerCountdown);
-
   nextQuestion();
 }
 
@@ -46,6 +48,7 @@ function nextQuestion() {
   let answerContainer = document.getElementById("answer-container");
 
   let answerButtons = "";
+  $(answerButtons).empty() // clears list of answer options for previous interval played, when user inputs next question.
 
   // loops over answerOptions variable and creates button upon each iteration
   for (i = 0; i < answerOptions.length; i++) {
@@ -122,13 +125,16 @@ function shuffleAnswers(array) {
 
 function checkAnswer(e) {
   let userInput = e.target.textContent;
-  answerCountdown = 15;
+  
+
+
   
   if (userInput === questions[questionIndex].interval) {
-    console.log('hello')
+    correctAnswersRemaining -- ;
+    console.log(correctAnswersRemaining)
     
   } else {
-    console.log('goodbye')
+    $('.lives-left-icon')[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
   }
   return correctAnswer;
 }
