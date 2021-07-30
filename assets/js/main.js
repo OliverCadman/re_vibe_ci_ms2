@@ -117,7 +117,7 @@ function checkAnswer(e, questionIndex) {
      
     }
     if (questionIndex === questionCount) {
-      $('#completed-game-modal').modal('show');
+      $('#completed-game-modal').modal('show'); // Display modal when user submits all correct answers
     }
   } else {
     let wrongAnswer = new Audio('../assets/sounds/wrong-answer.mp3'); 
@@ -129,7 +129,7 @@ function checkAnswer(e, questionIndex) {
   }
 
   if(livesRemaining === 0) {
-    
+    $('#game-over-modal').modal('show'); // Display modal when user loses all three lives
   }
     return correctAnswer;
 }
