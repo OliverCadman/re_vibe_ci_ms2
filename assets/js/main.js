@@ -30,7 +30,7 @@ function runGame() {
     .appendChild(answerCountdown);
 
   questions = [];
-  questionCount = 15;
+  questionCount = 1;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
@@ -100,10 +100,10 @@ function shuffleAnswers(array) {
 }
 
 function checkAnswer(e, questionIndex) {
-  let userInput = e.target.textContent;
+  userAnswer = e.target.textContent;
    console.log(questionIndex)
 
-  if (userInput === questions[questionIndex].interval) {
+  if (userAnswer === questions[questionIndex].interval) {
     let correctAnswer = new Audio('../assets/sounds/correct-answer.mp3'); // Assign variable to correct-answer.mp3;
     correctAnswer.play(); // Play sound when correct answer is submitted
     correctAnswersRemaining--;
@@ -115,6 +115,9 @@ function checkAnswer(e, questionIndex) {
         nextQuestion(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
       }, 1000)
      
+    }
+    if (questionIndex === questionCount) {
+      $('#completed-game-modal').modal('show');
     }
   } else {
     let wrongAnswer = new Audio('../assets/sounds/wrong-answer.mp3'); 
