@@ -29,7 +29,7 @@ function runGame() {
     .appendChild(answerCountdown);
 
   questions = [];
-  questionCount = 15;
+  questionCount = 1;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
@@ -68,7 +68,6 @@ function nextQuestion(currentInterval) {
   }
 
   playInterval(questions[currentInterval]); // Invokes playInterval function, passing in index of questions object array
-  
 }
 
 function getAnswers(interval) {
@@ -114,29 +113,43 @@ function checkAnswer(e, questionIndex) {
       setTimeout(() => {
         nextQuestion(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
       }, 1000);
-    }
-    if (questionIndex === questionCount) {
-      $("#completed-game-modal").modal("show"); // Display modal when user submits all correct answers
+    } else {
+      finishGame(questionIndex, questionCount);
     }
   } else {
-    let wrongAnswer = new Audio("../assets/sounds/wrong-answer.mp3");
-    wrongAnswer.play(); // Play sound when incorrect answer is submitted
-    livesRemaining--;
-    $(".lives-left-icon")[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
+    if (livesRemaining > 0) {
+      let wrongAnswer = new Audio("../assets/sounds/wrong-answer.mp3");
+      wrongAnswer.play(); // Play sound when incorrect answer is submitted
+      livesRemaining--;
+      $(".lives-left-icon")[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
 
-    console.log(livesRemaining);
+      console.log(livesRemaining);
+    } else {
+      finishGame();
+    }
   }
 
-  if (livesRemaining === 0) {
-    finishGame();
-  }
   return correctAnswer;
 }
 
-function finishGame() {
-  $('#answer-container').remove(); // remove answers upon completion of game 
+function finishGame(index, count, remainingLives) {
+  console.log("hello");
+  if (index === count) {
+    $("#answer-container").empty(); // remove answers upon completion of game
+    $("#completed-game-modal").modal("show"); // Display modal when user submits all correct answers
 
+    $('#play-again-btn').click(() => {
+      console.log('hello')
+      runGame();
+      $('#completed-game-modal').removeClass("animate__zoomIn").addClass("animate__zoomOut").modal('hide')
+     
+    });
+  }
 
+  if (remainingLives === 0) {
+    $("#answer-container").remove(); // remove answers upon completion of game
+    $("#game-over-modal").modal("show"); // Display modal when user loses all lives
+  }
 }
 
 function showModals() {}
