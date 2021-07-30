@@ -105,7 +105,7 @@ function checkAnswer(e, questionIndex) {
 
   if (userInput === questions[questionIndex].interval) {
     let correctAnswer = new Audio('../assets/sounds/correct-answer.mp3'); // Assign variable to correct-answer.mp3;
-    correctAnswer.play(); // Play variable when correct answer is submitted
+    correctAnswer.play(); // Play sound when correct answer is submitted
     correctAnswersRemaining--;
     answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`
     questionIndex++; // Increment question index when correct answer submitted
@@ -117,6 +117,8 @@ function checkAnswer(e, questionIndex) {
      
     }
   } else {
+    let wrongAnswer = new Audio('../assets/sounds/wrong-answer.mp3'); 
+    wrongAnswer.play(); // Play sound when incorrect answer is submitted
     livesRemaining--
     $(".lives-left-icon")[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
 
