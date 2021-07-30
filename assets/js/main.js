@@ -104,6 +104,8 @@ function checkAnswer(e, questionIndex) {
    console.log(questionIndex)
 
   if (userInput === questions[questionIndex].interval) {
+    let correctAnswer = new Audio('../assets/sounds/correct-answer.mp3'); // Assign variable to correct-answer.mp3;
+    correctAnswer.play(); // Play variable when correct answer is submitted
     correctAnswersRemaining--;
     answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`
     questionIndex++; // Increment question index when correct answer submitted
