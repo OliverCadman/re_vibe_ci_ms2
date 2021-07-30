@@ -1,6 +1,7 @@
 let questions;
 let questionIndex;
 let questionCount;
+let answerButtons;
 let interval1;
 let interval2;
 let userAnswer;
@@ -9,7 +10,6 @@ let correctAnswersRemaining = 15;
 let livesRemaining = 3;
 
 let answerCountdown = document.createElement("p");
-
 
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", () => {
@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function runGame() {
   $("#begin-training-btn").remove();
-  
 
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
 
@@ -30,7 +29,7 @@ function runGame() {
     .appendChild(answerCountdown);
 
   questions = [];
-  questionCount = 1;
+  questionCount = 15;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
@@ -47,7 +46,7 @@ function nextQuestion(currentInterval) {
   console.log(answerOptions);
   let answerContainer = document.getElementById("answer-container");
 
-  let answerButtons = "";
+  answerButtons = "";
   $(answerButtons).empty(); // clears list of answer options for previous interval played, when user inputs next question.
 
   // loops over answerOptions variable and creates button upon each iteration
@@ -69,6 +68,7 @@ function nextQuestion(currentInterval) {
   }
 
   playInterval(questions[currentInterval]); // Invokes playInterval function, passing in index of questions object array
+  
 }
 
 function getAnswers(interval) {
@@ -101,38 +101,45 @@ function shuffleAnswers(array) {
 
 function checkAnswer(e, questionIndex) {
   userAnswer = e.target.textContent;
-   console.log(questionIndex)
+  console.log(questionIndex);
 
   if (userAnswer === questions[questionIndex].interval) {
-    let correctAnswer = new Audio('../assets/sounds/correct-answer.mp3'); // Assign variable to correct-answer.mp3;
+    let correctAnswer = new Audio("../assets/sounds/correct-answer.mp3"); // Assign variable to correct-answer.mp3;
     correctAnswer.play(); // Play sound when correct answer is submitted
     correctAnswersRemaining--;
-    answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`
+    answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++; // Increment question index when correct answer submitted
     if (questionIndex < questionCount) {
       // setTimeout delays invocation of nextQuestion function to allow for correctAnswer audio to play
       setTimeout(() => {
         nextQuestion(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
-      }, 1000)
-     
+      }, 1000);
     }
     if (questionIndex === questionCount) {
-      $('#completed-game-modal').modal('show'); // Display modal when user submits all correct answers
+      $("#completed-game-modal").modal("show"); // Display modal when user submits all correct answers
     }
   } else {
-    let wrongAnswer = new Audio('../assets/sounds/wrong-answer.mp3'); 
+    let wrongAnswer = new Audio("../assets/sounds/wrong-answer.mp3");
     wrongAnswer.play(); // Play sound when incorrect answer is submitted
-    livesRemaining--
+    livesRemaining--;
     $(".lives-left-icon")[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
 
-    console.log(livesRemaining)
+    console.log(livesRemaining);
   }
 
-  if(livesRemaining === 0) {
-    $('#game-over-modal').modal('show'); // Display modal when user loses all three lives
+  if (livesRemaining === 0) {
+    finishGame();
   }
-    return correctAnswer;
+  return correctAnswer;
 }
+
+function finishGame() {
+  $('#answer-container').remove(); // remove answers upon completion of game 
+
+
+}
+
+function showModals() {}
 
 function getInterval() {
   let randomIndex = getRandomIndex();
