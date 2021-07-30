@@ -155,9 +155,7 @@
           </div>
           <div class="col-12 col-md-12 col-lg-6">
             <div id="game-container">
-              <div id="correct-answers-remaining">
-
-              </div>
+              <div id="correct-answers-remaining"></div>
               <div id="lives-left-container">
                 <span><i class="fas fa-user lives-left-icon"></i></span>
                 <span><i class="fas fa-user lives-left-icon"></i></span>
@@ -167,11 +165,11 @@
                 <span><i class="fas fa-volume-up speaker-icon"></i></span>
               </div>
               <div class="begin-training">
-                <button class="btn btn-secondary" id="begin-training-btn">Begin Training</button>
+                <button class="btn btn-secondary" id="begin-training-btn">
+                  Begin Training
+                </button>
               </div>
-              <div id="answer-container">
-
-              </div>
+              <div id="answer-container"></div>
             </div>
           </div>
           <div class="col-12 col-lg-3 d-md-none d-sm-block d-lg-block">
@@ -185,31 +183,52 @@
       </div>
     </section>
     <aside>
-      <div class="modal" id="completed-game-modal">
-        
+      <div class="modal fade show-modal" id="completed-game-modal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1>Contragulations!</h1>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal" id="game-over-modal">
-
-      </div>
+      <div class="modal" id="game-over-modal"></div>
     </aside>
     <footer>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12 d-flex justify-content-center footer-icons-wrapper">
+          <div
+            class="col-12 d-flex justify-content-center footer-icons-wrapper"
+          >
             <div class="footer-icons">
               <ul>
                 <li>
-                  <span><a href="https://www.github.com/OliverCadman" target="_blank"><i class="fab fa-github"></i></a></span>
+                  <span
+                    ><a
+                      href="https://www.github.com/OliverCadman"
+                      target="_blank"
+                      ><i class="fab fa-github"></i></a
+                  ></span>
                 </li>
               </ul>
               <ul>
                 <li>
-                  <span><a href="https://www.instagram.com/oliplays_piano" target="_blank"><i class="fab fa-instagram"></i></a></span>
+                  <span
+                    ><a
+                      href="https://www.instagram.com/oliplays_piano"
+                      target="_blank"
+                      ><i class="fab fa-instagram"></i></a
+                  ></span>
                 </li>
               </ul>
               <ul>
                 <li>
-                  <span><a href="https://www.facebook.com/oliver.cadman" target="_blank"><i class="fab fa-facebook"></i></a></span>
+                  <span
+                    ><a
+                      href="https://www.facebook.com/oliver.cadman"
+                      target="_blank"
+                      ><i class="fab fa-facebook"></i></a
+                  ></span>
                 </li>
               </ul>
             </div>
@@ -220,9 +239,12 @@
   </body>
 
   <!-- jQuery CDN -->
-  
+
   <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-  <script type="text/javascript" src="assets/js/audio-context-monkey-patch.js"></script>
+  <script
+    type="text/javascript"
+    src="assets/js/audio-context-monkey-patch.js"
+  ></script>
   <script type="text/javascript" src="assets/js/data.js"></script>
   <script type="text/javascript" src="assets/js/audio.js"></script>
   <script type="text/javascript" src="assets/js/main.js"></script>
