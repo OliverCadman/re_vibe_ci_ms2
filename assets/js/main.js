@@ -110,7 +110,11 @@ function checkAnswer(e, questionIndex) {
     answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`
     questionIndex++; // Increment question index when correct answer submitted
     if (questionIndex < questionCount) {
-      nextQuestion(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
+      // setTimeout delays invocation of nextQuestion function to allow for correctAnswer audio to play
+      setTimeout(() => {
+        nextQuestion(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
+      }, 1000)
+     
     }
   } else {
     livesRemaining--
