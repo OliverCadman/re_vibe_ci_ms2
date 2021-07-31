@@ -1,12 +1,11 @@
 let questions;
 let questionIndex;
 let questionCount;
-let answerButtons;
 let interval1;
 let interval2;
 let userAnswer;
 let correctAnswer;
-let correctAnswersRemaining = 15;
+let correctAnswersRemaining = 1;
 let livesRemaining = 3;
 
 let answerCountdown = document.createElement("p");
@@ -37,16 +36,17 @@ function runGame() {
   }
 
   nextQuestion(questionIndex);
+
+  
 }
 
 function nextQuestion(currentInterval) {
   // Initialize question index and pass it into questions object array to access relative index
   let answerOptions = getAnswers(questions[currentInterval]); // invokes getAnswers() function to grab values of answerList array and assign it to variable
 
-  console.log(answerOptions);
   let answerContainer = document.getElementById("answer-container");
 
-  answerButtons = "";
+  let answerButtons = "";
   $(answerButtons).empty(); // clears list of answer options for previous interval played, when user inputs next question.
 
   // loops over answerOptions variable and creates button upon each iteration
@@ -68,6 +68,10 @@ function nextQuestion(currentInterval) {
   }
 
   playInterval(questions[currentInterval]); // Invokes playInterval function, passing in index of questions object array
+
+  $("#replay-interval").click(() => {
+    replayInterval(currentInterval);
+  });
 }
 
 function getAnswers(interval) {
@@ -98,6 +102,11 @@ function shuffleAnswers(array) {
   return array;
 }
 
+function replayInterval(currentInterval) {
+ 
+  playInterval(questions[currentInterval]);
+}
+
 function checkAnswer(e, questionIndex) {
   userAnswer = e.target.textContent;
   console.log(questionIndex);
@@ -112,47 +121,28 @@ function checkAnswer(e, questionIndex) {
       // setTimeout delays invocation of nextQuestion function to allow for correctAnswer audio to play
       setTimeout(() => {
         nextQuestion(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
+        replayInterval(questionIndex)
       }, 1000);
-    } else {
-      finishGame(questionIndex, questionCount);
+    }
+    if (questionIndex === questionCount) {
+      $("#completed-game-modal").modal("show"); // Display modal when user submits all correct answers
+      $('#completed-game-message').html(`Congratulations! You completed the game with ${livesRemaining} lives remaining!`)
     }
   } else {
-    if (livesRemaining > 0) {
-      let wrongAnswer = new Audio("../assets/sounds/wrong-answer.mp3");
-      wrongAnswer.play(); // Play sound when incorrect answer is submitted
-      livesRemaining--;
-      $(".lives-left-icon")[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
+    let wrongAnswer = new Audio("../assets/sounds/wrong-answer.mp3");
+    wrongAnswer.play(); // Play sound when incorrect answer is submitted
+    livesRemaining--;
+    $(".lives-left-icon")[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
 
-      console.log(livesRemaining);
-    } else {
-      finishGame();
-    }
+    console.log(livesRemaining);
   }
 
+  if (livesRemaining === 0) {
+    let gameOverModal = $("#game-over-modal");
+    gameOverModal.modal("show");
+  }
   return correctAnswer;
 }
-
-function finishGame(index, count, remainingLives) {
-  console.log("hello");
-  if (index === count) {
-    $("#answer-container").empty(); // remove answers upon completion of game
-    $("#completed-game-modal").modal("show"); // Display modal when user submits all correct answers
-
-    $('#play-again-btn').click(() => {
-      console.log('hello')
-      runGame();
-      $('#completed-game-modal').removeClass("animate__zoomIn").addClass("animate__zoomOut").modal('hide')
-     
-    });
-  }
-
-  if (remainingLives === 0) {
-    $("#answer-container").remove(); // remove answers upon completion of game
-    $("#game-over-modal").modal("show"); // Display modal when user loses all lives
-  }
-}
-
-function showModals() {}
 
 function getInterval() {
   let randomIndex = getRandomIndex();
