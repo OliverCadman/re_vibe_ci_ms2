@@ -180,27 +180,13 @@ Referenced from Animate CSS : "https://animate.style/" */
 
 /* --------------- Practice Tips Page ------------------ */
 
-#practice-tips-hero {
-  background: url("../images/practice-tips/practice-tips-hero.png") no-repeat;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-position: left;
-  position: relative;
-  margin-top: 90px;
-  
- 
-  
-}
+.practice-tips-container {
+    padding-top: 110px;
+    background-color:#23272a;
+  }
 
-.opaque-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.521);
+.practice-tips-hero {
+  width: 300px;
 }
 
 .practice-tips-header h1 {
@@ -208,26 +194,12 @@ Referenced from Animate CSS : "https://animate.style/" */
   color: white;
 }
 
-.lead-summary-wrapper {
-  color: #fafafa;
-  position: relative;
-}
-
-.lead-summary-one {
-  margin-top: 10px;
-}
-
+.lead-summary-one,
 .lead-summary-two {
-  margin-top: 60px;
+  color: #fafafa;
 }
 
-.lead-summary-one p {
-  max-width: 200px;
-}
 
-.lead-summary-two p {
-  max-width: 230px;
-}
 
 /* Media Query - iPad Device Size */
 @media screen and (min-width: 768px) {
@@ -291,14 +263,6 @@ Referenced from Animate CSS : "https://animate.style/" */
   }
 
   /* -------------- Practice Tips Page --------------- */
-
-  #practice-tips-hero {
-    background-position: 50% 10%;
-    background-size: auto;
-    height: 65vh;
-    width: 100%;
-
-  }
 
   .lead-summary-wrapper {
     color: #fafafa;
@@ -375,13 +339,11 @@ Referenced from Animate CSS : "https://animate.style/" */
 
   /* -------------- Practice Tips Page --------------- */
 
-
-  #practice-tips-hero {
-    background-position: 50% 10%;
-    background-size: auto;
-    height: 80vh;
-    width: 100%;
+  .practice-tips-container {
+    padding-top: 110px;
+    background-color:#23272a;
   }
+
 
   .lead-summary-wrapper {
     color: #fafafa;
@@ -390,12 +352,12 @@ Referenced from Animate CSS : "https://animate.style/" */
   }
 
   .lead-summary-one {
-    max-width: 300px;
+    color: #fafafa;
   }
 
   .lead-summary-two {
-    max-width: 300px;
-    text-align: right;
+  
+    color: #fafafa;
   }
 }
 
