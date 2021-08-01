@@ -37,11 +37,6 @@ body {
   margin-left: auto;
 }
 
-.nav-link:hover {
-  color: #23272a;
-  text-decoration: underline;
-}
-
 ul li a.active {
   text-decoration: underline;
 }
@@ -108,10 +103,22 @@ ul li a.active {
 
 #game-container {
   position: relative;
-  background: url("../images/revibe-game-background.png") no-repeat;
+  background: url("../images/home-page/revibe-game-background.png") no-repeat;
   background-position: 50%;
   background-size: 320px 292px;
   min-height: 60vh;
+}
+
+#lives-left-container {
+  float: right;
+  position: absolute;
+  top: 35px;
+  right: 15px;
+}
+
+.lives-left-icon {
+  color: rgb(25, 25, 25);
+  font-size: 1.3rem;
 }
 
 .speaker-icon-wrapper {
@@ -124,7 +131,7 @@ ul li a.active {
   text-align: center;
 }
 
-#begin-training {
+.begin-training {
   position: absolute;
   margin: 0 auto;
   left: 0;
@@ -133,7 +140,7 @@ ul li a.active {
   text-align: center;
 }
 
-#begin-training button {
+.begin-training button {
   font-size: 0.7rem;
 }
 
@@ -149,7 +156,7 @@ footer {
 }
 
 .footer-icons-wrapper {
-    padding-left: 0;
+  padding-left: 0;
 }
 .footer-icons ul {
   display: inline-block;
@@ -161,6 +168,28 @@ footer {
   text-decoration: none;
   color: #e7782d;
 }
+
+/* ---- Modals ---- */
+
+/* Used to change animation time when displaying modal windows 
+Referenced from Animate CSS : "https://animate.style/" */
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 0.3s;
+}
+
+/* --------------- Practice Tips Page ------------------ */
+
+.practice-tips-container {
+  padding-top: 100px;
+}
+
+#practice-tips-hero {
+  background: url('../images/practice-tips/practice-tips-hero.png') no-repeat;
+  background-size: cover;
+  
+}
+
 
 /* Media Query - iPad Device Size */
 @media screen and (min-width: 768px) {
@@ -222,11 +251,16 @@ footer {
     background-size: 500px 457px;
     height: 75vh;
   }
+
+  /* -------------- Practice Tips Page --------------- */
+
+  .practice-tips-container {
+  padding-top: 100px;
+}
 }
 
 /* Media Query - Laptop Device Size and up */
 @media screen and (min-width: 992px) {
-    
   /* ---- Navigation Bar ---- */
 
   .navbar-brand {
@@ -235,6 +269,10 @@ footer {
 
   .navbar-nav li a {
     font-size: 2.3rem;
+  }
+
+  .nav-link:hover {
+    color: #e7782d;
   }
 
   /* ---- Game Section ----  */
@@ -246,6 +284,17 @@ footer {
   #game-container {
     min-height: 80vh;
     background-size: 600px 548px;
+  }
+
+  #lives-left-container {
+    position: relative;
+    top: 15px;
+    right: 20px;
+  }
+
+  .lives-left-icon {
+    font-size: 2rem;
+    margin-left: 5px;
   }
 
   .speaker-icon {
@@ -266,6 +315,15 @@ footer {
     color: #fafafa;
     transition: 0.3s ease-in-out;
   }
+
+  /* -------------- Practice Tips Page --------------- */
+
+.practice-tips-container {
+  padding-top: 110px;
+}
+
+  
+
 }
 
 /* Media Query - iPad Pro Device Size: Referenced from 'https://fjorgedigital.com/insights/blog/how-can-i-target-only-an-ipad-pro/' */
@@ -277,6 +335,10 @@ footer {
 @media only screen and (min-width: 414px) and (max-width: 414px) and (max-height: 736px) {
   #game-container {
     background-size: 400px 366px;
+  }
+
+  #lives-left-container {
+    top: 45px;
   }
 }
 
@@ -293,6 +355,10 @@ footer {
   #game-container {
     background-size: 375px 343px;
     height: 40vh;
+  }
+
+  #lives-left-container {
+    top: 100px;
   }
 }
 
