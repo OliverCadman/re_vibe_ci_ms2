@@ -7,6 +7,12 @@ body {
   width: 100%;
 }
 
+.block-divider {
+ border-top: 4px solid #fafafa; 
+ max-width: 50%;
+ margin: 0 auto;
+}
+
 /* ----------- Navigation Bar (Global CSS) ------------ */
 
 .navbar {
@@ -201,10 +207,16 @@ Referenced from Animate CSS : "https://animate.style/" */
 
 /* -------- Practice Tips Article ---------- */
 
+.practice-tips-body {
+  background-color: #f0997d;
+}
+
 .practice-tip-wrapper {
+  border-radius: 0.5rem;
+  background-color: #fafafa;
   margin: 2em 0;
   padding: 1rem;
-  box-shadow: 0 0 2rem -0.5rem rgba(0, 0, 0, 0.507);
+  box-shadow: 0 0 2rem -0.5rem rgba(255, 254, 254, 0.507);
 }
 
 /* Targets headers for individual practice tips */
@@ -222,6 +234,7 @@ Referenced from Animate CSS : "https://animate.style/" */
   shape-outside: ellipse(50% 50%);
 }
 
+
 .practice-tips-image.child1,
 .practice-tips-image.child3,
 .practice-tips-image.child5 {
@@ -234,6 +247,8 @@ Referenced from Animate CSS : "https://animate.style/" */
   float: left;
   margin-right: 10px;
 }
+
+
 
 
 
@@ -306,6 +321,11 @@ Referenced from Animate CSS : "https://animate.style/" */
 
   .practice-tips-hero {
     min-width: 350px;
+  }
+  
+  /* ------ Practice Tips Article ------ */
+  .practice-tip-wrapper:last-child {
+    max-width: 600px;
   }
 }
 
@@ -384,6 +404,7 @@ Referenced from Animate CSS : "https://animate.style/" */
   .lead-summary-two {
     color: #fafafa;
   }
+
 }
 
 /* Media Query - iPad Pro Device Size: Referenced from 'https://fjorgedigital.com/insights/blog/how-can-i-target-only-an-ipad-pro/' */
