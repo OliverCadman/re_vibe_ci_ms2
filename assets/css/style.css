@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200;300;400;500&display=swap");
 
+/* Global CSS application */
 body {
   height: 100%;
   width: 100%;
@@ -187,6 +188,7 @@ Referenced from Animate CSS : "https://animate.style/" */
 /* --------------- Practice Tips Page ------------------ */
 
 .practice-tips-container {
+
   padding-top: 110px;
   background-color: #23272a;
 }
@@ -203,6 +205,7 @@ Referenced from Animate CSS : "https://animate.style/" */
 .lead-summary-one,
 .lead-summary-two {
   color: #fafafa;
+  font-family: 'Work Sans', sans-serif;
 }
 
 /* -------- Practice Tips Article ---------- */
@@ -212,6 +215,7 @@ Referenced from Animate CSS : "https://animate.style/" */
 }
 
 .practice-tip-wrapper {
+  font-family: 'Work Sans', sans-serif;
   border-radius: 0.5rem;
   background-color: #fafafa;
   margin: 2em 0;
