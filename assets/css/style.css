@@ -229,6 +229,24 @@ Referenced from Animate CSS : "https://animate.style/" */
   margin-right: 10px;
 }
 
+#practice-tips-sing-image {
+  width: 150px;
+  float: left;
+  margin-right: 10px;
+}
+
+#practice-tips-slow-image {
+  width: 150px;
+  float: right;
+  margin-right: 10px;
+}
+
+#practice-tips-inspire-image {
+  width: 150px;
+  float: left;
+  margin-right: 10px;
+}
+
 /* Media Query - iPad Device Size */
 @media screen and (min-width: 768px) {
   /* -------------- Title Page --------------- */
