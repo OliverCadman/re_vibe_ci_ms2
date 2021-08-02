@@ -199,7 +199,15 @@ Referenced from Animate CSS : "https://animate.style/" */
   color: #fafafa;
 }
 
+
+
 /* -------- Practice Tips Article ---------- */
+
+.practice-tip-wrapper {
+  margin: 2em 0;
+  padding: 1rem;
+  box-shadow: 0 0 2rem -0.5rem rgba(0, 0, 0, 0.507)
+}
 
 /* Targets headers for individual practice tips */
 .practice-tip-header {
@@ -208,9 +216,17 @@ Referenced from Animate CSS : "https://animate.style/" */
   text-decoration: underline;
   font-size: 2rem;
   text-transform: capitalize;
-
-  
+  display: inline-block;
 }
+
+.practice-tip-article-image {
+  width: 150px;
+  float: right;
+  margin-left: 10px;
+  display: block;
+}
+ 
+
 
 
 
