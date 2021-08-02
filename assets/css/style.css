@@ -217,35 +217,29 @@ Referenced from Animate CSS : "https://animate.style/" */
   display: inline-block;
 }
 
-#practice-tips-reference-image {
+.practice-tips-image {
   width: 150px;
+  shape-outside: ellipse(50% 50%);
+}
+
+.practice-tips-image.child1,
+.practice-tips-image.child3,
+.practice-tips-image.child5 {
   float: right;
   margin-left: 10px;
 }
 
-#practice-tips-goal-image {
-  width: 150px;
+.practice-tips-image.child2,
+.practice-tips-image.child4 {
   float: left;
   margin-right: 10px;
 }
 
-#practice-tips-sing-image {
-  width: 150px;
-  float: left;
-  margin-right: 10px;
-}
 
-#practice-tips-slow-image {
-  width: 150px;
-  float: right;
-  margin-right: 10px;
-}
 
-#practice-tips-inspire-image {
-  width: 150px;
-  float: left;
-  margin-right: 10px;
-}
+
+ 
+
 
 /* Media Query - iPad Device Size */
 @media screen and (min-width: 768px) {
