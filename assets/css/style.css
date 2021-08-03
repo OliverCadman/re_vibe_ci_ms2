@@ -134,6 +134,7 @@ ul li a.active {
   align-items: center; 
   justify-content: center;
   height: 100%;
+  width: 100%;
 }
 
 #hide-countdown {
@@ -164,6 +165,12 @@ ul li a.active {
 
 #lives-left-container span {
   position: relative;
+}
+
+#countdown {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
 }
 
 #answer-container {
@@ -213,7 +220,7 @@ footer {
 /* Used to change animation time when displaying modal windows 
 Referenced from Animate CSS : "https://animate.style/" */
 :root {
-  --animate-duration: 800ms;
+  --animate-duration: 400ms;
   --animate-delay: 0.3s;
 }
 
