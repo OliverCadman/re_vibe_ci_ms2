@@ -55,7 +55,7 @@ function createTones(interval1, interval2) {
   squareFilter.frequency.value = 200;
 
   // ADSR (Attack, Decay, Sustain, Release) Envelope to shape gain curve of the sound
-  const attackTime = 0.05;
+  const attackTime = 0.01;
   const decayTime = 0.8;
   const sustainLevel = 0.1;
   const releaseTime = 1;
@@ -63,6 +63,13 @@ function createTones(interval1, interval2) {
   // Specify when first note and second note are played
   const now = audioContext.currentTime;
   const next = audioContext.currentTime + 1;
+
+  const compressor = audioContext.createDynamicsCompressor();
+  compressor.threshold.setValueAtTime(-50, now)
+  compressor.knee.setValueAtTime(40, now)
+  compressor.ratio.setValueAtTime(12, now)
+  compressor.attack.setValueAtTime(0, now)
+  compressor.release.setValueAtTime(0.25, now)
 
   // envelopeOne assigned to noteOscillatorOne
   const envelopeOne = audioContext.createGain(); // Creates gain node to use to build envelope curve
@@ -110,16 +117,17 @@ function createTones(interval1, interval2) {
   
 
   // Hooks up the oscillators to audio processors, then to masterGainControl
-  noteOscillatorOne.connect(envelopeOne);
+  noteOscillatorOne.connect(compressor);
+  compressor.connect(envelopeOne)
   envelopeOne.connect(masterGainControl);
   noteOscillatorOne.start(now);
-  noteOscillatorOne.stop(now + 2);
+  noteOscillatorOne.stop(now + 1.5);
 
   noteOscillatorOneSquare.connect(envelopeOneSquare);
   envelopeOneSquare.connect(squareFilter);
   squareFilter.connect(masterGainControl);
   noteOscillatorOneSquare.start(now);
-  noteOscillatorOneSquare.stop(now + 2);
+  noteOscillatorOneSquare.stop(now + 1.5);
 
   noteOscillatorTwo.connect(envelopeTwo);
   envelopeTwo.connect(masterGainControl);
