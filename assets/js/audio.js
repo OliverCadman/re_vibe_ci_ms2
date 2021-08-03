@@ -20,13 +20,21 @@ function createTones(interval1, interval2) {
   masterGainControl.connect(audioContext.destination);
 
   const noteOscillatorOne = audioContext.createOscillator(); // Create Oscillator for sine wave
-  console.log(noteOscillatorOne);
   noteOscillatorOne.type = "sine";
   noteOscillatorOne.frequency.setValueAtTime(
     // Get value of 'frequency' key of 'tones' array and assign it to oscillator frequency
     interval1,
     audioContext.currentTime
   );
+
+  const noteOscillatorOneSquare = audioContext.createOscillator(); // Create Oscillator for sine wave
+  noteOscillatorOneSquare.type = "square";
+  noteOscillatorOneSquare.frequency.setValueAtTime(
+    // Get value of 'frequency' key of 'tones' array and assign it to oscillator frequency
+    interval1,
+    audioContext.currentTime
+  );
+  
 
   const noteOscillatorTwo = audioContext.createOscillator(); // Create Oscillator for square wave
   noteOscillatorTwo.type = "sine";
@@ -35,9 +43,16 @@ function createTones(interval1, interval2) {
     audioContext.currentTime
   );
 
-  const sawFilter = audioContext.createBiquadFilter(); // Create Low Pass Filter (for second oscillator)
-  sawFilter.type = "lowpass";
-  sawFilter.frequency.value = 50;
+  const noteOscillatorTwoSquare = audioContext.createOscillator(); // Create Oscillator for square wave
+  noteOscillatorTwoSquare.type = "square";
+  noteOscillatorTwoSquare.frequency.setValueAtTime(
+    interval2,
+    audioContext.currentTime
+  );
+
+  const squareFilter = audioContext.createBiquadFilter(); // Create Low Pass Filter (for second oscillator)
+  squareFilter.type = "lowpass";
+  squareFilter.frequency.value = 150;
 
   // ADSR (Attack, Decay, Sustain, Release) Envelope to shape gain curve of the sound
   const attackTime = 0.03;
@@ -59,6 +74,16 @@ function createTones(interval1, interval2) {
   envelopeOne.gain.setValueAtTime(sustainLevel, 1 - releaseTime);
   envelopeOne.gain.linearRampToValueAtTime(0, now + 1.4);
 
+  const envelopeOneSquare = audioContext.createGain();
+  envelopeOneSquare.gain.setValueAtTime(0, 0);
+  envelopeOneSquare.gain.linearRampToValueAtTime(0.5, now + attackTime);
+  envelopeOneSquare.gain.linearRampToValueAtTime(
+    sustainLevel,
+    now + attackTime + decayTime
+  );
+  envelopeOneSquare.gain.setValueAtTime(sustainLevel, 1 - releaseTime);
+  envelopeOneSquare.gain.linearRampToValueAtTime(0, now + 1.4);
+
   // envelopeTwo assigned to noteOscillatorTwo
   const envelopeTwo = audioContext.createGain();
   
@@ -69,6 +94,16 @@ function createTones(interval1, interval2) {
    );
    envelopeTwo.gain.setValueAtTime(sustainLevel, 1 - releaseTime);
    envelopeTwo.gain.linearRampToValueAtTime(0, now + 2);
+
+  const envelopeTwoSquare = audioContext.createGain();
+  
+   envelopeTwoSquare.gain.linearRampToValueAtTime(0.5, now + attackTime);
+   envelopeTwoSquare.gain.linearRampToValueAtTime(
+     sustainLevel,
+     now + attackTime + decayTime
+   );
+   envelopeTwoSquare.gain.setValueAtTime(sustainLevel, 1 - releaseTime);
+   envelopeTwoSquare.gain.linearRampToValueAtTime(0, now + 2);
   
 
   // Hooks up the oscillators to audio processors, then to masterGainControl
@@ -77,10 +112,21 @@ function createTones(interval1, interval2) {
   noteOscillatorOne.start(now);
   noteOscillatorOne.stop(now + 1.4);
 
+  noteOscillatorOneSquare.connect(envelopeOneSquare);
+  envelopeOneSquare.connect(squareFilter);
+  squareFilter.connect(masterGainControl);
+  noteOscillatorOneSquare.start(now);
+  noteOscillatorOneSquare.stop(now + 1.4);
+
   noteOscillatorTwo.connect(envelopeTwo);
   envelopeTwo.connect(masterGainControl);
   noteOscillatorTwo.start(now + 1);
   noteOscillatorTwo.stop(now + 2);
+
+  noteOscillatorTwoSquare.connect(envelopeTwoSquare);
+  envelopeTwoSquare.connect(squareFilter);
+  noteOscillatorTwoSquare.start(now + 1);
+  noteOscillatorTwoSquare.stop(now + 2);
 
   return audioContext;
 }
