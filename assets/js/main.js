@@ -43,7 +43,12 @@ function runGame() {
 
 function countDown() {
   let counter = 3;
-  
+  setInterval(() => {
+    counter--;
+    if (counter === 0) {
+      runGame();
+    }
+  }, 1000);
 
 }
 
