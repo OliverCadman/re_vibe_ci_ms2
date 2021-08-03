@@ -5,7 +5,7 @@ let interval1;
 let interval2;
 let userAnswer;
 let correctAnswer;
-let correctAnswersRemaining = 1;
+let correctAnswersRemaining = 5;
 let livesRemaining = 3;
 
 let answerCountdown = document.createElement("p");
@@ -28,7 +28,7 @@ function runGame() {
     .appendChild(answerCountdown);
 
   questions = [];
-  questionCount = 1;
+  questionCount = 5;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
@@ -38,6 +38,13 @@ function runGame() {
   nextQuestion(questionIndex);
 
   
+}
+
+
+function countDown() {
+  let counter = 3;
+  
+
 }
 
 function nextQuestion(currentInterval) {
@@ -126,7 +133,16 @@ function checkAnswer(e, questionIndex) {
     }
     if (questionIndex === questionCount) {
       $("#completed-game-modal").modal("show"); // Display modal when user submits all correct answers
-      $('#completed-game-message').html(`Congratulations! You completed the game with ${livesRemaining} lives remaining!`)
+      if (livesRemaining > 1) {
+        $("#completed-game-message").html(
+          `Congratulations! You completed the game with ${livesRemaining} lives remaining!`
+        );
+      } else {
+        $("#completed-game-message").html(
+          `Congratulations! You completed the game with ${livesRemaining} life remaining!`
+        );
+      }
+      
     }
   } else {
     let wrongAnswer = new Audio("../assets/sounds/wrong-answer.mp3");
