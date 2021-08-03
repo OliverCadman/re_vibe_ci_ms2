@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function runGame() {
-  $("#begin-training-btn").remove();
+  $('.speaker-icon').show();
 
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
 
@@ -40,13 +40,29 @@ function runGame() {
   
 }
 
-
+// Initiates a countdown when user clicks 'Begin Training'
 function countDown() {
+  $("#begin-training-btn").remove();
   let counter = 3;
-  setInterval(() => {
+
+  // Display opaque overlay when user begins training
+  $('.hide-overlay').removeAttr('class', 'hide-overlay').attr('class', 'opaque-overlay');
+
+  // Hide speaker icon to allow room for countdown content
+  $('.speaker-icon').hide();
+  
+  $('.countdown-wrapper').attr('id', 'show-countdown') // add CSS ID selector to div when function runs
+
+  $("#countdown").html(`<p class="animate__animated animate__flipInX">${counter}</p>`);
+  const countdown = setInterval(() => {
     counter--;
+     $("#countdown").html(
+       `<p class="animate__animated animate__flipInX">${counter}</p>`
+     );
     if (counter === 0) {
       runGame();
+      clearInterval(countdown);
+      $('.countdown-wrapper').attr('id', 'hide-countdown') // change CSS ID selector to include property 'display: none'
     }
   }, 1000);
 
@@ -63,7 +79,7 @@ function nextQuestion(currentInterval) {
 
   // loops over answerOptions variable and creates button upon each iteration
   for (i = 0; i < answerOptions.length; i++) {
-    answerButtons += `<button class="btn btn-light" data-type="submit">${answerOptions[i]}</button>`;
+    answerButtons += `<button class="btn btn-light answer-btn" data-type="submit">${answerOptions[i]}</button>`;
   }
 
   answerContainer.innerHTML = answerButtons; // Adds buttons from for loop to answerContainer div
@@ -90,7 +106,10 @@ function getAnswers(interval) {
   let correctAnswerObject = interval; // invoke getInterval() function to get interval object that's being played
   let correctInterval = correctAnswerObject.interval; // pull interval name out of correctAnswerObject;
 
-  let newAnswerArray = shuffleAnswers(answerList); // Invoke shuffleAnswers function passing in new answerList array as parameter;
+  // Filter through answerList and remove the answer which is equal to the interval played
+  answerList = answerList.filter((answer) => answer !== correctInterval)
+  
+  
 
   return newAnswerArray;
 }
