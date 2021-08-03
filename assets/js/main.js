@@ -14,7 +14,7 @@ let answerCountdown = document.createElement("p");
 document.addEventListener("DOMContentLoaded", () => {
   let runGameButton = document.getElementById("begin-training-btn");
   runGameButton.addEventListener("click", () => {
-    runGame();
+    countDown();
   });
 });
 
