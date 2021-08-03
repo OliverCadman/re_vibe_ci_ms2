@@ -57,7 +57,7 @@ function createTones(interval1, interval2) {
     now + attackTime + decayTime
   );
   envelopeOne.gain.setValueAtTime(sustainLevel, 1 - releaseTime);
-  envelopeOne.gain.linearRampToValueAtTime(0, now + 2);
+  envelopeOne.gain.linearRampToValueAtTime(0, now + 1.4);
 
   // envelopeTwo assigned to noteOscillatorTwo
   const envelopeTwo = audioContext.createGain();
@@ -75,7 +75,7 @@ function createTones(interval1, interval2) {
   noteOscillatorOne.connect(envelopeOne);
   envelopeOne.connect(masterGainControl);
   noteOscillatorOne.start(now);
-  noteOscillatorOne.stop(now + 2);
+  noteOscillatorOne.stop(now + 1.4);
 
   noteOscillatorTwo.connect(envelopeTwo);
   envelopeTwo.connect(masterGainControl);
