@@ -14,7 +14,7 @@ function createTones(interval1, interval2) {
   audioContext = new AudioContext();
 
   const masterGainControl = audioContext.createGain(); // primaryGainControl provides control of audio volume
-  masterGainControl.gain.setValueAtTime(0.5, 0); // The first parameter sets the value of the gain.
+  masterGainControl.gain.setValueAtTime(0.3, 0); // The first parameter sets the value of the gain.
 
   // masterGainControl is connected to the final end point of audioContext. All subsequent audio nodes created will then be connected to the masterGainControl.
   masterGainControl.connect(audioContext.destination);
@@ -52,81 +52,85 @@ function createTones(interval1, interval2) {
 
   const squareFilter = audioContext.createBiquadFilter(); // Create Low Pass Filter (for second oscillator)
   squareFilter.type = "lowpass";
-  squareFilter.frequency.value = 150;
+  squareFilter.frequency.value = 200;
 
   // ADSR (Attack, Decay, Sustain, Release) Envelope to shape gain curve of the sound
-  const attackTime = 0.03;
-  const decayTime = 0.3;
+  const attackTime = 0.05;
+  const decayTime = 0.8;
   const sustainLevel = 0.1;
   const releaseTime = 1;
+
+  // Specify when first note and second note are played
   const now = audioContext.currentTime;
+  
 
   // envelopeOne assigned to noteOscillatorOne
   const envelopeOne = audioContext.createGain(); // Creates gain node to use to build envelope curve
   envelopeOne.gain.setValueAtTime(0, 0);
 
   // First parameter is the value that the gain will change to. Second parameter represents the time taken to reach the value from last instance of AudioContext ('now').
-  envelopeOne.gain.linearRampToValueAtTime(0.5, now + attackTime);
+  envelopeOne.gain.linearRampToValueAtTime(1, now + attackTime);
   envelopeOne.gain.linearRampToValueAtTime(
     sustainLevel,
     now + attackTime + decayTime
   );
   envelopeOne.gain.setValueAtTime(sustainLevel, 1 - releaseTime);
-  envelopeOne.gain.linearRampToValueAtTime(0, now + 1.4);
+  envelopeOne.gain.linearRampToValueAtTime(0, now + 1.5);
 
   const envelopeOneSquare = audioContext.createGain();
   envelopeOneSquare.gain.setValueAtTime(0, 0);
-  envelopeOneSquare.gain.linearRampToValueAtTime(0.5, now + attackTime);
+  envelopeOneSquare.gain.linearRampToValueAtTime(1, now + attackTime);
   envelopeOneSquare.gain.linearRampToValueAtTime(
     sustainLevel,
     now + attackTime + decayTime
   );
   envelopeOneSquare.gain.setValueAtTime(sustainLevel, 1 - releaseTime);
-  envelopeOneSquare.gain.linearRampToValueAtTime(0, now + 1.4);
+  envelopeOneSquare.gain.linearRampToValueAtTime(0, now + 1.5);
 
   // envelopeTwo assigned to noteOscillatorTwo
   const envelopeTwo = audioContext.createGain();
-  
+    envelopeTwo.gain.setValueAtTime(0,0)
    envelopeTwo.gain.linearRampToValueAtTime(0.5, now + attackTime);
    envelopeTwo.gain.linearRampToValueAtTime(
      sustainLevel,
      now + attackTime + decayTime
    );
    envelopeTwo.gain.setValueAtTime(sustainLevel, 1 - releaseTime);
-   envelopeTwo.gain.linearRampToValueAtTime(0, now + 2);
+   envelopeTwo.gain.linearRampToValueAtTime(0, now + 1.5);
 
   const envelopeTwoSquare = audioContext.createGain();
-  
+    envelopeTwoSquare.gain.setValueAtTime(0,0)
    envelopeTwoSquare.gain.linearRampToValueAtTime(0.5, now + attackTime);
    envelopeTwoSquare.gain.linearRampToValueAtTime(
      sustainLevel,
      now + attackTime + decayTime
    );
    envelopeTwoSquare.gain.setValueAtTime(sustainLevel, 1 - releaseTime);
-   envelopeTwoSquare.gain.linearRampToValueAtTime(0, now + 2);
+   envelopeTwoSquare.gain.linearRampToValueAtTime(0, now + 1.5);
   
 
   // Hooks up the oscillators to audio processors, then to masterGainControl
   noteOscillatorOne.connect(envelopeOne);
   envelopeOne.connect(masterGainControl);
   noteOscillatorOne.start(now);
-  noteOscillatorOne.stop(now + 1.4);
+  noteOscillatorOne.stop(now + 2);
 
   noteOscillatorOneSquare.connect(envelopeOneSquare);
   envelopeOneSquare.connect(squareFilter);
   squareFilter.connect(masterGainControl);
   noteOscillatorOneSquare.start(now);
-  noteOscillatorOneSquare.stop(now + 1.4);
+  noteOscillatorOneSquare.stop(now + 2);
 
   noteOscillatorTwo.connect(envelopeTwo);
   envelopeTwo.connect(masterGainControl);
   noteOscillatorTwo.start(now + 1);
-  noteOscillatorTwo.stop(now + 2);
+  noteOscillatorTwo.stop(now + 1.5);
 
   noteOscillatorTwoSquare.connect(envelopeTwoSquare);
   envelopeTwoSquare.connect(squareFilter);
+  squareFilter.connect(masterGainControl)
   noteOscillatorTwoSquare.start(now + 1);
-  noteOscillatorTwoSquare.stop(now + 2);
+  noteOscillatorTwoSquare.stop(now + 1.5);
 
   return audioContext;
 }
