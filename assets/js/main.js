@@ -109,7 +109,15 @@ function getAnswers(interval) {
   // Filter through answerList and remove the answer which is equal to the interval played
   answerList = answerList.filter((answer) => answer !== correctInterval)
   
-  
+  // Remove 7 elements from the new array
+  answerList = answerList.splice(0,5);
+
+  // Add the correct interval back into updated/shortened array
+  answerList.push(correctInterval)
+
+ console.log(answerList)
+  // Shuffle the updated array
+  let newAnswerArray = shuffleAnswers(answerList)
 
   return newAnswerArray;
 }
