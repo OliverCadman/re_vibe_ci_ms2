@@ -5,10 +5,10 @@ let interval1;
 let interval2;
 let userAnswer;
 let correctAnswer;
-let correctAnswersRemaining = 5;
+let correctAnswersRemaining = 10;
 let livesRemaining = 3;
 
-let answerCountdown = document.createElement("p");
+let answerCountdown = document.getElementsByClassName('correct-answers')[0];
 
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", () => {
@@ -21,14 +21,14 @@ document.addEventListener("DOMContentLoaded", () => {
 function runGame() {
   $('.speaker-icon').show();
 
-  answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
+
 
   document
     .getElementById("correct-answers-remaining")
     .appendChild(answerCountdown);
 
   questions = [];
-  questionCount = 5;
+  questionCount = 10;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
@@ -63,12 +63,14 @@ function countDown() {
       runGame();
       clearInterval(countdown);
       $('.countdown-wrapper').attr('id', 'hide-countdown') // change CSS ID selector to include property 'display: none'
+      $('.countdown-wrapper').empty();
     }
   }, 1000);
 
 }
 
 function nextQuestion(currentInterval) {
+  answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
   // Initialize question index and pass it into questions object array to access relative index
   let answerOptions = getAnswers(questions[currentInterval]); // invokes getAnswers() function to grab values of answerList array and assign it to variable
 
