@@ -14,6 +14,15 @@ body {
  margin: 0 auto;
 }
 
+.opaque-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.7);
+}
+
 /* ----------- Navigation Bar (Global CSS) ------------ */
 
 .navbar {
@@ -116,6 +125,17 @@ ul li a.active {
   min-height: 60vh;
 }
 
+#show-countdown {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  height: 100%;
+}
+
+#hide-countdown {
+  display: none;
+}
+
 #lives-left-container {
   float: right;
   position: absolute;
@@ -124,7 +144,7 @@ ul li a.active {
 }
 
 .lives-left-icon {
-  color: rgb(25, 25, 25);
+  color: #fafafa;
   font-size: 1.3rem;
 }
 
@@ -136,6 +156,14 @@ ul li a.active {
 
 .speaker-icon-wrapper p {
   text-align: center;
+}
+
+#lives-left-container span {
+  position: relative;
+}
+
+#answer-container {
+  position: relative;
 }
 
 .begin-training {
