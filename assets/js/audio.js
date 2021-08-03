@@ -27,8 +27,6 @@ function createTones(interval1, interval2) {
     interval1,
     audioContext.currentTime
   );
-  const sineGain = audioContext.createGain();
-  sineGain.gain.value = 1;
 
   const noteOscillatorTwo = audioContext.createOscillator(); // Create Oscillator for square wave
   noteOscillatorTwo.type = "sine";
@@ -75,8 +73,7 @@ function createTones(interval1, interval2) {
 
   // Hooks up the oscillators to audio processors, then to masterGainControl
   noteOscillatorOne.connect(envelopeOne);
-  envelopeOne.connect(sineGain);
-  sineGain.connect(masterGainControl);
+  envelopeOne.connect(masterGainControl);
   noteOscillatorOne.start(now);
   noteOscillatorOne.stop(now + 2);
 
