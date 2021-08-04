@@ -72,7 +72,7 @@ function runChordGame() {
     questions[question] = chord;
   }
 
-  nextChord();
+  nextChord(questionIndex);
 }
 
 // Initiates a countdown when user clicks 'Begin Training'
@@ -145,6 +145,10 @@ function nextInterval(currentInterval) {
   $("#replay-interval").click(() => {
     replayInterval(currentInterval);
   });
+}
+
+function nextChord(currentChord) {
+
 }
 
 function getAnswers(interval) {
