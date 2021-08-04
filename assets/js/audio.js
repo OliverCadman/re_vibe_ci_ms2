@@ -13,13 +13,16 @@ function createTones(frequency1, frequency2) {
     rolloff: -24,
   });
 
-  const reverb = new Tone.Reverb({
-    decay: 3,
-    wet: 0.8,
-    preDelay: 0.1,
-  });
+  // const reverb = new Tone.Reverb({
+  //   decay: 3,
+  //   wet: 0.8,
+  //   preDelay: 0.1,
+  // });
 
-  synth.chain(reverb, filter, Tone.Destination);
+  synth.chain(filter, Tone.Destination);
 
-  Tone.start();
+  Tone.start()
+  Tone.dispose()
+
+
 }
