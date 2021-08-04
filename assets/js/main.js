@@ -20,13 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
   for (let button of buttons) {
     button.addEventListener('click', () => {
       if (button.getAttribute('id') === 'interval-trainer-btn') {
-        console.log(button)
+        let gameType = button.getAttribute('data-type', 'interval-trainer')
+        console.log(gameType)
       } else if (button.getAttribute('id') === 'chord-identifier-btn') {
-        console.log(button)
+        let gameType = button.getAttribute('data-type', 'chord-identifier')
+        console.log(gameType)
       }
     })
   }
 });
+
+function readyGame() {
+
+}
 
 function runGame() {
   $(".speaker-icon").show();
@@ -47,7 +53,7 @@ function runGame() {
 }
 
 // Initiates a countdown when user clicks 'Begin Training'
-function countDown() {
+function countDown(gameType) {
   $("#begin-training-btn").remove();
   let counter = 3;
 
