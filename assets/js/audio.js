@@ -44,7 +44,7 @@ function createChord(frequency1, frequency2, frequency3, frequency4) {
     1
   );
 
-  synth.chain(gain, filter, Tone.Destination);
+  synth.chain(gain, Tone.Destination);
 
   Tone.start();
 }
