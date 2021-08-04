@@ -34,9 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function readyGame(gameType) {
   $("#begin-training-btn").prop("disabled", false);
   if (gameType === "interval-trainer") {
-    $("#begin-training-btn").click(() => {
-      
-    });
+    $("#begin-training-btn").click(() => {});
   } else if (gameType === "chord-identifier") {
     $("#begin-training-btn").click(() => {
       countDown(gameType);
@@ -67,7 +65,7 @@ function runChordGame() {
   questionCount = 10;
   questionIndex = 0;
 
-  for (let question = 0; question < questionCount; question ++) {
+  for (let question = 0; question < questionCount; question++) {
     let chord = getChord();
     questions[question] = chord;
   }
@@ -108,7 +106,6 @@ function countDown(gameType) {
       $(".countdown-wrapper").attr("id", "hide-countdown"); // change CSS ID selector to include property 'display: none'
       $(".countdown-wrapper").empty();
     }
-    
   }, 1000);
 }
 
@@ -157,11 +154,10 @@ function nextChord(currentChord) {
   let answerButtons = "";
   $(answerButtons).empty(); // clears list of answer options for previous interval played, when user inputs next question.
 
-
   // loops over answerOptions variable and creates button upon each iteration
   for (i = 0; i < answerOptions.length; i++) {
     answerButtons += `<button class="btn btn-light answer-btn" data-type="submit">${answerOptions[i]}</button>`;
-    console.log(answerButtons)
+    console.log(answerButtons);
   }
 
   answerContainer.innerHTML = answerButtons; // Adds buttons from for loop to answerContainer div
@@ -185,7 +181,9 @@ function getIntervalAnswers(currentInterval) {
   let correctInterval = correctAnswerObject.interval; // pull interval name out of correctAnswerObject;
 
   // Filter through intervalAnswerList and remove the answer which is equal to the interval played
-  intervalAnswerList = intervalAnswerList.filter((answer) => answer !== correctInterval);
+  intervalAnswerList = intervalAnswerList.filter(
+    (answer) => answer !== correctInterval
+  );
 
   // Remove 7 elements from the new array
   intervalAnswerList = intervalAnswerList.splice(0, 5);
@@ -200,11 +198,19 @@ function getIntervalAnswers(currentInterval) {
   return newAnswerArray;
 }
 
-function getChordAnswers (currentChord) {
+function getChordAnswers(currentChord) {
   let correctAnswerObject = currentChord;
   let correctChord = correctAnswerObject.chord;
 
-  
+  chordAnswerList = chordAnswerList.filter((answer) => answer !== correctChord);
+
+  chordAnswerList = chordAnswerList.splice(0, 3);
+
+  chordAnswerList.push(correctChord);
+
+  let newAnswerArray = shuffleAnswers(chordAnswerList);
+
+  return newAnswerArray;
 }
 
 /* shuffleArray will randomly shuffle the elements of the intervalAnswerList array, using the Fisher-Yates shuffle algorithm.
@@ -288,11 +294,10 @@ function getRandomIntervalIndex() {
   return randomIndex;
 }
 
-
 function getRandomChordIndex() {
   let randomIndex = Math.ceil(Math.random() * 61 - 1);
-  console.log(randomIndex)
-  return randomIndex
+  console.log(randomIndex);
+  return randomIndex;
 }
 
 function getChord() {
@@ -301,7 +306,6 @@ function getChord() {
 
   return randomChord;
 }
-
 
 function playInterval(interval) {
   // Accessing frequency properties of random interval
@@ -312,5 +316,3 @@ function playInterval(interval) {
   // Invoking createTones function to play two frequencies
   createInterval(firstNote, secondNote);
 }
-
-
