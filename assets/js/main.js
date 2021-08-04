@@ -236,6 +236,12 @@ function getRandomIntervalIndex() {
 }
 
 
+function getRandomChordIndex() {
+  let randomIndex = Math.ceil(Math.random() * 61 - 1);
+
+  return randomIndex
+}
+
 
 function playInterval(interval) {
   // Accessing frequency properties of random interval
