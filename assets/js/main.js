@@ -282,7 +282,11 @@ function checkIntervalAnswer(e, questionIndex) {
 }
 
 function checkChordAnswer(e, questionIndex) {
-  
+  userAnswer = e.target.textContent;
+
+  if (userAnswer === questions[questionIndex].chord) {
+    
+  }
 }
 
 function getInterval() {
