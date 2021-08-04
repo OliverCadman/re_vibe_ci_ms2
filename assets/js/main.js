@@ -66,7 +66,13 @@ function runChordGame() {
   questions = [];
   questionCount = 10;
   questionIndex = 0;
-  
+
+  for (let question = 0; question < questionCount; question ++) {
+    let chord = getChord();
+    questions[question] = chord;
+  }
+
+  nextChord();
 }
 
 // Initiates a countdown when user clicks 'Begin Training'
