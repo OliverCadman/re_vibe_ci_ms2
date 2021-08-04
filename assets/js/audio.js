@@ -1,4 +1,4 @@
-function createTones(frequency1, frequency2) {
+function createInterval(frequency1, frequency2) {
   const synth = new Tone.Synth();
 
   synth.oscillator.type = "sine4";
@@ -21,8 +21,9 @@ function createTones(frequency1, frequency2) {
 
   synth.chain(filter, Tone.Destination);
 
-  Tone.start()
-  Tone.dispose()
+  Tone.start();
+}
 
-
+function createChord(frequency1, frequency2, frequency3, frequency4) {
+ 
 }
