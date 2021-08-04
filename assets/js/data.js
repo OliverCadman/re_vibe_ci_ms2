@@ -1,6 +1,6 @@
 // Array of Answers to iterate over and create buttons displaying answer options
 
-let answerList = [
+let intervalAnswerList = [
   "Minor Second",
   "Major Second",
   "Minor Third",
@@ -14,6 +14,14 @@ let answerList = [
   "Major Seventh",
   "Octave",
 ];
+
+let chordAnswerList = [
+  "Major",
+  "Minor",
+  "Dominant 7",
+  "Major 7",
+  "Minor 7"
+]
 
 // Array of Intervals to use to produce tones
 const intervalList = [
