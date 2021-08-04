@@ -33,15 +33,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function readyGame(gameType) {
   $("#begin-training-btn").prop("disabled", false);
-  if (gameType === 'interval-trainer') {
-   $('#begin-training-btn').click(() => {
-     countDown(gameType);
-   })
-  } else if (gameType === 'chord-identifier') {
-   $('#begin-training-btn').click(() => {
-     countDown(gameType)
-   })
-
+  if (gameType === "interval-trainer") {
+    $("#begin-training-btn").click(() => {
+      countDown(gameType);
+    });
+  } else if (gameType === "chord-identifier") {
+    $("#begin-training-btn").click(() => {
+      countDown(gameType);
+    });
   }
 }
 
