@@ -132,7 +132,7 @@ function nextInterval(currentInterval) {
   for (button of answerButton) {
     if (button.getAttribute("data-type") === "submit") {
       button.addEventListener("click", (e) => {
-        checkAnswer(e, currentInterval); // Pass in currentInterval, which corresponds to incrementing question index
+        checkIntervalAnswer(e, currentInterval); // Pass in currentInterval, which corresponds to incrementing question index
       });
     }
   }
@@ -236,7 +236,7 @@ function replayInterval(currentInterval) {
   playInterval(questions[currentInterval]);
 }
 
-function checkAnswer(e, questionIndex) {
+function checkIntervalAnswer(e, questionIndex) {
   userAnswer = e.target.textContent;
   console.log(questionIndex);
 
