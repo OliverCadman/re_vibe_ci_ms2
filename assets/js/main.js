@@ -12,10 +12,20 @@ let answerCountdown = document.getElementsByClassName("correct-answers")[0];
 
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", () => {
-  let runGameButton = document.getElementById("begin-training-btn");
-  runGameButton.addEventListener("click", () => {
-    countDown();
-  });
+  // Disable Begin Training button until either 'Interval Trainer' or 'Chord Identifier' are selected
+  $('#begin-training-btn').prop('disabled', true);
+
+  let buttons = document.getElementsByTagName('button');
+
+  for (let button of buttons) {
+    button.addEventListener('click', () => {
+      if (button.getAttribute('id') === 'interval-trainer-btn') {
+        console.log(button)
+      } else if (button.getAttribute('id') === 'chord-identifier-btn') {
+        console.log(button)
+      }
+    })
+  }
 });
 
 function runGame() {
