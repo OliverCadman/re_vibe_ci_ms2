@@ -242,6 +242,13 @@ function getRandomChordIndex() {
   return randomIndex
 }
 
+function getChord() {
+  let randomIndex = getRandomChordIndex;
+  let randomChord = chordList[randomIndex];
+
+  return randomChord;
+}
+
 
 function playInterval(interval) {
   // Accessing frequency properties of random interval
