@@ -115,7 +115,7 @@ function countDown(gameType) {
 function nextInterval(currentInterval) {
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
   // Initialize question index and pass it into questions object array to access relative index
-  let answerOptions = getAnswers(questions[currentInterval]); // invokes getAnswers() function to grab values of answerList array and assign it to variable
+  let answerOptions = getIntervalAnswers(questions[currentInterval]); // invokes getIntervalAnswers() function to grab values of answerList array and assign it to variable
 
   let answerContainer = document.getElementById("answer-container");
 
@@ -150,16 +150,18 @@ function nextInterval(currentInterval) {
 function nextChord(currentChord) {
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
   // Initialize question index and pass it into questions object array to access relative index
-  let answerOptions = getChordAnswers(questions[currentChord]); // invokes getAnswers() function to grab values of answerList array and assign it to variable
+  let answerOptions = getChordAnswers(questions[currentChord]); // invokes getIntervalAnswers() function to grab values of answerList array and assign it to variable
 
   let answerContainer = document.getElementById("answer-container");
 
   let answerButtons = "";
   $(answerButtons).empty(); // clears list of answer options for previous interval played, when user inputs next question.
 
+
   // loops over answerOptions variable and creates button upon each iteration
   for (i = 0; i < answerOptions.length; i++) {
     answerButtons += `<button class="btn btn-light answer-btn" data-type="submit">${answerOptions[i]}</button>`;
+    console.log(answerButtons)
   }
 
   answerContainer.innerHTML = answerButtons; // Adds buttons from for loop to answerContainer div
@@ -175,10 +177,10 @@ function nextChord(currentChord) {
     }
   }
 
-  playChord(questions[currentChord]); // Invokes playInterval function, passing in index of questions object array
+  // playChord(questions[currentChord]); // Invokes playInterval function, passing in index of questions object array
 }
 
-function getAnswers(interval) {
+function getIntervalAnswers(interval) {
   let correctAnswerObject = interval; // invoke getInterval() function to get interval object that's being played
   let correctInterval = correctAnswerObject.interval; // pull interval name out of correctAnswerObject;
 
