@@ -35,7 +35,7 @@ function readyGame(gameType) {
   $("#begin-training-btn").prop("disabled", false);
   if (gameType === "interval-trainer") {
     $("#begin-training-btn").click(() => {
-      countDown(gameType);
+      
     });
   } else if (gameType === "chord-identifier") {
     $("#begin-training-btn").click(() => {
@@ -60,6 +60,13 @@ function runIntervalGame() {
   }
 
   nextInterval(questionIndex);
+}
+
+function runChordGame() {
+  questions = [];
+  questionCount = 10;
+  questionIndex = 0;
+  
 }
 
 // Initiates a countdown when user clicks 'Begin Training'
@@ -190,7 +197,7 @@ function checkAnswer(e, questionIndex) {
     if (questionIndex < questionCount) {
       // setTimeout delays invocation of nextQuestion function to allow for correctAnswer audio to play
       setTimeout(() => {
-        nextQuestion(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
+        nextInterval(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
         replayInterval(questionIndex);
       }, 1000);
     }
@@ -238,12 +245,12 @@ function getRandomIntervalIndex() {
 
 function getRandomChordIndex() {
   let randomIndex = Math.ceil(Math.random() * 61 - 1);
-
+  console.log(randomIndex)
   return randomIndex
 }
 
 function getChord() {
-  let randomIndex = getRandomChordIndex;
+  let randomIndex = getRandomChordIndex();
   let randomChord = chordList[randomIndex];
 
   return randomChord;
