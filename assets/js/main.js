@@ -3,6 +3,7 @@ let questionIndex;
 let questionCount;
 let interval1;
 let interval2;
+let chord;
 let userAnswer;
 let correctAnswer;
 let correctAnswersRemaining = 10;
@@ -21,17 +22,27 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener('click', () => {
       if (button.getAttribute('id') === 'interval-trainer-btn') {
         let gameType = button.getAttribute('data-type', 'interval-trainer')
-        console.log(gameType)
+        readyGame(gameType)
       } else if (button.getAttribute('id') === 'chord-identifier-btn') {
         let gameType = button.getAttribute('data-type', 'chord-identifier')
-        console.log(gameType)
+        readyGame(gameType)
       }
     })
   }
 });
 
-function readyGame() {
+function readyGame(gameType) {
+  $("#begin-training-btn").prop("disabled", false);
+  if (gameType === 'interval-trainer') {
+   $('#begin-training-btn').click(() => {
+     countDown(gameType);
+   })
+  } else if (gameType === 'chord-identifier') {
+   $('#begin-training-btn').click(() => {
+     countDown(gameType)
+   })
 
+  }
 }
 
 function runGame() {
