@@ -223,17 +223,19 @@ function checkAnswer(e, questionIndex) {
 }
 
 function getInterval() {
-  let randomIndex = getRandomIndex();
+  let randomIndex = getRandomIntervalIndex();
   let randomInterval = intervalList[randomIndex]; // getRandomIndex used to access random index of intervalList array;
 
   return randomInterval;
 }
 
-function getRandomIndex() {
+function getRandomIntervalIndex() {
   let randomIndex = Math.ceil(Math.random() * 12 - 1); // Generates a random number between 0 and 12;
 
   return randomIndex;
 }
+
+
 
 function playInterval(interval) {
   // Accessing frequency properties of random interval
@@ -242,5 +244,7 @@ function playInterval(interval) {
   let secondNote = interval.frequency2;
 
   // Invoking createTones function to play two frequencies
-  createTones(firstNote, secondNote);
+  createInterval(firstNote, secondNote);
 }
+
+
