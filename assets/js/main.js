@@ -278,14 +278,49 @@ function checkIntervalAnswer(e, questionIndex) {
     let gameOverModal = $("#game-over-modal");
     gameOverModal.modal("show");
   }
-  return correctAnswer;
+
 }
 
 function checkChordAnswer(e, questionIndex) {
   userAnswer = e.target.textContent;
 
   if (userAnswer === questions[questionIndex].chord) {
-    
+    let correctAnswer = new Audio("assets/sounds/correct-answer.mp3"); // Assign variable to correct-answer.mp3;
+    correctAnswer.play(); // Play sound when correct answer is submitted
+    correctAnswersRemaining--;
+    answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
+    questionIndex++; // Increment question index when correct answer submitted
+
+    if (questionIndex < questionCount) {
+      setTimeout(() => {
+        nextChord(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
+        // replayInterval(questionIndex);
+      }, 1000);
+    }
+    if (questionIndex === questionCount) {
+      $("#completed-game-modal").modal("show"); // Display modal when user submits all correct answers
+      if (livesRemaining > 1) {
+        $("#completed-game-message").html(
+          `Congratulations! You completed the game with ${livesRemaining} lives remaining!`
+        );
+      } else {
+        $("#completed-game-message").html(
+          `Congratulations! You completed the game with ${livesRemaining} life remaining!`
+        );
+      }
+    }
+  } else {
+    let wrongAnswer = new Audio("assets/sounds/wrong-answer.mp3");
+    wrongAnswer.play(); // Play sound when incorrect answer is submitted
+    livesRemaining--;
+    $(".lives-left-icon")[0].remove(); // removes one fontawesome 'user' icon if user inputs incorrect answer
+
+    console.log(livesRemaining);
+  }
+
+  if (livesRemaining === 0) {
+    let gameOverModal = $("#game-over-modal");
+    gameOverModal.modal("show");
   }
 }
 
