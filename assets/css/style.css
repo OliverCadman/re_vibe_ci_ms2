@@ -250,6 +250,12 @@ Referenced from Animate CSS : "https://animate.style/" */
   background-color: #23272a;
 }
 
+.practice-tips-hero-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .practice-tips-hero {
   width: 300px;
 }
@@ -489,6 +495,8 @@ Referenced from Animate CSS : "https://animate.style/" */
     top: 175px;
     right: 10px;
   }
+
+  
 }
 
 /* iPhone 6/7/8 */
@@ -496,6 +504,10 @@ Referenced from Animate CSS : "https://animate.style/" */
   #lives-left-container {
     top: 10px;
   }
+
+  .practice-tips-hero {
+  width: 350px;
+}
 }
 
 /* iPhone X */
