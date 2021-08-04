@@ -359,3 +359,10 @@ function playInterval(interval) {
   // Invoking createTones function to play two frequencies
   createInterval(firstNote, secondNote);
 }
+
+function playChord(chord) {
+  let firstNote = chord.frequency1
+  let secondNote = chord.frequency2
+  let thirdNote = chord.frequency3
+  let fourthNote = chord.frequency4
+}
