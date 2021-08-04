@@ -173,7 +173,7 @@ function nextChord(currentChord) {
     }
   }
 
-  // playChord(questions[currentChord]); // Invokes playInterval function, passing in index of questions object array
+  playChord(questions[currentChord]); // Invokes playInterval function, passing in index of questions object array
 }
 
 function getIntervalAnswers(currentInterval) {
@@ -279,6 +279,10 @@ function checkIntervalAnswer(e, questionIndex) {
     gameOverModal.modal("show");
   }
   return correctAnswer;
+}
+
+function checkChordAnswer(e, questionIndex) {
+  
 }
 
 function getInterval() {
