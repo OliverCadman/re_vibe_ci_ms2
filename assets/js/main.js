@@ -180,8 +180,8 @@ function nextChord(currentChord) {
   // playChord(questions[currentChord]); // Invokes playInterval function, passing in index of questions object array
 }
 
-function getIntervalAnswers(interval) {
-  let correctAnswerObject = interval; // invoke getInterval() function to get interval object that's being played
+function getIntervalAnswers(currentInterval) {
+  let correctAnswerObject = currentInterval; // invoke getInterval() function to get interval object that's being played
   let correctInterval = correctAnswerObject.interval; // pull interval name out of correctAnswerObject;
 
   // Filter through answerList and remove the answer which is equal to the interval played
@@ -198,6 +198,10 @@ function getIntervalAnswers(interval) {
   let newAnswerArray = shuffleAnswers(answerList);
 
   return newAnswerArray;
+}
+
+function getChordAnswers (currentChord) {
+  
 }
 
 /* shuffleArray will randomly shuffle the elements of the answerList array, using the Fisher-Yates shuffle algorithm.
