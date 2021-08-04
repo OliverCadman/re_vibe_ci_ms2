@@ -8,7 +8,7 @@ let correctAnswer;
 let correctAnswersRemaining = 10;
 let livesRemaining = 3;
 
-let answerCountdown = document.getElementsByClassName('correct-answers')[0];
+let answerCountdown = document.getElementsByClassName("correct-answers")[0];
 
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", () => {
@@ -19,9 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function runGame() {
-  $('.speaker-icon').show();
-
-
+  $(".speaker-icon").show();
 
   document
     .getElementById("correct-answers-remaining")
@@ -36,8 +34,6 @@ function runGame() {
   }
 
   nextQuestion(questionIndex);
-
-  
 }
 
 // Initiates a countdown when user clicks 'Begin Training'
@@ -46,27 +42,30 @@ function countDown() {
   let counter = 3;
 
   // Display opaque overlay when user begins training
-  $('.hide-overlay').removeAttr('class', 'hide-overlay').attr('class', 'opaque-overlay');
+  $(".hide-overlay")
+    .removeAttr("class", "hide-overlay")
+    .attr("class", "opaque-overlay");
 
   // Hide speaker icon to allow room for countdown content
-  $('.speaker-icon').hide();
-  
-  $('.countdown-wrapper').attr('id', 'show-countdown') // add CSS ID selector to div when function runs
+  $(".speaker-icon").hide();
 
-  $("#countdown").html(`<p class="animate__animated animate__flipInX">${counter}</p>`);
+  $(".countdown-wrapper").attr("id", "show-countdown"); // add CSS ID selector to div when function runs
+
+  $("#countdown").html(
+    `<p class="animate__animated animate__flipInX">${counter}</p>`
+  );
   const countdown = setInterval(() => {
     counter--;
-     $("#countdown").html(
-       `<p class="animate__animated animate__flipInX">${counter}</p>`
-     );
+    $("#countdown").html(
+      `<p class="animate__animated animate__flipInX">${counter}</p>`
+    );
     if (counter === 0) {
       runGame();
       clearInterval(countdown);
-      $('.countdown-wrapper').attr('id', 'hide-countdown') // change CSS ID selector to include property 'display: none'
-      $('.countdown-wrapper').empty();
+      $(".countdown-wrapper").attr("id", "hide-countdown"); // change CSS ID selector to include property 'display: none'
+      $(".countdown-wrapper").empty();
     }
   }, 1000);
-
 }
 
 function nextQuestion(currentInterval) {
@@ -109,17 +108,17 @@ function getAnswers(interval) {
   let correctInterval = correctAnswerObject.interval; // pull interval name out of correctAnswerObject;
 
   // Filter through answerList and remove the answer which is equal to the interval played
-  answerList = answerList.filter((answer) => answer !== correctInterval)
-  
+  answerList = answerList.filter((answer) => answer !== correctInterval);
+
   // Remove 7 elements from the new array
-  answerList = answerList.splice(0,5);
+  answerList = answerList.splice(0, 5);
 
   // Add the correct interval back into updated/shortened array
-  answerList.push(correctInterval)
+  answerList.push(correctInterval);
 
- console.log(answerList)
+  console.log(answerList);
   // Shuffle the updated array
-  let newAnswerArray = shuffleAnswers(answerList)
+  let newAnswerArray = shuffleAnswers(answerList);
 
   return newAnswerArray;
 }
@@ -144,7 +143,6 @@ function shuffleAnswers(array) {
 }
 
 function replayInterval(currentInterval) {
- 
   playInterval(questions[currentInterval]);
 }
 
@@ -162,7 +160,7 @@ function checkAnswer(e, questionIndex) {
       // setTimeout delays invocation of nextQuestion function to allow for correctAnswer audio to play
       setTimeout(() => {
         nextQuestion(questionIndex); // Pass in new questionIndex as parameter for next invocation of nextQuestion function
-        replayInterval(questionIndex)
+        replayInterval(questionIndex);
       }, 1000);
     }
     if (questionIndex === questionCount) {
@@ -176,7 +174,6 @@ function checkAnswer(e, questionIndex) {
           `Congratulations! You completed the game with ${livesRemaining} life remaining!`
         );
       }
-      
     }
   } else {
     let wrongAnswer = new Audio("assets/sounds/wrong-answer.mp3");
