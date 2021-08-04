@@ -168,7 +168,7 @@ function nextChord(currentChord) {
   for (button of answerButton) {
     if (button.getAttribute("data-type") === "submit") {
       button.addEventListener("click", (e) => {
-        checkAnswer(e, currentChord); // Pass in currentInterval, which corresponds to incrementing question index
+        checkChordAnswer(e, currentChord); // Pass in currentInterval, which corresponds to incrementing question index
       });
     }
   }
@@ -365,4 +365,6 @@ function playChord(chord) {
   let secondNote = chord.frequency2
   let thirdNote = chord.frequency3
   let fourthNote = chord.frequency4
+
+  createChord(firstNote, secondNote, thirdNote, fourthNote)
 }
