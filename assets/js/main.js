@@ -14,20 +14,20 @@ let answerCountdown = document.getElementsByClassName("correct-answers")[0];
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", () => {
   // Disable Begin Training button until either 'Interval Trainer' or 'Chord Identifier' are selected
-  $('#begin-training-btn').prop('disabled', true);
+  $("#begin-training-btn").prop("disabled", true);
 
-  let buttons = document.getElementsByTagName('button');
+  let buttons = document.getElementsByTagName("button");
 
   for (let button of buttons) {
-    button.addEventListener('click', () => {
-      if (button.getAttribute('id') === 'interval-trainer-btn') {
-        let gameType = button.getAttribute('data-type', 'interval-trainer')
-        readyGame(gameType)
-      } else if (button.getAttribute('id') === 'chord-identifier-btn') {
-        let gameType = button.getAttribute('data-type', 'chord-identifier')
-        readyGame(gameType)
+    button.addEventListener("click", () => {
+      if (button.getAttribute("id") === "interval-trainer-btn") {
+        let gameType = button.getAttribute("data-type", "interval-trainer");
+        readyGame(gameType);
+      } else if (button.getAttribute("id") === "chord-identifier-btn") {
+        let gameType = button.getAttribute("data-type", "chord-identifier");
+        readyGame(gameType);
       }
-    })
+    });
   }
 });
 
@@ -44,7 +44,7 @@ function readyGame(gameType) {
   }
 }
 
-function runGame() {
+function runIntervalGame() {
   $(".speaker-icon").show();
 
   document
@@ -59,7 +59,7 @@ function runGame() {
     questions[question] = interval; // creates object array of 15 randomly generated intervals to be used in game
   }
 
-  nextQuestion(questionIndex);
+  nextInterval(questionIndex);
 }
 
 // Initiates a countdown when user clicks 'Begin Training'
@@ -86,15 +86,20 @@ function countDown(gameType) {
       `<p class="animate__animated animate__flipInX">${counter}</p>`
     );
     if (counter === 0) {
-      runGame();
+      if (gameType === "interval-trainer") {
+        runIntervalGame();
+      } else if (gameType === "chord-identifier") {
+        runChordGame();
+      }
       clearInterval(countdown);
       $(".countdown-wrapper").attr("id", "hide-countdown"); // change CSS ID selector to include property 'display: none'
       $(".countdown-wrapper").empty();
     }
+    
   }, 1000);
 }
 
-function nextQuestion(currentInterval) {
+function nextInterval(currentInterval) {
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
   // Initialize question index and pass it into questions object array to access relative index
   let answerOptions = getAnswers(questions[currentInterval]); // invokes getAnswers() function to grab values of answerList array and assign it to variable
