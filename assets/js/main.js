@@ -115,7 +115,7 @@ function countDown(gameType) {
 function nextInterval(currentInterval) {
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
   // Initialize question index and pass it into questions object array to access relative index
-  let answerOptions = getIntervalAnswers(questions[currentInterval]); // invokes getIntervalAnswers() function to grab values of answerList array and assign it to variable
+  let answerOptions = getIntervalAnswers(questions[currentInterval]); // invokes getIntervalAnswers() function to grab values of intervalAnswerList array and assign it to variable
 
   let answerContainer = document.getElementById("answer-container");
 
@@ -150,7 +150,7 @@ function nextInterval(currentInterval) {
 function nextChord(currentChord) {
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
   // Initialize question index and pass it into questions object array to access relative index
-  let answerOptions = getChordAnswers(questions[currentChord]); // invokes getIntervalAnswers() function to grab values of answerList array and assign it to variable
+  let answerOptions = getChordAnswers(questions[currentChord]); // invokes getIntervalAnswers() function to grab values of intervalAnswerList array and assign it to variable
 
   let answerContainer = document.getElementById("answer-container");
 
@@ -184,27 +184,30 @@ function getIntervalAnswers(currentInterval) {
   let correctAnswerObject = currentInterval; // invoke getInterval() function to get interval object that's being played
   let correctInterval = correctAnswerObject.interval; // pull interval name out of correctAnswerObject;
 
-  // Filter through answerList and remove the answer which is equal to the interval played
-  answerList = answerList.filter((answer) => answer !== correctInterval);
+  // Filter through intervalAnswerList and remove the answer which is equal to the interval played
+  intervalAnswerList = intervalAnswerList.filter((answer) => answer !== correctInterval);
 
   // Remove 7 elements from the new array
-  answerList = answerList.splice(0, 5);
+  intervalAnswerList = intervalAnswerList.splice(0, 5);
 
   // Add the correct interval back into updated/shortened array
-  answerList.push(correctInterval);
+  intervalAnswerList.push(correctInterval);
 
-  console.log(answerList);
+  console.log(intervalAnswerList);
   // Shuffle the updated array
-  let newAnswerArray = shuffleAnswers(answerList);
+  let newAnswerArray = shuffleAnswers(intervalAnswerList);
 
   return newAnswerArray;
 }
 
 function getChordAnswers (currentChord) {
+  let correctAnswerObject = currentChord;
+  let correctChord = correctAnswerObject.chord;
+
   
 }
 
-/* shuffleArray will randomly shuffle the elements of the answerList array, using the Fisher-Yates shuffle algorithm.
+/* shuffleArray will randomly shuffle the elements of the intervalAnswerList array, using the Fisher-Yates shuffle algorithm.
 Code referenced from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array */
 function shuffleAnswers(array) {
   let currentIndex = array.length,
