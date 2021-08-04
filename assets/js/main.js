@@ -148,7 +148,34 @@ function nextInterval(currentInterval) {
 }
 
 function nextChord(currentChord) {
+  answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
+  // Initialize question index and pass it into questions object array to access relative index
+  let answerOptions = getChordAnswers(questions[currentChord]); // invokes getAnswers() function to grab values of answerList array and assign it to variable
 
+  let answerContainer = document.getElementById("answer-container");
+
+  let answerButtons = "";
+  $(answerButtons).empty(); // clears list of answer options for previous interval played, when user inputs next question.
+
+  // loops over answerOptions variable and creates button upon each iteration
+  for (i = 0; i < answerOptions.length; i++) {
+    answerButtons += `<button class="btn btn-light answer-btn" data-type="submit">${answerOptions[i]}</button>`;
+  }
+
+  answerContainer.innerHTML = answerButtons; // Adds buttons from for loop to answerContainer div
+
+  let answerButton = document.getElementsByTagName("button");
+
+  // Loop through answer buttons and add click event listeners to grab values of click to check answer
+  for (button of answerButton) {
+    if (button.getAttribute("data-type") === "submit") {
+      button.addEventListener("click", (e) => {
+        checkAnswer(e, currentChord); // Pass in currentInterval, which corresponds to incrementing question index
+      });
+    }
+  }
+
+  playChord(questions[currentChord]); // Invokes playInterval function, passing in index of questions object array
 }
 
 function getAnswers(interval) {
