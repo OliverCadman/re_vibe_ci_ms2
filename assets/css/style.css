@@ -1,6 +1,8 @@
 /* Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200;300;400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Krub:wght@300;500;600&display=swap');
+
 
 /* Global CSS application */
 body {
@@ -15,6 +17,10 @@ body {
 }
 
 .hide-overlay {
+  display: none;
+}
+
+#hide-countdown {
   display: none;
 }
 
@@ -132,6 +138,11 @@ ul li a.active {
   margin: 0 auto;
 }
 
+.instructions-wrapper {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
+  }
+
 
 #show-countdown {
   display: flex;
@@ -173,6 +184,14 @@ ul li a.active {
   font-weight: 500;
 }
 
+.speaker-icon {
+  font-size: 2.4rem;
+  color: #e7782d;
+  --animate-duration: 0.5s;
+}
+
+
+
 #answer-container {
   position: relative;
   display: grid;
@@ -207,10 +226,6 @@ ul li a.active {
   font-size: 0.7rem;
 }
 
-.speaker-icon {
-  font-size: 2.4rem;
-  color: #e7782d;
-}
 
 
 /* ----- Footer ----- */
@@ -372,6 +387,13 @@ Referenced from Animate CSS : "https://animate.style/" */
     padding-top: 92px;
   }
 
+
+  .instructions-wrapper p:last-child {
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
   .header-quote {
     font-size: 2rem;
   }
@@ -382,8 +404,8 @@ Referenced from Animate CSS : "https://animate.style/" */
   }
 
   #game-container {
-    background-size: 500px 457px;
-    height: 75vh;
+    background-size: 600px 548px;
+    height: 60vh;
   }
 
   /* -------------- Practice Tips Page --------------- */
@@ -425,6 +447,19 @@ Referenced from Animate CSS : "https://animate.style/" */
     background-size: 600px 548px;
   }
 
+  .instructions-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+
+  .instructions-wrapper p:last-child {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
   #lives-left-container {
     position: relative;
     top: 15px;
@@ -440,7 +475,7 @@ Referenced from Animate CSS : "https://animate.style/" */
     font-size: 4rem;
   }
 
-  #begin-training button {
+  #begin-training-btn {
     font-size: 1.4rem;
   }
 
