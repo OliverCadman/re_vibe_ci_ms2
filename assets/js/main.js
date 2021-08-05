@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function loadGame() {
   questions = [];
-  console.log(questions);
   livesRemaining = 3;
   correctAnswersRemaining = 10;
 
