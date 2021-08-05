@@ -264,7 +264,7 @@ const chordList = [
     chord: "Minor",
     frequency1: 311.13,
     frequency2: 369.99,
-    frequency3: 415.3,
+    frequency3: 466.16,
   },
   // E Minor
   {
@@ -611,3 +611,5 @@ const chordList = [
     frequency4: 466.16,
   },
 ];
+
+console.log(chordList.length)
