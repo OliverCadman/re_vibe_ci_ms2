@@ -7,12 +7,17 @@ let chord;
 let userAnswer;
 let correctAnswer;
 let correctAnswersRemaining = 10;
-let livesRemaining = 3;
+let livesRemaining;
+
 
 let answerCountdown = document.getElementsByClassName("correct-answers")[0];
 
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", () => {
+  loadGame();
+});
+
+function loadGame() {
   // Disable Begin Training button until either 'Interval Trainer' or 'Chord Identifier' are selected
   $("#begin-training-btn").prop("disabled", true);
 
@@ -29,7 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-});
+
+ 
+}
 
 
 
@@ -85,7 +92,7 @@ function runIntervalGame() {
 
 function runChordGame() {
   questions = [];
-  questionCount = 10;
+  questionCount = 1;
   questionIndex = 0;
 
   for (let question = 0; question < questionCount; question++) {
@@ -321,6 +328,11 @@ function checkChordAnswer(e, questionIndex) {
     }
     if (questionIndex === questionCount) {
       $("#completed-game-modal").modal("show"); // Display modal when user submits all correct answers
+      $("#answer-container").empty();
+      $("#play-again-btn").click(() => {
+        loadGame();
+        $("#completed-game-modal").modal("hide");
+      })
       if (livesRemaining > 1) {
         $("#completed-game-message").html(
           `Congratulations! You completed the game with ${livesRemaining} lives remaining!`
@@ -385,7 +397,7 @@ function playInterval(interval) {
   }, 1000);
   
 
-  // Invoking createTones function to play two frequencies
+  // Invoking createInterval function to play two frequencies
   createInterval(firstNote, secondNote);
 }
 
@@ -395,5 +407,6 @@ function playChord(chord) {
   let thirdNote = chord.frequency3;
   let fourthNote = chord.frequency4;
 
+  // Invoking createChord function to play random chord
   createChord(firstNote, secondNote, thirdNote, fourthNote);
 }
