@@ -20,7 +20,7 @@ function loadGame() {
   questions = [];
   console.log(questions);
   livesRemaining = 3;
-  correctAnswersRemaining = 5;
+  correctAnswersRemaining = 10;
 
   $("#begin-training-btn").show();
 
