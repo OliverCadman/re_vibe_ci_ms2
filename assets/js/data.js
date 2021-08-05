@@ -20,7 +20,10 @@ let chordAnswerList = [
   "Minor",
   "Dominant 7",
   "Major 7",
-  "Minor 7"
+  "Minor 7",
+  "Diminished 7",
+  "add2",
+  "sus4"
 ]
 
 // Array of Intervals to use to produce tones
