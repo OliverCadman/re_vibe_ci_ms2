@@ -13,7 +13,7 @@ let answerCountdown = document.getElementsByClassName("correct-answers")[0];
 
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", function () {
-  getRandomChordIndex();
+  loadGame();
 });
 
 function loadGame() {
@@ -412,7 +412,7 @@ function getRandomIntervalIndex() {
   return randomIndex;
 }
 
-// Generates a random number between 0 and 60;
+// Generates a random number between 0 and 50;
 function getRandomChordIndex() {
   let randomIndex = Math.ceil(Math.random() * 59);
   console.log(randomIndex);
