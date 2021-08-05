@@ -87,12 +87,8 @@ function readyGame(gameType) {
 function runIntervalGame() {
   $(".speaker-icon").show();
 
-  document
-    .getElementById("correct-answers-remaining")
-    .appendChild(answerCountdown);
-
   questions = [];
-  questionCount = 5;
+  questionCount = 10;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
@@ -104,6 +100,8 @@ function runIntervalGame() {
 
 // runChordGame gathers 10 chords to populate questions array
 function runChordGame() {
+  $(".speaker-icon").show();
+
   questions = [];
   questionCount = 10;
   questionIndex = 0;
@@ -451,6 +449,10 @@ function playChord(chord) {
   let secondNote = chord.frequency2;
   let thirdNote = chord.frequency3;
   let fourthNote = chord.frequency4;
+
+  // Animate speaker icon when interval plays
+  animateCSS(".speaker-icon", "heartBeat");
+ 
 
   // Invoking createChord function to play random chord
   createChord(firstNote, secondNote, thirdNote, fourthNote);
