@@ -34,7 +34,16 @@ function loadGame() {
       }
     });
   }
+ livesRemaining = 3;
 
+ let livesLeftContainer = document.getElementById("lives-left-container");
+ console.log(livesLeftContainer);
+ let livesLeft = "";
+ for (i = 0; i < livesRemaining; i++) {
+   livesLeft += `<span><i class="fas fa-user lives-left-icon"></i></span>`;
+   console.log(livesLeft);
+ }
+ livesLeftContainer.innerHTML = livesLeft;
  
 }
 
