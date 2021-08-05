@@ -31,11 +31,32 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
+
+const animateCSS = (element, animation, prefix = "animate__") =>
+ 
+  // We create a Promise and return it
+  new Promise((resolve, reject) => {
+    const animationName = `${prefix}${animation}`;
+    const node = document.querySelector(element);
+    node.classList.add(`${prefix}animated`, animationName);
+     console.log(element);
+
+    // When the animation ends, we clean the classes and resolve the Promise
+    function handleAnimationEnd(event) {
+      event.stopPropagation();
+      node.classList.remove(`${prefix}animated`, animationName);
+      resolve("Animation ended");
+    }
+
+    node.addEventListener("animationend", handleAnimationEnd, { once: true });
+  });
+
 function readyGame(gameType) {
   $("#begin-training-btn").prop("disabled", false);
   if (gameType === "interval-trainer") {
     $("#begin-training-btn").click(() => {
-      countDown(gameType)
+      countDown(gameType);
     });
   } else if (gameType === "chord-identifier") {
     $("#begin-training-btn").click(() => {
@@ -280,7 +301,6 @@ function checkIntervalAnswer(e, questionIndex) {
     let gameOverModal = $("#game-over-modal");
     gameOverModal.modal("show");
   }
-
 }
 
 function checkChordAnswer(e, questionIndex) {
@@ -358,15 +378,22 @@ function playInterval(interval) {
 
   let secondNote = interval.frequency2;
 
+  animateCSS(".speaker-icon", "heartBeat");
+  let animateSpeakerIcon = setInterval(() => {
+    animateCSS('.speaker-icon', 'heartBeat')
+    clearInterval(animateSpeakerIcon);
+  }, 1000);
+  
+
   // Invoking createTones function to play two frequencies
   createInterval(firstNote, secondNote);
 }
 
 function playChord(chord) {
-  let firstNote = chord.frequency1
-  let secondNote = chord.frequency2
-  let thirdNote = chord.frequency3
-  let fourthNote = chord.frequency4
+  let firstNote = chord.frequency1;
+  let secondNote = chord.frequency2;
+  let thirdNote = chord.frequency3;
+  let fourthNote = chord.frequency4;
 
-  createChord(firstNote, secondNote, thirdNote, fourthNote)
+  createChord(firstNote, secondNote, thirdNote, fourthNote);
 }
