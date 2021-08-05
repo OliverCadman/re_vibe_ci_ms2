@@ -143,6 +143,18 @@ ul li a.active {
     font-weight: 300;
   }
 
+.game-selection-button-wrapper,
+#begin-training-btn {
+  font-family: 'Krub', sans-serif;
+  font-weight: 500;
+}
+
+
+#begin-training-btn {
+  background-color:rgb(26, 25, 25);
+
+}
+
 
 #show-countdown {
   display: flex;
