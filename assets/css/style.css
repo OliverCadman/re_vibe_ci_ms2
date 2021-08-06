@@ -188,6 +188,7 @@ ul li a.active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 
 .lives-left-icon {
@@ -223,8 +224,6 @@ ul li a.active {
 
 #answer-container {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   top: 175px;
   right: 5px;
 }
