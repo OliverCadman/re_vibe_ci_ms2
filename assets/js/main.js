@@ -151,7 +151,7 @@ function countDown(gameType) {
 }
 
 function nextInterval(currentInterval) {
-  $('#answer-container').removeClass('show-interval-wrapper').css({'display': 'grid', 'grid-template-columns': '1fr 1fr 1fr'});
+  $('.show-interval-wrapper').empty();
 
   $(".speaker-icon").show();
   console.log(questions);
@@ -295,10 +295,10 @@ function replayInterval(currentInterval) {
 }
 
 function showImage(imageURL, name) {
-  $('.speaker-icon').hide()
-  $('#answer-container').empty().addClass('show-interval-wrapper').css({'display': 'flex', 'flex-direction': 'column', 'justify-content': 'center'})
+  $('.speaker-icon').hide();
+  $('#answer-container').empty();
   console.log($('#answer-container').get())
-  $('#answer-container').html(
+  $('.show-interval-wrapper').html(
     `<p class="notation-name">${name}</p>
     <img src=${imageURL} alt="Image of notation for correct answer" class="notation-image">`
   )
