@@ -145,13 +145,14 @@ function countDown(gameType) {
         runChordGame();
       }
       clearInterval(countdown);
-      $(".countdown-wrapper").attr("id", "hide-countdown");
       $(".countdown-wrapper").hide();
     }
   }, 1000);
 }
 
 function nextInterval(currentInterval) {
+
+  $(".speaker-icon").show();
   console.log(questions);
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
 
@@ -294,8 +295,9 @@ function replayInterval(currentInterval) {
 
 function showImage(imageURL, name) {
   $('.speaker-icon').hide()
-  $('.show-image-wrapper').html(
-    `<img src=${imageURL} alt="Image of notation for correct answer">`
+  $('.show-interval-wrapper').html(
+    `<p class="notation-name">${name}</p>
+    <img src=${imageURL} alt="Image of notation for correct answer" class="notation-image">`
   )
 }
 
