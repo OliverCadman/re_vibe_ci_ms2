@@ -151,6 +151,7 @@ function countDown(gameType) {
 }
 
 function nextInterval(currentInterval) {
+  $('#answer-container').removeClass('show-interval-wrapper').css({'display': 'grid', 'grid-template-columns': '1fr 1fr 1fr'});
 
   $(".speaker-icon").show();
   console.log(questions);
@@ -295,11 +296,13 @@ function replayInterval(currentInterval) {
 
 function showImage(imageURL, name) {
   $('.speaker-icon').hide()
-  $('.show-interval-wrapper').html(
+  $('#answer-container').empty().addClass('show-interval-wrapper').css({'display': 'flex', 'flex-direction': 'column', 'justify-content': 'center'})
+  console.log($('#answer-container').get())
+  $('#answer-container').html(
     `<p class="notation-name">${name}</p>
     <img src=${imageURL} alt="Image of notation for correct answer" class="notation-image">`
   )
-}
+};
 
 function checkIntervalAnswer(e, questionIndex) {
   userAnswer = e.target.textContent;
@@ -316,7 +319,7 @@ function checkIntervalAnswer(e, questionIndex) {
       setTimeout(() => {
         nextInterval(questionIndex);
         replayInterval(questionIndex);
-      }, 1000);
+      }, 3000);
     }
     if (questionIndex === questionCount) {
       questions.splice(0, questions.length);
