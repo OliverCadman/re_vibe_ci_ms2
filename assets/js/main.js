@@ -292,6 +292,13 @@ function replayInterval(currentInterval) {
   playInterval(questions[currentInterval]);
 }
 
+function showImage(imageURL, name) {
+  $('.speaker-icon').hide()
+  $('.show-image-wrapper').html(
+    `<img src=${imageURL} alt="Image of notation for correct answer">`
+  )
+}
+
 function checkIntervalAnswer(e, questionIndex) {
   userAnswer = e.target.textContent;
   console.log(questionIndex);
@@ -346,9 +353,6 @@ function checkIntervalAnswer(e, questionIndex) {
   }
 }
 
-function showImage(image, name) {
-  console.log(image + " " + name)
-}
 
 function checkChordAnswer(e, questionIndex) {
   userAnswer = e.target.textContent;
