@@ -149,14 +149,13 @@
             <!-- Game Container -->
             <div id="game-container">
               <div class="hide-overlay"></div>
-              <!--Empty div to be filled with content generated using variable correctAnswersRemaining, in assets/js/main.js -->
-              <div id="correct-answers-remaining">
-                <p class="correct-answers"></p>
-              </div>
-              <div id="lives-left-container">
-                <!-- <span><i class="fas fa-user lives-left-icon"></i></span>
-                <span><i class="fas fa-user lives-left-icon"></i></span>
-                <span><i class="fas fa-user lives-left-icon"></i></span> -->
+              <div class="row">
+                <div class="col-12 game-wrapper">
+                  <div id="correct-answers-remaining">
+                    <p class="correct-answers"></p>
+                  </div>
+                  <div id="lives-left-container"></div>
+                </div>
               </div>
               <!--Empty div to be filled with content generated in countDown function, in assets/js/main.js -->
               <div class="countdown-wrapper">
@@ -165,7 +164,13 @@
               <div class="answer-wrapper">
                 <div id="answer-container"></div>
               </div>
-              <div class="speaker-icon-wrapper justify-content-center">
+              <div
+                class="
+                  speaker-icon-wrapper
+                  show-image-wrapper
+                  justify-content-center
+                "
+              >
                 <span
                   ><i
                     class="fas fa-volume-up speaker-icon"
@@ -180,7 +185,9 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-lg-3 order-1 order-md-2 order-lg-3 text-md-center">
+          <div
+            class="col-12 col-lg-3 order-1 order-md-2 order-lg-3 text-md-center"
+          >
             <div class="instructions-container">
               <div class="instructions-wrapper">
                 <p>
@@ -191,28 +198,26 @@
                   Select a training mode by clicking one of the buttons below,
                   and click ‘Begin Training’ when you’re ready.
                 </p>
-                <p>
-                  Beware! You have three strikes and you’re out!
-                </p>
+                <p>Beware! You have three strikes and you’re out!</p>
               </div>
               <div class="game-selection-button-wrapper">
-              <button
-                type="button"
-                id="interval-trainer-btn"
-                data-type="interval-trainer"
-                class="btn btn-light"
-              >
-                Interval Trainer
-              </button>
-              <button
-                type="button"
-                id="chord-identifier-btn"
-                data-type="chord-identifier"
-                class="btn btn-light"
-              >
-                Chord Identifier
-              </button>
-            </div>
+                <button
+                  type="button"
+                  id="interval-trainer-btn"
+                  data-type="interval-trainer"
+                  class="btn btn-light"
+                >
+                  Interval Trainer
+                </button>
+                <button
+                  type="button"
+                  id="chord-identifier-btn"
+                  data-type="chord-identifier"
+                  class="btn btn-light"
+                >
+                  Chord Identifier
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -220,22 +225,33 @@
     </section>
     <!-- Completed Game and Game Over Modals. Animated using Animate CSS. Referenced from "https://animate.style/" -->
     <aside>
-      <div class="modal fade animate__animated animate__zoomIn" id="completed-game-modal">
+      <div
+        class="modal fade animate__animated animate__zoomIn"
+        id="completed-game-modal"
+      >
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h1>Contragulations!</h1>
+              <h1>Congratulations!</h1>
             </div>
             <div class="modal-body" id="completed-game-message"></div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-dark" data-dismiss="modal" id="play-again-btn">
+              <button
+                type="button"
+                class="btn btn-dark"
+                data-dismiss="modal"
+                id="play-again-btn"
+              >
                 Play Again
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div class="modal animate__animated animate__zoomInDown" id="game-over-modal">
+      <div
+        class="modal animate__animated animate__zoomInDown"
+        id="game-over-modal"
+      >
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -243,7 +259,11 @@
             </div>
             <div class="modal-body"></div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-dark play-again-btn" data-dismiss="modal">
+              <button
+                type="button"
+                class="btn btn-dark play-again-btn"
+                data-dismiss="modal"
+              >
                 Play Again
               </button>
             </div>
@@ -254,21 +274,37 @@
     <footer>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12 d-flex justify-content-center footer-icons-wrapper">
+          <div
+            class="col-12 d-flex justify-content-center footer-icons-wrapper"
+          >
             <div class="footer-icons">
               <ul>
                 <li>
-                  <span><a href="https://www.github.com/OliverCadman" target="_blank"><i class="fab fa-github"></i></a></span>
+                  <span
+                    ><a
+                      href="https://www.github.com/OliverCadman"
+                      target="_blank"
+                      ><i class="fab fa-github"></i></a
+                  ></span>
                 </li>
               </ul>
               <ul>
                 <li>
-                  <span><a href="https://www.instagram.com/oliplays_piano" target="_blank"><i class="fab fa-instagram"></i></a></span>
+                  <span
+                    ><a
+                      href="https://www.instagram.com/oliplays_piano"
+                      target="_blank"
+                      ><i class="fab fa-instagram"></i></a
+                  ></span>
                 </li>
               </ul>
               <ul>
                 <li>
-                  <span><a href="https://www.facebook.com/oliver.cadman" target="_blank"><i class="fab fa-facebook"></i></a
+                  <span
+                    ><a
+                      href="https://www.facebook.com/oliver.cadman"
+                      target="_blank"
+                      ><i class="fab fa-facebook"></i></a
                   ></span>
                 </li>
               </ul>
