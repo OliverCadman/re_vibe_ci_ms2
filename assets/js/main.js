@@ -299,6 +299,7 @@ function checkIntervalAnswer(e, questionIndex) {
   if (userAnswer === questions[questionIndex].interval) {
     let correctAnswerSound = new Audio("assets/sounds/correct-answer.mp3");
     correctAnswerSound.play();
+    showImage(questions[questionIndex].image, questions[questionIndex].name);
     correctAnswersRemaining--;
     answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++;
@@ -343,6 +344,10 @@ function checkIntervalAnswer(e, questionIndex) {
     let gameOverModal = $("#game-over-modal");
     gameOverModal.modal("show");
   }
+}
+
+function showImage(image, name) {
+  console.log(image + " " + name)
 }
 
 function checkChordAnswer(e, questionIndex) {
@@ -451,7 +456,6 @@ function playChord(chord) {
 
   // Animate speaker icon when interval plays
   animateCSS(".speaker-icon", "heartBeat");
- 
 
   // Invoking createChord function to play random chord
   createChord(firstNote, secondNote, thirdNote, fourthNote);
