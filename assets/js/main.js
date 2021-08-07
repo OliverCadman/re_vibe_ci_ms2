@@ -157,7 +157,7 @@ function countDown(gameType) {
 }
 
 function nextInterval(currentInterval) {
-  $(".correct-answer-wrapper").empty().removeClass('show-correct-answerco');
+  $(".correct-answer-wrapper").empty().removeClass('show-correct-answer');
 
   $(".speaker-icon").show();
   console.log(questions);
@@ -201,6 +201,8 @@ function nextInterval(currentInterval) {
 }
 
 function nextChord(currentChord) {
+  $(".correct-answer-wrapper").empty().removeClass("show-correct-answer");
+  $(".speaker-icon").show();
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
   /* Initialize question index and pass it
   into questions object array to access relative index */
