@@ -301,6 +301,7 @@ const chordList = [
   // B Major
   {
     chord: "Major",
+    name: "B Major Triad",
     frequency1: 246.94,
     frequency2: 311.13,
     frequency3: 369.99,
