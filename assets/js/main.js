@@ -22,6 +22,10 @@ function loadGame() {
   livesRemaining = 3;
   correctAnswersRemaining = 10;
 
+  $('.speaker-icon').hide();
+
+  $('#lives-left-container').hide();
+
   $("#begin-training-btn")
     .show()
     .css({ opacity: "0.5", width: "35%" })
@@ -74,6 +78,8 @@ const animateCSS = (element, animation, prefix = "animate__") =>
   });
 
 function readyGame(gameType) {
+  $('.game-selection-button-container').hide();
+  $('.speaker-icon').show();
   $("#begin-training-btn")
     .prop("disabled", false)
     .css({ opacity: "1", 'width':'inherit' })
