@@ -157,7 +157,7 @@ function countDown(gameType) {
 }
 
 function nextInterval(currentInterval) {
-  $(".correct-answer-wrapper").empty().removeClass('show-correct-answer');
+  $(".correct-answer-wrapper").empty().removeClass('show-correct-answerco');
 
   $(".speaker-icon").show();
   console.log(questions);
@@ -375,6 +375,7 @@ function checkChordAnswer(e, questionIndex) {
   if (userAnswer === questions[questionIndex].chord) {
     let correctAnswer = new Audio("assets/sounds/correct-answer.mp3");
     correctAnswer.play();
+    showImage(questions[questionIndex].image, questions[questionIndex].name);
     correctAnswersRemaining--;
     answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++;
@@ -382,7 +383,7 @@ function checkChordAnswer(e, questionIndex) {
     if (questionIndex < questionCount) {
       setTimeout(() => {
         nextChord(questionIndex);
-      }, 1000);
+      }, 3000);
     }
     if (questionIndex === questionCount) {
       $("#completed-game-modal").modal("show");
