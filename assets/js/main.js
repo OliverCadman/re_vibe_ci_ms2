@@ -80,6 +80,10 @@ const animateCSS = (element, animation, prefix = "animate__") =>
 function readyGame(gameType) {
   $('.game-selection-button-container').hide();
   $('.speaker-icon').show();
+
+  $('#game-mode-header').html(
+    `${gameType.replace("-", " ")}`
+  )
   $("#begin-training-btn")
     .prop("disabled", false)
     .css({ opacity: "1", 'width':'inherit' })
