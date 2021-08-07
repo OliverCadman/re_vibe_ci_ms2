@@ -140,6 +140,17 @@ ul li a.active {
   font-weight: 300;
 }
 
+#game-mode-header {
+  position: absolute;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  font-size: 2rem;
+  width: 50%;
+  margin-left: 10px;
+  color: #fafafa;
+  
+}
+
 .game-selection-button-wrapper,
 #begin-training-btn {
   font-family: "Krub", sans-serif;
