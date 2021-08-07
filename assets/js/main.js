@@ -308,6 +308,10 @@ function showImage(imageURL, name) {
     `<p class="notation-name">${name}</p>
     <img src=${imageURL} alt="Image of notation for correct answer" class="notation-image">`
   );
+  animateCSS('.show-interval-wrapper', 'flipInY');
+  setTimeout(() => {
+    animateCSS('.show-interval-wrapper', 'flipOutY');
+  },2400)
 }
 
 function checkIntervalAnswer(e, questionIndex) {
