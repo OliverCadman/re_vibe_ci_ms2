@@ -90,10 +90,12 @@ function readyGame(gameType) {
     .text("Begin Training");
   if (gameType === "interval-trainer") {
     $("#begin-training-btn").click(() => {
+      $("#game-mode-header").hide()
       countDown(gameType);
     });
   } else if (gameType === "chord-identifier") {
     $("#begin-training-btn").click(() => {
+      $("#game-mode-header").hide();
       countDown(gameType);
     });
   }
@@ -102,6 +104,7 @@ function readyGame(gameType) {
 // runIntervalGame() gathers 10 intervals to populate questions array
 function runIntervalGame() {
   $(".speaker-icon").show();
+  $("#lives-left-container").show();
 
   questions = [];
   questionCount = 10;
@@ -117,6 +120,8 @@ function runIntervalGame() {
 // runChordGame gathers 10 chords to populate questions array
 function runChordGame() {
   $(".speaker-icon").show();
+   $("#lives-left-container").show();
+
 
   questions = [];
   questionCount = 10;
