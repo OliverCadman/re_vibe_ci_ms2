@@ -8,6 +8,7 @@ let userAnswer;
 let correctAnswer;
 let correctAnswersRemaining;
 let livesRemaining;
+let soundCollection;
 
 let answerCountdown = document.getElementsByClassName("correct-answers")[0];
 
@@ -160,7 +161,7 @@ function nextInterval(currentInterval) {
   $(".correct-answer-wrapper").empty().removeClass('show-correct-answer');
 
   $(".speaker-icon").show();
-  console.log(questions);
+
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
 
   let answerOptions = getIntervalAnswers(questions[currentInterval]);
@@ -196,6 +197,7 @@ function nextInterval(currentInterval) {
   playInterval(questions[currentInterval]);
 
   $("#replay-interval").click(() => {
+  
     replayInterval(currentInterval);
   });
 }
@@ -298,8 +300,9 @@ function shuffleAnswers(array) {
   return array;
 }
 
-function replayInterval(currentInterval) {
-  playInterval(questions[currentInterval]);
+function replayInterval(questionIndex) {
+
+ console.log(questionIndex)
 }
 
 function showImage(imageURL, name) {
@@ -329,9 +332,9 @@ function checkIntervalAnswer(e, questionIndex) {
     answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++;
     if (questionIndex < questionCount) {
+      soundCollection = [];
       setTimeout(() => {
         nextInterval(questionIndex);
-        replayInterval(questionIndex);
       }, 3000);
     }
     if (questionIndex === questionCount) {
@@ -359,6 +362,7 @@ function checkIntervalAnswer(e, questionIndex) {
   } else {
     let wrongAnswerSound = new Audio("assets/sounds/wrong-answer.mp3");
     wrongAnswerSound.play();
+    animateCSS(".speaker-icon", "wobble");
     livesRemaining--;
     $(".lives-left-icon")[0].remove();
 
@@ -410,6 +414,7 @@ function checkChordAnswer(e, questionIndex) {
   } else {
     let wrongAnswer = new Audio("assets/sounds/wrong-answer.mp3");
     wrongAnswer.play();
+    animateCSS(".speaker-icon", "wobble");
     livesRemaining--;
     $(".lives-left-icon")[0].remove();
 
