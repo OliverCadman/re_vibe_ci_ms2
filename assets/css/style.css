@@ -144,7 +144,17 @@ ul li a.active {
 #begin-training-btn {
   font-family: "Krub", sans-serif;
   font-weight: 500;
+
+  
 }
+
+/* #begin-training-btn {
+  display: inline-block;
+  word-break: break-all;
+  overflow-wrap: break-word;
+} */
+
+
 
 .game-selection-button-wrapper {
   display: flex;
@@ -177,19 +187,37 @@ ul li a.active {
 }
 
 .notation-image {
-  width: 50%;
+  width: 75%;
   border-radius: 5px;
 
 }
 
-.show-interval-wrapper {
-  position: relative;
+.correct-answer-container {
+   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  top: 25%;
 }
+
+.correct-answer-wrapper {
+  font-family: 'Work Sans', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  --animate-duration: 0.9s;
+  width: 50%;
+  border-radius: 5px;
+}
+
+.show-correct-answer {
+  padding-bottom: 20px;
+  padding-top: 5px;
+}
+
+
 
 .lives-left-icon {
   color: #fafafa;
@@ -226,6 +254,8 @@ ul li a.active {
   position: relative;
   top: 175px;
   right: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .answer-btn {
