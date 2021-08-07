@@ -21,7 +21,10 @@ function loadGame() {
   livesRemaining = 3;
   correctAnswersRemaining = 10;
 
-  $("#begin-training-btn").show();
+  $("#begin-training-btn")
+    .show()
+    .css({ opacity: "0.5", width: "35%" })
+    .text("Please Select Training Mode");
 
   /* Disable Begin Training button until either
    'Interval Trainer' or 'Chord Identifier' are selected */
@@ -70,7 +73,10 @@ const animateCSS = (element, animation, prefix = "animate__") =>
   });
 
 function readyGame(gameType) {
-  $("#begin-training-btn").prop("disabled", false);
+  $("#begin-training-btn")
+    .prop("disabled", false)
+    .css({ opacity: "1", 'width':'inherit' })
+    .text("Begin Training");
   if (gameType === "interval-trainer") {
     $("#begin-training-btn").click(() => {
       countDown(gameType);
@@ -151,7 +157,7 @@ function countDown(gameType) {
 }
 
 function nextInterval(currentInterval) {
-  $('.show-interval-wrapper').empty();
+  $(".show-interval-wrapper").empty();
 
   $(".speaker-icon").show();
   console.log(questions);
@@ -295,14 +301,14 @@ function replayInterval(currentInterval) {
 }
 
 function showImage(imageURL, name) {
-  $('.speaker-icon').hide();
-  $('#answer-container').empty();
-  console.log($('#answer-container').get())
-  $('.show-interval-wrapper').html(
+  $(".speaker-icon").hide();
+  $("#answer-container").empty();
+  console.log($("#answer-container").get());
+  $(".show-interval-wrapper").html(
     `<p class="notation-name">${name}</p>
     <img src=${imageURL} alt="Image of notation for correct answer" class="notation-image">`
-  )
-};
+  );
+}
 
 function checkIntervalAnswer(e, questionIndex) {
   userAnswer = e.target.textContent;
@@ -357,7 +363,6 @@ function checkIntervalAnswer(e, questionIndex) {
     gameOverModal.modal("show");
   }
 }
-
 
 function checkChordAnswer(e, questionIndex) {
   userAnswer = e.target.textContent;
