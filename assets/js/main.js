@@ -157,7 +157,7 @@ function countDown(gameType) {
 }
 
 function nextInterval(currentInterval) {
-  $(".show-interval-wrapper").empty();
+  $(".correct-answer-wrapper").empty().removeClass('show-correct-answer');
 
   $(".speaker-icon").show();
   console.log(questions);
@@ -304,13 +304,14 @@ function showImage(imageURL, name) {
   $(".speaker-icon").hide();
   $("#answer-container").empty();
   console.log($("#answer-container").get());
-  $(".show-interval-wrapper").html(
+  $(".correct-answer-wrapper").html(
     `<p class="notation-name">${name}</p>
     <img src=${imageURL} alt="Image of notation for correct answer" class="notation-image">`
   );
-  animateCSS('.show-interval-wrapper', 'flipInY');
+  $(".correct-answer-wrapper").addClass('show-correct-answer');
+  animateCSS('.correct-answer-wrapper', 'flipInY');
   setTimeout(() => {
-    animateCSS('.show-interval-wrapper', 'flipOutY');
+    animateCSS('.correct-answer-wrapper', 'flipOutY');
   },2400)
 }
 
