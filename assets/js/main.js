@@ -20,7 +20,9 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadGame() {
   questions = [];
   livesRemaining = 3;
-  correctAnswersRemaining = 10;
+  correctAnswersRemaining = 1;
+
+  $('.game-selection-button-container').show();
 
   $('.speaker-icon').hide();
 
@@ -105,9 +107,10 @@ function readyGame(gameType) {
 function runIntervalGame() {
   $(".speaker-icon").show();
   $("#lives-left-container").show();
+  console.log('testing')
 
   questions = [];
-  questionCount = 10;
+  questionCount = 1;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
@@ -353,11 +356,15 @@ function checkIntervalAnswer(e, questionIndex) {
       }, 3000);
     }
     if (questionIndex === questionCount) {
-      questions.splice(0, questions.length);
-      console.log(questions);
-      $("#completed-game-modal").modal("show");
-      $("#answer-container").empty();
-      $("#correct-answers-remaining").empty();
+      setTimeout(() => {
+        $("#completed-game-modal").modal("show");
+        $(".opaque-overlay")
+          .removeAttr("class", "opaque-overlay")
+          .attr("class", "hide-overlay");
+        $(".correct-answer-wrapper").empty();
+        $("#answer-container").empty();
+        $("#correct-answers-remaining").empty();
+      },3000)
       $("#play-again-btn").click(() => {
         loadGame(questions);
         $("#completed-game-modal").modal("hide");
