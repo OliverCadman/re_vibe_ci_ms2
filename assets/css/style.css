@@ -142,13 +142,12 @@ ul li a.active {
 
 #game-mode-header {
   position: absolute;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
   font-size: 2rem;
   width: 50%;
   margin-left: 10px;
   color: #fafafa;
-  
 }
 
 .game-selection-button-wrapper,
@@ -175,7 +174,6 @@ ul li a.active {
 .game-selection-btn {
   margin: 0 5px;
 }
-
 
 #begin-training-btn {
   background-color: rgb(26, 25, 25);
@@ -405,12 +403,12 @@ Referenced from Animate CSS : "https://animate.style/" */
 }
 
 .contact-brief-wrapper {
-  background: url('../images/contact-page/contact-page-hero-image.svg') no-repeat;
+  background: url("../images/contact-page/contact-page-hero-image.svg")
+    no-repeat;
   background-size: 100%;
   height: 200px;
-  font-family: 'Work Sans', sans-serif;
-  color:rgb(26, 25, 25);
- 
+  font-family: "Work Sans", sans-serif;
+  color: rgb(26, 25, 25);
 }
 
 .contact-brief-wrapper p:first-child {
@@ -419,14 +417,13 @@ Referenced from Animate CSS : "https://animate.style/" */
   margin-top: 5px;
 }
 .contact-header h1 {
-  font-family: 'Work Sans', sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-weight: 200;
   font-size: 2rem;
   text-decoration: underline;
 }
 
 /* Contact Form */
-
 
 .contact-form-wrapper {
   margin-top: 10px;
@@ -435,32 +432,29 @@ Referenced from Animate CSS : "https://animate.style/" */
 
 .form-group {
   margin-bottom: 20px;
-  font-family: 'Krub', sans-serif;
+  font-family: "Krub", sans-serif;
   letter-spacing: 1px;
 }
 
 .form-group input,
 .form-group textarea,
 .form-group label {
-  font-family: 'Work Sans', sans-serif;
-  color: #23272a;
-}
-
-button[type="submit"] {
-  background-color: #2f282c;
-  border: none;
+  font-family: "Work Sans", sans-serif;
   color: #fafaf9;
 }
 
-
-legend { 
-  border-bottom: 1px solid black;
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 600;
+button[type="submit"] {
+  background-color: #fafaf9;
+  border: none;
   color: #23272a;
 }
 
-
+legend {
+  border-bottom: 3px solid #fafaf9;
+  font-family: "Work Sans", sans-serif;
+  color: #fafaf9;
+  font-weight: 600;
+}
 
 /* Media Query - iPad Device Size */
 @media screen and (min-width: 768px) {
@@ -537,7 +531,6 @@ legend {
     font-size: 1.3rem;
   }
 
-
   .speaker-icon {
     font-size: 3rem;
   }
@@ -556,7 +549,7 @@ legend {
   .practice-tips-hero {
     min-width: 350px;
   }
-  
+
   .practice-tips-header h1 {
     font-size: 3rem;
   }
@@ -573,41 +566,57 @@ legend {
   }
 
   .contact-brief-wrapper {
-  background:#23272a;
-  color: #fafafa;
-  font-size: 1.2rem;
-}
+    background: #23272a;
+    color: #fafafa;
+    font-size: 1.2rem;
+  }
 
-.contact-brief-wrapper p:first-child {
-  width: inherit;
-  margin-left: 0;
-}
+  .contact-brief-wrapper p:first-child {
+    width: inherit;
+    margin-left: 0;
+  }
 
-.contact-lessons-wrapper h4 {
-  font-weight: bold;
-  font-family: 'Roboto Condensed', sans-serif;
-  text-transform: uppercase;
-}
+  .contact-lessons-wrapper h4 {
+    font-weight: bold;
+    font-family: "Roboto Condensed", sans-serif;
+    text-transform: uppercase;
+  }
 
-.contact-lessons-wrapper {
-  background-color: rgba(239, 150, 123, 0.068);
-  padding: 15px;
-  border-radius: 10px;
-  font-family: 'Work Sans', sans-serif;
-  font-size: 1rem;
+  .contact-lessons-wrapper {
+    background-color: rgba(239, 150, 123, 0.068);
+    padding: 15px;
+    border-radius: 10px;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1rem;
+  }
 
-}
+  .contact-form-container {
+    background-color: #9c604d;
+  }
 
-.contact-form-container {
-  background-color: #9c604d;
-}
+  .contact-form-wrapper {
+    background-color: #fafaf9;
+    border-radius: 10px;
+    color: #23272a;
+  }
 
-.contact-form-wrapper {
-  background-color: #fafafa;
-  margin: 20px;
-  border-radius: 10px;
-}
-  
+  legend {
+    color: #23272a;
+    border-bottom: 3px solid #23272a;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group label {
+    font-family: "Work Sans", sans-serif;
+    color: #23272a;
+  }
+
+  button[type="submit"] {
+    border: 2px solid #23272a;
+    background-color: #23272a;
+    color: #fafaf9;
+  }
 }
 
 /* Media Query - Laptop Device Size and up */
@@ -714,7 +723,7 @@ legend {
 
   /* -------- Contact Page --------- */
 
-    .contact-header h1 {
+  .contact-header h1 {
     font-size: 3.5rem;
   }
 
@@ -722,13 +731,16 @@ legend {
     padding-top: 110px;
   }
 
-  
-
   #contact-hero {
-  width: 400px;
-  display: block;
-}
+    width: 400px;
+    display: block;
+  }
 
+  button[type="submit"]:hover {
+    border: 2px solid #23272a;
+    background-color: #fafaf9;
+    color: #23272a;
+  }
 }
 
 /* Media Query - iPad Pro Device Size: Referenced from 'https://fjorgedigital.com/insights/blog/how-can-i-target-only-an-ipad-pro/' */
@@ -757,7 +769,6 @@ legend {
     width: 58%;
     margin-left: 5px;
   }
-
 }
 
 /* iPhone 6/7/8 */
@@ -800,8 +811,6 @@ legend {
     width: 65% !important;
     margin-left: 5px;
   }
-
-  
 }
 
 /* iPhone X */
@@ -838,7 +847,6 @@ legend {
   .contact-brief-wrapper {
     height: 250px;
     background-size: 110%;
-
   }
 
   .display-contact-brief {
@@ -898,7 +906,6 @@ legend {
 
   .contact-brief-wrapper {
     height: 250px;
-    
   }
 
   .display-contact-brief {
@@ -934,13 +941,9 @@ legend {
   #game-mode-header {
     position: absolute;
     top: 20px;
-   
   }
 
   .contact-brief-wrapper {
     height: 250px;
-    
   }
-
-  
 }
