@@ -117,13 +117,11 @@
     <section>
         <div class="container-fluid contact-form-container">
             <div class="row">
-                <div class="col-12 contact-header">
-                    <h1>Contact</h1>
-                </div>
-                <div class="row">
-                    <!-- Two paragraphs of text content inviting user to get in touch-->
-                    <div class="col-12 col-md-6 contact-brief-container">
-                        <div class="contact-brief-wrapper">
+                <div class="col-12 col-md-6 col-lg-3 order-2">
+                    <div class="contact-header">
+                        <h1>Contact</h1>
+                    </div>
+                    <div class="contact-brief-wrapper">
                             <p>
                                 If you have any questions or comments about the re:Vibe service,
                                 please don't hesitate to get in touch! 
@@ -133,7 +131,17 @@
                                 leave a question or some feedback in the space provided.
                             </p>
                         </div>
-                        <div class="contact-lessons-wrapper">
+                </div>
+                <!-- Graphic SVG Hero Image -->
+                <div class="col-12 col-md-6 order-1 order-md-2 contact-hero-container">
+                    <div class="contact-hero-wrapper">
+                        <figure>
+                            <img id="contact-hero" src="assets/images/contact-page/contact-page-hero-image.svg" alt="Graphic image of man listening to music with headphones">
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3 order-md-3">
+                    <div class="contact-lessons-wrapper d-none d-md-block">
                         <h4>Piano Lessons</h4>
                         <p>
                             Ear Training and the Piano are best friends. 
@@ -144,33 +152,39 @@
                         Classical or Pop music, please drop a message using the contact form.   
                         </p>
                     </div>
-                    </div>
-                    <!-- Contact Form Wrapper -->
-                    <div class="col-12 col-md-6 contact-form-wrapper">
-                        <form class="form-inline">
-                            <fieldset>
-                                <legend>
-                                    Get in Touch
-                                </legend>
-                                <div class="form-group">
-                                    <label for="name">Name:</label>
-                                    <input class="form-control" type="text" id="name" name="name" placeholder="Please enter your name" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email-address">Email:</label>
-                                    <input class="form-control" type="email" id="email-address" name="email-address" placeholder="Please enter your email" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="questions-feedback">Questions/Feedback:</label>
-                                    <textarea class="form-control" name="questions-feedback" rows="10" id="questions-feedback" placeholder="Leave any questions or comments!"></textarea>
-                                </div>
-                                <div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
                 </div>
+            </div>
+            <div class="row d-flex flex-md-row justify-content-center ">
+                <!-- Two paragraphs of text content inviting user to get in touch-->
+                <div class="col-12 contact-brief-container">
+                </div>
+                <!-- Contact Form Wrapper -->
+                <div class="col-12 col-md-6 contact-form-wrapper">
+                    <form class="form-inline">
+                        <fieldset>
+                            <legend>
+                                Get in Touch
+                            </legend>
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input class="form-control" type="text" id="name" name="name" placeholder="Please enter your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email-address">Email:</label>
+                                <input class="form-control" type="email" id="email-address" name="email-address" placeholder="Please enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="questions-feedback">Questions/Feedback:</label>
+                                <textarea class="form-control" name="questions-feedback" rows="4" id="questions-feedback" placeholder="Leave any questions or comments!"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
 
             </div>
 
