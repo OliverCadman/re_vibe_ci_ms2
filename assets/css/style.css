@@ -353,7 +353,7 @@ Referenced from Animate CSS : "https://animate.style/" */
 /* -------- Practice Tips Article ---------- */
 
 .practice-tips-body {
-  background-color: hsla(14.6, 79%, 71%);
+  background-color: #9c604d;
 }
 
 .practice-tip-wrapper {
@@ -440,8 +440,10 @@ Referenced from Animate CSS : "https://animate.style/" */
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group label {
   font-family: 'Work Sans', sans-serif;
+  color: #23272a;
 }
 
 .form-group button {
@@ -452,6 +454,9 @@ Referenced from Animate CSS : "https://animate.style/" */
 
 legend { 
   border-bottom: 1px solid black;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  color: #23272a;
 }
 
 
@@ -569,11 +574,38 @@ legend {
   .contact-brief-wrapper {
   background:#23272a;
   color: #fafafa;
+  font-size: 1.2rem;
 }
 
 .contact-brief-wrapper p:first-child {
   width: inherit;
-  margin: 0;
+  margin-left: 0;
+}
+
+.contact-lessons-wrapper h4 {
+  font-weight: bold;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+}
+
+.contact-lessons-wrapper {
+  background-color: rgba(239, 150, 123, 0.068);
+  padding: 15px;
+  border-radius: 10px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1rem;
+
+}
+
+.contact-form-container {
+ 
+  background-color: #9c604d;
+}
+
+.contact-form-wrapper {
+  background-color: #fafafa;
+  margin: 20px;
+  border-radius: 10px;
 }
   
 }
@@ -682,18 +714,18 @@ legend {
 
   /* -------- Contact Page --------- */
 
+    .contact-header h1 {
+    font-size: 3.5rem;
+  }
+
   .contact-form-section {
     padding-top: 110px;
   }
 
-  .contact-hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  
 
   #contact-hero {
-  width: 350px;
+  width: 400px;
   display: block;
 }
 
