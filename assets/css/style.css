@@ -557,13 +557,15 @@ legend {
   }
 
   /* ------------- Contact Page ------------ */
-/* 
-  .contact-form-container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  } */
+
+  .contact-brief-wrapper {
+  background:#23272a;
+  color: #fafafa;
+}
+
+.contact-brief-wrapper p:first-child {
+  width: inherit;
+}
   
 }
 
@@ -684,10 +686,6 @@ legend {
   #contact-hero {
   width: 350px;
   display: block;
-}
-
-.contact-brief-wrapper {
-  background:#23272a;
 }
 
 }
