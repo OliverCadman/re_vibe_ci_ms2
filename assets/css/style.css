@@ -588,6 +588,7 @@ legend {
     border-radius: 10px;
     font-family: "Work Sans", sans-serif;
     font-size: 1rem;
+    margin: 20px;
   }
 
   .contact-form-container {
@@ -598,6 +599,7 @@ legend {
     background-color: #fafaf9;
     border-radius: 10px;
     color: #23272a;
+    margin: 30px 0;
   }
 
   legend {
@@ -725,6 +727,10 @@ legend {
 
   .contact-header h1 {
     font-size: 3.5rem;
+  }
+
+  .contact-lessons-wrapper {
+    margin: 0;
   }
 
   .contact-form-section {
