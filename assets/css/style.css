@@ -229,6 +229,10 @@ ul li a.active {
   font-size: 1.3rem;
 }
 
+.wrong-answer-display p {
+  display: inline;
+}
+
 .speaker-icon-wrapper {
   position: absolute;
   top: 50%;
@@ -519,12 +523,20 @@ legend {
   }
 
   #game-container {
-    background-size: 600px 548px;
-    height: 60vh;
+    background-size: 100%;
+    height: 65vh;
   }
 
   .correct-answer-container {
     width: 100%;
+  }
+
+  .answer-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
   }
 
   #begin-training-btn {
@@ -648,6 +660,11 @@ legend {
     background-size: 600px 548px;
   }
 
+  #game-mode-header {
+  font-size: 3rem;
+  
+}
+
   .instructions-container {
     display: flex;
     flex-direction: column;
@@ -670,13 +687,6 @@ legend {
     font-size: 1rem;
   }
 
-  .answer-wrapper {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-  }
 
   #lives-left-container {
     position: relative;
