@@ -531,6 +531,10 @@ legend {
     width: 100%;
   }
 
+  .correct-answers {
+    font-size: 1.5rem;
+  }
+
   .answer-wrapper {
     height: 100%;
     display: flex;
@@ -686,6 +690,11 @@ legend {
     top: 15px;
     left: 20px;
     margin-bottom: 0;
+    font-size: 1.1rem;
+  }
+
+  #answer-container {
+    margin-bottom: 30px;
   }
 
   .answer-btn {
@@ -695,12 +704,14 @@ legend {
 
   #lives-left-container {
     position: relative;
-    top: 15px;
+    top: 10px;
     right: 20px;
   }
 
-  .lives-left-icon {
-    font-size: 2rem;
+
+  
+  #lives-left-container i {
+    font-size: 1.6rem;
     margin-left: 5px;
   }
 
