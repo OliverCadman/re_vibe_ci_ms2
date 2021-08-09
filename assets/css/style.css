@@ -427,6 +427,7 @@ Referenced from Animate CSS : "https://animate.style/" */
 
 /* Contact Form */
 
+
 .contact-form-wrapper {
   margin-top: 10px;
   padding: 20px;
@@ -436,6 +437,16 @@ Referenced from Animate CSS : "https://animate.style/" */
   margin-bottom: 20px;
   font-family: 'Krub', sans-serif;
   letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group textarea {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.form-group button {
+  background-color:#e7782d;
+  border: none;
 }
 
 
