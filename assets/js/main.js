@@ -262,6 +262,12 @@ function nextChord(currentChord) {
 
   // Invokes playChord function, passing in index of questions object array
   playChord(questions[currentChord]);
+
+  $("#replay-question")
+    .off("click")
+    .on("click", () => {
+      playChord(questions[currentChord]);
+    });
 }
 
 // getIntervalAnswers takes the current question index as argument
