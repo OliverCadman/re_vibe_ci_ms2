@@ -539,20 +539,25 @@ legend {
     margin: 0 auto;
   }
 
+    .answer-btn {
+    font-size: 1.3rem;
+  }
+
   #begin-training-btn {
     font-size: 1.3rem;
   }
 
   .speaker-icon {
-    font-size: 3rem;
+    font-size: 5rem;
   }
 
   #lives-left-container {
-    right: 90px;
+    right: 20px;
+    top: 20px;
   }
 
   #lives-left-container i {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-left: 5px;
   }
 
