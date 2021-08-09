@@ -446,9 +446,10 @@ Referenced from Animate CSS : "https://animate.style/" */
   color: #23272a;
 }
 
-.form-group button {
-  background-color:#e7782d;
+button[type="submit"] {
+  background-color: #2f282c;
   border: none;
+  color: #fafaf9;
 }
 
 
@@ -598,7 +599,6 @@ legend {
 }
 
 .contact-form-container {
- 
   background-color: #9c604d;
 }
 
