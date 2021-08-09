@@ -53,7 +53,7 @@ body {
   color: #fafafa;
   font-family: "Work Sans", sans-serif;
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: 200;
   text-decoration: none;
   margin-left: 5px;
 }
@@ -353,7 +353,7 @@ Referenced from Animate CSS : "https://animate.style/" */
 /* -------- Practice Tips Article ---------- */
 
 .practice-tips-body {
-  background-color: #f0997d;
+  background-color: hsla(14.6, 79%, 71%);
 }
 
 .practice-tip-wrapper {
@@ -392,6 +392,23 @@ Referenced from Animate CSS : "https://animate.style/" */
   margin-right: 10px;
 }
 
+/* ------------------ Contact Page -------------------- */
+
+#contact-hero {
+  width: 100%;
+}
+
+.contact-form-container {
+  padding-top: 90px;
+  background-color: #23272a;
+  color: #fafafa;
+}
+
+legend { 
+  border-bottom: 1px solid black;
+}
+
+
 /* Media Query - iPad Device Size */
 @media screen and (min-width: 768px) {
   /* -------------- Title Page --------------- */
@@ -418,7 +435,7 @@ Referenced from Animate CSS : "https://animate.style/" */
   .navbar-brand {
     margin-left: 15px;
     font-size: 2.2rem;
-    font-weight: 400;
+    font-weight: 300;
   }
 
   .navbar-nav {
@@ -491,6 +508,16 @@ Referenced from Animate CSS : "https://animate.style/" */
   .practice-tip-wrapper:last-child {
     max-width: 600px;
   }
+
+  /* ------------- Contact Page ------------ */
+/* 
+  .contact-form-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  } */
+  
 }
 
 /* Media Query - Laptop Device Size and up */
@@ -594,6 +621,24 @@ Referenced from Animate CSS : "https://animate.style/" */
   .lead-summary-two {
     color: #fafafa;
   }
+
+  /* -------- Contact Page --------- */
+
+  .contact-form-container {
+    padding-top: 110px;
+  }
+
+  .contact-hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #contact-hero {
+  width: 350px;
+  display: block;
+}
+
 }
 
 /* Media Query - iPad Pro Device Size: Referenced from 'https://fjorgedigital.com/insights/blog/how-can-i-target-only-an-ipad-pro/' */
@@ -639,6 +684,8 @@ Referenced from Animate CSS : "https://animate.style/" */
   .practice-tips-hero {
     width: 350px;
   }
+
+  
 }
 
 /* iPhone X */
