@@ -408,7 +408,15 @@ Referenced from Animate CSS : "https://animate.style/" */
   background: url('../images/contact-page/contact-page-hero-image.svg') no-repeat;
   background-size: 100%;
   height: 200px;
+  font-family: 'Work Sans', sans-serif;
+  color:rgb(26, 25, 25);
  
+}
+
+.contact-brief-wrapper p:first-child {
+  width: 59%;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 .contact-header h1 {
   font-family: 'Work Sans', sans-serif;
@@ -682,7 +690,8 @@ legend {
 
   .display-contact-brief {
     display: block !important;
-    width: 65%;
+    width: 58%;
+    margin-left: 5px;
   }
 
 }
@@ -719,11 +728,13 @@ legend {
 
   .contact-brief-wrapper {
     height: 250px;
+    background-size: 110%;
   }
 
   .display-contact-brief {
     display: block !important;
-    width: 60%;
+    width: 65% !important;
+    margin-left: 5px;
   }
 
   
@@ -762,11 +773,14 @@ legend {
 
   .contact-brief-wrapper {
     height: 250px;
+    background-size: 110%;
+
   }
 
   .display-contact-brief {
     display: block !important;
-    width: 60%;
+    width: 65%;
+    margin-left: 5px;
   }
 }
 
@@ -825,7 +839,8 @@ legend {
 
   .display-contact-brief {
     display: block !important;
-    width: 70%;
+    width: 60%;
+    margin-left: 5px;
   }
 }
 
@@ -863,9 +878,5 @@ legend {
     
   }
 
-  .display-contact-brief {
-    display: block !important;
-    width: 55%;
-  }
   
 }
