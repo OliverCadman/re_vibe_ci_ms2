@@ -18,15 +18,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function loadGame() {
+  console.log("test");
   questions = [];
   livesRemaining = 3;
-  correctAnswersRemaining = 1;
+  correctAnswersRemaining = 10;
 
-  $('.game-selection-button-container').show();
+  $(".game-selection-button-container").show();
 
-  $('.speaker-icon').hide();
+  $(".speaker-icon").hide();
 
-  $('#lives-left-container').hide();
+  $("#lives-left-container").hide();
 
   $("#begin-training-btn")
     .show()
@@ -80,19 +81,17 @@ const animateCSS = (element, animation, prefix = "animate__") =>
   });
 
 function readyGame(gameType) {
-  $('.game-selection-button-container').hide();
-  $('.speaker-icon').show();
+  $(".game-selection-button-container").hide();
+  $(".speaker-icon").show();
 
-  $('#game-mode-header').html(
-    `${gameType.replace("-", " ")}`
-  )
+  $("#game-mode-header").html(`${gameType.replace("-", " ")}`);
   $("#begin-training-btn")
     .prop("disabled", false)
-    .css({ opacity: "1", 'width':'inherit' })
+    .css({ opacity: "1", width: "inherit" })
     .text("Begin Training");
   if (gameType === "interval-trainer") {
     $("#begin-training-btn").click(() => {
-      $("#game-mode-header").hide()
+      $("#game-mode-header").hide();
       countDown(gameType);
     });
   } else if (gameType === "chord-identifier") {
@@ -107,10 +106,10 @@ function readyGame(gameType) {
 function runIntervalGame() {
   $(".speaker-icon").show();
   $("#lives-left-container").show();
-  console.log('testing')
+  console.log("testing");
 
   questions = [];
-  questionCount = 1;
+  questionCount = 10;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
@@ -123,8 +122,7 @@ function runIntervalGame() {
 // runChordGame gathers 10 chords to populate questions array
 function runChordGame() {
   $(".speaker-icon").show();
-   $("#lives-left-container").show();
-
+  $("#lives-left-container").show();
 
   questions = [];
   questionCount = 10;
@@ -165,6 +163,7 @@ function countDown(gameType) {
     );
     if (counter === 0) {
       if (gameType === "interval-trainer") {
+        console.log("hello");
         runIntervalGame();
       } else if (gameType === "chord-identifier") {
         runChordGame();
@@ -176,7 +175,7 @@ function countDown(gameType) {
 }
 
 function nextInterval(currentInterval) {
-  $(".correct-answer-wrapper").empty().removeClass('show-correct-answer');
+  $(".correct-answer-wrapper").empty().removeClass("show-correct-answer");
 
   $(".speaker-icon").show();
 
@@ -214,10 +213,17 @@ function nextInterval(currentInterval) {
   // Invokes playInterval function, passing in index of questions object array
   playInterval(questions[currentInterval]);
 
-  $("#replay-interval").click(() => {
-  
-    replayInterval(currentInterval);
-  });
+
+  /* Remove event listener every time nextInterval function
+  invoked. Ensures that click event 'forgets' previous intervals
+  that have been passed in, and avoids bug resulting in all 
+  previous intervals in questions array being played
+  (as well as the current interval) */
+  $("#replay-question")
+    .off("click")
+    .on("click", () => {
+      playInterval(questions[currentInterval]);
+    });
 }
 
 function nextChord(currentChord) {
@@ -318,11 +324,6 @@ function shuffleAnswers(array) {
   return array;
 }
 
-function replayInterval(questionIndex) {
-
- console.log(questionIndex)
-}
-
 function showImage(imageURL, name) {
   $(".speaker-icon").hide();
   $("#answer-container").empty();
@@ -331,11 +332,11 @@ function showImage(imageURL, name) {
     `<p class="notation-name">${name}</p>
     <img src=${imageURL} alt="Image of notation for correct answer" class="notation-image">`
   );
-  $(".correct-answer-wrapper").addClass('show-correct-answer');
-  animateCSS('.correct-answer-wrapper', 'flipInY');
+  $(".correct-answer-wrapper").addClass("show-correct-answer");
+  animateCSS(".correct-answer-wrapper", "flipInY");
   setTimeout(() => {
-    animateCSS('.correct-answer-wrapper', 'flipOutY');
-  },2400)
+    animateCSS(".correct-answer-wrapper", "flipOutY");
+  }, 2400);
 }
 
 function checkIntervalAnswer(e, questionIndex) {
@@ -364,9 +365,10 @@ function checkIntervalAnswer(e, questionIndex) {
         $(".correct-answer-wrapper").empty();
         $("#answer-container").empty();
         $("#correct-answers-remaining").empty();
-      },3000)
+      }, 3000);
       $("#play-again-btn").click(() => {
         loadGame(questions);
+        console.log("click");
         $("#completed-game-modal").modal("hide");
       });
       if (livesRemaining > 1) {
