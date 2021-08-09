@@ -550,6 +550,10 @@ legend {
   .practice-tips-hero {
     min-width: 350px;
   }
+  
+  .practice-tips-header h1 {
+    font-size: 3rem;
+  }
 
   /* ------ Practice Tips Article ------ */
   .practice-tip-wrapper:last-child {
@@ -558,6 +562,10 @@ legend {
 
   /* ------------- Contact Page ------------ */
 
+  .contact-header h1 {
+    font-size: 3rem;
+  }
+
   .contact-brief-wrapper {
   background:#23272a;
   color: #fafafa;
@@ -565,6 +573,7 @@ legend {
 
 .contact-brief-wrapper p:first-child {
   width: inherit;
+  margin: 0;
 }
   
 }
