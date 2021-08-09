@@ -459,13 +459,14 @@ Referenced from Animate CSS : "https://animate.style/" */
     height: 60vh;
   }
 
+  .correct-answer-container {
+    width: 100%;
+  }
+
   #begin-training-btn {
     font-size: 1.3rem;
   }
 
-  .speaker-icon-wrapper {
-    left: 47%;
-  }
 
   .speaker-icon {
     font-size: 3rem;
@@ -535,11 +536,6 @@ Referenced from Animate CSS : "https://animate.style/" */
     top: 15px;
     left: 20px;
     margin-bottom: 0;
-  }
-
-  #answer-container {
-    margin: 0 auto;
-    left: 5%;
   }
 
   .answer-btn {
