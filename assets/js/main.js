@@ -409,6 +409,7 @@ function checkChordAnswer(e, questionIndex) {
     let correctAnswer = new Audio("assets/sounds/correct-answer.mp3");
     correctAnswer.play();
     showImage(questions[questionIndex].image, questions[questionIndex].name);
+    correctAnswerList.push(questions[questionIndex]);
     correctAnswersRemaining--;
     answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++;
