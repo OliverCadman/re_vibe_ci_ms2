@@ -398,25 +398,31 @@ Referenced from Animate CSS : "https://animate.style/" */
 /* -------- Practice Tips Article ---------- */
 
 .practice-tips-body {
-  background-color: #9c604d;
+  background-color: #202e3a;
+
+
 }
 
 .practice-tip-wrapper {
   font-family: "Work Sans", sans-serif;
   border-radius: 0.5rem;
-  background-color: #fafafa;
+  background-color: #eeeeee;
   margin: 2em 0;
   padding: 1rem;
-  box-shadow: 0 0 2rem -0.5rem rgba(255, 254, 254, 0.507);
+  /* box-shadow: 0 0 2rem -0.5rem rgba(255, 254, 254, 0.507); */
 }
 
 /* Targets headers for individual practice tips */
 .practice-tip-header {
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Work Sans", sans-serif;
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 1.7rem;
   text-transform: capitalize;
   display: inline-block;
+}
+
+.practice-tip-icon {
+  color: #fafaf9;
 }
 
 .practice-tips-image {
@@ -424,15 +430,10 @@ Referenced from Animate CSS : "https://animate.style/" */
   shape-outside: ellipse(50% 50%);
 }
 
-.practice-tips-image.child1,
-.practice-tips-image.child3,
-.practice-tips-image.child5 {
-  float: right;
-  margin-left: 10px;
-}
 
-.practice-tips-image.child2,
-.practice-tips-image.child4 {
+
+
+.practice-tips-image {
   float: left;
   margin-right: 10px;
 }
@@ -584,6 +585,11 @@ legend {
   /* ------ Practice Tips Article ------ */
   .practice-tip-wrapper:last-child {
     max-width: 600px;
+
+  }
+
+  .practice-tip-wrapper {
+    min-height: 450px;
   }
 
   /* ------------- Contact Page ------------ */
@@ -619,11 +625,11 @@ legend {
   }
 
   .contact-form-container {
-    background-color: #9c604d;
+    background-color: #202e3a;
   }
 
   .contact-form-wrapper {
-    background-color: #fafaf9;
+    background-color: #eeeeee;
     border-radius: 10px;
     color: #23272a;
     margin: 30px 0;
@@ -755,6 +761,7 @@ legend {
   .lead-summary-two {
     color: #fafafa;
   }
+
 
   /* -------- Contact Page --------- */
 
