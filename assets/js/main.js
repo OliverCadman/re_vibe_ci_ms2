@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadGame() {
   questions = [];
   livesRemaining = 3;
-  correctAnswersRemaining = 10;
+  correctAnswersRemaining = 1;
 
   $(".game-selection-button-container").show();
 
@@ -106,7 +106,7 @@ function runIntervalGame() {
   console.log("testing");
 
   questions = [];
-  questionCount = 10;
+  questionCount = 1;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
@@ -122,7 +122,7 @@ function runChordGame() {
   $("#lives-left-container").show();
 
   questions = [];
-  questionCount = 10;
+  questionCount = 1;
   questionIndex = 0;
 
   for (let question = 0; question < questionCount; question++) {
@@ -361,7 +361,7 @@ function checkIntervalAnswer(e, questionIndex) {
     }
     if (questionIndex === questionCount) {
       setTimeout(() => {
-     
+        $(".correct-answer-wrapper").empty();
         gameComplete();
       }, 3000);
       $("#play-again-btn").click(() => {
@@ -417,6 +417,7 @@ function checkChordAnswer(e, questionIndex) {
     }
     if (questionIndex === questionCount) {
       setTimeout(() => {
+        $(".correct-answer-wrapper").empty();
         gameComplete();
       }, 3000)
     }
