@@ -361,6 +361,7 @@ function checkIntervalAnswer(e, questionIndex) {
     }
     if (questionIndex === questionCount) {
       setTimeout(() => {
+        $("#lives-left-container").empty();
         $(".correct-answer-wrapper").empty();
         gameComplete();
       }, 3000);
@@ -417,6 +418,7 @@ function checkChordAnswer(e, questionIndex) {
     }
     if (questionIndex === questionCount) {
       setTimeout(() => {
+        $('#lives-left-container').empty();
         $(".correct-answer-wrapper").empty();
         gameComplete();
       }, 3000)
