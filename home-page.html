@@ -133,7 +133,9 @@
         </div>
       </div>
     </nav>
+    <!-- Game Section -->
     <section>
+      <!-- Header -->
       <div class="container-fluid" id="game-section">
         <div class="row justify-content-md-center">
           <div class="col-12 col-lg-3">
@@ -145,24 +147,28 @@
               <p class="quote-source">Erroll Garner</p>
             </div>
           </div>
+          <!-- Game Container containing GUI for main game -->
           <div class="col-12 col-lg-6 order-2 order-md-3">
-            <!-- Game Container -->
             <div id="game-container">
              <div id="game-mode-header">
               
              </div>
               <div class="hide-overlay"></div>
-              <!--Empty div to be filled with content generated using variable correctAnswersRemaining, in assets/js/main.js -->
+              <!--Correct Answers Remaining, Lives Left Container and Answer Wrapper will contain content generated in main.js -->
               <div id="correct-answers-remaining">
                 <p class="correct-answers"></p>
               </div>
               <div id="lives-left-container">
-                <!-- <span><i class="fas fa-user lives-left-icon"></i></span>
-                <span><i class="fas fa-user lives-left-icon"></i></span>
-                <span><i class="fas fa-user lives-left-icon"></i></span> -->
+        
               </div>
+                 <div class="correct-answer-container">
+                <div class="correct-answer-wrapper show-correct-answer">
+                
+                </div>
               <div class="game-selection-button-container">
-                <div class="game-selection-button-wrapper">
+            
+
+           
                 <button
                   type="button"
                   id="interval-trainer-btn"
@@ -181,20 +187,6 @@
                 </button>
               </div>
 
-              </div>
-              <!--Empty div to be filled with content generated in countDown function, in assets/js/main.js -->
-              <div class="countdown-wrapper">
-                <div id="countdown"></div>
-              </div>
-              <div class="correct-answer-container">
-                <div class="correct-answer-wrapper">
-          
-                </div>
-
-              </div>
-              <div class="answer-wrapper">
-                <div id="answer-container"></div>
-              </div>
               <div class="speaker-icon-wrapper justify-content-center">
                 <span
                   ><i
@@ -203,15 +195,23 @@
                   ></i
                 ></span>
               </div>
-              <!-- <div class="show-interval-wrapper">
-                
-              </div> -->
-              <div class="begin-training">
+              
+              <!--Empty div to be filled with content generated in countDown function, in assets/js/main.js -->
+              <div class="countdown-wrapper">
+                <div id="countdown"></div>
+              </div>
+              <div id="answer-container">
+                <div class="answer-wrapper">
+                  
+                </div>
+              </div>
+                <div class="begin-training">
                 <button class="btn btn-secondary" id="begin-training-btn">
                   Begin Training
                 </button>
               </div>
             </div>
+          </div>
           </div>
           <div class="col-12 col-lg-3 order-1 order-md-2 order-lg-3 text-md-center">
             <div class="instructions-container">
@@ -225,13 +225,15 @@
                   and click ‘Begin Training’ when you’re ready.
                 </p>
                 <p>
+                  You can replay the sound as many times as you like. Just click the speaker icon to hear the sound again.
+                </p>
+                <p>
                   Beware! You have three strikes and you’re out!
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
     </section>
     <!-- Completed Game and Game Over Modals. Animated using Animate CSS. Referenced from "https://animate.style/" -->
     <aside>
