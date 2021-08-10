@@ -151,11 +151,7 @@ ul li a.active {
   color: #fafafa;
 }
 
-.game-selection-button-wrapper,
-#begin-training-btn {
-  font-family: "Krub", sans-serif;
-  font-weight: 500;
-}
+
 
 .game-selection-button-container {
    display: flex;
@@ -184,6 +180,7 @@ ul li a.active {
 
 #begin-training-btn {
   background-color: rgb(26, 25, 25);
+  font-size: .7rem;
 }
 
 #show-countdown {
@@ -271,10 +268,10 @@ ul li a.active {
 #answer-container {
   position:absolute;
   width: 100%;
-  top: 65%;
+  top: 62%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  margin-bottom: 20px;
+
 }
 
 .answer-btn {
@@ -298,9 +295,6 @@ ul li a.active {
   text-align: center;
 }
 
-.begin-training button {
-  font-size: 0.7rem;
-}
 
 /* ----- Footer ----- */
 
