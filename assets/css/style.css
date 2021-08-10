@@ -180,7 +180,7 @@ ul li a.active {
 
 #begin-training-btn {
   background-color: rgb(26, 25, 25);
-  font-size: .7rem;
+  font-size: .75rem;
 }
 
 #show-countdown {
@@ -194,7 +194,7 @@ ul li a.active {
 #lives-left-container {
   float: right;
   position: absolute;
-  top: 50px;
+  /* top: 50px; */
   right: 15px;
 }
 
@@ -204,7 +204,6 @@ ul li a.active {
 }
 
 .correct-answer-container {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -276,8 +275,9 @@ ul li a.active {
 
 .answer-btn {
   font-family: "Work Sans", sans-serif;
-  font-size: 0.8rem;
-  margin-left: 10px;
+  font-size: 0.7rem;
+  margin-left: 5px;
+  margin-right: 5px;
   margin-top: 10px;
 }
 
@@ -324,10 +324,6 @@ Referenced from Animate CSS : "https://animate.style/" */
 :root {
   --animate-duration: 200ms;
   --animate-delay: 0.3s;
-}
-
-.modal-content {
-  
 }
 
 .modal-header {
@@ -1067,6 +1063,10 @@ legend {
   #game-mode-header {
     position: absolute;
     top: 20px;
+  }
+
+  #game-container {
+    background-size: 110%;
   }
 
   .contact-brief-wrapper {
