@@ -754,6 +754,10 @@ legend {
     min-width: 600px;
   }
 
+  .individual-tips-container {
+    border-right: 5px solid white;
+  }
+
   .lead-summary-one {
     color: #fafafa;
   }
@@ -761,6 +765,13 @@ legend {
   .lead-summary-two {
     color: #fafafa;
   }
+
+  .resources-container {
+    /* background-color: #23272a; */
+    margin: 2rem 0;
+    padding: 25px;
+  }
+
 
   .video {
     width: 100%;
