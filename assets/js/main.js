@@ -84,7 +84,7 @@ function readyGame(gameType) {
   $("#game-mode-header").html(`${gameType.replace("-", " ")}`);
   $("#begin-training-btn")
     .prop("disabled", false)
-    .css({ opacity: "1", width: "inherit", color: "#e7782d", fontSize: '.85rem' })
+    .css({ opacity: "1", width: "inherit", color: "#e7782d"})
     .text("Begin Training");
   if (gameType === "interval-trainer") {
     $("#begin-training-btn").click(() => {
