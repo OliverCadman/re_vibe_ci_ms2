@@ -8,7 +8,7 @@ let userAnswer;
 let correctAnswer;
 let correctAnswersRemaining;
 let livesRemaining;
-let soundCollection;
+let correctAnswerList = [];
 
 let answerCountdown = document.getElementsByClassName("correct-answers")[0];
 
@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function loadGame() {
-  console.log("test");
   questions = [];
   livesRemaining = 3;
   correctAnswersRemaining = 10;
@@ -53,11 +52,9 @@ function loadGame() {
   }
 
   let livesLeftContainer = document.getElementById("lives-left-container");
-  console.log(livesLeftContainer);
   let livesLeft = "";
   for (i = 0; i < livesRemaining; i++) {
     livesLeft += `<span><i class="fas fa-user lives-left-icon"></i></span>`;
-    console.log(livesLeft);
   }
   livesLeftContainer.innerHTML = livesLeft;
 }
@@ -213,7 +210,6 @@ function nextInterval(currentInterval) {
   // Invokes playInterval function, passing in index of questions object array
   playInterval(questions[currentInterval]);
 
-
   /* Remove event listener every time nextInterval function
   invoked. Ensures that click event 'forgets' previous intervals
   that have been passed in, and avoids bug resulting in all 
@@ -333,7 +329,6 @@ function shuffleAnswers(array) {
 function showImage(imageURL, name) {
   $(".speaker-icon").hide();
   $("#answer-container").empty();
-  console.log($("#answer-container").get());
   $(".correct-answer-wrapper").html(
     `<p class="notation-name">${name}</p>
     <img src=${imageURL} alt="Image of notation for correct answer" class="notation-image">`
@@ -346,13 +341,15 @@ function showImage(imageURL, name) {
 }
 
 function checkIntervalAnswer(e, questionIndex) {
+
   userAnswer = e.target.textContent;
-  console.log(questionIndex);
 
   if (userAnswer === questions[questionIndex].interval) {
     let correctAnswerSound = new Audio("assets/sounds/correct-answer.mp3");
     correctAnswerSound.play();
     showImage(questions[questionIndex].image, questions[questionIndex].name);
+    correctAnswerList.push(questions[questionIndex]);
+    console.log(correctAnswerList);
     correctAnswersRemaining--;
     answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++;
@@ -370,7 +367,7 @@ function checkIntervalAnswer(e, questionIndex) {
           .attr("class", "hide-overlay");
         $(".correct-answer-wrapper").empty();
         $("#answer-container").empty();
-        $("#correct-answers-remaining").empty();
+        gameOver();
       }, 3000);
       $("#play-again-btn").click(() => {
         loadGame(questions);
@@ -426,7 +423,7 @@ function checkChordAnswer(e, questionIndex) {
       $("#answer-container").empty();
       $("#correct-answers-remaining").empty();
       $("#play-again-btn").click(() => {
-        loadGame();
+        location.reload();
         $("#completed-game-modal").modal("hide");
       });
       if (livesRemaining > 1) {
@@ -444,8 +441,8 @@ function checkChordAnswer(e, questionIndex) {
   } else {
     let wrongAnswer = new Audio("assets/sounds/wrong-answer.mp3");
     wrongAnswer.play();
-    animateCSS(".speaker-icon", "wobble");
     livesRemaining--;
+    animateCSS(".speaker-icon", "wobble");
     $(".lives-left-icon")[0].remove();
 
     console.log(livesRemaining);
@@ -454,6 +451,26 @@ function checkChordAnswer(e, questionIndex) {
   if (livesRemaining === 0) {
     let gameOverModal = $("#game-over-modal");
     gameOverModal.modal("show");
+  }
+}
+
+function gameOver() {
+  let buttons = document.getElementsByTagName("button");
+
+  for (let i = 0; i < buttons.length; i++) {
+    if (
+      buttons[i].getAttribute("data-type") === "interval-trainer" ||
+      buttons[i].getAttribute("data-type") === "chord-identifier"
+    ) {
+      buttons[i].removeEventListener("click", function() {
+        readyGame();
+      })
+      console.log
+    } else if (buttons[i].getAttribute("id") === "begin-training-btn") {
+      console.log(buttons[i])
+    } else if (buttons[i].getAttribute("data-type") === "submit") {
+      console.log(buttons[i])
+    }
   }
 }
 
