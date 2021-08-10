@@ -142,6 +142,7 @@ ul li a.active {
 
 #game-mode-header {
   position: absolute;
+  top: 40px;
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
   font-size: 2rem;
@@ -584,6 +585,7 @@ legend {
   #game-mode-header {
   font-size: 3rem;
   width: 40%;
+  top: 0;
   
 }
 
@@ -876,6 +878,10 @@ legend {
     top: 10px;
   }
 
+  #game-mode-header {
+    top: 0;
+  }
+
   /* ---------- Contact Page ------------ */
 
   .contact-brief-wrapper {
@@ -902,6 +908,10 @@ legend {
   }
   #lives-left-container {
     top: 15px !important;
+  }
+
+  #game-mode-header {
+    top: 0;
   }
 
 
@@ -937,6 +947,10 @@ legend {
 
   #game-container {
     background-size: 110%;
+  }
+
+  #game-mode-header {
+    top: 0;
   }
 
   .instructions-wrapper {
@@ -977,6 +991,10 @@ legend {
     height: 48vh !important;
   }
 
+  .game-mode-header {
+    top: 0;
+  }
+
   .game-selection-button-wrapper {
     padding-top: 0;
   }
@@ -1004,6 +1022,10 @@ legend {
     font-size: 1.2rem;
   }
 
+  #game-mode-header {
+    top: 0;
+  }
+
   #lives-left-container {
     top: 10px;
   }
@@ -1025,6 +1047,10 @@ legend {
   #game-container {
     height: 50vh;
     background-size: 100%;
+  }
+
+  #game-mode-header {
+    top: 0;
   }
 }
 
