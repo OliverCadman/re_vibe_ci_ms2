@@ -273,6 +273,7 @@ ul li a.active {
   top: 65%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 20px;
 }
 
 .answer-btn {
@@ -303,6 +304,7 @@ ul li a.active {
 /* ----- Footer ----- */
 
 footer {
+  padding-top: 30px;
   background-color: #23272a;
 }
 
@@ -755,12 +757,13 @@ legend {
     margin-left: 5px;
   }
 
-  .answer-btn,
+  
   .game-selection-btn,
   #begin-training-btn,
   .correct-answers {
     font-size: 1.3rem;
   }
+
 
   .game-selection-btn:hover {
     background-color: #23272a;
@@ -1000,7 +1003,7 @@ legend {
   .game-selection-button-wrapper {
     font-size: 1.2rem;
   }
-  
+
   #lives-left-container {
     top: 10px;
   }
