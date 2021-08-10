@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadGame() {
   questions = [];
   livesRemaining = 3;
-  correctAnswersRemaining = 1;
+  correctAnswersRemaining = 10;
 
   $(".game-selection-button-container").show();
 
@@ -106,7 +106,7 @@ function runIntervalGame() {
   console.log("testing");
 
   questions = [];
-  questionCount = 1;
+  questionCount = 10;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let interval = getInterval();
@@ -122,7 +122,7 @@ function runChordGame() {
   $("#lives-left-container").show();
 
   questions = [];
-  questionCount = 1;
+  questionCount = 10;
   questionIndex = 0;
 
   for (let question = 0; question < questionCount; question++) {
@@ -349,12 +349,10 @@ function checkIntervalAnswer(e, questionIndex) {
     correctAnswerSound.play();
     showImage(questions[questionIndex].image, questions[questionIndex].name);
     correctAnswerList.push(questions[questionIndex]);
-    console.log(correctAnswerList);
     correctAnswersRemaining--;
     answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++;
     if (questionIndex < questionCount) {
-      soundCollection = [];
       setTimeout(() => {
         nextInterval(questionIndex);
       }, 3000);
@@ -365,22 +363,6 @@ function checkIntervalAnswer(e, questionIndex) {
         $(".correct-answer-wrapper").empty();
         gameComplete();
       }, 3000);
-      $("#play-again-btn").click(() => {
-        loadGame(questions);
-        console.log("click");
-        $("#completed-game-modal").modal("hide");
-      });
-      if (livesRemaining > 1) {
-        $("#completed-game-message").html(
-          `Congratulations! You completed the game with
-           ${livesRemaining} lives remaining!`
-        );
-      } else {
-        $("#completed-game-message").html(
-          `Congratulations! You completed the game with
-           ${livesRemaining} life remaining!`
-        );
-      }
     }
   } else {
     let wrongAnswerSound = new Audio("assets/sounds/wrong-answer.mp3");
@@ -441,19 +423,34 @@ function checkChordAnswer(e, questionIndex) {
 
 function gameComplete() {
   $("#completed-game-modal").modal("show");
+
   $("#answer-container").empty();
+
   $("#correct-answers-remaining").empty();
+
+  correctAnswerList.map((answer) => {
+    console.log(answer)
+    let answerDisplay = document.getElementById('display-correct-answers');
+    answerDisplay.innerHTML += `
+    <div class="correct-answer">
+    <p>${answer.name}</p>
+    <figure><img class="notation-image" src=${answer.image} alt="Image of notation for correct answer"></figure>
+    </div>`
+
+    return answerDisplay;
+  })
+
   $("#play-again-btn").click(() => {
     location.reload();
     $("#completed-game-modal").modal("hide");
   });
   if (livesRemaining > 1) {
-    $("#completed-game-message").html(
+    $("#congratulations-message").html(
       `Congratulations! You completed the game with
            ${livesRemaining} lives remaining!`
     );
   } else {
-    $("#completed-game-message").html(
+    $("#congratulations-message").html(
       `Congratulations! You completed the game with
            ${livesRemaining} life remaining!`
     );

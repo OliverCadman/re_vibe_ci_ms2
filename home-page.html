@@ -158,13 +158,16 @@
               <div id="correct-answers-remaining">
                 <p class="correct-answers"></p>
               </div>
+              <!-- Displays how many lives the user has left -->
               <div id="lives-left-container">
         
               </div>
+              <!-- Displays name and image of notation upon submission of correct answer -->
                  <div class="correct-answer-container">
                 <div class="correct-answer-wrapper show-correct-answer">
                 
                 </div>
+              <!-- Displays buttons to select game mode (Interval Trainer or Chord Identifier)-->
               <div class="game-selection-button-container">
             
 
@@ -197,9 +200,11 @@
               </div>
               
               <!--Empty div to be filled with content generated in countDown function, in assets/js/main.js -->
+              <!-- Counts down from 3 before game starts -->
               <div class="countdown-wrapper">
                 <div id="countdown"></div>
               </div>
+              <!-- Holds buttons for user to submit answers. Contents generated in main.js -->
               <div id="answer-container">
                 <div class="answer-wrapper">
                   
@@ -241,9 +246,11 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h1>Contragulations!</h1>
+              <h1>Congratulations!</h1>
             </div>
-            <div class="modal-body" id="completed-game-message"></div>
+            <div class="modal-body" id="completed-game-message">
+
+            </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-dark" data-dismiss="modal" id="play-again-btn">
                 Play Again
