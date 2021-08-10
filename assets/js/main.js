@@ -65,7 +65,7 @@ const animateCSS = (element, animation, prefix = "animate__") =>
     const animationName = `${prefix}${animation}`;
     const node = document.querySelector(element);
     node.classList.add(`${prefix}animated`, animationName);
-    console.log(element);
+   
 
     // When the animation ends, we clean the classes and resolve the Promise
     function handleAnimationEnd(event) {
@@ -84,7 +84,7 @@ function readyGame(gameType) {
   $("#game-mode-header").html(`${gameType.replace("-", " ")}`);
   $("#begin-training-btn")
     .prop("disabled", false)
-    .css({ opacity: "1", width: "inherit" })
+    .css({ opacity: "1", width: "inherit", color: "#e7782d" })
     .text("Begin Training");
   if (gameType === "interval-trainer") {
     $("#begin-training-btn").click(() => {
@@ -103,15 +103,17 @@ function readyGame(gameType) {
 function runIntervalGame() {
   $(".speaker-icon").show();
   $("#lives-left-container").show();
-  console.log("testing");
+ 
 
   questions = [];
   questionCount = 10;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
-    let interval = getInterval();
-    questions[question] = interval;
+    let intervals = getInterval();
+    questions[question] = intervals;
+    console.log(intervals.interval)
   }
+
 
   nextInterval(questionIndex);
 }
@@ -126,9 +128,12 @@ function runChordGame() {
   questionIndex = 0;
 
   for (let question = 0; question < questionCount; question++) {
-    let chord = getChord();
-    questions[question] = chord;
+    let chords = getChord();
+    questions[question] = chords;
+    console.log(chords.chord)
   }
+
+
 
   nextChord(questionIndex);
 }
@@ -160,7 +165,6 @@ function countDown(gameType) {
     );
     if (counter === 0) {
       if (gameType === "interval-trainer") {
-        console.log("hello");
         runIntervalGame();
       } else if (gameType === "chord-identifier") {
         runChordGame();
@@ -239,7 +243,7 @@ function nextChord(currentChord) {
   for (i = 0; i < answerOptions.length; i++) {
     answerButtons += `<button class="btn btn-light answer-btn"
     data-type="submit">${answerOptions[i]}</button>`;
-    console.log(answerButtons);
+   
   }
 
   answerContainer.innerHTML = answerButtons;
@@ -370,8 +374,6 @@ function checkIntervalAnswer(e, questionIndex) {
     animateCSS(".speaker-icon", "wobble");
     livesRemaining--;
     $(".lives-left-icon")[0].remove();
-
-    console.log(livesRemaining);
   }
 
   if (livesRemaining === 0) {
@@ -410,8 +412,6 @@ function checkChordAnswer(e, questionIndex) {
     livesRemaining--;
     animateCSS(".speaker-icon", "wobble");
     $(".lives-left-icon")[0].remove();
-
-    console.log(livesRemaining);
   }
 
   if (livesRemaining === 0) {
@@ -427,7 +427,6 @@ function gameComplete() {
   $("#correct-answers-remaining").empty();
 
   correctAnswerList.map((answer) => {
-    console.log(answer)
     let answerDisplay = document.getElementsByClassName('display-correct-answers')[0];
     answerDisplay.innerHTML += `
     <div class="correct-answer">
@@ -463,7 +462,6 @@ function gameOver() {
   $('#game-over-modal').modal('show');
 
   correctAnswerList.map((answer) => {
-    console.log(answer);
     let answerDisplay = document.getElementsByClassName(
       "display-correct-answers"
     )[1];
@@ -501,7 +499,6 @@ function getRandomIntervalIndex() {
 // Generates a random number between 0 and 50;
 function getRandomChordIndex() {
   let randomIndex = Math.ceil(Math.random() * 59);
-  console.log(randomIndex);
   return randomIndex;
 }
 
