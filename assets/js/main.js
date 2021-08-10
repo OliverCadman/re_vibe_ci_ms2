@@ -375,8 +375,7 @@ function checkIntervalAnswer(e, questionIndex) {
   }
 
   if (livesRemaining === 0) {
-    let gameOverModal = $("#game-over-modal");
-    gameOverModal.modal("show");
+    gameOver();
   }
 }
 
@@ -416,8 +415,7 @@ function checkChordAnswer(e, questionIndex) {
   }
 
   if (livesRemaining === 0) {
-    let gameOverModal = $("#game-over-modal");
-    gameOverModal.modal("show");
+    gameOver();
   }
 }
 
@@ -430,7 +428,7 @@ function gameComplete() {
 
   correctAnswerList.map((answer) => {
     console.log(answer)
-    let answerDisplay = document.getElementById('display-correct-answers');
+    let answerDisplay = document.getElementsByClassName('display-correct-answers')[0];
     answerDisplay.innerHTML += `
     <div class="correct-answer">
     <p>${answer.name}</p>
@@ -440,7 +438,7 @@ function gameComplete() {
     return answerDisplay;
   })
 
-  $("#play-again-btn").click(() => {
+  $(".play-again-btn").click(() => {
     location.reload();
     $("#completed-game-modal").modal("hide");
   });
@@ -455,6 +453,33 @@ function gameComplete() {
            ${livesRemaining} life remaining!`
     );
   }
+}
+
+function gameOver() {
+  $("#answer-container").empty();
+
+  $("#correct-answers-remaining").empty();
+ 
+  $('#game-over-modal').modal('show');
+
+  correctAnswerList.map((answer) => {
+    console.log(answer);
+    let answerDisplay = document.getElementsByClassName(
+      "display-correct-answers"
+    )[1];
+    answerDisplay.innerHTML += `
+    <div class="correct-answer">
+    <p>${answer.name}</p>
+    <figure><img class="notation-image" src=${answer.image} alt="Image of notation for correct answer"></figure>
+    </div>`;
+
+    return answerDisplay;
+  });
+
+   $(".play-again-btn").click(() => {
+     location.reload();
+     $("#game-over-modal").modal("hide");
+   });
 }
 
 /* access an index of the intervalList array using number generated
