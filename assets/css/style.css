@@ -157,18 +157,18 @@ ul li a.active {
 }
 
 .game-selection-button-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.game-selection-button-wrapper {
-  display: flex;
+   display: flex;
+   height: 100%;
   align-items: center;
   justify-content: center;
   margin-bottom: 50px;
+
+}
+
+.game-selection-button-wrapper {
+   display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
 }
 
 .game-selection-btn {
@@ -200,23 +200,25 @@ ul li a.active {
 }
 
 .correct-answer-container {
-  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  top: 25%;
+  height: 100%;
+  width: 100%;
 }
 
 .correct-answer-wrapper {
   font-family: "Work Sans", sans-serif;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   --animate-duration: 0.9s;
   width: 50%;
   border-radius: 5px;
+  text-align: center;
+  position: absolute;
 }
 
 .show-correct-answer {
@@ -260,9 +262,9 @@ ul li a.active {
 }
 
 #answer-container {
-  position: relative;
-  top: 175px;
-  right: 5px;
+  position:absolute;
+  width: 100%;
+  top: 65%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
@@ -319,6 +321,47 @@ Referenced from Animate CSS : "https://animate.style/" */
 :root {
   --animate-duration: 200ms;
   --animate-delay: 0.3s;
+}
+
+.modal-content {
+  
+}
+
+.modal-header {
+  background-color: #23272a;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #edf6f9;
+}
+
+.modal-body,
+#play-again-btn {
+  font-family: 'Work Sans', sans-serif;
+}
+
+.modal-body,
+.modal-footer {
+  background-color: #e5e5e5;
+}
+
+.modal-header h1{
+  text-align: center;
+}
+
+.correct-answer {
+  margin-top: 20px;
+}
+
+.display-correct-answers {
+  text-decoration: underline;
+  text-align: center;
+  
+  background-color: #23272a;
+  border-radius: 10px;
+  color: #fafaf9;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 200px;
+  overflow: auto;
 }
 
 /* --------------- Practice Tips Page ------------------ */
@@ -527,43 +570,6 @@ legend {
     height: 65vh;
   }
 
-  .correct-answer-container {
-    width: 100%;
-  }
-
-  .correct-answers {
-    font-size: 1.5rem;
-  }
-
-  .answer-wrapper {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-  }
-
-    .answer-btn {
-    font-size: 1.3rem;
-  }
-
-  #begin-training-btn {
-    font-size: 1.3rem;
-  }
-
-  .speaker-icon {
-    font-size: 5rem;
-  }
-
-  #lives-left-container {
-    right: 20px;
-    top: 20px;
-  }
-
-  #lives-left-container i {
-    font-size: 2rem;
-    margin-left: 5px;
-  }
 
   /* -------------- Practice Tips Page --------------- */
 
@@ -665,7 +671,7 @@ legend {
   }
 
   #game-container {
-    height: 80vh;
+    height: 550px;
     background-size: 600px 548px;
   }
 
@@ -692,6 +698,7 @@ legend {
     margin-bottom: 0;
     font-size: 1.1rem;
   }
+  
 
   #answer-container {
     margin-bottom: 30px;
@@ -817,11 +824,11 @@ legend {
   #lives-left-container {
     top: 15px !important;
   }
-
+/* 
   #answer-container {
     top: 175px !important;
     right: 10px;
-  }
+  } */
 
   #answer-container button {
     font-size: 0.75rem;
