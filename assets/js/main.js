@@ -361,13 +361,8 @@ function checkIntervalAnswer(e, questionIndex) {
     }
     if (questionIndex === questionCount) {
       setTimeout(() => {
-        $("#completed-game-modal").modal("show");
-        $(".opaque-overlay")
-          .removeAttr("class", "opaque-overlay")
-          .attr("class", "hide-overlay");
-        $(".correct-answer-wrapper").empty();
-        $("#answer-container").empty();
-        gameOver();
+     
+        gameComplete();
       }, 3000);
       $("#play-again-btn").click(() => {
         loadGame(questions);
@@ -410,6 +405,7 @@ function checkChordAnswer(e, questionIndex) {
     correctAnswer.play();
     showImage(questions[questionIndex].image, questions[questionIndex].name);
     correctAnswerList.push(questions[questionIndex]);
+    console.log(correctAnswerList)
     correctAnswersRemaining--;
     answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++;
@@ -420,24 +416,9 @@ function checkChordAnswer(e, questionIndex) {
       }, 3000);
     }
     if (questionIndex === questionCount) {
-      $("#completed-game-modal").modal("show");
-      $("#answer-container").empty();
-      $("#correct-answers-remaining").empty();
-      $("#play-again-btn").click(() => {
-        location.reload();
-        $("#completed-game-modal").modal("hide");
-      });
-      if (livesRemaining > 1) {
-        $("#completed-game-message").html(
-          `Congratulations! You completed the game with
-           ${livesRemaining} lives remaining!`
-        );
-      } else {
-        $("#completed-game-message").html(
-          `Congratulations! You completed the game with
-           ${livesRemaining} life remaining!`
-        );
-      }
+      setTimeout(() => {
+        gameComplete();
+      }, 3000)
     }
   } else {
     let wrongAnswer = new Audio("assets/sounds/wrong-answer.mp3");
@@ -455,23 +436,24 @@ function checkChordAnswer(e, questionIndex) {
   }
 }
 
-function gameOver() {
-  let buttons = document.getElementsByTagName("button");
-
-  for (let i = 0; i < buttons.length; i++) {
-    if (
-      buttons[i].getAttribute("data-type") === "interval-trainer" ||
-      buttons[i].getAttribute("data-type") === "chord-identifier"
-    ) {
-      buttons[i].removeEventListener("click", function() {
-        readyGame();
-      })
-      console.log
-    } else if (buttons[i].getAttribute("id") === "begin-training-btn") {
-      console.log(buttons[i])
-    } else if (buttons[i].getAttribute("data-type") === "submit") {
-      console.log(buttons[i])
-    }
+function gameComplete() {
+  $("#completed-game-modal").modal("show");
+  $("#answer-container").empty();
+  $("#correct-answers-remaining").empty();
+  $("#play-again-btn").click(() => {
+    location.reload();
+    $("#completed-game-modal").modal("hide");
+  });
+  if (livesRemaining > 1) {
+    $("#completed-game-message").html(
+      `Congratulations! You completed the game with
+           ${livesRemaining} lives remaining!`
+    );
+  } else {
+    $("#completed-game-message").html(
+      `Congratulations! You completed the game with
+           ${livesRemaining} life remaining!`
+    );
   }
 }
 
