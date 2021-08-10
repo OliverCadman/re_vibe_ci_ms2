@@ -766,15 +766,30 @@ legend {
     color: #fafafa;
   }
 
-  .resources-container {
-    /* background-color: #23272a; */
-    margin: 2rem 0;
-    padding: 25px;
+  .resources-header h4{
+    font-family: 'Roboto Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 2rem;
+    color: #fafafa;
+    margin-bottom: 15px;
   }
 
-
+  .resources-container {
+    margin: 2rem 0;
+    padding: 0 5px;
+  }
   .video {
     width: 100%;
+  }
+
+  .video-wrapper:nth-child(1) {
+    margin-top: 20px;
+  }
+
+  .video-wrapper {
+    margin-bottom: 50px;
+    border: 10px solid #eeeeee;
+    border-radius: 10px;
   }
 
 
