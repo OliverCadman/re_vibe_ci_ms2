@@ -608,96 +608,96 @@ const intervalList = [
   {
     interval: "Octave",
     name: "F# Octave",
-    frequency1: 185,
-    frequency2: 369.99,
+    frequency1: 369.99,
+    frequency2: 739.99,
     image: "assets/images/intervals/intervals-f-sharp/f-sharp-octave.png",
   },
   // F Sharp Minor Second
   {
     interval: "Minor Second",
     name: "F# Minor Second",
-    frequency1: 185,
-    frequency2: 196,
+    frequency1: 369.99,
+    frequency2: 392,
     image: "assets/images/intervals/intervals-f-sharp/f-sharp-minor-second.png",
   },
   // F Sharp Major Second
   {
     interval: "Major Second",
     name: "F# Major Second",
-    frequency1: 185,
-    frequency2: 207.65,
+    frequency1: 369.99,
+    frequency2: 415.30,
     image: "assets/images/intervals/intervals-f-sharp/f-sharp-major-second.png",
   },
   // F Sharp Minor Third
   {
     interval: "Minor Third",
     name: "F# Minor Third",
-    frequency1: 185,
-    frequency2: 220,
+    frequency1: 369.99,
+    frequency2: 440,
     image: "assets/images/intervals/intervals-f-sharp/f-sharp-minor-third.png",
   },
   // F Sharp Major Third
   {
     interval: "Major Third",
     name: "F# Major Third",
-    frequency1: 185,
-    frequency2: 233.08,
+    frequency1: 369.99,
+    frequency2: 466.16,
     image: "assets/images/intervals/intervals-f-sharp/f-sharp-major-third.png",
   },
   // F Sharp Perfect Fourth
   {
     interval: "Perfect Fourth",
     name: "F# Perfect Fourth",
-    frequency1: 185,
-    frequency2: 246.94,
+    frequency1: 369.99,
+    frequency2: 493.88,
     image: "assets/images/intervals/intervals-f-sharp/f-sharp-perfect-fourth.png",
   },
   // F Sharp Augmented Fourth
   {
     interval: "Augmented Fourth",
     name: "F# Augmented Fourth",
-    frequency1: 185,
-    frequency2: 261.63,
+    frequency1: 369.99,
+    frequency2: 523.25,
     image: "assets/images/intervals/intervals-f-sharp/f-sharp-augmented-fourth.png",
   },
   // F Sharp Perfect Fifth
   {
     interval: "Perfect Fifth",
     name: "F# Perfect Fifth",
-    frequency1: 185,
-    frequency2: 277.18,
+    frequency1: 369.99,
+    frequency2: 554.37,
     image: "assets/images/intervals/intervals-f-sharp/f-sharp-perfect-fifth.png",
   },
   // F Sharp Minor Sixth
   {
     interval: "Minor Sixth",
     name: "F# Minor Sixth",
-    frequency1: 185,
-    frequency2: 293.66,
+    frequency1: 369.99,
+    frequency2: 587.33,
     image: "assets/images/intervals/intervals-f-sharp/f-sharp-minor-sixth.png",
   },
   // F Sharp Major Sixth
   {
     interval: "Major Sixth",
     name: "F# Major Sixth",
-    frequency1: 185,
-    frequency2: 311.13,
+    frequency1: 369.99,
+    frequency2: 622.25,
     image: "assets/images/intervals/intervals-f-sharp/f-sharp-major-sixth.png",
   },
   // F Sharp Minor Seventh
   {
     interval: "Minor Seventh",
     name: "F# Minor Seventh",
-    frequency1: 185,
-    frequency2: 329.63,
+    frequency1: 369.99,
+    frequency2: 659.25,
     image: "assets/images/intervals/intervals-f-sharp/f-sharp-minor-seventh.png",
   },
   // F Sharp Major Seventh
   {
     interval: "Major Seventh",
     name: "F# Major Seventh",
-    frequency1: 185,
-    frequency2: 349.23,
+    frequency1: 369.99,
+    frequency2: 698.46,
     image: "assets/images/intervals/intervals-f-sharp/f-sharp-major-seventh.png",
   },
   // G Octave
