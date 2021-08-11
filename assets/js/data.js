@@ -402,7 +402,7 @@ const intervalList = [
     name: "Eb Minor Seventh",
     frequency1: 311.13,
     frequency2: 554.37,
-    image: "assets/images/intervals/intervals-e-flat/e-flat-octave.png",
+    image: "assets/images/intervals/intervals-e-flat/e-flat-minor-seventh.png",
   },
   // E Flat Major Seventh
   {
@@ -514,7 +514,7 @@ const intervalList = [
     name: "F Octave",
     frequency1: 349.23,
     frequency2: 698.46,
-    image: "assets/images/intervals/intervals-f/f-octave.png",
+    image: "assets/images/intervals/intervals-f/f-major-octave.png",
   },
   // F Minor Second
   {
