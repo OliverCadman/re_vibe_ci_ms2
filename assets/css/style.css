@@ -878,6 +878,10 @@ legend {
     font-size: 3rem;
   }
 
+  #begin-training-btn {
+    font-size: 1rem;
+  }
+
   .answer-btn {
     font-size: .9rem;
   }
@@ -926,6 +930,10 @@ legend {
   
   .speaker-icon {
     font-size: 3rem;
+  }
+
+  #begin-training-btn {
+    font-size: 1rem;
   }
 
   .answer-btn {
@@ -989,6 +997,10 @@ legend {
 
   .speaker-icon {
     font-size: 2.75rem;
+  }
+
+  #begin-training-btn {
+    font-size: .95rem;
   }
 
   .answer-btn {
@@ -1074,6 +1086,10 @@ legend {
     font-size: 3rem;
   }
 
+   #begin-training-btn {
+    font-size: 1rem;
+  }
+
   .answer-btn {
     font-size: .9rem;
   }
@@ -1153,6 +1169,10 @@ legend {
 
   .correct-answers {
     font-size: 1rem;
+  }
+
+  #begin-training-btn {
+    font-size: .95rem;
   }
 
 
