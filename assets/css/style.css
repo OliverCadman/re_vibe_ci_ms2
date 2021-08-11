@@ -925,6 +925,9 @@ legend {
     font-size: 3rem;
   }
 
+  .answer-btn {
+    font-size: 13px !important;
+  }
 
   #answer-container {
     top: 60%;
@@ -974,6 +977,14 @@ legend {
 
   #game-mode-header {
     top: 0;
+  }
+
+  .speaker-icon {
+    font-size: 2.75rem;
+  }
+
+  .answer-btn {
+    font-size: 0.85rem;
   }
 
   .instructions-wrapper {
