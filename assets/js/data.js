@@ -313,7 +313,7 @@ const intervalList = [
     interval: "Major Seventh",
     name: "Db Major Seventh",
     frequency1: 277.18,
-    frequency2: 392,
+    frequency2: 523.25,
     image: "assets/images/intervals/intervals-d-flat/d-flat-major-seventh.png",
   },
   // E Flat Octave
