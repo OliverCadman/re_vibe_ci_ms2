@@ -192,8 +192,8 @@ ul li a.active {
 #lives-left-container {
   float: right;
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 10px;
+  right: 10px;
 }
 
 .notation-image {
@@ -230,6 +230,7 @@ ul li a.active {
 .lives-left-icon {
   color: #fafafa;
   font-size: 1.3rem;
+  margin: 0 3px;
 }
 
 .wrong-answer-display p {
