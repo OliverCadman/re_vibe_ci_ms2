@@ -111,7 +111,7 @@ function runIntervalGame() {
   for (let question = 0; question < questionCount; question++) {
     let intervals = getInterval();
     questions[question] = intervals;
-    console.log(intervals.interval)
+    console.log(question)
   }
 
 
@@ -491,8 +491,8 @@ function getInterval() {
 
 // Generates a random number between 0 and 12;
 function getRandomIntervalIndex() {
-  let randomIndex = Math.ceil(Math.random() * 12 - 1);
-
+  let randomIndex = Math.ceil(Math.random() * 145 - 1);
+  
   return randomIndex;
 }
 
