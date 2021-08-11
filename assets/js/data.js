@@ -36,14 +36,6 @@ const intervalList = [
     frequency2: 523.25,
     image: "assets/images/intervals/intervals-c/c-octave.png",
   },
-  // D Octave
-  {
-    interval: "Octave",
-    name: "D Octave",
-    frequency1: 293.66,
-    frequency2: 587.33,
-    image: "assets/images/intervals/intervals-d/d-octave.png",
-  },
   // C Minor Second
   {
     interval: "Minor Second",
@@ -51,14 +43,6 @@ const intervalList = [
     frequency1: 261.63,
     frequency2: 277.18,
     image: "assets/images/intervals/intervals-c/c-minor-second.png",
-  },
-  // D Minor Second
-  {
-    interval: "Minor Second",
-    name: "D Minor Second",
-    frequency1: 293.66,
-    frequency2: 311.13,
-    image: "assets/images/intervals/intervals-d/d-minor-second.png",
   },
   // C Major Second
   {
@@ -68,14 +52,6 @@ const intervalList = [
     frequency2: 293.66,
     image: "assets/images/intervals/intervals-c/c-major-second.png",
   },
-  // D Major Second
-  {
-    interval: "Major Second",
-    name: "D Major Second",
-    frequency1: 293.66,
-    frequency2: 326.63,
-    image: "assets/images/intervals/intervals-d/d-major-second.png",
-  },
   // C Minor Third
   {
     interval: "Minor Third",
@@ -83,14 +59,6 @@ const intervalList = [
     frequency1: 261.63,
     frequency2: 311.13,
     image: "assets/images/intervals/intervals-c/c-minor-third.png",
-  },
-  // D Minor Third
-  {
-    interval: "Minor Third",
-    name: "D Minor Third",
-    frequency1: 293.66,
-    frequency2: 349.23,
-    image: "assets/images/intervals/intervals-d/d-minor-third.png",
   },
   // C Major Third
   {
@@ -100,14 +68,6 @@ const intervalList = [
     frequency2: 326.63,
     image: "assets/images/intervals/intervals-c/c-major-third.png",
   },
-  // D Major Third
-  {
-    interval: "Major Third",
-    name: "D Major Third",
-    frequency1: 293.66,
-    frequency2: 369.99,
-    image: "assets/images/intervals/intervals-d/d-major-third.png",
-  },
   // C Perfect Fourth
   {
     interval: "Perfect Fourth",
@@ -115,14 +75,6 @@ const intervalList = [
     frequency1: 261.63,
     frequency2: 349.23,
     image: "assets/images/intervals/intervals-c/c-perfect-fourth.png",
-  },
-  // D Perfect Fourth
-  {
-    interval: "Perfect Fourth",
-    name: "D Perfect Fourth",
-    frequency1: 293.66,
-    frequency2: 392,
-    image: "assets/images/intervals/intervals-d/d-perfect-fourth.png",
   },
   // C Augmented Fourth
   {
@@ -132,14 +84,6 @@ const intervalList = [
     frequency2: 369.99,
     image: "assets/images/intervals/intervals-c/c-augmented-fourth.png",
   },
-  // D Augmented Fourth
-  {
-    interval: "Augmented Fourth",
-    name: "D Augmented Fourth",
-    frequency1: 293.66,
-    frequency2: 415.3,
-    image: "assets/images/intervals/intervals-d/d-augmented-fourth.png",
-  },
   // C Perfect Fifth
   {
     interval: "Perfect Fifth",
@@ -147,14 +91,6 @@ const intervalList = [
     frequency1: 261.63,
     frequency2: 392,
     image: "assets/images/intervals/intervals-c/c-perfect-fifth.png",
-  },
-  // D Perfect Fifth
-  {
-    interval: "Perfect Fifth",
-    name: "D Perfect Fifth",
-    frequency1: 293.66,
-    frequency2: 440,
-    image: "assets/images/intervals/intervals-d/d-perfect-fifth.png",
   },
   // C Minor Sixth
   {
@@ -164,14 +100,6 @@ const intervalList = [
     frequency2: 415.3,
     image: "assets/images/intervals/intervals-c/c-minor-sixth.png",
   },
-  // D Minor Sixth
-  {
-    interval: "Minor Sixth",
-    name: "D Minor Sixth",
-    frequency1: 293.66,
-    frequency2: 466.16,
-    image: "assets/images/intervals/intervals-d/d-minor-sixth.png",
-  },
   // C Major Sixth
   {
     interval: "Major Sixth",
@@ -179,14 +107,6 @@ const intervalList = [
     frequency1: 261.63,
     frequency2: 440,
     image: "assets/images/intervals/intervals-c/c-major-sixth.png",
-  },
-  // D Major Sixth
-  {
-    interval: "Major Sixth",
-    name: "D Major Sixth",
-    frequency1: 293.66,
-    frequency2: 493.88,
-    image: "assets/images/intervals/intervals-d/d-major-sixth.png",
   },
   // C Minor Seventh
   {
@@ -196,14 +116,6 @@ const intervalList = [
     frequency2: 466.16,
     image: "assets/images/intervals/intervals-c/c-minor-seventh.png",
   },
-  // D Minor Seventh
-  {
-    interval: "Minor Seventh",
-    name: "D Minor Seventh",
-    frequency1: 293.66,
-    frequency2: 523.25,
-    image: "assets/images/intervals/intervals-d/d-minor-seventh.png",
-  },
   // C Major Seventh
   {
     interval: "Major Seventh",
@@ -211,6 +123,94 @@ const intervalList = [
     frequency1: 261.63,
     frequency2: 493.88,
     image: "assets/images/intervals/intervals-c/c-major-seventh.png",
+  },
+  // D Octave
+  {
+    interval: "Octave",
+    name: "D Octave",
+    frequency1: 293.66,
+    frequency2: 587.33,
+    image: "assets/images/intervals/intervals-d/d-octave.png",
+  },
+  // D Minor Second
+  {
+    interval: "Minor Second",
+    name: "D Minor Second",
+    frequency1: 293.66,
+    frequency2: 311.13,
+    image: "assets/images/intervals/intervals-d/d-minor-second.png",
+  },
+  // D Major Second
+  {
+    interval: "Major Second",
+    name: "D Major Second",
+    frequency1: 293.66,
+    frequency2: 326.63,
+    image: "assets/images/intervals/intervals-d/d-major-second.png",
+  },
+  // D Minor Third
+  {
+    interval: "Minor Third",
+    name: "D Minor Third",
+    frequency1: 293.66,
+    frequency2: 349.23,
+    image: "assets/images/intervals/intervals-d/d-minor-third.png",
+  },
+  // D Major Third
+  {
+    interval: "Major Third",
+    name: "D Major Third",
+    frequency1: 293.66,
+    frequency2: 369.99,
+    image: "assets/images/intervals/intervals-d/d-major-third.png",
+  },
+  // D Perfect Fourth
+  {
+    interval: "Perfect Fourth",
+    name: "D Perfect Fourth",
+    frequency1: 293.66,
+    frequency2: 392,
+    image: "assets/images/intervals/intervals-d/d-perfect-fourth.png",
+  },
+  // D Augmented Fourth
+  {
+    interval: "Augmented Fourth",
+    name: "D Augmented Fourth",
+    frequency1: 293.66,
+    frequency2: 415.3,
+    image: "assets/images/intervals/intervals-d/d-augmented-fourth.png",
+  },
+  // D Perfect Fifth
+  {
+    interval: "Perfect Fifth",
+    name: "D Perfect Fifth",
+    frequency1: 293.66,
+    frequency2: 440,
+    image: "assets/images/intervals/intervals-d/d-perfect-fifth.png",
+  },
+  // D Minor Sixth
+  {
+    interval: "Minor Sixth",
+    name: "D Minor Sixth",
+    frequency1: 293.66,
+    frequency2: 466.16,
+    image: "assets/images/intervals/intervals-d/d-minor-sixth.png",
+  },
+  // D Major Sixth
+  {
+    interval: "Major Sixth",
+    name: "D Major Sixth",
+    frequency1: 293.66,
+    frequency2: 493.88,
+    image: "assets/images/intervals/intervals-d/d-major-sixth.png",
+  },
+  // D Minor Seventh
+  {
+    interval: "Minor Seventh",
+    name: "D Minor Seventh",
+    frequency1: 293.66,
+    frequency2: 523.25,
+    image: "assets/images/intervals/intervals-d/d-minor-seventh.png",
   },
   // D Major Seventh
   {
@@ -220,7 +220,971 @@ const intervalList = [
     frequency2: 554.37,
     image: "assets/images/intervals/intervals-d/d-major-seventh.png",
   },
+  // D Flat Octave
+  {
+    interval: "Octave",
+    name: "Db Octave",
+    frequency1: 277.18,
+    frequency2: 544.37,
+    image: "assets/images/intervals/intervals-d-flat/d-flat-octave.png",
+  },
+  // D Flat Minor Second
+  {
+    interval: "Minor Second",
+    name: "Db Minor Second",
+    frequency1: 277.18,
+    frequency2: 293.66,
+    image: "assets/images/intervals/intervals-d-flat/d-flat-minor-second.png",
+  },
+  // D Flat Major Second
+  {
+    interval: "Major Second",
+    name: "Db Major Second",
+    frequency1: 277.18,
+    frequency2: 311.13,
+    image: "assets/images/intervals/intervals-d-flat/d-flat-major-second.png",
+  },
+  // D Flat Minor Third
+  {
+    interval: "Minor Third",
+    name: "Db Minor Third",
+    frequency1: 277.18,
+    frequency2: 329.63,
+    image: "assets/images/intervals/intervals-d-flat/d-flat-minor-third.png",
+  },
+  // D Flat Major Third
+  {
+    interval: "Major Third",
+    name: "Db Major Third",
+    frequency1: 277.18,
+    frequency2: 349.23,
+    image: "assets/images/intervals/intervals-d-flat/d-flat-major-third.png",
+  },
+  // D Flat Perfect Fourth
+  {
+    interval: "Perfect Fourth",
+    name: "Db Perfect Fourth",
+    frequency1: 277.18,
+    frequency2: 369.99,
+    image: "assets/images/intervals/intervals-d-flat/d-flat-perfect-fourth.png",
+  },
+  // D Flat Augmented Fourth
+  {
+    interval: "Augmented Fourth",
+    name: "Db Augmented Fourth",
+    frequency1: 277.18,
+    frequency2: 392,
+    image: "assets/images/intervals/intervals-d-flat/d-flat-augmented-fourth.png",
+  },
+  // D Flat Perfect Fifth
+  {
+    interval: "Perfect Fifth",
+    name: "Db Perfect Fifth",
+    frequency1: 277.18,
+    frequency2: 415.3,
+    image: "assets/images/intervals/intervals-d-flat/d-flat-perfect-fifth.png",
+  },
+  // D Flat Minor Sixth
+  {
+    interval: "Minor Sixth",
+    name: "Db Minor Sixth",
+    frequency1: 277.18,
+    frequency2: 440,
+    image: "assets/images/intervals/intervals-d-flat/d-flat-minor-sixth.png",
+  },
+  // D Flat Major Sixth
+  {
+    interval: "Major Sixth",
+    name: "Db Major Sixth",
+    frequency1: 277.18,
+    frequency2: 466.16,
+    image: "assets/images/intervals/intervals-d-flat/d-flat-major-sixth.png",
+  },
+  // D Flat Minor Seventh
+  {
+    interval: "Minor Seventh",
+    name: "Db Minor Seventh",
+    frequency1: 277.18,
+    frequency2: 493.88,
+    image: "assets/images/intervals/intervals-d-flat/d-flat-minor-seventh.png",
+  },
+  // D Flat Major Seventh
+  {
+    interval: "Major Seventh",
+    name: "Db Major Seventh",
+    frequency1: 277.18,
+    frequency2: 392,
+    image: "assets/images/intervals/intervals-d-flat/d-flat-major-seventh.png",
+  },
+  // E Flat Octave
+  {
+    interval: "Octave",
+    name: "Eb Octave",
+    frequency1: 311.13,
+    frequency2: 622.25,
+    image: "assets/images/intervals/intervals-e-flat/e-flat-octave.png",
+  },
+  // E Flat Minor Second
+  {
+    interval: "Minor Second",
+    name: "Eb Minor Second",
+    frequency1: 311.13,
+    frequency2: 329.63,
+    image: "assets/images/intervals/intervals-e-flat/e-flat-minor-second.png",
+  },
+  // E Flat Major Second
+  {
+    interval: "Major Second",
+    name: "Eb Major Second",
+    frequency1: 311.13,
+    frequency2: 349.23,
+    image: "assets/images/intervals/intervals-e-flat/e-flat-major-second.png",
+  },
+  // E Flat Minor Third
+  {
+    interval: "Minor Third",
+    name: "Eb Minor Third",
+    frequency1: 311.13,
+    frequency2: 369.99,
+    image: "assets/images/intervals/intervals-e-flat/e-flat-octave.png",
+  },
+  // E Flat Major Third
+  {
+    interval: "Major Third",
+    name: "Eb Major Third",
+    frequency1: 311.13,
+    frequency2: 392,
+    image: "assets/images/intervals/intervals-e-flat/e-flat-major-third.png",
+  },
+  // E Flat Perfect Fourth
+  {
+    interval: "Perfect Fourth",
+    name: "Eb Perfect Fourth",
+    frequency1: 311.13,
+    frequency2: 415.3,
+    image: "assets/images/intervals/intervals-e-flat/e-flat-perfect-fourth.png",
+  },
+  // E Flat Augmented Fourth
+  {
+    interval: "Augmented Fourth",
+    name: "Eb Augmented Fourth",
+    frequency1: 311.13,
+    frequency2: 440,
+    image: "assets/images/intervals/intervals-e-flat/e-flat-augmented-fourth.png",
+  },
+  // E Flat Perfect Fifth
+  {
+    interval: "Perfect Fifth",
+    name: "Eb Perfect Fifth",
+    frequency1: 311.13,
+    frequency2: 466.16,
+    image: "assets/images/intervals/intervals-e-flat/e-flat-perfect-fifth.png",
+  },
+  // E Flat Minor Sixth
+  {
+    interval: "Minor Sixth",
+    name: "Eb Minor Sixth",
+    frequency1: 311.13,
+    frequency2: 493.88,
+    image: "assets/images/intervals/intervals-e-flat/e-flat-minor-sixth.png",
+  },
+  // E Flat Major Sixth
+  {
+    interval: "Major Sixth",
+    name: "Eb Major Sixth",
+    frequency1: 311.13,
+    frequency2: 523.25,
+    image: "assets/images/intervals/intervals-e-flat/e-flat-major-sixth.png",
+  },
+  // E Flat Minor Seventh
+  {
+    interval: "Minor Seventh",
+    name: "Eb Minor Seventh",
+    frequency1: 311.13,
+    frequency2: 554.37,
+    image: "assets/images/intervals/intervals-e-flat/e-flat-octave.png",
+  },
+  // E Flat Major Seventh
+  {
+    interval: "Major Seventh",
+    name: "Eb Major Seventh",
+    frequency1: 311.13,
+    frequency2: 587.33,
+    image: "assets/images/intervals/intervals-e-flat/e-flat-major-seventh.png",
+  },
+  // E Octave
+  {
+    interval: "Octave",
+    name: "E Octave",
+    frequency1: 329.63,
+    frequency2: 659.25,
+    image: "assets/images/intervals/intervals-e/e-octave.png",
+  },
+  // E Minor Second
+  {
+    interval: "Minor Second",
+    name: "E Minor Second",
+    frequency1: 329.63,
+    frequency2: 349.23,
+    image: "assets/images/intervals/intervals-e/e-minor-second.png",
+  },
+  // E Major Second
+  {
+    interval: "Major Second",
+    name: "E Major Second",
+    frequency1: 329.63,
+    frequency2: 369.99,
+    image: "assets/images/intervals/intervals-e/e-major-second.png",
+  },
+  // E Minor Third
+  {
+    interval: "Minor Third",
+    name: "E Minor Third",
+    frequency1: 329.63,
+    frequency2: 392,
+    image: "assets/images/intervals/intervals-e/e-minor-third.png",
+  },
+  // E Major Third
+  {
+    interval: "Major Third",
+    name: "E Major Third",
+    frequency1: 329.63,
+    frequency2: 415.3,
+    image: "assets/images/intervals/intervals-e/e-major-third.png",
+  },
+  // E Perfect Fourth
+  {
+    interval: "Perfect Fourth",
+    name: "E Perfect Fourth",
+    frequency1: 329.63,
+    frequency2: 440,
+    image: "assets/images/intervals/intervals-e/e-perfect-fourth.png",
+  },
+  // E Augmented Fourth
+  {
+    interval: "Augmented Fourth",
+    name: "E Augmented Fourth",
+    frequency1: 329.63,
+    frequency2: 466.16,
+    image: "assets/images/intervals/intervals-e/e-augmented-fourth.png",
+  },
+  // E Perfect Fifth
+  {
+    interval: "Perfect Fifth",
+    name: "E Perfect Fifth",
+    frequency1: 329.63,
+    frequency2: 493.88,
+    image: "assets/images/intervals/intervals-e/e-perfect-fifth.png",
+  },
+  // E Minor Sixth
+  {
+    interval: "Minor Sixth",
+    name: "E Minor Sixth",
+    frequency1: 329.63,
+    frequency2: 523.25,
+    image: "assets/images/intervals/intervals-e/e-minor-sixth.png",
+  },
+  // E Major Sixth
+  {
+    interval: "Major Sixth",
+    name: "E Major Sixth",
+    frequency1: 329.63,
+    frequency2: 554.37,
+    image: "assets/images/intervals/intervals-e/e-major-sixth.png",
+  },
+  // E Minor Seventh
+  {
+    interval: "Minor Seventh",
+    name: "E Minor Seventh",
+    frequency1: 329.63,
+    frequency2: 587.33,
+    image: "assets/images/intervals/intervals-e/e-minor-seventh.png",
+  },
+  // E Major Seventh
+  {
+    interval: "Major Seventh",
+    name: "E Major Seventh",
+    frequency1: 329.63,
+    frequency2: 622.25,
+    image: "assets/images/intervals/intervals-e/e-major-seventh.png",
+  },
+  // F Octave
+  {
+    interval: "Octave",
+    name: "F Octave",
+    frequency1: 349.23,
+    frequency2: 698.46,
+    image: "assets/images/intervals/intervals-f/f-octave.png",
+  },
+  // F Minor Second
+  {
+    interval: "Minor Second",
+    name: "F Minor Second",
+    frequency1: 349.23,
+    frequency2: 369.99,
+    image: "assets/images/intervals/intervals-f/f-minor-second.png",
+  },
+  // F Major Second
+  {
+    interval: "Major Second",
+    name: "F Major Second",
+    frequency1: 349.23,
+    frequency2: 392,
+    image: "assets/images/intervals/intervals-f/f-major-second.png",
+  },
+  // F Minor Third
+  {
+    interval: "Minor Third",
+    name: "F Minor Third",
+    frequency1: 349.23,
+    frequency2: 415.3,
+    image: "assets/images/intervals/intervals-f/f-minor-third.png",
+  },
+  // F Major Third
+  {
+    interval: "Major Third",
+    name: "F Major Third",
+    frequency1: 349.23,
+    frequency2: 440,
+    image: "assets/images/intervals/intervals-f/f-major-third.png",
+  },
+  // F Perfect Fourth
+  {
+    interval: "Perfect Fourth",
+    name: "F Perfect Fourth",
+    frequency1: 349.23,
+    frequency2: 466.16,
+    image: "assets/images/intervals/intervals-f/f-perfect-fourth.png",
+  },
+  // F Augmented Fourth
+  {
+    interval: "Augmented Fourth",
+    name: "F Augmented Fourth",
+    frequency1: 349.23,
+    frequency2: 493.88,
+    image: "assets/images/intervals/intervals-f/f-augmented-fourth.png",
+  },
+  // F Perfect Fifth
+  {
+    interval: "Perfect Fifth",
+    name: "F Perfect Fifth",
+    frequency1: 349.23,
+    frequency2: 523.25,
+    image: "assets/images/intervals/intervals-f/f-perfect-fifth.png",
+  },
+  // F Minor Sixth
+  {
+    interval: "Minor Sixth",
+    name: "F Minor Sixth",
+    frequency1: 349.23,
+    frequency2: 554.37,
+    image: "assets/images/intervals/intervals-f/f-minor-sixth.png",
+  },
+  // F Major Sixth
+  {
+    interval: "Major Sixth",
+    name: "F Major Sixth",
+    frequency1: 349.23,
+    frequency2: 587.33,
+    image: "assets/images/intervals/intervals-f/f-major-sixth.png",
+  },
+  // F Minor Seventh
+  {
+    interval: "Minor Seventh",
+    name: "F Minor Seventh",
+    frequency1: 349.23,
+    frequency2: 622.25,
+    image: "assets/images/intervals/intervals-f/f-minor-seventh.png",
+  },
+  // F Major Seventh
+  {
+    interval: "Major Seventh",
+    name: "F Major Seventh",
+    frequency1: 349.23,
+    frequency2: 659.25,
+    image: "assets/images/intervals/intervals-f/f-major-seventh.png",
+  },
+  // F Sharp Octave
+  {
+    interval: "Octave",
+    name: "F# Octave",
+    frequency1: 185,
+    frequency2: 369.99,
+    image: "assets/images/intervals/intervals-f-sharp/f-sharp-octave.png",
+  },
+  // F Sharp Minor Second
+  {
+    interval: "Minor Second",
+    name: "F# Minor Second",
+    frequency1: 185,
+    frequency2: 196,
+    image: "assets/images/intervals/intervals-f-sharp/f-sharp-minor-second.png",
+  },
+  // F Sharp Major Second
+  {
+    interval: "Major Second",
+    name: "F# Major Second",
+    frequency1: 185,
+    frequency2: 207.65,
+    image: "assets/images/intervals/intervals-f-sharp/f-sharp-major-second.png",
+  },
+  // F Sharp Minor Third
+  {
+    interval: "Minor Third",
+    name: "F# Minor Third",
+    frequency1: 185,
+    frequency2: 220,
+    image: "assets/images/intervals/intervals-f-sharp/f-sharp-minor-third.png",
+  },
+  // F Sharp Major Third
+  {
+    interval: "Major Third",
+    name: "F# Major Third",
+    frequency1: 185,
+    frequency2: 233.08,
+    image: "assets/images/intervals/intervals-f-sharp/f-sharp-major-third.png",
+  },
+  // F Sharp Perfect Fourth
+  {
+    interval: "Perfect Fourth",
+    name: "F# Perfect Fourth",
+    frequency1: 185,
+    frequency2: 246.94,
+    image: "assets/images/intervals/intervals-f-sharp/f-sharp-perfect-fourth.png",
+  },
+  // F Sharp Augmented Fourth
+  {
+    interval: "Augmented Fourth",
+    name: "F# Augmented Fourth",
+    frequency1: 185,
+    frequency2: 261.63,
+    image: "assets/images/intervals/intervals-f-sharp/f-sharp-augmented-fourth.png",
+  },
+  // F Sharp Perfect Fifth
+  {
+    interval: "Perfect Fifth",
+    name: "F# Perfect Fifth",
+    frequency1: 185,
+    frequency2: 277.18,
+    image: "assets/images/intervals/intervals-f-sharp/f-sharp-perfect-fifth.png",
+  },
+  // F Sharp Minor Sixth
+  {
+    interval: "Minor Sixth",
+    name: "F# Minor Sixth",
+    frequency1: 185,
+    frequency2: 293.66,
+    image: "assets/images/intervals/intervals-f-sharp/f-sharp-minor-sixth.png",
+  },
+  // F Sharp Major Sixth
+  {
+    interval: "Major Sixth",
+    name: "F# Major Sixth",
+    frequency1: 185,
+    frequency2: 311.13,
+    image: "assets/images/intervals/intervals-f-sharp/f-sharp-major-sixth.png",
+  },
+  // F Sharp Minor Seventh
+  {
+    interval: "Minor Seventh",
+    name: "F# Minor Seventh",
+    frequency1: 185,
+    frequency2: 329.63,
+    image: "assets/images/intervals/intervals-f-sharp/f-sharp-minor-seventh.png",
+  },
+  // F Sharp Major Seventh
+  {
+    interval: "Major Seventh",
+    name: "F# Major Seventh",
+    frequency1: 185,
+    frequency2: 349.23,
+    image: "assets/images/intervals/intervals-f-sharp/f-sharp-major-seventh.png",
+  },
+  // G Octave
+  {
+    interval: "Octave",
+    name: "G Octave",
+    frequency1: 196,
+    frequency2: 392,
+    image: "assets/images/intervals/intervals-g/g-octave.png",
+  },
+  // G Minor Second
+  {
+    interval: "Minor Second",
+    name: "G Minor Second",
+    frequency1: 196,
+    frequency2: 207.65,
+    image: "assets/images/intervals/intervals-g/g-minor-second.png",
+  },
+  // G Major Second
+  {
+    interval: "Major Second",
+    name: "G Major Second",
+    frequency1: 196,
+    frequency2: 220,
+    image: "assets/images/intervals/intervals-g/g-major-second.png",
+  },
+  // G Minor Third
+  {
+    interval: "Minor Third",
+    name: "G Minor Third",
+    frequency1: 196,
+    frequency2: 233.08,
+    image: "assets/images/intervals/intervals-g/g-minor-third.png",
+  },
+  // G Major Third
+  {
+    interval: "Major Third",
+    name: "G Major Third",
+    frequency1: 196,
+    frequency2: 246.94,
+    image: "assets/images/intervals/intervals-g/g-major-third.png",
+  },
+  // G Perfect Fourth
+  {
+    interval: "Perfect Fourth",
+    name: "G Perfect Fourth",
+    frequency1: 196,
+    frequency2: 261.63,
+    image: "assets/images/intervals/intervals-g/g-perfect-fourth.png",
+  },
+  // G Augmented Fourth
+  {
+    interval: "Augmented Fourth",
+    name: "G Augmented Fourth",
+    frequency1: 196,
+    frequency2: 277.18,
+    image: "assets/images/intervals/intervals-g/g-augmented-fourth.png",
+  },
+  // G Perfect Fifth
+  {
+    interval: "Perfect Fifth",
+    name: "G Perfect Fifth",
+    frequency1: 196,
+    frequency2: 293.66,
+    image: "assets/images/intervals/intervals-g/g-perfect-fifth.png",
+  },
+  // G Minor Sixth
+  {
+    interval: "Minor Sixth",
+    name: "G Minor Sixth",
+    frequency1: 196,
+    frequency2: 311.13,
+    image: "assets/images/intervals/intervals-g/g-minor-sixth.png",
+  },
+  // G Major Sixth
+  {
+    interval: "Major Sixth",
+    name: "G Major Sixth",
+    frequency1: 196,
+    frequency2: 329.63,
+    image: "assets/images/intervals/intervals-g/g-major-sixth.png",
+  },
+  // G Minor Seventh
+  {
+    interval: "Minor Seventh",
+    name: "G Minor Seventh",
+    frequency1: 196,
+    frequency2: 349.23,
+    image: "assets/images/intervals/intervals-g/g-minor-seventh.png",
+  },
+  // G Major Seventh
+  {
+    interval: "Major Seventh",
+    name: "G Major Seventh",
+    frequency1: 196,
+    frequency2: 369.99,
+    image: "assets/images/intervals/intervals-g/g-major-seventh.png",
+  },
+  // Ab Octave
+  {
+    interval: "Octave",
+    name: "Ab Octave",
+    frequency1: 207.65,
+    frequency2: 415.3,
+    image: "assets/images/intervals/intervals-a-flat/a-flat-octave.png",
+  },
+  // Ab Minor Second
+  {
+    interval: "Minor Second",
+    name: "Ab Minor Second",
+    frequency1: 207.65,
+    frequency2: 220,
+    image: "assets/images/intervals/intervals-a-flat/a-flat-minor-second.png",
+  },
+  // Ab Major Second
+  {
+    interval: "Major Second",
+    name: "Ab Major Second",
+    frequency1: 207.65,
+    frequency2: 233.08,
+    image: "assets/images/intervals/intervals-a-flat/a-flat-major-second.png",
+  },
+  // Ab Minor Third
+  {
+    interval: "Minor Third",
+    name: "Ab Minor Third",
+    frequency1: 207.65,
+    frequency2: 246.94,
+    image: "assets/images/intervals/intervals-a-flat/a-flat-minor-third.png",
+  },
+  // Ab Major Third
+  {
+    interval: "Major Third",
+    name: "Ab Major Third",
+    frequency1: 207.65,
+    frequency2: 261.63,
+    image: "assets/images/intervals/intervals-a-flat/a-flat-major-third.png",
+  },
+  // Ab Perfect Fourth
+  {
+    interval: "Perfect Fourth",
+    name: "Ab Perfect Fourth",
+    frequency1: 207.65,
+    frequency2: 277.18,
+    image: "assets/images/intervals/intervals-a-flat/a-flat-perfect-fourth.png",
+  },
+  // Ab Augmented Fourth
+  {
+    interval: "Augmented Fourth",
+    name: "Ab Augmented Fourth",
+    frequency1: 207.65,
+    frequency2: 293.66,
+    image: "assets/images/intervals/intervals-a-flat/a-flat-augmented-fourth.png",
+  },
+  // Ab Perfect Fifth
+  {
+    interval: "Perfect Fifth",
+    name: "Ab Perfect Fifth",
+    frequency1: 207.65,
+    frequency2: 311.13,
+    image: "assets/images/intervals/intervals-a-flat/a-flat-perfect-fifth.png",
+  },
+  // Ab Minor Sixth
+  {
+    interval: "Minor Sixth",
+    name: "Ab Minor Sixth",
+    frequency1: 207.65,
+    frequency2: 329.63,
+    image: "assets/images/intervals/intervals-a-flat/a-flat-minor-sixth.png",
+  },
+  // Ab Major Sixth
+  {
+    interval: "Major Sixth",
+    name: "Ab Major Sixth",
+    frequency1: 207.65,
+    frequency2: 349.23,
+    image: "assets/images/intervals/intervals-a-flat/a-flat-major-sixth.png",
+  },
+  // Ab Minor Seventh
+  {
+    interval: "Minor Seventh",
+    name: "Ab Minor Seventh",
+    frequency1: 207.65,
+    frequency2: 369.99,
+    image: "assets/images/intervals/intervals-a-flat/a-flat-minor-seventh.png",
+  },
+  // Ab Major Seventh
+  {
+    interval: "Major Seventh",
+    name: "Ab Major Seventh",
+    frequency1: 207.65,
+    frequency2: 392,
+    image: "assets/images/intervals/intervals-a-flat/a-flat-major-seventh.png",
+  },
+  // A Octave
+  {
+    interval: "Octave",
+    name: "A Octave",
+    frequency1: 220,
+    frequency2: 440,
+    image: "assets/images/intervals/intervals-a/a-octave.png",
+  },
+  // A Minor Second
+  {
+    interval: "Minor Second",
+    name: "A Minor Second",
+    frequency1: 220,
+    frequency2: 233.08,
+    image: "assets/images/intervals/intervals-a/a-minor-second.png",
+  },
+  // A Major Second
+  {
+    interval: "Major Second",
+    name: "A Major Second",
+    frequency1: 220,
+    frequency2: 246.94,
+    image: "assets/images/intervals/intervals-a/a-major-second.png",
+  },
+  // A Minor Third
+  {
+    interval: "Minor Third",
+    name: "A Minor Third",
+    frequency1: 220,
+    frequency2: 261.63,
+    image: "assets/images/intervals/intervals-a/a-minor-third.png",
+  },
+  // A Major Third
+  {
+    interval: "Major Third",
+    name: "A Major Third",
+    frequency1: 220,
+    frequency2: 277.18,
+    image: "assets/images/intervals/intervals-a/a-major-third.png",
+  },
+  // A Perfect Fourth
+  {
+    interval: "Perfect Fourth",
+    name: "A Perfect Fourth",
+    frequency1: 220,
+    frequency2: 293.66,
+    image: "assets/images/intervals/intervals-a/a-perfect-fourth.png",
+  },
+  // A Augmented Fourth
+  {
+    interval: "Augmented Fourth",
+    name: "A Augmented Fourth",
+    frequency1: 220,
+    frequency2: 311.13,
+    image: "assets/images/intervals/intervals-a/a-augmented-fourth.png",
+  },
+  // A Perfect Fifth
+  {
+    interval: "Perfect Fifth",
+    name: "A Perfect Fifth",
+    frequency1: 220,
+    frequency2: 329.63,
+    image: "assets/images/intervals/intervals-a/a-perfect-fifth.png",
+  },
+  // A Minor Sixth
+  {
+    interval: "Minor Sixth",
+    name: "A Minor Sixth",
+    frequency1: 220,
+    frequency2: 349.23,
+    image: "assets/images/intervals/intervals-a/a-minor-sixth.png",
+  },
+  // A Major Sixth
+  {
+    interval: "Major Sixth",
+    name: "A Major Sixth",
+    frequency1: 220,
+    frequency2: 369.99,
+    image: "assets/images/intervals/intervals-a/a-major-sixth.png",
+  },
+  // A Minor Seventh
+  {
+    interval: "Minor Seventh",
+    name: "A Minor Seventh",
+    frequency1: 220,
+    frequency2: 392,
+    image: "assets/images/intervals/intervals-a/a-minor-seventh.png",
+  },
+  // A Major Seventh
+  {
+    interval: "Major Seventh",
+    name: "A Major Seventh",
+    frequency1: 220,
+    frequency2: 415.3,
+    image: "assets/images/intervals/intervals-a/a-major-seventh.png",
+  },
+  // B Flat Octave
+  {
+    interval: "Octave",
+    name: "Bb Octave",
+    frequency1: 233.08,
+    frequency2: 466.16,
+    image: "assets/images/intervals/intervals-b-flat/b-flat-octave.png",
+  },
+  // B Flat Minor Second
+  {
+    interval: "Minor Second",
+    name: "Bb Minor Second",
+    frequency1: 233.08,
+    frequency2: 246.94,
+    image: "assets/images/intervals/intervals-b-flat/b-flat-minor-second.png",
+  },
+  // B Flat Major Second
+  {
+    interval: "Major Second",
+    name: "Bb Major Second",
+    frequency1: 233.08,
+    frequency2: 261.63,
+    image: "assets/images/intervals/intervals-b-flat/b-flat-major-second.png",
+  },
+  // B Flat Minor Third
+  {
+    interval: "Minor Third",
+    name: "Bb Minor Third",
+    frequency1: 233.08,
+    frequency2: 277.18,
+    image: "assets/images/intervals/intervals-b-flat/b-flat-minor-third.png",
+  },
+  // B Flat Major Third
+  {
+    interval: "Major Third",
+    name: "Bb Major Third",
+    frequency1: 233.08,
+    frequency2: 293.66,
+    image: "assets/images/intervals/intervals-b-flat/b-flat-major-third.png",
+  },
+  // B Flat Perfect Fourth
+  {
+    interval: "Perfect Fourth",
+    name: "Bb Perfect Fourth",
+    frequency1: 233.08,
+    frequency2: 311.13,
+    image: "assets/images/intervals/intervals-b-flat/b-flat-perfect-fourth.png",
+  },
+  // B Flat Augmented Fourth
+  {
+    interval: "Augmented Fourth",
+    name: "Bb Augmented Fourth",
+    frequency1: 233.08,
+    frequency2: 329.63,
+    image: "assets/images/intervals/intervals-b-flat/b-flat-augmented-fourth.png",
+  },
+  // B Flat Perfect Fifth
+  {
+    interval: "Perfect Fifth",
+    name: "Bb Perfect Fifth",
+    frequency1: 233.08,
+    frequency2: 349.23,
+    image: "assets/images/intervals/intervals-b-flat/b-flat-perfect-fifth.png",
+  },
+  // B Flat Minor Sixth
+  {
+    interval: "Minor Sixth",
+    name: "Bb Minor Sixth",
+    frequency1: 233.08,
+    frequency2: 369.99,
+    image: "assets/images/intervals/intervals-b-flat/b-flat-minor-sixth.png",
+  },
+  // B Flat Major Sixth
+  {
+    interval: "Major Sixth",
+    name: "Bb Major Sixth",
+    frequency1: 233.08,
+    frequency2: 392,
+    image: "assets/images/intervals/intervals-b-flat/b-flat-major-sixth.png",
+  },
+  // B Flat Minor Seventh
+  {
+    interval: "Minor Seventh",
+    name: "Bb Minor Seventh",
+    frequency1: 233.08,
+    frequency2: 415.3,
+    image: "assets/images/intervals/intervals-b-flat/b-flat-minor-seventh.png",
+  },
+  // B Flat Major Seventh
+  {
+    interval: "Major Seventh",
+    name: "Bb Major Seventh",
+    frequency1: 233.08,
+    frequency2: 440,
+    image: "assets/images/intervals/intervals-b-flat/b-flat-major-seventh.png",
+  },
+  // B Octave
+  {
+    interval: "Octave",
+    name: "B Octave",
+    frequency1: 246.94,
+    frequency2: 493.88,
+    image: "assets/images/intervals/intervals-b/b-octave.png",
+  },
+  // B Minor Second
+  {
+    interval: "Minor Second",
+    name: "B Minor Second",
+    frequency1: 246.94,
+    frequency2: 261.63,
+    image: "assets/images/intervals/intervals-b/b-minor-second.png",
+  },
+  // B Major Second
+  {
+    interval: "Major Second",
+    name: "B Major Second",
+    frequency1: 246.94,
+    frequency2: 277.18,
+    image: "assets/images/intervals/intervals-b/b-major-second.png",
+  },
+  // B Minor Third
+  {
+    interval: "Minor Third",
+    name: "B Minor Third",
+    frequency1: 246.94,
+    frequency2: 293.66,
+    image: "assets/images/intervals/intervals-b/b-minor-third.png",
+  },
+  // B Major Third
+  {
+    interval: "Major Third",
+    name: "B Major Third",
+    frequency1: 246.94,
+    frequency2: 311.13,
+    image: "assets/images/intervals/intervals-b/b-major-third.png",
+  },
+  // B Perfect Fourth
+  {
+    interval: "Perfect Fourth",
+    name: "B Perfect Fourth",
+    frequency1: 246.94,
+    frequency2: 329.63,
+    image: "assets/images/intervals/intervals-b/b-perfect-fourth.png",
+  },
+  // B Augmented Fourth
+  {
+    interval: "Augmented Fourth",
+    name: "B Augmented Fourth",
+    frequency1: 246.94,
+    frequency2: 349.23,
+    image: "assets/images/intervals/intervals-b/b-augmented-fourth.png",
+  },
+  // B Perfect Fifth
+  {
+    interval: "Perfect Fifth",
+    name: "B Perfect Fifth",
+    frequency1: 246.94,
+    frequency2: 369.99,
+    image: "assets/images/intervals/intervals-b/b-perfect-fifth.png",
+  },
+  // B Minor Sixth
+  {
+    interval: "Minor Sixth",
+    name: "B Minor Sixth",
+    frequency1: 246.94,
+    frequency2: 392,
+    image: "assets/images/intervals/intervals-b/b-minor-sixth.png",
+  },
+  // B Major Sixth
+  {
+    interval: "Major Sixth",
+    name: "B Major Sixth",
+    frequency1: 246.94,
+    frequency2: 415.3,
+    image: "assets/images/intervals/intervals-b/b-major-sixth.png",
+  },
+  // B Minor Seventh
+  {
+    interval: "Minor Seventh",
+    name: "B Minor Seventh",
+    frequency1: 246.94,
+    frequency2: 440,
+    image: "assets/images/intervals/intervals-b/b-minor-seventh.png",
+  },
+  // B Major Seventh
+  {
+    interval: "Major Seventh",
+    name: "B Major Seventh",
+    frequency1: 246.94,
+    frequency2: 466.16,
+    image: "assets/images/intervals/intervals-b/b-major-seventh.png",
+  },
 ];
+
+console.log(intervalList.length)
+
+
 
 /* Object array of chords - Major, Minor, Dominant 7th, Major 7th and Minor 7th
 to be iterated over and used in Chord Identifier game */
