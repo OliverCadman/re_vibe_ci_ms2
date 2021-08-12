@@ -1,11 +1,9 @@
 let questions;
 let questionIndex;
 let questionCount;
-let interval1;
-let interval2;
-let chord;
 let userAnswer;
-let correctAnswer;
+let correctAnswerSound;
+let wrongAnswerSound;
 let correctAnswersRemaining;
 let livesRemaining;
 let correctAnswerList = [];
@@ -17,12 +15,15 @@ document.addEventListener("DOMContentLoaded", function () {
   loadGame();
 });
 
+// Initializes variables and toggles GUI elements
 function loadGame() {
   questions = [];
   livesRemaining = 3;
   correctAnswersRemaining = 10;
 
   $(".game-selection-button-container").show();
+
+  $('.lives-left-alert').hide();
 
   $(".speaker-icon").hide();
 
@@ -39,6 +40,8 @@ function loadGame() {
 
   const buttons = document.getElementsByTagName("button");
 
+  /* Loop through buttons and add click event listeners
+  to invoke readyGame(), passing in gameType as argument */
   for (let button of buttons) {
     button.addEventListener("click", () => {
       if (button.getAttribute("id") === "interval-trainer-btn") {
@@ -51,6 +54,7 @@ function loadGame() {
     });
   }
 
+  // Displays three 'user' fontAwesome icons representing lives left
   let livesLeftContainer = document.getElementById("lives-left-container");
   let livesLeft = "";
   for (i = 0; i < livesRemaining; i++) {
@@ -58,23 +62,6 @@ function loadGame() {
   }
   livesLeftContainer.innerHTML = livesLeft;
 }
-
-const animateCSS = (element, animation, prefix = "animate__") =>
-  // We create a Promise and return it
-  new Promise((resolve, reject) => {
-    const animationName = `${prefix}${animation}`;
-    const node = document.querySelector(element);
-    node.classList.add(`${prefix}animated`, animationName);
-
-    // When the animation ends, we clean the classes and resolve the Promise
-    function handleAnimationEnd(event) {
-      event.stopPropagation();
-      node.classList.remove(`${prefix}animated`, animationName);
-      resolve("Animation ended");
-    }
-
-    node.addEventListener("animationend", handleAnimationEnd, { once: true });
-  });
 
 function readyGame(gameType) {
   $(".game-selection-button-container").hide();
@@ -85,6 +72,10 @@ function readyGame(gameType) {
     .prop("disabled", false)
     .css({ opacity: "1", width: "inherit", color: "#e7782d" })
     .text("Begin Training");
+
+  /* Add click event listener to 'Begin Training' button,
+  invoking countDown() and start of Interval Trainer or
+  Chord Identifier */
   if (gameType === "interval-trainer") {
     $("#begin-training-btn").click(() => {
       $("#game-mode-header").hide();
@@ -96,41 +87,6 @@ function readyGame(gameType) {
       countDown(gameType);
     });
   }
-}
-
-// runIntervalGame() gathers 10 intervals to populate questions array
-function runIntervalGame() {
-  $(".speaker-icon").show();
-  $("#lives-left-container").show();
-
-  questions = [];
-  questionCount = 10;
-  questionIndex = 0;
-  for (let question = 0; question < questionCount; question++) {
-    let intervals = getInterval();
-    questions[question] = intervals;
-    console.log(question);
-  }
-
-  nextInterval(questionIndex);
-}
-
-// runChordGame gathers 10 chords to populate questions array
-function runChordGame() {
-  $(".speaker-icon").show();
-  $("#lives-left-container").show();
-
-  questions = [];
-  questionCount = 10;
-  questionIndex = 0;
-
-  for (let question = 0; question < questionCount; question++) {
-    let chords = getChord();
-    questions[question] = chords;
-    console.log(chords.chord);
-  }
-
-  nextChord(questionIndex);
 }
 
 // Initiates a countdown when user clicks 'Begin Training'
@@ -153,6 +109,8 @@ function countDown(gameType) {
   $("#countdown").html(
     `<p class="animate__animated animate__flipInX">${counter}</p>`
   );
+
+  // Counts down 3 seconds before starting game
   const countdown = setInterval(() => {
     counter--;
     $("#countdown").html(
@@ -170,12 +128,30 @@ function countDown(gameType) {
   }, 1000);
 }
 
+// runIntervalGame() gathers 10 intervals to populate questions array
+function runIntervalGame() {
+  $(".speaker-icon").show();
+  $("#lives-left-container").show();
+
+  questions = [];
+  questionCount = 10;
+  questionIndex = 0;
+  for (let question = 0; question < questionCount; question++) {
+    let intervals = getInterval();
+    questions[question] = intervals;
+    console.log(question);
+  }
+
+  nextInterval(questionIndex);
+}
+
 function nextInterval(currentInterval) {
   $(".correct-answer-wrapper").empty().removeClass("show-correct-answer");
 
   $(".speaker-icon").show();
 
-  answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
+  answerCountdown.innerHTML =
+  `Correct Answers Remaining: ${correctAnswersRemaining}`;
 
   let answerOptions = getIntervalAnswers(questions[currentInterval]);
 
@@ -211,7 +187,7 @@ function nextInterval(currentInterval) {
 
   /* Remove event listener every time nextInterval function
   invoked. Ensures that click event 'forgets' previous intervals
-  that have been passed in, and avoids bug resulting in all 
+  that have been passed in, and avoids bug resulting in all
   previous intervals in questions array being played
   (as well as the current interval) */
   $("#replay-question")
@@ -221,10 +197,30 @@ function nextInterval(currentInterval) {
     });
 }
 
+// runChordGame gathers 10 chords to populate questions array
+function runChordGame() {
+  $(".speaker-icon").show();
+  $("#lives-left-container").show();
+
+  questions = [];
+  questionCount = 10;
+  questionIndex = 0;
+
+  for (let question = 0; question < questionCount; question++) {
+    let chords = getChord();
+    questions[question] = chords;
+    console.log(chords.chord);
+  }
+
+  nextChord(questionIndex);
+}
+
 function nextChord(currentChord) {
   $(".correct-answer-wrapper").empty().removeClass("show-correct-answer");
   $(".speaker-icon").show();
-  answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
+  answerCountdown.innerHTML =
+  `Correct Answers Remaining: ${correctAnswersRemaining}`;
+
   /* Initialize question index and pass it
   into questions object array to access relative index */
   let answerOptions = getChordAnswers(questions[currentChord]);
@@ -287,16 +283,22 @@ function getIntervalAnswers(currentInterval) {
   return newAnswerArray;
 }
 
+// getChordAnswers takes current chord as argument
 function getChordAnswers(currentChord) {
   let correctAnswerObject = currentChord;
   let correctChord = correctAnswerObject.chord;
 
+  /* Filter through chordAnswerList and remove
+  the answer which is equal to the interval played */
   chordAnswerList = chordAnswerList.filter((answer) => answer !== correctChord);
 
+  // Remove 7 elements from new array
   chordAnswerList = chordAnswerList.splice(0, 5);
 
+  // Add the correct chord back into the updated array
   chordAnswerList.push(correctChord);
 
+  // Shuffle the updated array
   let newAnswerArray = shuffleAnswers(chordAnswerList);
 
   return newAnswerArray;
@@ -324,6 +326,8 @@ function shuffleAnswers(array) {
   return array;
 }
 
+/* Displays name and image of notation of interval
+or chord when correct answer submitted */
 function showImage(imageURL, name) {
   $(".speaker-icon").hide();
   $("#answer-container").empty();
@@ -332,7 +336,9 @@ function showImage(imageURL, name) {
     .addClass("show-correct-answer-container");
   $(".correct-answer-wrapper").html(
     `<p class="notation-name">${name}</p>
-    <img src=${imageURL} alt="Image of notation for correct answer" class="notation-image">`
+    <img src=${imageURL}
+    alt="Image of notation for correct answer"
+    class="notation-image">`
   );
   $(".correct-answer-wrapper").addClass("show-correct-answer");
   animateCSS(".correct-answer-wrapper", "flipInY");
@@ -341,16 +347,18 @@ function showImage(imageURL, name) {
   }, 2400);
 }
 
+// Checks value of user input against interval played
 function checkIntervalAnswer(e, questionIndex) {
   userAnswer = e.target.textContent;
 
   if (userAnswer === questions[questionIndex].interval) {
-    let correctAnswerSound = new Audio("assets/sounds/correct-answer.mp3");
+    correctAnswerSound = new Audio("assets/sounds/correct-answer.mp3");
     correctAnswerSound.play();
     showImage(questions[questionIndex].image, questions[questionIndex].name);
     correctAnswerList.push(questions[questionIndex]);
     correctAnswersRemaining--;
-    answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
+    answerCountdown.innerHTML =
+    `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++;
     if (questionIndex < questionCount) {
       setTimeout(() => {
@@ -365,11 +373,17 @@ function checkIntervalAnswer(e, questionIndex) {
       }, 3000);
     }
   } else {
-    let wrongAnswerSound = new Audio("assets/sounds/wrong-answer.mp3");
+    wrongAnswerSound = new Audio("assets/sounds/wrong-answer.mp3");
     wrongAnswerSound.play();
     animateCSS(".speaker-icon", "wobble");
     livesRemaining--;
     $(".lives-left-icon")[0].remove();
+    $(".lives-left-alert")
+      .fadeIn(300)
+      .html(livesRemaining === 1 ? `${livesRemaining} life remaining!` : `${livesRemaining} lives remaining!`)
+      .fadeOut(1750);
+
+    
   }
 
   if (livesRemaining === 0) {
@@ -377,6 +391,7 @@ function checkIntervalAnswer(e, questionIndex) {
   }
 }
 
+// Checks value of user input against chord played
 function checkChordAnswer(e, questionIndex) {
   userAnswer = e.target.textContent;
 
@@ -385,9 +400,9 @@ function checkChordAnswer(e, questionIndex) {
     correctAnswer.play();
     showImage(questions[questionIndex].image, questions[questionIndex].name);
     correctAnswerList.push(questions[questionIndex]);
-    console.log(correctAnswerList);
     correctAnswersRemaining--;
-    answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
+    answerCountdown.innerHTML =
+    `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++;
 
     if (questionIndex < questionCount) {
@@ -408,13 +423,17 @@ function checkChordAnswer(e, questionIndex) {
     livesRemaining--;
     animateCSS(".speaker-icon", "wobble");
     $(".lives-left-icon")[0].remove();
+    $(".lives-left-alert").fadeIn(1000).html(`${livesRemaining} lives remaining!`).fadeOut(1000)
+  
+
   }
 
-  if (livesRemaining === 0) {
+    if (livesRemaining === 0) {
     gameOver();
-  }
+   }
 }
 
+// Runs when user answers all questions correctly
 function gameComplete() {
   $("#completed-game-modal").modal("show");
 
@@ -422,6 +441,8 @@ function gameComplete() {
 
   $("#correct-answers-remaining").empty();
 
+/* Maps over array of correct answers and displays
+name and image of chord in modal */
   correctAnswerList.map((answer) => {
     let answerDisplay = document.getElementsByClassName(
       "display-correct-answers"
@@ -429,16 +450,14 @@ function gameComplete() {
     answerDisplay.innerHTML += `
     <div class="correct-answer">
     <p>${answer.name}</p>
-    <figure><img class="notation-image" src=${answer.image} alt="Image of notation for correct answer"></figure>
+    <figure><img class="notation-image"
+    src=${answer.image}
+    alt="Image of notation for correct answer"></figure>
     </div>`;
 
     return answerDisplay;
   });
 
-  $(".play-again-btn").click(() => {
-    location.reload();
-    $("#completed-game-modal").modal("hide");
-  });
   if (livesRemaining > 1) {
     $("#congratulations-message").html(
       `Congratulations! You completed the game with
@@ -450,8 +469,15 @@ function gameComplete() {
            ${livesRemaining} life remaining!`
     );
   }
+
+  $(".play-again-btn").click(() => {
+    location.reload();
+    $("#completed-game-modal").modal("hide");
+  });
 }
 
+
+// Runs when user loses all three lives
 function gameOver() {
   $("#answer-container").empty();
 
@@ -459,6 +485,8 @@ function gameOver() {
 
   $("#game-over-modal").modal("show");
 
+  /* Maps over array of correct answers and displays
+  name and image of chord in modal */
   correctAnswerList.map((answer) => {
     let answerDisplay = document.getElementsByClassName(
       "display-correct-answers"
@@ -466,7 +494,9 @@ function gameOver() {
     answerDisplay.innerHTML += `
     <div class="correct-answer">
     <p>${answer.name}</p>
-    <figure><img class="notation-image" src=${answer.image} alt="Image of notation for correct answer"></figure>
+    <figure><img class="notation-image"
+    src=${answer.image}
+    alt="Image of notation for correct answer"></figure>
     </div>`;
 
     return answerDisplay;
@@ -478,8 +508,7 @@ function gameOver() {
   });
 }
 
-/* access an index of the intervalList array using number generated
-in getRandomIntervalIndex function */
+// Uses random number to access index of intervalList array
 function getInterval() {
   let randomIndex = getRandomIntervalIndex();
   let randomInterval = intervalList[randomIndex];
@@ -500,6 +529,7 @@ function getRandomChordIndex() {
   return randomIndex;
 }
 
+// Uses random number to access index of chordList array
 function getChord() {
   let randomIndex = getRandomChordIndex();
   let randomChord = chordList[randomIndex];
@@ -537,3 +567,24 @@ function playChord(chord) {
   // Invoking createChord function to play random chord
   createChord(firstNote, secondNote, thirdNote, fourthNote);
 }
+
+/* Function to add and remove animateCSS classes to
+animate speaker icon when sound is played, and when wrong
+answer is submitted. Referenced from animateCSS Docs:
+https://animate.style/ */
+const animateCSS = (element, animation, prefix = "animate__") =>
+  // We create a Promise and return it
+  new Promise((resolve, reject) => {
+    const animationName = `${prefix}${animation}`;
+    const node = document.querySelector(element);
+    node.classList.add(`${prefix}animated`, animationName);
+
+    // When the animation ends, we clean the classes and resolve the Promise
+    function handleAnimationEnd(event) {
+      event.stopPropagation();
+      node.classList.remove(`${prefix}animated`, animationName);
+      resolve("Animation ended");
+    }
+
+    node.addEventListener("animationend", handleAnimationEnd, { once: true });
+  });
