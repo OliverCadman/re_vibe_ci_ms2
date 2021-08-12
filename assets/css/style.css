@@ -324,6 +324,7 @@ footer p {
 }
 
 .footer-icons ul li a {
+  margin: 0 .5rem;
   text-decoration: none;
   color: #e7782d;
 }
