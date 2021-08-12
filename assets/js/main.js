@@ -65,7 +65,6 @@ const animateCSS = (element, animation, prefix = "animate__") =>
     const animationName = `${prefix}${animation}`;
     const node = document.querySelector(element);
     node.classList.add(`${prefix}animated`, animationName);
-   
 
     // When the animation ends, we clean the classes and resolve the Promise
     function handleAnimationEnd(event) {
@@ -84,7 +83,7 @@ function readyGame(gameType) {
   $("#game-mode-header").html(`${gameType.replace("-", " ")}`);
   $("#begin-training-btn")
     .prop("disabled", false)
-    .css({ opacity: "1", width: "inherit", color: "#e7782d"})
+    .css({ opacity: "1", width: "inherit", color: "#e7782d" })
     .text("Begin Training");
   if (gameType === "interval-trainer") {
     $("#begin-training-btn").click(() => {
@@ -103,7 +102,6 @@ function readyGame(gameType) {
 function runIntervalGame() {
   $(".speaker-icon").show();
   $("#lives-left-container").show();
- 
 
   questions = [];
   questionCount = 10;
@@ -111,9 +109,8 @@ function runIntervalGame() {
   for (let question = 0; question < questionCount; question++) {
     let intervals = getInterval();
     questions[question] = intervals;
-    console.log(question)
+    console.log(question);
   }
-
 
   nextInterval(questionIndex);
 }
@@ -130,10 +127,8 @@ function runChordGame() {
   for (let question = 0; question < questionCount; question++) {
     let chords = getChord();
     questions[question] = chords;
-    console.log(chords.chord)
+    console.log(chords.chord);
   }
-
-
 
   nextChord(questionIndex);
 }
@@ -243,7 +238,6 @@ function nextChord(currentChord) {
   for (i = 0; i < answerOptions.length; i++) {
     answerButtons += `<button class="btn btn-light answer-btn"
     data-type="submit">${answerOptions[i]}</button>`;
-   
   }
 
   answerContainer.innerHTML = answerButtons;
@@ -333,6 +327,9 @@ function shuffleAnswers(array) {
 function showImage(imageURL, name) {
   $(".speaker-icon").hide();
   $("#answer-container").empty();
+  $(".hide-correct-answer-container")
+    .removeClass("hide-correct-answer-container")
+    .addClass("show-correct-answer-container");
   $(".correct-answer-wrapper").html(
     `<p class="notation-name">${name}</p>
     <img src=${imageURL} alt="Image of notation for correct answer" class="notation-image">`
@@ -345,7 +342,6 @@ function showImage(imageURL, name) {
 }
 
 function checkIntervalAnswer(e, questionIndex) {
-
   userAnswer = e.target.textContent;
 
   if (userAnswer === questions[questionIndex].interval) {
@@ -389,7 +385,7 @@ function checkChordAnswer(e, questionIndex) {
     correctAnswer.play();
     showImage(questions[questionIndex].image, questions[questionIndex].name);
     correctAnswerList.push(questions[questionIndex]);
-    console.log(correctAnswerList)
+    console.log(correctAnswerList);
     correctAnswersRemaining--;
     answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++;
@@ -401,10 +397,10 @@ function checkChordAnswer(e, questionIndex) {
     }
     if (questionIndex === questionCount) {
       setTimeout(() => {
-        $('#lives-left-container').empty();
+        $("#lives-left-container").empty();
         $(".correct-answer-wrapper").empty();
         gameComplete();
-      }, 3000)
+      }, 3000);
     }
   } else {
     let wrongAnswer = new Audio("assets/sounds/wrong-answer.mp3");
@@ -427,15 +423,17 @@ function gameComplete() {
   $("#correct-answers-remaining").empty();
 
   correctAnswerList.map((answer) => {
-    let answerDisplay = document.getElementsByClassName('display-correct-answers')[0];
+    let answerDisplay = document.getElementsByClassName(
+      "display-correct-answers"
+    )[0];
     answerDisplay.innerHTML += `
     <div class="correct-answer">
     <p>${answer.name}</p>
     <figure><img class="notation-image" src=${answer.image} alt="Image of notation for correct answer"></figure>
-    </div>`
+    </div>`;
 
     return answerDisplay;
-  })
+  });
 
   $(".play-again-btn").click(() => {
     location.reload();
@@ -458,8 +456,8 @@ function gameOver() {
   $("#answer-container").empty();
 
   $("#correct-answers-remaining").empty();
- 
-  $('#game-over-modal').modal('show');
+
+  $("#game-over-modal").modal("show");
 
   correctAnswerList.map((answer) => {
     let answerDisplay = document.getElementsByClassName(
@@ -474,10 +472,10 @@ function gameOver() {
     return answerDisplay;
   });
 
-   $(".play-again-btn").click(() => {
-     location.reload();
-     $("#game-over-modal").modal("hide");
-   });
+  $(".play-again-btn").click(() => {
+    location.reload();
+    $("#game-over-modal").modal("hide");
+  });
 }
 
 /* access an index of the intervalList array using number generated
@@ -489,14 +487,14 @@ function getInterval() {
   return randomInterval;
 }
 
-// Generates a random number between 0 and 12;
+// Generates a random number between 0 and 145;
 function getRandomIntervalIndex() {
-  let randomIndex = Math.ceil(Math.random() * 145 - 1);
-  
+  let randomIndex = Math.ceil(Math.random() * 145);
+
   return randomIndex;
 }
 
-// Generates a random number between 0 and 50;
+// Generates a random number between 0 and 59;
 function getRandomChordIndex() {
   let randomIndex = Math.ceil(Math.random() * 59);
   return randomIndex;
