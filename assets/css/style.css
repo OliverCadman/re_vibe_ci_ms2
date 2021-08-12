@@ -304,17 +304,23 @@ ul li a.active {
 /* ----- Footer ----- */
 
 footer {
-  padding-top: 30px;
+  padding-top: 10px;
   background-color: #23272a;
 }
 
-.footer-icons-wrapper {
-  padding-left: 0;
+footer p {
+  color: #eeeeee;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 100;
+  margin-top: 2rem;
 }
+
 .footer-icons ul {
   display: inline-block;
   list-style-type: none;
   font-size: 2rem;
+  padding: 0 10px;
 }
 
 .footer-icons ul li a {
