@@ -201,7 +201,11 @@ ul li a.active {
   border-radius: 5px;
 }
 
-.correct-answer-container {
+.hide-correct-answer-container {
+  display: none;
+}
+
+.show-correct-answer-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
