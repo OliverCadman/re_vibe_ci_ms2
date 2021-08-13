@@ -44,6 +44,13 @@ body {
   font-size: 40px;
 }
 
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none;
+}
+
+
 .navbar-brand {
   margin-left: 5px;
 }
@@ -60,6 +67,10 @@ body {
 
 .navbar-nav {
   margin-left: auto;
+}
+
+.navbar-collapse {
+  background-color: #202e3a;
 }
 
 ul li a.active {
@@ -244,7 +255,7 @@ ul li a.active {
 .speaker-icon-wrapper {
   position: absolute;
   top: 40%;
-  left: 43%;
+  left: 44%;
 }
 
 .speaker-icon-wrapper p {
@@ -350,12 +361,10 @@ Referenced from Animate CSS : "https://animate.style/" */
 
 .modal-header {
   background-color: #23272a;
-  font-family: 'Roboto Condensed', sans-serif;
-  color: #edf6f9;
 }
 
 .modal-body,
-#play-again-btn {
+.play-again-btn {
   font-family: 'Work Sans', sans-serif;
 }
 
@@ -366,6 +375,9 @@ Referenced from Animate CSS : "https://animate.style/" */
 
 .modal-header h1{
   text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #e5e5e5;
+  font-weight: 200;
 }
 
 .correct-answer {
@@ -557,6 +569,11 @@ legend {
   .navbar-nav {
     margin-right: 5px;
   }
+
+
+.navbar-collapse {
+  background-color: #23272a;
+}
 
   .navbar-nav li {
     margin-left: 20px;
@@ -796,6 +813,11 @@ legend {
 
   #begin-training-btn:hover {
     transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+  }
+
+  .play-again-btn:hover {
+    color: #e7782d;
     transition: 0.3s ease-in-out;
   }
 
