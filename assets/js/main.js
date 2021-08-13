@@ -509,8 +509,10 @@ function gameOver() {
     return answerDisplay;
   });
 
+  resetGlobalVariables();
+
   $(".play-again-btn").click(() => {
-    location.reload();
+    loadGame();
     $("#game-over-modal").modal("hide");
   });
 }
@@ -532,6 +534,7 @@ function resetGlobalVariables() {
  userAnswer = null;
  correctAnswerSound = null;
  wrongAnswerSound = null;
+ correctAnswerList = [];
 }
 
 // Generates a random number between 0 and 144;
