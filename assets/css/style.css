@@ -50,12 +50,14 @@ body {
     box-shadow: none;
 }
 
+.navbar-toggler {
+   transition: all 0.1s ease-in-out;
+}
 
 .open {
   transform: rotate(90deg);
   transition: all 0.1s ease-in-out;
 }
-
 
 .navbar-brand {
   margin-left: 5px;
@@ -76,7 +78,9 @@ body {
 }
 
 .navbar-collapse {
-  background-color: #202e3a;
+  background-color: grey;
+  text-align: center;
+  border-radius: 5px;
 }
 
 ul li a.active {

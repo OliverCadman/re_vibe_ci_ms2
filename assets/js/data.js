@@ -223,7 +223,7 @@ const intervalList = [
   // D Flat Octave
   {
     frequency1: 277.18,
-    frequency2: 544.37,
+    frequency2: 554.37,
     interval: "Octave",
     image: "assets/images/intervals/intervals-d-flat/d-flat-octave.png",
     name: "Db Octave"
