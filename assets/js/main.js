@@ -470,7 +470,11 @@ function checkChordAnswer(e, questionIndex) {
     $(".lives-left-icon")[0].remove();
     $(".lives-left-alert")
       .fadeIn(1000)
-      .html(`${livesRemaining} lives remaining!`)
+      .html(
+        livesRemaining === 1
+          ? `${livesRemaining} life remaining!`
+          : `${livesRemaining} lives remaining!`
+      )
       .fadeOut(1000);
   }
 
