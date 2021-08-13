@@ -29,6 +29,14 @@ function loadGame() {
 
   $("#lives-left-container").hide();
 
+  $(".show-correct-answer-container")
+    .removeClass("show-correct-answer-container")
+    .addClass("hide-correct-answer-container");
+
+  $(".opaque-overlay")
+    .removeAttr("class", "opaque-overlay")
+    .attr("class", "hide-overlay");
+
   $("#begin-training-btn")
     .show()
     .css({ opacity: "0.5", width: "35%" })
@@ -526,15 +534,15 @@ function getInterval() {
 }
 
 function resetGlobalVariables() {
- questions = [];
- questionIndex = 0;
- questionCount = 10;
- correctAnswersRemaining = 10;
- livesRemaining = 3;
- userAnswer = null;
- correctAnswerSound = null;
- wrongAnswerSound = null;
- correctAnswerList = [];
+  questions = [];
+  questionIndex = 0;
+  questionCount = 10;
+  correctAnswersRemaining = 10;
+  livesRemaining = 3;
+  userAnswer = null;
+  correctAnswerSound = null;
+  wrongAnswerSound = null;
+  correctAnswerList = [];
 }
 
 // Generates a random number between 0 and 144;
