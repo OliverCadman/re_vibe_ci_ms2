@@ -540,8 +540,8 @@ name and image of chord in modal */
     });
 
   $(".close-modal-btn").on("click", () => {
-     $("#completed-game-modal").modal("hide");
-  })
+    $("#completed-game-modal").modal("hide");
+  });
 }
 
 // Runs when user loses all three lives
@@ -553,19 +553,19 @@ function gameOver() {
 
   $("#game-over-modal").modal("show");
 
-    $("#begin-training-btn")
-      .show()
-      .prop("disabled", true)
-      .css({ opacity: "0.5", width: "35%", color: "#fafafa" })
-      .text("Please Select Training Mode");
+  $("#begin-training-btn")
+    .show()
+    .prop("disabled", true)
+    .css({ opacity: "0.5", width: "35%", color: "#fafafa" })
+    .text("Please Select Training Mode");
 
-    $(".opaque-overlay").removeClass("opaque-overlay").addClass("hide-overlay");
+  $(".opaque-overlay").removeClass("opaque-overlay").addClass("hide-overlay");
 
-    $(".show-correct-answer-container")
-      .removeClass("show-correct-answer-container")
-      .addClass("hide-correct-answer-container");
+  $(".show-correct-answer-container")
+    .removeClass("show-correct-answer-container")
+    .addClass("hide-correct-answer-container");
 
-    $(".game-selection-button-container").show();
+  $(".game-selection-button-container").show();
 
   /* Maps over array of correct answers and displays
   name and image of chord in modal */
@@ -586,10 +586,12 @@ function gameOver() {
 
   resetGlobalVariables();
 
-  $(".play-again-btn").click(() => {
-    countDown(gameType);
-    $("#game-over-modal").modal("hide");
-  });
+  $(".play-again-btn")
+    .off("click")
+    .on("click", () => {
+      countDown(gameType);
+      $("#game-over-modal").modal("hide");
+    });
 
   $(".close-modal-btn").on("click", () => {
     $("#game-over-modal").modal("hide");
