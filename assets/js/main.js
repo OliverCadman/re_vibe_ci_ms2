@@ -102,7 +102,7 @@ function readyGame(gameType) {
 function countDown(gameType) {
   let counter = 3;
 
-  $('.game-selection-button-container').hide();
+  $(".game-selection-button-container").hide();
 
   $("#begin-training-btn").hide();
 
@@ -146,6 +146,13 @@ function runIntervalGame() {
   $("#lives-left-container").show();
   $(".correct-answer-wrapper").show();
   $("#correct-answers-remaining").show();
+
+  /* Clears list of correct answers in completed game modal
+  when 'Play Again' button was clicked */
+  let answerDisplay = document.getElementsByClassName(
+    "display-correct-answers"
+  )[0];
+  answerDisplay.innerHTML = "";
 
   questions = [];
   questionCount = 1;
@@ -216,10 +223,18 @@ function nextInterval(currentInterval) {
 function runChordGame() {
   $(".speaker-icon").show();
   $("#lives-left-container").show();
+  $(".correct-answer-wrapper").show();
   $("#correct-answers-remaining").show();
 
+  /* Clears list of correct answers in completed game modal
+  when 'Play Again' button was clicked */
+  let answerDisplay = document.getElementsByClassName(
+    "display-correct-answers"
+  )[0];
+  answerDisplay.innerHTML = "";
+
   questions = [];
-  questionCount = 10;
+  questionCount = 1;
   questionIndex = 0;
 
   for (let question = 0; question < questionCount; question++) {
@@ -233,7 +248,8 @@ function runChordGame() {
 
 function nextChord(currentChord) {
   $(".correct-answer-wrapper").empty().removeClass("show-correct-answer");
-  $(".speaker-icon").show();
+
+  answerCountdown = document.getElementsByClassName("correct-answers")[0];
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
 
   /* Initialize question index and pass it
@@ -365,7 +381,7 @@ function showImage(imageURL, name) {
     $(".correct-answer-wrapper")
       .removeClass("animate__animated")
       .removeClass("animate__flipOutY");
-  }, 3000)
+  }, 3000);
 }
 
 // Checks value of user input against interval played
@@ -433,7 +449,7 @@ function checkChordAnswer(e, questionIndex) {
     }
     if (questionIndex === questionCount) {
       setTimeout(() => {
-        $("#lives-left-container").empty();
+        $("#lives-left-container").hide();
         $(".correct-answer-wrapper").empty();
         gameComplete();
       }, 3000);
@@ -463,11 +479,17 @@ function gameComplete() {
 
   $("#correct-answers-remaining").hide();
 
+  $("#begin-training-btn")
+    .show()
+    .prop("disabled", true)
+    .css({ opacity: "0.5", width: "35%", color: "#fafafa" })
+    .text("Please Select Training Mode");
+
   $(".opaque-overlay").removeClass("opaque-overlay").addClass("hide-overlay");
 
- $(".show-correct-answer-container")
-   .removeClass("show-correct-answer-container")
-   .addClass("hide-correct-answer-container");
+  $(".show-correct-answer-container")
+    .removeClass("show-correct-answer-container")
+    .addClass("hide-correct-answer-container");
 
   $(".game-selection-button-container").show();
 
@@ -502,10 +524,12 @@ name and image of chord in modal */
 
   resetGlobalVariables();
 
-  $(".play-again-btn").off("click").on("click", () => {
-    countDown(gameType);
-    $("#completed-game-modal").modal("hide");
-  });
+  $(".play-again-btn")
+    .off("click")
+    .on("click", () => {
+      countDown(gameType);
+      $("#completed-game-modal").modal("hide");
+    });
 }
 
 // Runs when user loses all three lives
