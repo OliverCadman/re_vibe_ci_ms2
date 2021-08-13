@@ -7,8 +7,7 @@ let wrongAnswerSound;
 let correctAnswersRemaining;
 let livesRemaining;
 let correctAnswerList = [];
-
-let answerCountdown = document.getElementsByClassName("correct-answers")[0];
+let answerCountdown;
 
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", function () {
@@ -39,7 +38,7 @@ function loadGame() {
 
   $("#begin-training-btn")
     .show()
-    .css({ opacity: "0.5", width: "35%" })
+    .css({ opacity: "0.5", width: "35%", color: "#fafafa" })
     .text("Please Select Training Mode");
 
   /* Disable Begin Training button until either
@@ -144,6 +143,7 @@ function countDown(gameType) {
 function runIntervalGame() {
   $(".speaker-icon").show();
   $("#lives-left-container").show();
+  $("#correct-answers-remaining").show();
 
   questions = [];
   questionCount = 10;
@@ -161,6 +161,8 @@ function nextInterval(currentInterval) {
   $(".correct-answer-wrapper").empty().removeClass("show-correct-answer");
 
   $(".speaker-icon").show();
+
+  answerCountdown = document.getElementsByClassName("correct-answers")[0];
 
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
 
@@ -496,7 +498,7 @@ name and image of chord in modal */
 function gameOver() {
   $("#answer-container").empty();
 
-  $("#correct-answers-remaining").empty();
+  $("#correct-answers-remaining").hide();
 
   $("#game-over-modal").modal("show");
 
