@@ -101,7 +101,9 @@ function readyGame(gameType) {
 // Initiates a countdown when user clicks 'Begin Training'
 function countDown(gameType) {
   let counter = 3;
-  
+
+  $('.game-selection-button-container').hide();
+
   $("#begin-training-btn").hide();
 
   $(".countdown-wrapper").show();
