@@ -8,7 +8,7 @@ let correctAnswersRemaining;
 let livesRemaining;
 let correctAnswerList = [];
 let answerCountdown;
-
+let gameType;
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", function () {
   loadGame();
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadGame() {
   questions = [];
   livesRemaining = 3;
-  correctAnswersRemaining = 10;
+  correctAnswersRemaining = 1;
 
   $(".game-selection-button-container").show();
 
@@ -27,10 +27,6 @@ function loadGame() {
   $(".speaker-icon").hide();
 
   $("#lives-left-container").hide();
-
-  $(".show-correct-answer-container")
-    .removeClass("show-correct-answer-container")
-    .addClass("hide-correct-answer-container");
 
   $(".opaque-overlay")
     .removeAttr("class", "opaque-overlay")
@@ -52,10 +48,10 @@ function loadGame() {
   for (let button of buttons) {
     button.addEventListener("click", () => {
       if (button.getAttribute("id") === "interval-trainer-btn") {
-        let gameType = button.getAttribute("data-type", "interval-trainer");
+        gameType = button.getAttribute("data-type", "interval-trainer");
         readyGame(gameType);
       } else if (button.getAttribute("id") === "chord-identifier-btn") {
-        let gameType = button.getAttribute("data-type", "chord-identifier");
+        gameType = button.getAttribute("data-type", "chord-identifier");
         readyGame(gameType);
       }
     });
@@ -73,8 +69,10 @@ function loadGame() {
 function readyGame(gameType) {
   $(".game-selection-button-container").hide();
   $(".speaker-icon").show();
-  
-  $("#game-mode-header").show().html(`${gameType.replace("-", " ")}`);
+
+  $("#game-mode-header")
+    .show()
+    .html(`${gameType.replace("-", " ")}`);
   $("#begin-training-btn")
     .prop("disabled", false)
     .css({ opacity: "1", width: "inherit", color: "#e7782d" })
@@ -102,8 +100,9 @@ function readyGame(gameType) {
 
 // Initiates a countdown when user clicks 'Begin Training'
 function countDown(gameType) {
-  $("#begin-training-btn").hide();
   let counter = 3;
+  
+  $("#begin-training-btn").hide();
 
   $(".countdown-wrapper").show();
   // Display opaque overlay when user begins training
@@ -146,7 +145,7 @@ function runIntervalGame() {
   $("#correct-answers-remaining").show();
 
   questions = [];
-  questionCount = 10;
+  questionCount = 1;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let intervals = getInterval();
@@ -208,10 +207,6 @@ function nextInterval(currentInterval) {
     .on("click", () => {
       playInterval(questions[currentInterval]);
     });
-}
-
-function answerButtonClicked(e, currentInterval) {
-  checkIntervalAnswer;
 }
 
 // runChordGame gathers 10 chords to populate questions array
@@ -460,6 +455,14 @@ function gameComplete() {
 
   $("#correct-answers-remaining").hide();
 
+  $(".opaque-overlay").removeClass("opaque-overlay").addClass("hide-overlay");
+
+ $(".show-correct-answer-container")
+   .removeClass("show-correct-answer-container")
+   .addClass("hide-correct-answer-container");
+
+  $(".game-selection-button-container").show();
+
   /* Maps over array of correct answers and displays
 name and image of chord in modal */
   correctAnswerList.map((answer) => {
@@ -492,7 +495,7 @@ name and image of chord in modal */
   resetGlobalVariables();
 
   $(".play-again-btn").click(() => {
-    loadGame();
+    countDown(gameType);
     $("#completed-game-modal").modal("hide");
   });
 }
