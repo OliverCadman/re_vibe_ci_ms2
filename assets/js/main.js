@@ -530,6 +530,10 @@ name and image of chord in modal */
       countDown(gameType);
       $("#completed-game-modal").modal("hide");
     });
+
+  $(".close-modal-btn").on("click", () => {
+     $("#completed-game-modal").modal("hide");
+  })
 }
 
 // Runs when user loses all three lives
