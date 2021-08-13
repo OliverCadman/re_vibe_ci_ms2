@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadGame() {
   questions = [];
   livesRemaining = 3;
-  correctAnswersRemaining = 1;
+  correctAnswersRemaining = 10;
 
   $(".game-selection-button-container").show();
 
