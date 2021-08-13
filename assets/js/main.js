@@ -154,7 +154,7 @@ function runIntervalGame() {
   answerDisplay.innerHTML = "";
 
   questions = [];
-  questionCount = 10;
+  questionCount = 1;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let intervals = getInterval();
@@ -487,6 +487,9 @@ function checkChordAnswer(e, questionIndex) {
 function gameComplete() {
   $("#completed-game-modal").modal("show");
 
+  let gameCompleteJingle = new Audio("assets/sounds/game-complete.mp3");
+  gameCompleteJingle.play();
+
   $("#answer-container").empty();
 
   $("#correct-answers-remaining").hide();
@@ -570,6 +573,9 @@ function gameOver() {
     .addClass("hide-correct-answer-container");
 
   $(".game-selection-button-container").show();
+
+   let gameOverJingle = new Audio("assets/sounds/game-over.mp3");
+   gameOverJingle.play();
 
   /* Maps over array of correct answers and displays
   name and image of chord in modal */
