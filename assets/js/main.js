@@ -56,14 +56,6 @@ function loadGame() {
       }
     });
   }
-
-  // Displays three 'user' fontAwesome icons representing lives left
-  let livesLeftContainer = document.getElementById("lives-left-container");
-  let livesLeft = "";
-  for (i = 0; i < livesRemaining; i++) {
-    livesLeft += `<span><i class="fas fa-user lives-left-icon"></i></span>`;
-  }
-  livesLeftContainer.innerHTML = livesLeft;
 }
 
 function readyGame(gameType) {
@@ -147,6 +139,14 @@ function runIntervalGame() {
   $(".correct-answer-wrapper").show();
   $("#correct-answers-remaining").show();
 
+  // Displays three 'user' fontAwesome icons representing lives left
+  let livesLeftContainer = document.getElementById("lives-left-container");
+  let livesLeft = "";
+  for (i = 0; i < livesRemaining; i++) {
+    livesLeft += `<span><i class="fas fa-user lives-left-icon"></i></span>`;
+  }
+  livesLeftContainer.innerHTML = livesLeft;
+
   /* Clears list of correct answers in completed game modal
   when 'Play Again' button was clicked */
   let answerDisplay = document.getElementsByClassName(
@@ -225,6 +225,14 @@ function runChordGame() {
   $("#lives-left-container").show();
   $(".correct-answer-wrapper").show();
   $("#correct-answers-remaining").show();
+
+  // Displays three 'user' fontAwesome icons representing lives left
+  let livesLeftContainer = document.getElementById("lives-left-container");
+  let livesLeft = "";
+  for (i = 0; i < livesRemaining; i++) {
+    livesLeft += `<span><i class="fas fa-user lives-left-icon"></i></span>`;
+  }
+  livesLeftContainer.innerHTML = livesLeft;
 
   /* Clears list of correct answers in completed game modal
   when 'Play Again' button was clicked */
@@ -425,6 +433,7 @@ function checkIntervalAnswer(e, questionIndex) {
   }
 
   if (livesRemaining === 0) {
+    $(".lives-left-alert").hide();
     gameOver();
   }
 }
@@ -564,7 +573,7 @@ function gameOver() {
   resetGlobalVariables();
 
   $(".play-again-btn").click(() => {
-    loadGame();
+    countDown(gameType);
     $("#game-over-modal").modal("hide");
   });
 }
