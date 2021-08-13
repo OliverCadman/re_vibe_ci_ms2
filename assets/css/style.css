@@ -822,7 +822,8 @@ legend {
     transition: 0.3s ease-in-out;
   }
 
-  .play-again-btn:hover {
+  .play-again-btn:hover,
+  .close-modal-btn:hover {
     color: #e7782d;
     transition: 0.3s ease-in-out;
   }
