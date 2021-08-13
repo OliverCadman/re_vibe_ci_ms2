@@ -134,7 +134,6 @@ function countDown(gameType) {
 
 // runIntervalGame() gathers 10 intervals to populate questions array
 function runIntervalGame() {
-  $(".speaker-icon").show();
   $("#lives-left-container").show();
   $(".correct-answer-wrapper").show();
   $("#correct-answers-remaining").show();
@@ -221,7 +220,6 @@ function nextInterval(currentInterval) {
 
 // runChordGame gathers 10 chords to populate questions array
 function runChordGame() {
-  $(".speaker-icon").show();
   $("#lives-left-container").show();
   $(".correct-answer-wrapper").show();
   $("#correct-answers-remaining").show();
@@ -255,6 +253,7 @@ function runChordGame() {
 }
 
 function nextChord(currentChord) {
+  $(".speaker-icon").show();
   $(".correct-answer-wrapper").empty().removeClass("show-correct-answer");
 
   answerCountdown = document.getElementsByClassName("correct-answers")[0];
