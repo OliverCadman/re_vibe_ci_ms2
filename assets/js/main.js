@@ -144,6 +144,7 @@ function countDown(gameType) {
 function runIntervalGame() {
   $(".speaker-icon").show();
   $("#lives-left-container").show();
+  $(".correct-answer-wrapper").show();
   $("#correct-answers-remaining").show();
 
   questions = [];
@@ -360,6 +361,11 @@ function showImage(imageURL, name) {
   setTimeout(() => {
     animateCSS(".correct-answer-wrapper", "flipOutY");
   }, 2400);
+  setTimeout(() => {
+    $(".correct-answer-wrapper")
+      .removeClass("animate__animated")
+      .removeClass("animate__flipOutY");
+  }, 3000)
 }
 
 // Checks value of user input against interval played
