@@ -419,8 +419,8 @@ function checkIntervalAnswer(e, questionIndex) {
   } else {
     wrongAnswerSound = new Audio("assets/sounds/wrong-answer.mp3");
     wrongAnswerSound.play();
-    animateCSS(".speaker-icon", "wobble");
     livesRemaining--;
+    livesRemaining > 0 ? animateCSS(".speaker-icon", "wobble") : null;
     $(".lives-left-icon")[0].remove();
     $(".lives-left-alert")
       .fadeIn(300)
@@ -467,7 +467,7 @@ function checkChordAnswer(e, questionIndex) {
     let wrongAnswer = new Audio("assets/sounds/wrong-answer.mp3");
     wrongAnswer.play();
     livesRemaining--;
-    animateCSS(".speaker-icon", "wobble");
+    livesRemaining > 0 ? animateCSS(".speaker-icon", "wobble") : null;
     $(".lives-left-icon")[0].remove();
     $(".lives-left-alert")
       .fadeIn(1000)
@@ -547,11 +547,26 @@ name and image of chord in modal */
 
 // Runs when user loses all three lives
 function gameOver() {
+  $(".speaker-icon").hide();
   $("#answer-container").empty();
 
   $("#correct-answers-remaining").hide();
 
   $("#game-over-modal").modal("show");
+
+    $("#begin-training-btn")
+      .show()
+      .prop("disabled", true)
+      .css({ opacity: "0.5", width: "35%", color: "#fafafa" })
+      .text("Please Select Training Mode");
+
+    $(".opaque-overlay").removeClass("opaque-overlay").addClass("hide-overlay");
+
+    $(".show-correct-answer-container")
+      .removeClass("show-correct-answer-container")
+      .addClass("hide-correct-answer-container");
+
+    $(".game-selection-button-container").show();
 
   /* Maps over array of correct answers and displays
   name and image of chord in modal */
@@ -574,6 +589,10 @@ function gameOver() {
 
   $(".play-again-btn").click(() => {
     countDown(gameType);
+    $("#game-over-modal").modal("hide");
+  });
+
+  $(".close-modal-btn").on("click", () => {
     $("#game-over-modal").modal("hide");
   });
 }
