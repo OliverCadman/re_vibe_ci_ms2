@@ -23,7 +23,7 @@ function loadGame() {
 
   $(".game-selection-button-container").show();
 
-  $('.lives-left-alert').hide();
+  $(".lives-left-alert").hide();
 
   $(".speaker-icon").hide();
 
@@ -77,15 +77,19 @@ function readyGame(gameType) {
   invoking countDown() and start of Interval Trainer or
   Chord Identifier */
   if (gameType === "interval-trainer") {
-    $("#begin-training-btn").click(() => {
-      $("#game-mode-header").hide();
-      countDown(gameType);
-    });
+    $("#begin-training-btn")
+      .off("click")
+      .on("click", () => {
+        $("#game-mode-header").hide();
+        countDown(gameType);
+      });
   } else if (gameType === "chord-identifier") {
-    $("#begin-training-btn").click(() => {
-      $("#game-mode-header").hide();
-      countDown(gameType);
-    });
+    $("#begin-training-btn")
+      .off("click")
+      .on("click", () => {
+        $("#game-mode-header").hide();
+        countDown(gameType);
+      });
   }
 }
 
@@ -150,8 +154,7 @@ function nextInterval(currentInterval) {
 
   $(".speaker-icon").show();
 
-  answerCountdown.innerHTML =
-  `Correct Answers Remaining: ${correctAnswersRemaining}`;
+  answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
 
   let answerOptions = getIntervalAnswers(questions[currentInterval]);
 
@@ -197,6 +200,10 @@ function nextInterval(currentInterval) {
     });
 }
 
+function answerButtonClicked(e, currentInterval) {
+  checkIntervalAnswer;
+}
+
 // runChordGame gathers 10 chords to populate questions array
 function runChordGame() {
   $(".speaker-icon").show();
@@ -218,8 +225,7 @@ function runChordGame() {
 function nextChord(currentChord) {
   $(".correct-answer-wrapper").empty().removeClass("show-correct-answer");
   $(".speaker-icon").show();
-  answerCountdown.innerHTML =
-  `Correct Answers Remaining: ${correctAnswersRemaining}`;
+  answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
 
   /* Initialize question index and pass it
   into questions object array to access relative index */
@@ -265,8 +271,9 @@ function getIntervalAnswers(currentInterval) {
   let correctAnswerObject = currentInterval;
   let correctInterval = correctAnswerObject.interval;
 
-  /* Filter through intervalAnswerList and remove
-  the answer which is equal to the interval played */
+  /* Filters through intervalAnswerList and removes 
+  correct answer from intervalAnserList, returning
+  remaining answers */
   intervalAnswerList = intervalAnswerList.filter(
     (answer) => answer !== correctInterval
   );
@@ -357,8 +364,7 @@ function checkIntervalAnswer(e, questionIndex) {
     showImage(questions[questionIndex].image, questions[questionIndex].name);
     correctAnswerList.push(questions[questionIndex]);
     correctAnswersRemaining--;
-    answerCountdown.innerHTML =
-    `Correct Answers Remaining: ${correctAnswersRemaining}`;
+    answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++;
     if (questionIndex < questionCount) {
       setTimeout(() => {
@@ -380,10 +386,12 @@ function checkIntervalAnswer(e, questionIndex) {
     $(".lives-left-icon")[0].remove();
     $(".lives-left-alert")
       .fadeIn(300)
-      .html(livesRemaining === 1 ? `${livesRemaining} life remaining!` : `${livesRemaining} lives remaining!`)
+      .html(
+        livesRemaining === 1
+          ? `${livesRemaining} life remaining!`
+          : `${livesRemaining} lives remaining!`
+      )
       .fadeOut(1750);
-
-    
   }
 
   if (livesRemaining === 0) {
@@ -401,8 +409,7 @@ function checkChordAnswer(e, questionIndex) {
     showImage(questions[questionIndex].image, questions[questionIndex].name);
     correctAnswerList.push(questions[questionIndex]);
     correctAnswersRemaining--;
-    answerCountdown.innerHTML =
-    `Correct Answers Remaining: ${correctAnswersRemaining}`;
+    answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
     questionIndex++;
 
     if (questionIndex < questionCount) {
@@ -423,14 +430,15 @@ function checkChordAnswer(e, questionIndex) {
     livesRemaining--;
     animateCSS(".speaker-icon", "wobble");
     $(".lives-left-icon")[0].remove();
-    $(".lives-left-alert").fadeIn(1000).html(`${livesRemaining} lives remaining!`).fadeOut(1000)
-  
-
+    $(".lives-left-alert")
+      .fadeIn(1000)
+      .html(`${livesRemaining} lives remaining!`)
+      .fadeOut(1000);
   }
 
-    if (livesRemaining === 0) {
+  if (livesRemaining === 0) {
     gameOver();
-   }
+  }
 }
 
 // Runs when user answers all questions correctly
@@ -441,7 +449,7 @@ function gameComplete() {
 
   $("#correct-answers-remaining").empty();
 
-/* Maps over array of correct answers and displays
+  /* Maps over array of correct answers and displays
 name and image of chord in modal */
   correctAnswerList.map((answer) => {
     let answerDisplay = document.getElementsByClassName(
@@ -460,12 +468,12 @@ name and image of chord in modal */
 
   if (livesRemaining > 1) {
     $("#congratulations-message").html(
-      `Congratulations! You completed the game with
+      `Well done. You completed the game with
            ${livesRemaining} lives remaining!`
     );
   } else {
     $("#congratulations-message").html(
-      `Congratulations! You completed the game with
+      `Well done. Congratulations! You completed the game with
            ${livesRemaining} life remaining!`
     );
   }
@@ -475,7 +483,6 @@ name and image of chord in modal */
     $("#completed-game-modal").modal("hide");
   });
 }
-
 
 // Runs when user loses all three lives
 function gameOver() {
@@ -516,9 +523,20 @@ function getInterval() {
   return randomInterval;
 }
 
-// Generates a random number between 0 and 145;
+function resetGlobalVariables() {
+ questions = [];
+ questionIndex = 0;
+ questionCount = 10;
+ correctAnswersRemaining = 10;
+ livesRemaining = 3;
+ userAnswer = null;
+ correctAnswerSound = null;
+ wrongAnswerSound = null;
+}
+
+// Generates a random number between 0 and 144;
 function getRandomIntervalIndex() {
-  let randomIndex = Math.ceil(Math.random() * 145);
+  let randomIndex = Math.ceil(Math.random() * 143);
 
   return randomIndex;
 }
