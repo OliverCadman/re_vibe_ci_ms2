@@ -381,8 +381,8 @@ function checkIntervalAnswer(e, questionIndex) {
     }
     if (questionIndex === questionCount) {
       setTimeout(() => {
-        $("#lives-left-container").empty();
-        $(".correct-answer-wrapper").empty();
+        $("#lives-left-container").hide();
+        $(".correct-answer-wrapper").hide();
         gameComplete();
       }, 3000);
     }
