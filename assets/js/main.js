@@ -457,7 +457,7 @@ function gameComplete() {
 
   $("#answer-container").empty();
 
-  $("#correct-answers-remaining").empty();
+  $("#correct-answers-remaining").hide();
 
   /* Maps over array of correct answers and displays
 name and image of chord in modal */
@@ -488,8 +488,10 @@ name and image of chord in modal */
     );
   }
 
+  resetGlobalVariables();
+
   $(".play-again-btn").click(() => {
-    location.reload();
+    loadGame();
     $("#completed-game-modal").modal("hide");
   });
 }
