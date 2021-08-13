@@ -431,9 +431,7 @@ Referenced from Animate CSS : "https://animate.style/" */
 /* -------- Practice Tips Article ---------- */
 
 .practice-tips-body {
-  background-color: #202e3a;
-
-
+  background-color: #2f455a;
 }
 
 .practice-tip-wrapper {
@@ -442,7 +440,7 @@ Referenced from Animate CSS : "https://animate.style/" */
   background-color: #eeeeee;
   margin: 2em 0;
   padding: 1rem;
-  /* box-shadow: 0 0 2rem -0.5rem rgba(255, 254, 254, 0.507); */
+ box-shadow: 10px 8px 20px 3px rgba(0, 0, 0, 0.336);
 }
 
 /* Targets headers for individual practice tips */
@@ -639,11 +637,7 @@ legend {
   font-size: 1.5rem;
 }
 
-
-
-
-
-  /* -------------- Practice Tips Page --------------- */
+/* -------------- Practice Tips Page --------------- */
 
   .practice-tips-hero {
     min-width: 350px;
@@ -696,7 +690,7 @@ legend {
   }
 
   .contact-form-container {
-    background-color: #202e3a;
+    background-color: #2f455a;
   }
 
   .contact-form-wrapper {
@@ -704,6 +698,7 @@ legend {
     border-radius: 10px;
     color: #23272a;
     margin: 30px 0;
+    box-shadow: 10px 8px 20px 3px rgba(0, 0, 0, 0.336);
   }
 
   legend {
