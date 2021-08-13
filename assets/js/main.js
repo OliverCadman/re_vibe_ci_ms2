@@ -496,7 +496,7 @@ name and image of chord in modal */
 
   resetGlobalVariables();
 
-  $(".play-again-btn").click(() => {
+  $(".play-again-btn").off("click").on("click", () => {
     countDown(gameType);
     $("#completed-game-modal").modal("hide");
   });
