@@ -3,7 +3,7 @@ when hamburger icon is clicked. Code referenced from YouTube tutorial:
 Title: Animated Hamburger Menu Tutorial
 Link: https://www.youtube.com/watch?v=dIyVTjJAkLw&t=336s */
 
-const hamburgerIcon = document.querySelector(".navbar-toggler");
+const hamburgerIcon = document.querySelector(".hamburger-icon");
 let isMenuOpen = false;
 
 hamburgerIcon.addEventListener("click", function() {
