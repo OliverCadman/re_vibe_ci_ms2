@@ -159,7 +159,7 @@ function runIntervalGame() {
   for (let question = 0; question < questionCount; question++) {
     let intervals = getInterval();
     questions[question] = intervals;
-    console.log(question);
+    console.log(intervals.interval);
   }
 
   nextInterval(questionIndex);
