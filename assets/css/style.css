@@ -50,24 +50,80 @@ and Contact pages */
   width: 100%; /* To enable application of ml-auto to navbar-nav class */
 }
 
-#navbar-mobile-toggler {
-  color: #fafafa;
-  font-size: 40px;
+
+/* ---- CSS navbar toggler styling, animated to form a cross sign when clicked.
+Code referenced from YouTube tutorial:
+Title: Animated Hamburger Menu Tutorial - CSS Effects;
+Video Link: https://www.youtube.com/watch?v=dIyVTjJAkLw&t=336s ----  */
+.hamburger-icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  transition: all 0.3s ease-in-out;
 }
+
+.hamburger-inner {
+  width: 35px;
+  height: 5px;
+  background-color: #eeeeee;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+  content: '';
+  position: absolute;
+  left: 13px;
+  width: 35px;
+  height: 5px;
+  background-color: #eeeeee;
+  border-radius: 5px;
+  transition: all .2s ease-in-out;
+}
+
+.hamburger-inner::before {
+  transform: translateY(-12px);
+}
+
+.hamburger-inner::after {
+  transform: translateY(12px);
+}
+
+.hamburger-icon.open .hamburger-inner {
+  transform: translateX(-20px);
+  background: transparent;
+  transition: all 0.2s ease-in-out;
+  
+}
+
+.hamburger-icon.open {
+  transform: rotate(180deg);
+  transition: all 0.2s ease-in-out;
+}
+
+.hamburger-icon.open .hamburger-inner::before {
+  transform: rotate(45deg);
+  transition: all 0.2s ease-in-out;
+  background-color: #e7782d;
+}
+
+.hamburger-icon.open .hamburger-inner::after{
+  transform: rotate(-45deg);
+  transition: all 0.2s ease-in-out;
+  background-color: #e7782d;
+}
+
+/* ---- End of Animated Navbar Toggler CSS ---- */
+
 
 .navbar-toggler:focus {
     text-decoration: none;
     outline: 0;
     box-shadow: none;
-}
-
-.navbar-toggler {
-   transition: all 0.1s ease-in-out;
-}
-
-.open {
-  transform: rotate(90deg);
-  transition: all 0.1s ease-in-out;
 }
 
 .navbar-brand {
