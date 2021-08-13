@@ -73,8 +73,8 @@ function loadGame() {
 function readyGame(gameType) {
   $(".game-selection-button-container").hide();
   $(".speaker-icon").show();
-
-  $("#game-mode-header").html(`${gameType.replace("-", " ")}`);
+  
+  $("#game-mode-header").show().html(`${gameType.replace("-", " ")}`);
   $("#begin-training-btn")
     .prop("disabled", false)
     .css({ opacity: "1", width: "inherit", color: "#e7782d" })
@@ -218,6 +218,7 @@ function answerButtonClicked(e, currentInterval) {
 function runChordGame() {
   $(".speaker-icon").show();
   $("#lives-left-container").show();
+  $("#correct-answers-remaining").show();
 
   questions = [];
   questionCount = 10;
