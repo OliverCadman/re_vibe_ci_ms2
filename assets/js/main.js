@@ -4,11 +4,29 @@ let questionCount;
 let userAnswer;
 let correctAnswerSound;
 let wrongAnswerSound;
+let gameCompleteJingle;
+let gameOverJingle;
 let correctAnswersRemaining;
 let livesRemaining;
 let correctAnswerList = [];
 let answerCountdown;
 let gameType;
+
+
+// Preload mp3 files that accompany answers and game over modal displays
+correctAnswerSound = new Audio("assets/sounds/correct-answer.mp3");
+correctAnswerSound.preload;
+
+wrongAnswerSound = new Audio("assets/sounds/wrong-answer.mp3");
+wrongAnswerSound.preload;
+
+gameCompleteJingle = new Audio("assets/sounds/game-complete.mp3");
+gameCompleteJingle.preload;
+
+gameOverJingle = new Audio("assets/sounds/game-over.mp3");
+gameOverJingle.preload;
+
+
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", function () {
   loadGame();
@@ -396,7 +414,6 @@ function checkIntervalAnswer(e, questionIndex) {
   userAnswer = e.target.textContent;
 
   if (userAnswer === questions[questionIndex].interval) {
-    correctAnswerSound = new Audio("assets/sounds/correct-answer.mp3");
     correctAnswerSound.play();
     showImage(questions[questionIndex].image, questions[questionIndex].name);
     correctAnswerList.push(questions[questionIndex]);
@@ -416,7 +433,6 @@ function checkIntervalAnswer(e, questionIndex) {
       }, 3000);
     }
   } else {
-    wrongAnswerSound = new Audio("assets/sounds/wrong-answer.mp3");
     wrongAnswerSound.play();
     livesRemaining--;
     livesRemaining > 0 ? animateCSS(".speaker-icon", "wobble") : null;
@@ -487,9 +503,6 @@ function checkChordAnswer(e, questionIndex) {
 function gameComplete() {
   $("#completed-game-modal").modal("show");
 
-  let gameCompleteJingle = new Audio("assets/sounds/game-complete.mp3");
-  gameCompleteJingle.play();
-
   $("#answer-container").empty();
 
   $("#correct-answers-remaining").hide();
@@ -507,6 +520,8 @@ function gameComplete() {
     .addClass("hide-correct-answer-container");
 
   $(".game-selection-button-container").show();
+
+  gameCompleteJingle.play();
 
   /* Maps over array of correct answers and displays
 name and image of chord in modal */
@@ -574,7 +589,7 @@ function gameOver() {
 
   $(".game-selection-button-container").show();
 
-   let gameOverJingle = new Audio("assets/sounds/game-over.mp3");
+  
    gameOverJingle.play();
 
   /* Maps over array of correct answers and displays
