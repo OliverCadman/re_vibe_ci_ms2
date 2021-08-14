@@ -21,7 +21,13 @@ function createInterval(frequency1, frequency2) {
 
   synth.chain(filter, Tone.Destination);
 
-  Tone.start();
+  let playButtons = "#begin-training-btn" || ".play-again-btn"
+
+  document.querySelector(playButtons).addEventListener("click", async() => {
+    await Tone.start()
+  })
+
+ 
 }
 
 function createChord(frequency1, frequency2, frequency3, frequency4) {
@@ -46,5 +52,10 @@ function createChord(frequency1, frequency2, frequency3, frequency4) {
 
   synth.chain(gain, Tone.Destination);
 
-  Tone.start();
+  let playButtons = "#begin-training-btn" || ".play-again-btn";
+
+  document.querySelector(playButtons).addEventListener("click", async() => {
+    await Tone.start();
+  })
+ 
 }
