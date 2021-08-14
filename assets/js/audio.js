@@ -28,11 +28,14 @@ function createInterval(frequency1, frequency2) {
   })
 
   if(Tone.context.state === "suspended") {
-    Tone.context.resume();
+    Tone.context.state === "running"
     console.log(Tone.context.state)
+  } else {
+    Tone.context.state === "running"
+    console.log(Tone.context.state);
   }
 
-  console.log(Tone.context.state)
+  
 
  
 }
