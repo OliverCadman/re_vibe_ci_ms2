@@ -154,7 +154,7 @@ function runIntervalGame() {
   answerDisplay.innerHTML = "";
 
   questions = [];
-  questionCount = 1;
+  questionCount = 10;
   questionIndex = 0;
   for (let question = 0; question < questionCount; question++) {
     let intervals = getInterval();
