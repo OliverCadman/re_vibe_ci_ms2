@@ -152,7 +152,7 @@ Video Link: https://www.youtube.com/watch?v=dIyVTjJAkLw&t=336s ----  */
 
 ul li a.active {
   text-decoration: underline;
-  color:#e7782d;
+ 
 }
 
 /* --------------- Title Page ----------------- */
@@ -720,6 +720,11 @@ legend {
     font-size: 1.5rem;
   }
 
+  ul li a.active {
+  color: #e7782d;
+}
+
+
   /* Game Section */
 
   #game-section {
@@ -901,6 +906,7 @@ legend {
   .navbar-nav li a {
     font-size: 2.3rem;
   }
+  
 
   .nav-link:hover {
     color: #e7782d;
