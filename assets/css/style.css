@@ -602,6 +602,64 @@ legend {
   font-weight: 600;
 }
 
+/* --------------- 404 Page ------------------ */
+
+#page-not-found-container {
+  min-height: 100vh;
+  padding-top: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #23272a;
+}
+
+.page-not-found-header {
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  color: #eeeeee;
+  border-right: 5px solid #eeeeee;
+
+}
+
+.page-not-found-header h1 {
+  font-size: 1.75rem;
+}
+
+.page-not-found-inner {
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  padding: 30px;
+  color: #e5e5e5;
+  font-size: 1.2rem; 
+}
+
+.page-not-found-wrapper {
+   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #23272a;
+}
+
+#page-not-found-image {
+  width: 75%;
+}
+
+.back-home-btn {
+ 
+  font-size: 1.5rem;
+  color:#23272a;
+  background-color: #eeeeee;
+  box-shadow: 1px 2px 3px rgba(255, 255, 255, 0.178);
+  border: 3px solid #eeeeee;
+}
+
+.back-home-btn:hover {
+  background-color: #23272a;
+  color: #e7782d;
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1)
+}
+
 /* Media Query - iPad Device Size */
 @media screen and (min-width: 768px) {
   /* -------------- Title Page --------------- */
@@ -627,8 +685,8 @@ legend {
 
   .navbar-brand {
     margin-left: 15px;
-    font-size: 2.2rem;
-    font-weight: 300;
+    font-size: 3rem;
+    font-weight: 200;
   }
 
   .navbar-nav {
@@ -785,6 +843,28 @@ legend {
     background-color: #23272a;
     color: #fafaf9;
   }
+
+  /* --------------- 404 Page ------------------ */
+
+.page-not-found-header h1 {
+  font-size: 2.5rem;
+}
+
+.page-not-found-inner {
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  padding: 30px;
+  color: #e5e5e5;
+  font-size: 1.75rem; 
+}
+
+.back-home-btn {
+  margin-top: 30px;
+  font-size: 2rem;
+}
+
+
+
 }
 
 /* Media Query - Laptop Device Size and up */
@@ -965,6 +1045,69 @@ legend {
     background-color: #fafaf9;
     color: #23272a;
   }
+
+  /* --------------- 404 Page ------------------ */
+
+#page-not-found-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #23272a;
+}
+
+.page-not-found-header {
+  position: relative;
+  font-family: 'Work Sans', sans-serif;
+  color: #eeeeee;
+  border-right: 5px solid #eeeeee;
+
+}
+
+.page-not-found-header h1 {
+  font-size: 3rem;
+}
+
+.page-not-found-inner {
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  padding: 30px;
+  color: #e5e5e5;
+  font-size: 1.5rem; 
+}
+
+.page-not-found-wrapper {
+  height: 100%;
+   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: #23272a;
+}
+
+#page-not-found-image {
+  width: 75%;
+}
+
+#error-number {
+  font-size: 4rem;
+  color: #eeeeee;
+}
+
+.back-home-btn {
+  margin-top: 50px;
+  font-size: 1.5rem;
+  color:#23272a;
+  background-color: #eeeeee;
+  box-shadow: 1px 2px 3px rgba(255, 255, 255, 0.178);
+  border: 3px solid #eeeeee;
+}
+
+.back-home-btn:hover {
+  background-color: #23272a;
+  color: #e7782d;
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1)
+}
 }
 
 /* Media Query - iPad Pro Device Size: Referenced from 'https://fjorgedigital.com/insights/blog/how-can-i-target-only-an-ipad-pro/' */
