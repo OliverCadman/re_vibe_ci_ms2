@@ -10,7 +10,7 @@ body {
 }
 
 .block-divider {
-  border-top: 4px solid #fafafa;
+  border-top: 4px solid #eeeeee;
   max-width: 50%;
   margin: 0 auto;
 }
@@ -132,7 +132,7 @@ Video Link: https://www.youtube.com/watch?v=dIyVTjJAkLw&t=336s ----  */
 
 .navbar-brand,
 .navbar-nav li a {
-  color: #fafafa;
+  color: #eeeeee;
   font-family: "Work Sans", sans-serif;
   font-size: 2rem;
   font-weight: 200;
@@ -169,7 +169,7 @@ ul li a.active {
 .ear-training {
   margin-top: 1.5rem;
   font-family: "Work Sans", sans-serif;
-  color: #fafafa;
+  color: #eeeeee;
   text-align: center;
 }
 
@@ -180,13 +180,13 @@ ul li a.active {
 .ear-training button {
   margin-top: 1rem;
   font-size: 1.5rem;
-  color: #fafafa;
-  border: 2px solid #fafafa;
+  color: #eeeeee;
+  border: 2px solid #eeeeee;
   background-color: black;
 }
 
 .ear-training button:hover {
-  background: #fafafa;
+  background: #eeeeee;
   color: rgb(25, 25, 25);
 }
 
@@ -214,7 +214,7 @@ ul li a.active {
 #game-section {
   padding-top: 90px;
   background-color: #23272a;
-  color: #fafafa;
+  color: #eeeeee;
 }
 
 #game-container {
@@ -237,7 +237,7 @@ ul li a.active {
   font-size: 2rem;
   width: 50%;
   margin-left: 10px;
-  color: #fafafa;
+  color: #eeeeee;
 }
 
 
@@ -323,7 +323,7 @@ ul li a.active {
 }
 
 .lives-left-icon {
-  color: #fafafa;
+  color: #eeeeee;
   font-size: 1.3rem;
   margin: 0 3px;
 }
@@ -511,7 +511,7 @@ Referenced from Animate CSS : "https://animate.style/" */
 
 .lead-summary-one,
 .lead-summary-two {
-  color: #fafafa;
+  color: #eeeeee;
   font-family: "Work Sans", sans-serif;
 }
 
@@ -565,7 +565,7 @@ Referenced from Animate CSS : "https://animate.style/" */
 .contact-form-section {
   padding-top: 90px;
   background-color: #23272a;
-  color: #fafafa;
+  color: #eeeeee;
 }
 
 .contact-brief-wrapper {
@@ -818,7 +818,7 @@ legend {
 
   .contact-brief-wrapper {
     background: #23272a;
-    color: #fafafa;
+    color: #eeeeee;
     font-size: 1.2rem;
   }
 
@@ -1005,7 +1005,7 @@ legend {
   }
 
   .footer-icons ul li a:hover {
-    color: #fafafa;
+    color: #eeeeee;
     transition: 0.3s ease-in-out;
   }
 
@@ -1025,18 +1025,18 @@ legend {
   }
 
   .lead-summary-one {
-    color: #fafafa;
+    color: #eeeeee;
   }
 
   .lead-summary-two {
-    color: #fafafa;
+    color: #eeeeee;
   }
 
   .resources-header h4{
     font-family: 'Roboto Condensed', sans-serif;
     text-transform: uppercase;
     font-size: 2rem;
-    color: #fafafa;
+    color: #eeeeee;
     margin-bottom: 15px;
   }
 

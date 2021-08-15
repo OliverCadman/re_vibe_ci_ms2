@@ -1,6 +1,8 @@
 function createInterval(frequency1, frequency2) {
   const synth = new Tone.Synth();
 
+  console.log(synth)
+
   synth.oscillator.type = "sine4";
   synth.triggerAttackRelease(frequency1, "8n");
   synth.triggerAttackRelease(frequency2, "8n", "+1");
@@ -19,25 +21,25 @@ function createInterval(frequency1, frequency2) {
   //   preDelay: 0.1,
   // });
 
-  synth.chain(filter, Tone.Destination);
-
-  let playButtons = "#begin-training-btn" || ".play-again-btn"
-
-  document.querySelector(playButtons).addEventListener("click", async() => {
-    await Tone.start()
-  })
-
-  if(Tone.context.state === "suspended") {
-    Tone.context.state === "running"
-    console.log(Tone.context.state)
-  } else {
-    Tone.context.state === "running"
-    console.log(Tone.context.state);
-  }
 
   
+  synth.chain(filter, Tone.Destination);
 
- 
+  console.log(Tone.getContext())
+
+  let playButtons = "#begin-training-btn" || ".play-again-btn";
+
+  document.querySelector(playButtons).addEventListener("click", async () => {
+    await Tone.start();
+  });
+
+  if (Tone.context.state === "suspended") {
+    Tone.context.state === "running";
+    console.log(Tone.context.state);
+  } else {
+    Tone.context.state === "running";
+    console.log(Tone.context.state);
+  }
 }
 
 function createChord(frequency1, frequency2, frequency3, frequency4) {
@@ -64,8 +66,7 @@ function createChord(frequency1, frequency2, frequency3, frequency4) {
 
   let playButtons = "#begin-training-btn" || ".play-again-btn";
 
-  document.querySelector(playButtons).addEventListener("click", async() => {
+  document.querySelector(playButtons).addEventListener("click", async () => {
     await Tone.start();
-  })
- 
+  });
 }

@@ -644,16 +644,16 @@ function resetGlobalVariables() {
 
  
   correctAnswerSound = new Audio("assets/sounds/correct-answer.mp3");
-  correctAnswerSound.preload;
+  console.log(correctAnswerSound)
 
   wrongAnswerSound = new Audio("assets/sounds/wrong-answer.mp3");
-  wrongAnswerSound.preload;
+  console.log(wrongAnswerSound);
 
   gameCompleteJingle = new Audio("assets/sounds/game-complete.mp3");
-  gameCompleteJingle.preload;
+  console.log(gameCompleteJingle);
 
   gameOverJingle = new Audio("assets/sounds/game-over.mp3");
-  gameOverJingle.preload;
+   console.log(gameOverJingle);
 }
 
 // Generates a random number between 0 and 144;
