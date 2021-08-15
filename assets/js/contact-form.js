@@ -50,7 +50,9 @@ function validateForm(contactForm) {
   return sendEmail(contactForm);
 };
 
-// sendEmail function uses EmailJS service to send the email
+/* sendEmail function uses EmailJS service to send the email.
+Code referenced from Code Institute's Resume Project 
+in Interactive Frontend Development Module */
 function sendEmail(contactForm) {
       emailjs
         .send(
@@ -71,6 +73,11 @@ function sendEmail(contactForm) {
             console.log("FAILED", error);
           }
         );
+
+        $('#contact-success-modal').modal("show");
+        $('.close-modal-btn').click(() => {
+            $("#contact-success-modal").modal("hide");
+        })
 
       return false;
     }
