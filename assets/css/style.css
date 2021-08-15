@@ -616,6 +616,14 @@ legend {
   font-weight: 600;
 }
 
+.error-message {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  font-style:italic;
+  padding: 0px;
+  transition: all 0.5s ease;
+}
+
 /* --------------- 404 Page ------------------ */
 
 #page-not-found-container {
@@ -1076,8 +1084,7 @@ legend {
 
   button[type="submit"]:hover {
     border: 2px solid #23272a;
-    background-color: #fafaf9;
-    color: #23272a;
+    color: #e7782d;
   }
 
   /* --------------- 404 Page ------------------ */
