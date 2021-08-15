@@ -306,6 +306,33 @@ The first section features a top level header, with a brief invitation for the u
 
 The second section features a simple bootstrap contact form, sat in a light background with some box-shadow, to contrast clearly against the darker background.
 
+## 404 Page
+
+![Screenshot of 404 Page](assets/images/readme-images/404-page.png)
+
+A 404 Page is displayed in the event that the user visits a page of the website that doesn't exist. A short message is featured to inform the user that the page isn't found, along with a vector graphic of someone singing badly to their friend, who is covering their ears. A short friendly message is featured next, along with a button to take the user back to the home page.
+
+## Features for future implementation
+
+1. Difficulty modes - To give the user the option to select either Beginner, Intermediate or Advanced level interval/chord recognition training. 
+
+   1. Intervals - Beginner mode would feature simple, easily identifiable intervals (Octave, Perfect Fifths). Intermediate would add Perfect Fourths, Major Thirds and Minor Thirds. Advanced level would feature all intervals.
+   2. Chords - Beginner mode would feature only major and minor triads. Intermediate would add Minor Sevenths. Advanced mode would feature all chords.
+
+
+2. Perfect Pitch Trainer - A game mode which would challenge the user to identify exactly the note/chord played. Meaning, the answers that the user has to choose from would feature the actual name of the chord, not just the chord type (if a C Major Seven chord was played, then the answer options would feature C Major Seven as it's text content, along with a selection of 5 other answers).
+
+3. Jazz Progression Identifier - A mode where the user has to identify common jazz progressions using Roman Numeral notation (ii-V-I, iii-VI-ii-V-I etc)
+
+4. Challenge Mode - A timed run, where the user has to identify all chords/intervals correctly within a given time frame. Challenge Mode would also feature a leaderboard for the users to pit themselves against other users of the re:Vibe service.
+
+5. Sign Up/Login functionality - The ability for the user to create a profile and save their games and results to track their progress, and also register their results to the re:Vibe leaderboard.
+
+
+
+
+
+
 
 
 
