@@ -232,11 +232,19 @@ The burger icon animates to a cross when clicked, to provide user feedback when 
 
 A footer is present on all pages, featuring social media links represented by fontAwesome icons, which transition to a white color when hovered. The name of the developer is also featured using the lightest weight of the 'Work Sans' font.
 
+## Title Page
+
+![Screenshot of Title Page](assets/images/readme-images/revibe-title-page.png)
+
+This is the first page where the user lands upon visiting the website. It features two animate SVGs, which draw the re:Vibe logo, before a button fades in, inviting the user to enter the website. The animation is intended to provide a sleek entrance into the website, and to simply and concisely state the purpose of the website, and re-inforce the brand.
+
 ## Home Page
 
-![Image of Footer](assets/images/readme-images/revibe-homepage.png)
+![Screenshot of Home Page](assets/images/readme-images/revibe-homepage.png)
 
 The home page feature the main GUI where the game takes place. To the right of the GUI, a brief summary of instructions are featured to inform the user of how to use the platform. Each portion of the page collapses to a full-width column on mobile devices.
+
+Currently, a modal window is displayed upon page load, informing users on iOS Safari that they made need to click the icon once to hear the first sound (they will not need to do this for the rest of the game). This is a temporary measure, until the bug which resulted in the inclusion of this modal message is squashed.
 
 ### Graphical User Interface
 
