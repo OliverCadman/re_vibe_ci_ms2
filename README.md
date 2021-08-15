@@ -185,7 +185,7 @@ Since the primary consideration of the colour choices was centered around the Ho
 
 ### Colour Palette
 
-![Color Palette Used For Website](https://github.com/OliverCadman/re_vibe_ci_ms2/blob/master/assets/images/readme-images/revibe-color-palette.png)
+![Color Palette Used For Website](assets/images/readme-images/revibe-color-palette.png)
 
 * #23272A (Charleston Green) - This was the colour used for the Navigation Bar, and the entire background in the Title Page and Home Page, as well as in the headers of the Practice Tips and Contact Pages. This colour defines the 'dark mode' theme of the website. 
 
