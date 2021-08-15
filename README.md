@@ -173,6 +173,46 @@ Links to the wireframes are listed below:
 * [Practice Tips Page](assets/wireframes/revibe-practicetips.pdf)
 * [Contact Page](assets/wireframes/revibe-contact.pdf)
 
+### Surface
+
+#### General Considerations
+
+When considering the design decisions in the context of a colour palette, it was of course surmised that the Home Page - which holds the Graphical User Interface where the game is played - was the critical page to consider. Since the primary purpose of the re:Vibe website is focused on providing an engaging learning experience, the decision was made to use a background color that would represent a 'dark' mode theme, using HEX Color #23272A. 
+
+The colour theme for the GUI is, in contrast, relatively bright. This contrast would hopefully result in maximum engagement and attention to the game, and provide an experience which is easy on the eyes, and minimal in cognitive overload. Since the game is designed to be a fairly challenging learning experience,  it is important that unnecessary cognitive overload is minimised.
+
+Since the primary consideration of the colour choices was centered around the Home Page, the colour palette of the Practice Tips, Contact and 404 Page were ultimately determined by these initial considerations.
+
+### Colour Palette
+
+![Color Palette Used For Website](assets/images/readme-images/revibe-color-palette.png)
+
+* #23272A (Charleston Green) - This was the colour used for the Navigation Bar, and the entire background in the Title Page and Home Page, as well as in the headers of the Practice Tips and Contact Pages. This colour defines the 'dark mode' theme of the website. 
+
+* #2F455A (Charcoal) - This colour is featured in the Practice Tips and Contact Pages, to provide a small contrast between the primary background color used in the headers, and so provide a distinction between the two sections of each page.
+
+* #29ABE2 (Cyan Process)  - This color is used in the background image for the Home Page's GUI, selected again to contrast against the dark background.
+
+* #808080 (Gray Web) - Another color used in the development of the background image for the GUI, this color was also used for the collapsible Navigation Bar on mobile devices, as it was found upon testing that using the same #23272A color for both the NavBar and the page's background resulted in an unappealing blend between the open Navbar and the page's backgrounds, as it was hard to distinguish where the NavBar ended and the background color started.
+
+* #E7782D - This color was applied to the Ear SVG featured on the Title Page and in the Navbar, as well as all fontAwesome icons, and Navlink text (when a cursor is hovered over the Navlinks). It was determined that this provided a contrast between the primary background color #23272A, that was sleek and pleasing to the eye.
+
+* #EEEEEE - This is the color used for the links and hamburger icon in the Navbar, the text content in Home Page and header section of the Practice Tips page, and also for the buttons featured in the Home Page's GUI. It was also used as the background color for the practice tip cards in the Practice Tips page, and the contact form in the Contact page. 
+
+### Fonts
+
+Work Sans - This is the primary font used for the re:Vibe logo, the buttons in the GUI, and most of the text content in the website, and for the links in the navigation bar. It was chosen for it's neutrality and sleek aspect which is pleasing to the eye, and when coloured using #EEEEEE, compliments the dark backgrounds nicely.
+
+Roboto Condensed - This was chosen as a secondary font, used in the headers in the GUI (Interval Trainer & Chord Identifier). It was also used as the sub-header for the card 'Learn Piano' in the website's Contact Page. The font was chosen to provide a variation, and emphasis between the roles of features in the website.
+
+
+
+
+
+
+
+
+
 
 
 
