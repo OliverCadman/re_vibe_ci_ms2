@@ -201,9 +201,70 @@ Since the primary consideration of the colour choices was centered around the Ho
 
 ### Fonts
 
-Work Sans - This is the primary font used for the re:Vibe logo, the buttons in the GUI, and most of the text content in the website, and for the links in the navigation bar. It was chosen for it's neutrality and sleek aspect which is pleasing to the eye, and when coloured using #EEEEEE, compliments the dark backgrounds nicely.
+* Work Sans - This is the primary font used for the re:Vibe logo, the buttons in the GUI, and most of the text content in the website, and for the links in the navigation bar. It was chosen for it's neutrality and sleek aspect which is pleasing to the eye, and when coloured using #EEEEEE, compliments the dark backgrounds nicely.
 
-Roboto Condensed - This was chosen as a secondary font, used in the headers in the GUI (Interval Trainer & Chord Identifier). It was also used as the sub-header for the card 'Learn Piano' in the website's Contact Page. The font was chosen to provide a variation, and emphasis between the roles of features in the website.
+* Roboto Condensed - This was chosen as a secondary font, used in the headers in the GUI (Interval Trainer & Chord Identifier). It was also used as the sub-header for the card 'Learn Piano' in the website's Contact Page. The font was chosen to provide a variation, and emphasis between the roles of features in the website.
+
+### Images
+
+The re:Vibe website makes heavy use of vector images. The vector image used in the GUI was created using Adobe Illustrator, and was designed to mimic a stage with two speakers and representation of a spotlight which 'shines' on the buttons that the user interacts with.
+
+The images used in the headers for the Practice Tips and Contact page were selected to provide a sense of calm and peace, which is important when practicing and playing music.
+
+# Features
+
+## Global Features
+
+### Navbar
+
+![Image Navbar for iPad and Laptop](assets/images/readme-images/revibe_navbar_laptop.png)
+
+Each page features a responsive navigation bar, with a clickable logo icon positioned on the left on iPad and Laptop device sizes and up. The logo is centered on mobile device sizes.
+
+![Image of Navbar for Mobile](assets/images/readme-images/revibe_navbar_mobile.png)
+
+The navigation bar collapses to a CSS-made burger icon which opens a collapsible dropdown list of the links.
+The burger icon animates to a cross when clicked, to provide user feedback when the icon is clicked and the collapsible dropdown list is opened.
+
+### Footer 
+
+![Image of Footer](assets/images/readme-images/revibe_footer.png)
+
+A footer is present on all pages, featuring social media links represented by fontAwesome icons, which transition to a white color when hovered. The name of the developer is also featured using the lightest weight of the 'Work Sans' font.
+
+## Home Page
+
+![Image of Footer](assets/images/readme-images/revibe_homepage.png)
+
+The home page feature the main GUI where the game takes place. To the right of the GUI, a brief summary of instructions are featured to inform the user of how to use the platform. Each portion of the page collapses to a full-width column on mobile devices.
+
+### Graphical User Interface
+
+<figure class="readme-video-container">
+  <video controls="true" allowfullscreen="true" autoplay>
+    <source src="assets/videos/readme-videos/gui-demonstration-1.mp4" type="video/mp4">
+  </video>
+</figure>
+
+Here, the user is invited to select two game modes - Interval Trainer, or Chord Identifier. The user can only begin training when they have selected a game mode, at which point the button 'Please Select Training Mode' becomes enabled, changes colour and text content to 'Begin Training'. 
+
+When the user clicks the 'Begin Training' button, an opaque overlay is added to draw the user into the action, and a countdown is started to give the user time to settle into the game. When the countdown is complete, the game starts, and an interval/chord is played (based on the game mode selected). 
+
+A display of how many correct answers remain is added to the GUI, along with three font awesome 'user' icons, representing how many lives the user has left.
+
+The font awesome speaker icon is animated with a 'heartbeat' animation, to provide additional feedback that the sound is played. This icon can be clicked to replay the sound, and can be clicked as many times as the user wishes.
+
+When the user selects a wrong answer, the speaker icon wobbles and a sound is played to represent a wrong answer. Additionally, a life is lost (represented by the removal of a font awesome 'user' icon), and a message is displayed informing the user of how many lives are remaining. 
+
+When the user selects a correct answer, a sound is played to represent a correct answer, and the speaker icon is hidden, and replaced with the name of the interval/chord, along with an image of the notation of the correct interval/chord. This is animated to provide a smooth experience.
+
+
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true"">
+    <source src="path/to/video.mp4" type="video/mp4">
+  </video>
+</figure>
 
 
 
