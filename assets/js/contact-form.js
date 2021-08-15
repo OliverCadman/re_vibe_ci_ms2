@@ -50,4 +50,27 @@ function validateForm(contactForm) {
   return sendEmail(contactForm);
 };
 
+// sendEmail function uses EmailJS service to send the email
+function sendEmail(contactForm) {
+      emailjs
+        .send(
+          "service_clmquj9",
+          "template_pwbxo45",
+          {
+            from_name: contactForm.name.value,
+            from_email: contactForm.emailaddress.value,
+            question_comment: contactForm.questionsfeedback.value,
+          },
+          "user_MvNDy76Hsda4DpKEIEPeX"
+        )
+        .then(
+          function (response) {
+            console.log("SUCCESS", response);
+          },
+          function (error) {
+            console.log("FAILED", error);
+          }
+        );
 
+      return false;
+    }
