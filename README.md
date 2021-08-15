@@ -240,11 +240,7 @@ The home page feature the main GUI where the game takes place. To the right of t
 
 ### Graphical User Interface
 
-<figure class="readme-video-container">
-  <video controls="true" allowfullscreen="true" autoplay>
-    <source src="assets/videos/readme-videos/gui-demonstration-1.mp4" type="video/mp4">
-  </video>
-</figure>
+https://user-images.githubusercontent.com/79907183/129479108-a704c5aa-a12a-4ddf-b517-3c10fdc5f665.mp4
 
 Here, the user is invited to select two game modes - Interval Trainer, or Chord Identifier. The user can only begin training when they have selected a game mode, at which point the button 'Please Select Training Mode' becomes enabled, changes colour and text content to 'Begin Training'. 
 
@@ -257,6 +253,34 @@ The font awesome speaker icon is animated with a 'heartbeat' animation, to provi
 When the user selects a wrong answer, the speaker icon wobbles and a sound is played to represent a wrong answer. Additionally, a life is lost (represented by the removal of a font awesome 'user' icon), and a message is displayed informing the user of how many lives are remaining. 
 
 When the user selects a correct answer, a sound is played to represent a correct answer, and the speaker icon is hidden, and replaced with the name of the interval/chord, along with an image of the notation of the correct interval/chord. This is animated to provide a smooth experience.
+
+
+
+https://user-images.githubusercontent.com/79907183/129479466-b6d55d4b-d305-4834-8882-76924647792b.mp4
+
+
+
+If the user answers all 10 intervals/chords correctly, a congratulatory bootstrap modal window is displayed, with a short congratulatory message along with information on how many lives they had remaining when they completed the game. Additionally, a list of the correctly identified intervals/chords is displayed in a window for the user to browse at their will. At the bottom of the modal, the two buttons are featured, inviting the user to play the game again (which initiates the countdown when clicked) or close the modal window and browse at their will, or pick another game mode.
+
+A short, cheerful jingle is played to represent that the game is complete.
+
+
+
+https://user-images.githubusercontent.com/79907183/129479507-f102a6f3-a96e-4ce8-b527-a51f42efcd82.mp4
+
+
+
+If the user loses all three lives, a commiseratory bootstrap modal window is displayed, with a short commiseratory message. This also features a list of the correct intervals/chords that the user identified correctly. This modal also features buttons inviting the user to Try Again (which initiates the countdown when clicked), or close the modal window and browse at their will, or pick another game mode.
+
+A short, sad jingle is played to represent that the game is over.
+
+## Practice Tips Page
+
+
+
+
+
+
 
 
 
