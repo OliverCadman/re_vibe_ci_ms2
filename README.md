@@ -276,6 +276,30 @@ A short, sad jingle is played to represent that the game is over.
 
 ## Practice Tips Page
 
+![Screenshot of Practice Tips Header](assets/images/readme-images/revibe-practice-tips-header.png)
+
+The practice tips page features two sections.
+
+The first section of the practice tips page features a top-level header, and a summary of the concept of ear training and it's importance. This is accompanied with a graphic illustration of a man playing the piano. This particular image was selected to convey a sense of peace, calm and focus.
+
+![Screenshot of Practice Tips Cards](assets/images/readme-images/revibe-practice-tips-cards.png)
+
+The second section features individual cards displaying information about how to practice ear training effectively, as well as information on how to integrate ear training into general music practice. The cards are displayed within a white background, with box-shadow to contrast clearly against the darker background. On the right is a side bar featuring videos, as an extra educational resource for the user to visit if they so wish. 
+
+## Contact Page
+
+![Screenshot of Contact Page Header](assets/images/readme-images/revibe-contact-header.png)
+
+The contact page also features two sections.
+
+The first section features a top level header, with a brief invitation for the user to get in touch with any questions, ideas or comments. A small sub-section of the header is dedicated to a brief invitation to the user to get in touch if they would like piano lessons. This feature is hidden on mobile devices. This text content is accompanied with a vector graphic of a person listening to music with headphones. Again, this image was selected to provide a sense of peace and calm. 
+
+![Screenshot of Contact Form](assets/images/readme-images/revibe-contact-form.png)
+
+The second section features a simple bootstrap contact form, sat in a light background with some box-shadow, to contrast clearly against the darker background.
+
+
+
 
 
 
