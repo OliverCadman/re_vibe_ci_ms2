@@ -217,11 +217,11 @@ The images used in the headers for the Practice Tips and Contact page were selec
 
 ### Navbar
 
-![Image Navbar for iPad and Laptop](assets/images/readme-images/revibe_navbar_laptop.png)
+![Image Navbar for iPad and Laptop](assets/images/readme-images/revibe-navbar-laptop.png)
 
 Each page features a responsive navigation bar, with a clickable logo icon positioned on the left on iPad and Laptop device sizes and up. The logo is centered on mobile device sizes.
 
-![Image of Navbar for Mobile](assets/images/readme-images/revibe_navbar_mobile.png)
+![Image of Navbar for Mobile](assets/images/readme-images/revibe-navbar-mobile.png)
 
 The navigation bar collapses to a CSS-made burger icon which opens a collapsible dropdown list of the links.
 The burger icon animates to a cross when clicked, to provide user feedback when the icon is clicked and the collapsible dropdown list is opened.
@@ -234,7 +234,7 @@ A footer is present on all pages, featuring social media links represented by fo
 
 ## Home Page
 
-![Image of Footer](assets/images/readme-images/revibe_homepage.png)
+![Image of Footer](assets/images/readme-images/revibe-homepage.png)
 
 The home page feature the main GUI where the game takes place. To the right of the GUI, a brief summary of instructions are featured to inform the user of how to use the platform. Each portion of the page collapses to a full-width column on mobile devices.
 
@@ -258,13 +258,6 @@ When the user selects a wrong answer, the speaker icon wobbles and a sound is pl
 
 When the user selects a correct answer, a sound is played to represent a correct answer, and the speaker icon is hidden, and replaced with the name of the interval/chord, along with an image of the notation of the correct interval/chord. This is animated to provide a smooth experience.
 
-
-
-<figure class="video_container">
-  <video controls="true" allowfullscreen="true"">
-    <source src="path/to/video.mp4" type="video/mp4">
-  </video>
-</figure>
 
 
 
