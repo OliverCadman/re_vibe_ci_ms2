@@ -46,7 +46,6 @@
           <div class="logo">
             <svg
               id="ear-drawing"
-              version="1.0"
               xmlns="http://www.w3.org/2000/svg"
               width="40.000000pt"
               height="40.000000pt"
@@ -108,22 +107,18 @@
             re:Vibe
           </div>
         </a>
-        <button
-          class="navbar-toggler"
+        <!--Hamburger-->
+        <div class="hamburger-icon navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+          <div class="hamburger-inner">
+            <button
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive"
-          aria-controls="navbarSupportedContent"
+          aria-controls="navbarResponsive"
           aria-expanded="false"
           aria-label="Toggle navigation links"
         >
-        <!--Hamburger-->
-        <div class="hamburger-icon">
-          <div class="hamburger-inner">
-
+          </button>
           </div>
         </div>
-        </button>
         <div class="collapse navbar-collapse p-0" id="navbarResponsive">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -172,14 +167,11 @@
               <!-- Displays name and image of notation upon submission of correct answer -->
                  <div class="hide-correct-answer-container">
                 <div class="correct-answer-wrapper show-correct-answer">
-                
+                    <!--Name and notation image of correct answers generated in main.js-->
                 </div>
                  </div>
               <!-- Displays buttons to select game mode (Interval Trainer or Chord Identifier)-->
               <div class="game-selection-button-container">
-               
-
-           
                 <button
                   type="button"
                   id="interval-trainer-btn"
@@ -197,7 +189,7 @@
                   Chord Identifier
                 </button>
               </div>
-
+              <!-- Speaker Icon -->
               <div class="speaker-icon-wrapper justify-content-center">
                 <span
                   ><i
@@ -206,7 +198,6 @@
                   ></i
                 ></span>
               </div>
-              
               <!--Empty div to be filled with content generated in countDown function, in assets/js/main.js -->
               <!-- Counts down from 3 before game starts -->
               <div class="countdown-wrapper">
@@ -215,7 +206,7 @@
               <!-- Holds buttons for user to submit answers. Contents generated in main.js -->
               <div id="answer-container">
                 <div class="answer-wrapper">
-                  
+                
                 </div>
               </div>
                 <div class="begin-training">
@@ -245,6 +236,7 @@
             </div>
           </div>
         </div>
+      </div>
     </section>
     <!-- Completed Game and Game Over Modals. Animated using Animate CSS. Referenced from "https://animate.style/" -->
     <aside>
@@ -256,19 +248,20 @@
             </div>
             <div class="modal-body">
               <div id="congratulations-message">
-
+                <!-- Text content generated in main.js-->
               </div>
               <p>Here is a list of your correct answers:</p>
+             
               <div class="display-correct-answers">
-
-
+                <!-- Text content generated in main.js -->
               </div>
-    
-
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-dark play-again-btn" data-dismiss="modal">
                 Play Again
+              </button>
+               <button type="button" class="btn btn-dark change-game-mode-btn" data-dismiss="modal">
+                <!-- Text content generated in main.js-->
               </button>
               <button type="button" class="btn btn-dark close-modal-btn" data-dismiss="modal">
                 Close
@@ -288,7 +281,7 @@
                <p>Here is a list of your correct answers:</p>
             </div>
             <div class="display-correct-answers">
-
+              <!--Text content generated in main.js-->
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-dark play-again-btn" data-dismiss="modal">
@@ -310,7 +303,7 @@
             </div>
             <div class="modal-body">
               <p>When you begin your training, there's a chance you won't hear the sounds when your training starts.</p>
-                <figure><img id="click-icon-alert" src="assets/images/home-page/speaker-icon-alert.png" alt="Image of Speaker Icon"></video></figure>
+                <figure><img id="click-icon-alert" src="assets/images/home-page/speaker-icon-alert.png" alt="Image of Speaker Icon"></figure>
               <p>If this happens, click the speaker icon and you will be able to hear the sounds for the rest of your training session.</p>
               <p>Many apologies for the inconvenience! We're working hard to fix this as soon as possible.</p>
             </div>
@@ -350,18 +343,16 @@
         </div>
       </div>
     </footer>
-  </body>
 
-  <!-- jQuery CDN -->
-
-  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-  <script
-    type="text/javascript"
-    src="assets/js/audio-context-monkey-patch.js"
-  ></script>
+    <!-- jQuery CDN & Custom JS Files -->
+     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="assets/js/audio-context-monkey-patch.js"></script>
   <script src="assets/js/safari-modal-alert.js"></script>
   <script src="assets/js/animate-hamburger.js"></script>
-  <script type="text/javascript" src="assets/js/data.js"></script>
-  <script type="text/javascript" src="assets/js/audio.js"></script>
-  <script type="text/javascript" src="assets/js/main.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/audio.js"></script>
+  <script src="assets/js/main.js"></script>
+  </body>
+
+ 
 </html>
