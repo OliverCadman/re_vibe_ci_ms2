@@ -552,8 +552,29 @@ name and image of chord in modal */
     );
   }
 
-  resetGlobalVariables();
+  /* Enables user to enter different game mode directly
+  from the modal window, without having to close to
+  switch game modes */
+  let changeModeButton = $(".change-game-mode-btn");
+ 
+    if (gameType === "interval-trainer") {
+      changeModeButton.html("Try our Chord Identifier")
+      changeModeButton.on('click', function() {
+        gameType = "chord-identifier"
+        readyGame(gameType)
+        $("#completed-game-modal").modal("hide");
+      })
+    } else {
+      changeModeButton.html("Try our Interval Trainer");
+      changeModeButton.on("click", function() {
+        gameType = "interval-trainer"
+        readyGame(gameType)
+        $("#completed-game-modal").modal("hide");
+      })
+    }
 
+  /* Enables user to replay game mode from countdown
+   directly from modal window */
   $(".play-again-btn")
     .off("click")
     .on("click", () => {
@@ -564,6 +585,8 @@ name and image of chord in modal */
   $(".close-modal-btn").on("click", () => {
     $("#completed-game-modal").modal("hide");
   });
+
+   resetGlobalVariables();
 }
 
 // Runs when user loses all three lives
@@ -642,18 +665,11 @@ function resetGlobalVariables() {
   wrongAnswerSound = null;
   correctAnswerList = [];
 
- 
   correctAnswerSound = new Audio("assets/sounds/correct-answer.mp3");
-  console.log(correctAnswerSound)
-
   wrongAnswerSound = new Audio("assets/sounds/wrong-answer.mp3");
-  console.log(wrongAnswerSound);
-
   gameCompleteJingle = new Audio("assets/sounds/game-complete.mp3");
-  console.log(gameCompleteJingle);
-
   gameOverJingle = new Audio("assets/sounds/game-over.mp3");
-   console.log(gameOverJingle);
+ 
 }
 
 // Generates a random number between 0 and 144;
