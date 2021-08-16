@@ -1,7 +1,7 @@
+/*jshint esversion: 8 */
+
 function createInterval(frequency1, frequency2) {
   const synth = new Tone.Synth();
-
-  console.log(synth)
 
   synth.oscillator.type = "sine4";
   synth.triggerAttackRelease(frequency1, "8n");
@@ -21,11 +21,7 @@ function createInterval(frequency1, frequency2) {
   //   preDelay: 0.1,
   // });
 
-
-  
   synth.chain(filter, Tone.Destination);
-
-  console.log(Tone.getContext())
 
   let playButtons = "#begin-training-btn" || ".play-again-btn";
 
@@ -34,11 +30,9 @@ function createInterval(frequency1, frequency2) {
   });
 
   if (Tone.context.state === "suspended") {
-    Tone.context.state === "running";
-    console.log(Tone.context.state);
+    Tone.context.state = "running";
   } else {
-    Tone.context.state === "running";
-    console.log(Tone.context.state);
+    Tone.context.state = "running";
   }
 }
 
@@ -65,6 +59,12 @@ function createChord(frequency1, frequency2, frequency3, frequency4) {
   synth.chain(gain, Tone.Destination);
 
   let playButtons = "#begin-training-btn" || ".play-again-btn";
+
+  if (Tone.context.state === "suspended") {
+    Tone.context.state = "running";
+  } else {
+    Tone.context.state = "running";
+  }
 
   document.querySelector(playButtons).addEventListener("click", async () => {
     await Tone.start();
