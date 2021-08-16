@@ -328,7 +328,9 @@ A 404 Page is displayed in the event that the user visits a page of the website 
 
 5. Sign Up/Login functionality - The ability for the user to create a profile and save their games and results to track their progress, and also register their results to the re:Vibe leaderboard.
 
+# Testing
 
+Testing Information can be found in a seperate [TESTING.md file](TESTING.md)
 
 
 
