@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 let questions;
 let questionIndex;
 let questionCount;
@@ -13,19 +15,19 @@ let answerCountdown;
 let gameType;
 
 
+
 // Preload mp3 files that accompany answers and game over modal displays
 correctAnswerSound = new Audio("assets/sounds/correct-answer.mp3");
-correctAnswerSound.preload;
+correctAnswerSound.preload = "auto";
 
 wrongAnswerSound = new Audio("assets/sounds/wrong-answer.mp3");
-wrongAnswerSound.preload;
+wrongAnswerSound.preload = "auto";
 
 gameCompleteJingle = new Audio("assets/sounds/game-complete.mp3");
-gameCompleteJingle.preload;
+gameCompleteJingle.preload = "auto";
 
 gameOverJingle = new Audio("assets/sounds/game-over.mp3");
-gameOverJingle.preload;
-
+gameOverJingle.preload = "auto";
 
 // Waits for DOM content to fully load before executing function
 document.addEventListener("DOMContentLoaded", function () {
@@ -50,19 +52,21 @@ function loadGame() {
     .removeAttr("class", "opaque-overlay")
     .attr("class", "hide-overlay");
 
+  /* Disable Begin Training button until either
+  'Interval Trainer' or 'Chord Identifier' are selected */
+
   $("#begin-training-btn")
     .show()
     .css({ opacity: "0.5", width: "35%", color: "#fafafa" })
     .text("Please Select Training Mode");
 
-  /* Disable Begin Training button until either
-   'Interval Trainer' or 'Chord Identifier' are selected */
   $("#begin-training-btn").prop("disabled", true);
-
-  const buttons = document.getElementsByTagName("button");
 
   /* Loop through buttons and add click event listeners
   to invoke readyGame(), passing in gameType as argument */
+
+  let buttons = document.getElementsByTagName("button");
+
   for (let button of buttons) {
     button.addEventListener("click", () => {
       if (button.getAttribute("id") === "interval-trainer-btn") {
@@ -159,7 +163,7 @@ function runIntervalGame() {
   // Displays three 'user' fontAwesome icons representing lives left
   let livesLeftContainer = document.getElementById("lives-left-container");
   let livesLeft = "";
-  for (i = 0; i < livesRemaining; i++) {
+  for (let i = 0; i < livesRemaining; i++) {
     livesLeft += `<span><i class="fas fa-user lives-left-icon"></i></span>`;
   }
   livesLeftContainer.innerHTML = livesLeft;
@@ -202,7 +206,7 @@ function nextInterval(currentInterval) {
   $(answerButtons).empty();
 
   // loops over answerOptions variable and creates button upon each iteration
-  for (i = 0; i < answerOptions.length; i++) {
+  for (let i = 0; i < answerOptions.length; i++) {
     answerButtons += `<button class="btn btn-light answer-btn"
      data-type="submit">${answerOptions[i]}</button>`;
   }
@@ -213,7 +217,7 @@ function nextInterval(currentInterval) {
 
   /* Loop through answer buttons and add click event
    listeners to grab values of click to check answer */
-  for (button of answerButton) {
+  for (let button of answerButton) {
     if (button.getAttribute("data-type") === "submit") {
       button.addEventListener("click", (e) => {
         checkIntervalAnswer(e, currentInterval);
@@ -245,7 +249,7 @@ function runChordGame() {
   // Displays three 'user' fontAwesome icons representing lives left
   let livesLeftContainer = document.getElementById("lives-left-container");
   let livesLeft = "";
-  for (i = 0; i < livesRemaining; i++) {
+  for (let i = 0; i < livesRemaining; i++) {
     livesLeft += `<span><i class="fas fa-user lives-left-icon"></i></span>`;
   }
   livesLeftContainer.innerHTML = livesLeft;
@@ -287,7 +291,7 @@ function nextChord(currentChord) {
   $(answerButtons).empty();
 
   // loops over answerOptions variable and creates button upon each iteration
-  for (i = 0; i < answerOptions.length; i++) {
+  for (let i = 0; i < answerOptions.length; i++) {
     answerButtons += `<button class="btn btn-light answer-btn"
     data-type="submit">${answerOptions[i]}</button>`;
   }
@@ -298,7 +302,7 @@ function nextChord(currentChord) {
 
   /* Loop through answer buttons and add click event
    listeners to grab values of click to check answer */
-  for (button of answerButton) {
+  for (let button of answerButton) {
     if (button.getAttribute("data-type") === "submit") {
       button.addEventListener("click", (e) => {
         checkChordAnswer(e, currentChord);
@@ -435,7 +439,12 @@ function checkIntervalAnswer(e, questionIndex) {
   } else {
     wrongAnswerSound.play();
     livesRemaining--;
-    livesRemaining > 0 ? animateCSS(".speaker-icon", "wobble") : null;
+    if (livesRemaining > 0) {
+      animateCSS(".speaker-icon", "wobble");
+    } else {
+      return null;
+    }
+
     $(".lives-left-icon")[0].remove();
     $(".lives-left-alert")
       .fadeIn(300)
@@ -482,7 +491,11 @@ function checkChordAnswer(e, questionIndex) {
     let wrongAnswer = new Audio("assets/sounds/wrong-answer.mp3");
     wrongAnswer.play();
     livesRemaining--;
-    livesRemaining > 0 ? animateCSS(".speaker-icon", "wobble") : null;
+    if (livesRemaining > 0) {
+      animateCSS(".speaker-icon", "wobble");
+    } else {
+      return null;
+    }
     $(".lives-left-icon")[0].remove();
     $(".lives-left-alert")
       .fadeIn(1000)
@@ -556,22 +569,22 @@ name and image of chord in modal */
   from the modal window, without having to close to
   switch game modes */
   let changeModeButton = $(".change-game-mode-btn");
- 
-    if (gameType === "interval-trainer") {
-      changeModeButton.html("Try our Chord Identifier")
-      changeModeButton.on('click', function() {
-        gameType = "chord-identifier"
-        readyGame(gameType)
-        $("#completed-game-modal").modal("hide");
-      })
-    } else {
-      changeModeButton.html("Try our Interval Trainer");
-      changeModeButton.on("click", function() {
-        gameType = "interval-trainer"
-        readyGame(gameType)
-        $("#completed-game-modal").modal("hide");
-      })
-    }
+
+  if (gameType === "interval-trainer") {
+    changeModeButton.html("Try our Chord Identifier");
+    changeModeButton.on("click", function () {
+      gameType = "chord-identifier";
+      readyGame(gameType);
+      $("#completed-game-modal").modal("hide");
+    });
+  } else {
+    changeModeButton.html("Try our Interval Trainer");
+    changeModeButton.on("click", function () {
+      gameType = "interval-trainer";
+      readyGame(gameType);
+      $("#completed-game-modal").modal("hide");
+    });
+  }
 
   /* Enables user to replay game mode from countdown
    directly from modal window */
@@ -586,7 +599,7 @@ name and image of chord in modal */
     $("#completed-game-modal").modal("hide");
   });
 
-   resetGlobalVariables();
+  resetGlobalVariables();
 }
 
 // Runs when user loses all three lives
@@ -612,8 +625,7 @@ function gameOver() {
 
   $(".game-selection-button-container").show();
 
-  
-   gameOverJingle.play();
+  gameOverJingle.play();
 
   /* Maps over array of correct answers and displays
   name and image of chord in modal */
@@ -669,7 +681,6 @@ function resetGlobalVariables() {
   wrongAnswerSound = new Audio("assets/sounds/wrong-answer.mp3");
   gameCompleteJingle = new Audio("assets/sounds/game-complete.mp3");
   gameOverJingle = new Audio("assets/sounds/game-over.mp3");
- 
 }
 
 // Generates a random number between 0 and 144;
