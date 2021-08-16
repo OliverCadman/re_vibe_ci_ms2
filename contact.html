@@ -7,13 +7,18 @@
     <meta name="description" content="Contact page featuring contact form for users to contact re:Vibe service">
     <meta name="keywords" content="re:Vibe, contact, contact form">
     <meta name="author" content="Oliver Cadman">
-   <!--Bootstrap CDN -->
+   <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <!-- FontAwesome CDN-->
+    <script
+      src="https://kit.fontawesome.com/8363d21662.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- Animate CSS CDN -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
    <!-- EmailJS CDN -->
-   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
      <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     <title>re:Vibe - Contact</title>
@@ -26,7 +31,6 @@
           <div class="logo">
             <svg
               id="ear-drawing"
-              version="1.0"
               xmlns="http://www.w3.org/2000/svg"
               width="40.000000pt"
               height="40.000000pt"
@@ -88,21 +92,12 @@
             re:Vibe
           </div>
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarResponsive"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <div class="hamburger-icon">
-            <div class="hamburger-inner">
-              
-            </div>
+         <!--Hamburger-->
+        <div class="hamburger-icon navbar-toggler" role="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+          <div class="hamburger-inner">
+        
           </div>
-        </button>
+        </div>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -151,7 +146,7 @@
                 <!-- Learn Piano card -->
                 <div class="col-12 col-lg-4 order-md-3">
                     <div class="contact-lessons-wrapper d-none d-md-block">
-                        <h4>Learn the Piano</h4>
+                        <h2>Learn the Piano</h2>
                         <p>
                             Ear Training and the Piano are best friends. 
                             They go together like Salt and Pepper, like Milk n’ Cookies!
@@ -196,10 +191,6 @@
                 </div>
             </div>
         </div>
-
-            </div>
-
-        </div>
     </section>
     <aside>
      <div class="modal animate__animated animate__zoomIn" id="contact-success-modal" role="dialog" tabindex="-1">
@@ -222,21 +213,43 @@
      <footer>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-12 d-flex justify-content-center footer-icons-wrapper">
+          <div
+            class="col-12 d-flex justify-content-center footer-icons-wrapper"
+          >
             <div class="footer-icons">
               <ul>
                 <li>
-                  <span><a href="https://www.github.com/OliverCadman" target="_blank"><i class="fab fa-github"></i></a></span>
+                  <span
+                    ><a
+                      id="github-link"
+                      href="https://www.github.com/OliverCadman"
+                      target="_blank"
+                      rel="noopener"
+                      ><i class="fab fa-github"></i></a
+                  ></span>
                 </li>
               </ul>
               <ul>
                 <li>
-                  <span><a href="https://www.instagram.com/oliplays_piano" target="_blank"><i class="fab fa-instagram"></i></a></span>
+                  <span
+                    ><a
+                      id="instagram-link"
+                      href="https://www.instagram.com/oliplays_piano"
+                      target="_blank"
+                      rel="noopener"
+                      ><i class="fab fa-instagram"></i></a
+                  ></span>
                 </li>
               </ul>
               <ul>
                 <li>
-                  <span><a href="https://www.facebook.com/oliver.cadman" target="_blank"><i class="fab fa-facebook"></i></a
+                  <span
+                    ><a
+                      id="facebook-link"
+                      href="https://www.facebook.com/oliver.cadman"
+                      target="_blank"
+                      rel="noopener"
+                      ><i class="fab fa-facebook"></i></a
                   ></span>
                 </li>
               </ul>
@@ -245,11 +258,10 @@
         </div>
       </div>
     </footer>
-</body>
 
-
-<!-- Animate Hamburger Icon JS -->
+    <!-- Animate Hamburger Icon JS -->
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script src="assets/js/contact-form.js"></script>
 <script src="assets/js/animate-hamburger.js"></script>
+</body>
 </html>
