@@ -60,6 +60,376 @@ Three warnings were being thrown when validating the JavaScript code in main.js.
 
 The severity of these warnings is hard to gauge, since I used the Code Institute's walkthrough project 'Love Maths' as a guide for creating this code. Again, I have thoroughly tested the code and have encountered no issues with regards to the functionality. Since the JSHint warning states that 'referencing the outer-scoped variable may lead to confusing semantics', the developer surmised that it was sufficient enough to explicitly state the purpose of the code in a comment.
 
+## User Stories Testing
+
+### Paths Through the Website
+
+There is only one main path through the website:
+
+Title Page > Home Page > Practice Tips > Contact
+
+An original intention for the structure of the website was to invite the user to visit the Practice Tips page once they had completed the game. This was going to be achieved by including a button in the bootstrap modal window when the user had completed the game, with the text content 'Visit our Practice Tips Page'.
+
+However, as the project developed, more buttons were added to the modal window which were game-specific:
+
+* Play Again
+* Try our Chord Identifier/Interval Trainer
+* Close
+
+It was determined that adding a fourth button to this window would result in the window being too busy, risking cognitive overload for the user, and a bad user experience.
+
+Therefore, as it was most important that the three buttons already included related specifically to the game platform (which is the most important aspect of the website), the decision was made to omit the button linked to the Practice Tips page.
+
+### Path through the game
+
+The game is structured as follows:
+
+* Choose Game Mode 
+* Click 'Begin Training'
+* Countdown from 3
+* Answer 10 questions correctly/Lose all three lives
+* Repeat sound by clicking speaker icon (if desired)
+* Game complete/game over
+
+Once the game is complete or the game is over, the user can choose to:
+
+* Play Again - Selecting this option begins the game directly from the countdown, in the same game mode.
+
+* Try the Interval Trainer/Chord Identifier - Dependent on which game mode the user is currently in, the alternative game mode will be an option for the user to select. This will bring the user to the point where they click 'Begin Training', in the alternative game mode.
+
+* Close - This closes the modal window, and leaves the user to browse the website at their own will.
+
+## Testing User Stories from UX Section of README.md
+
+### New Visitors
+
+1. As a new visitor, I want the purpose of the website to be immediatey apparent, so I can quickly trust that the website will suit my needs.
+
+    1. Much consideration and thought was invested in creating a brand name which made the purpose of the website immediately apparent, while also emitting a sleek, contemporary feeling. With this, the name 're:Vibe' was created, as the word 'Vibe' is directly attributed to vibrations, and sound. 
+
+    2. Upon landing on the website, the user is immediately presented with a sleek animation of the re:Vibe logo, featuring an animation of two SVGs.
+        1. The re:Vibe text logo
+        2. An image of an ear
+
+    These animations are intended to draw the user into the purpose of the website in a smooth manner, and to immediately grab the users attention, while reinforcing the purpose of the website and re:Vibe brand.
+
+    3. To further reinforce the purpose of the website, a button is faded in with the text content 'ear training' featured above. This was added to guarantee that the purpose of the website was as obvious and recognisable as possible.
+
+2. As a new visitor, I want to be able to navigate the site intuitively and with ease, so that my time isn't wasted.
+
+    1. With a fixed, responsive navbar displayed on all pages, users on all screen sizes are always able to view the navigation and navigate around the website with minimal effort.
+
+    2. A clickable logo is visible on all pages, and on all screen sizes. Clicking this logo will take the user back to the website's home page.
+
+    3. Visual feedback is provided for users on laptop/desktop, with the inclusion of 'hover' pseudo-classes in the navlinks, as well as styling for active navlinks.
+
+    4. 'Play Again/Try Again' buttons in completed game/game over modal windows - The decision was made to implement functionality to allow the user to play the game again, immediately from when the countdown begins. This was purely a UX-based decision, since it minimised the amount of clicks the user had to make in order to start the game again, if they so wished.
+
+3. As a new visitor, I want instructions of how to use the platform to be clearly presented, so I can start using the platform as quickly as possible.
+
+    1. Upon landing on the website's home page, the user is immediately presented with instructions on how to use the platform. The text content used to provide instructions is intended to be fully comprehensive, while also being concise. 
+    2. Sufficient contrast between the dark background and light, readable font ensures that the user can read the text content easily.
+    3. The button with text content 'Begin Training' is initially replaced with 'Please Select Training Mode', to further ensure that the user knows how to use the platform, while minimising cognitive overload.
+
+4. As a new visitor, I want clear visual feedback when I am using the platform, so I know that the game is responding to my actions.
+
+    1. Three 'user' fontawesome icons are displayed in the right hand corner of the game window.
+    2. Information on how many correct answers the user has remaining is present on the left hand side of the game window.
+    3. The speaker icon is animated using animateCSS. When a note is played, the speaker icon is animated to the beat of the chord, with the effect 'heartbeat'. This animation is also applied when the user clicks the icon to replay the sound. 
+    4. When a user submits an incorrect answer, the speaker icon wobbles, a 'user' icon is removed from the window, and a message is displayed to the user, informing them of how many lives they have remaining.
+    5. When a user submits a correct answer, the speaker icon is replaced with notation of the correct answer, along with the name of the interval/chord.
+    6. Modal windows are presented to the user immediately upon completing the game, or losing all three lives. In these modals, a message is presented congratulating or commiserating the user, along with a list of the correct answers they submitted, with images of the notation.
+
+5. As a new visitor, I want the website to be visually appealing with good colour contrast, so I'm not distracted from the learning experience.
+
+    1. A key design decision in the initial development of the project was to have a 'dark mode' theme. The website's background is dark in colour, and contrasted with a relatively bring user interface/GUI. This decision was made to encourage the user to focus on the game/learning experience.
+    2. The images used in the header sections of the 'Practice Tips' and 'Contact' pages were chosen to emit a calming, peaceful and focused emotion.
+    3. When beginning the game from the countdown, an opaque overlay is added to the game background, to 'dim the lights' and immerse the user in the moment of gameplay.
+
+6. As a new visitor, I want the learning experience to be engaging and challenging, so that I am stimulated by the experience.
+
+    1. A countdown is included, as an effort to engage the user in the moment, and anticipate the start of the game.
+    2. The use of an opaque overlay is intended to immerse the user in the game.
+    3. A wide selection of intervals and chords is included in the data.js file. There are a range of 144 intervals available to be generated, as well as 60 chords available to be generated. This ensures that the game has variety, and there's a lesser chance that the user will hear the same interval/chord twice.
+
+### Returning Visitors
+
+1. As a returning visitor, I want to be able to create a profile on the website, so I can save and keep track of my progress.
+
+    1. Unfortunately, the answer to this user story will only be available when the developer learns more about backend development, so a database can be built to hold the user information. This user story will be fulfilled in the future release.
+
+2. As a returning visitor, I want to be able to navigate to a contact form, so I can give any positive or negative feedback, or ask any questions.
+
+    1. A link to the website's contact page is present and clearly visible at all times, on all pages.
+    2. Customised form validation is included using JavaScript, to inform the user if they have inputted any information incorrectly.
+
+3. As a returning visitor, I want to learn more about the different aspects of aural training and music practice in general, so I can build more on my experience and knowledge of the musical discipline.
+    
+    1. The website features a 'Practice Tips' page, which is easy to navigate to, since the link to the page is present at all times, on all pages by way of a fixed navbar.
+    2. The Practice Tips page features five cards, containing different tips on how to go about learning/practicing ear training. This information is presented clearly, with good colour contrast, and visual aids through the use of vector graphics.
+    3. A side bar is present on the 'Practice Tips' page, displaying four embedded YouTube videos, directly related to the practice of Ear Training, and the practice/learning of music theory.
+
+4. As a returning visitor, I want to see a leaderboard in the challenge section, detailing the high scores submitted by the other users of the website, so that I feel stimulated and engaged.
+    
+    1. Unfortunately, the answer to this user story will only be available when the developer learns more about backend development, so a database can be built to hold the user information. This user story will be fulfilled in the future release.
+
+# Manual Testing of features on all pages
+
+Manual testing was undertaken on the following browser platforms: 
+
+* Google Chrome
+* Apple Safari
+* Mozilla Firefox
+
+## Title Page
+
+1. Confirm the Vivus Animation 'draws' the SVGs smoothly, and both SVGs are animated in sync with eachother.
+2. Confirm the div featuring text content 'ear training' and button 'Enter' fades in correctly, and is timed correctly.
+3. Hover over 'Enter' button to confirm hover styling is present.
+4. Click 'Enter' button to confirm it is correctly linked to the Home Page.
+
+## Home Page
+
+1. Navigation Bar
+    1. Navigate to home page on desktop, tablet and mobile.
+    2. Change screen size from laptop to mobile to check if responsive navbar collapses to burger icon as intended.
+    3. Confirm that the logo is present in the navbar on all device sizes.
+    4. Hover over navbar links to ensure that each link is underlined upon hovering.
+
+2. Game Section 
+    1. Confirm the responsivity of the section, by ensuring the columns collapse to span the full width of the container on iPad and mobile devices, and expand to three columns on laptop and desktop screen sizes.
+    2. Confirm that the section is cleared from the fixed navbar - top padding was applied to the section to ensure this.
+    3. Confirm that the text content for instructions is clearly visible on all device sizes.
+
+3. Graphical User Interface 
+    1. Confirm that the entire game background is visible on all device sizes.
+    2. Confirm that the buttons scale correctly upon hovering.
+    3. Confirm that initial text 'Please Select Game Mode' is present upon first page load, and is disabled.
+
+
+### Game Play 
+
+#### Interval Trainer
+
+1. Select Interval Trainer
+    1. Hover over button to confirm that it scales as expected.
+    2. Confirm that the heading for the game mode 'Interval Trainer' is displayed in the top-left corner of the GUI, when button is clicked.
+    3. Confirm that the disabled button becomes enabled and is replaced with text content 'Begin Training', and is styled as intended.
+    4. Confirm that speaker icon appears.
+    5. Confirm that the buttons to select game mode are hidden.
+
+2. Click 'Begin Training' button
+    1. Confirm that the opaque overlay is applied.
+    2. Confirm that the countdown begins.
+    3. Confirm that the 'Begin Training' button is hidden.
+
+3. Confirm that only one interval is played (not all intervals in 'questions' object)
+
+4. Confirm the content 'Correct Answers Remaining' and fontawesome 'user' icons are displayed correctly.
+
+5. Confirm the speaker animates in time with the interval played.
+
+6. Click the speaker icon to confirm that the interval is replaying correctly - 
+
+There was an issue with this, as the click event listener assigned to the speaker icon was 'remembering' the intervals/chords as the game progressed, and would play them all at once. This is obviously not ideal. I added an 'off.("click")' removeEventListener method immediately before adding the click event, which solved the issue, and resulted in the individual interval/chord in question playing correctly.
+
+7. Select an incorrect answer
+    1. Confirm the speaker icon wobbles
+    2. Confirm the relevant audio file is played
+    2. Confirm a fontawesome 'user' icon is removed from GUI
+    3. Confirm the text content to inform of how many lives are left is displaying, and fades in and out correctly.
+
+8. Select a correct answer
+    1. Confirm the speaker icon is replaced with the name of the interval/chord and it's accompanying name, and animated correctly with correct timing.
+    2. Confirm the relevant audio file is played
+    3. Confirm that the text content 'Correct Answers Remaining', decrements from 10 correctly.
+
+9. Next question
+    1. Confirm the name and image of interval is replaced with the speaker icon, and animated correctly, with correct timing.
+    2. Confirm that the next interval plays, without playing previous intervals.
+    3. Confirm the speaker icon animates correctly.
+
+10. Repeat steps 6, and 8 through 9 until game complete.
+
+or
+
+11. Select three incorrect answers (please visit sub-header 'Game Over' for relative testing information)
+
+##### Interval Game Complete
+
+1. Game complete modal
+    1. Confirm that the bootstrap modal window is displayed
+    2. Confirm that the correct amount of lives remaining is displayed.
+    3. Confirm that the relevant audio file is played.
+    4. Confirm that the list of correct answers is displayed correctly, along with the image of the notation.
+
+2. Click 'Play Again' button
+    1. Confirm that this begins the game, in the same game mode, from the countdown.
+    2. Confirm that all variables are reset and displayed correctly, and are positioned in the exact same places, on all device sizes.
+    3. Confirm that one interval is played - 
+    There was an issue here, much like the issue with regards to replaying the sound by clicking the speaker icon. The function containing the for loop to grab 10 intervals was running three times, collecting 30 intervals. This resulted in three sounds being played at once. I added a method to remove event listener from button to 'Play Again' before adding the event listener. This solved the issue.
+    4. Repeat the steps taken in the first round of the game to ensure that game runs the same as the previous round.
+
+3. Click the 'Try Our Chord Identifier' button
+    1. Confirm that this invokes the function readyGame correctly, and is passing in the correct gameType as an argument.
+    2. Confirm that the heading 'Chord Identifier' is present in the top-left corner of the GUI.
+    3. Confirm that the opaque overlay is hidden.
+    4. Click 'Begin Training' to confirm countdown is initiated and displayed correctly.
+    5. Confirm that the sound played is indeed a chord, instead of an interval.
+    6. Confirm that one sound is played at a time.
+    7. Click the speaker icon to confirm that the chord in question is replayed correctly.
+    8. Confirm that the list of optional answers in buttons relate to a chord, and not an interval.
+    9. Repeat the same process undertaken in Interval Trainer to see if game runs through without and issues.
+
+4. Click the 'Close' button 
+    1. Confirm that the features of the GUI are all present, as they were upon first page load.
+    2. Select a game mode and begin a game, using the same manual testing procedures taken. Play the game through to confirm it functions as intended.
+
+##### Interval Game Over
+
+1. Game over modal
+    1. Confirm that the bootstrap modal window is displayed
+    2. Confirm that the correct amount of lives remaining is displayed.
+    3. Confirm that the relevant audio file is played.
+    4. Confirm that the list of correct answers is displayed correctly, along with the image of the notation.
+
+
+2. Click 'Play Again' button
+    1. Confirm that this begins the game, in the same game mode, from the countdown.
+    2. Confirm that all variables are reset and displayed correctly, and are positioned in the exact same places, on all device sizes.
+    3. Confirm that one interval is played - 
+    There was an issue here, much like the issue with regards to replaying the sound by clicking the speaker icon. The function containing the for loop to grab 10 intervals was running three times, collecting 30 intervals. This resulted in three sounds being played at once. I added a method to remove event listener from button to 'Play Again' before adding the event listener. This solved the issue.
+    4. Repeat the steps taken in the first round of the game to ensure that game runs the same as the previous round.
+
+3. Click the 'Try Our Chord Identifier' button
+    1. Confirm that this invokes the function readyGame correctly, and is passing in the correct gameType as an argument.
+    2. Confirm that the heading 'Chord Identifier' is present in the top-left corner of the GUI.
+    3. Confirm that the opaque overlay is hidden.
+    4. Click 'Begin Training' to confirm countdown is initiated and displayed correctly.
+    5. Confirm that the sound played is indeed a chord, instead of an interval.
+    6. Confirm that one sound is played at a time.
+    7. Click the speaker icon to confirm that the chord in question is replayed correctly.
+    8. Confirm that the list of optional answers in buttons relate to a chord, and not an interval.
+    9. Repeat the same process undertaken in Interval Trainer Testing to see if game runs through without and issues.
+
+4. Click the 'Close' button 
+    1. Confirm that the features of the GUI are all present, as they were upon first page load.
+    2. Select a game mode and begin a game, using the same manual testing procedures taken. Play the game through to confirm it functions as expected.
+
+#### Chord Identifier
+
+
+1. Select Chord Identifier
+    1. Confirm that the heading for the game mode 'Chord Identifier' is displayed in the top-left corner of the GUI, when button is clicked.
+    2. Confirm that the disabled button becomes enabled and is replaced with text content 'Begin Training', and is styled as intended.
+    3. Confirm that speaker icon appears.
+    4. Confirm that the buttons to select game mode are hidden.
+
+
+ 2. Click 'Begin Training' button
+    1. Confirm that the opaque overlay is applied.
+    2. Confirm that the countdown begins.
+    3. Confirm that the 'Begin Training' button is hidden.
+
+3. Confirm that only one chord is played (not all chords in 'questions' object)
+
+4. Confirm the content 'Correct Answers Remaining' and fontawesome 'user' icons are displayed correctly.
+
+5. Confirm the speaker animates in time with the chord played.   
+
+6. Click the speaker icon to confirm that the chord is replaying correctly.
+
+7. Select an incorrect answer
+   1. Confirm the same functionality tested in 'Interval Trainer' mode is functioning as expected.
+
+8. Select a correct answer
+   1. Confirm the same functionality tested in 'Interval Trainer' mode is functioning as expected.
+
+9. Next question
+    1. Confirm the same functionality tested in 'Interval Trainer' mode is functioning as expected.
+
+10. Repeat steps 6, and 8 through 9 until game complete.
+
+##### Chord Game Complete
+
+1. Undergo the same manual testing procedures that were undertaken in 'Interval Trainer' mode, to confirm that the game functions correctly, and correct gameType is passed in as argument to countDown function, if 'Play Again' button is selected.
+
+##### Chord Game Over
+
+1. Undergo the same manual testing procedures that were undertaken in 'Interval Trainer' mode, to confirm that the game functions correctly, and correct gameType is passed in as argument to countDown function, if 'Try Again' button is selected.
+
+### Footer
+
+1. Confirm that three social media icons are present, with correct styling and hover pseudo-class applied. Confirm that the footer icons are centered.
+2. Collapse to mobile device size and iPad size to ensure responsivity, and the positioning retains it's integrity.
+
+## Practice Tips Page
+
+1. Navigation Bar
+    1. Repeat verification steps taken in home page testing.
+
+2. Header section
+    1. Confirm that the header is clearly present and correctly sized across all device sizes.
+    2. Confirm that the hero image is appropriately sized, relative to device sizes.
+    3. Reduce screen size to confirm that each column collapses correctly, and is responsive.
+
+3. Practice Tips Section
+    1. Confirm that text content is clearly contrasted against light background.
+    2. Reduce screen size to confirm that the images displayed in each card are responsive in size.
+    3. Confirm that embedded YouTube videos in the sidebar are playing correctly.
+    4. Confirm there is sufficient margin between practice tip cards, on all screen sizes.
+    5. Confirm there is sufficient margin between the side bar and the main body, on laptop screen sizes and up.
+
+4. Footer
+    1. Repeat verification steps taken in home page testing.
+
+## Contact Page
+
+1. Navigation Bar
+    1. Repeat verification steps taken in home page testing.
+
+2. Header section
+    1. Confirm that the header is clearly present and correctly sized across all device sizes.
+    2. Confirm that the hero image is appropriately sized, relative to device sizes.
+    3. Reduce screen size to confirm that the columns collapse correctly, and is responsive.
+    4. Reduce screen size to mobile, to confirm that the text content sits within the hero image, and is not distracted by the background image.
+
+3. Contact Form Section
+    1. Reduce to mobile screen size to confirm that the columns collapse to full-width of viewport.
+    2. Confirm that the background for contact form changes to dark colour on mobile screen sizes.
+
+3. Contact Form 
+    1. Confirm that the text is sufficiently contrasted against the background.
+    2. Input invalid information in name input and click 'Submit', to confirm that the custom error message displays, and is animated correctly.
+    3. Replace name input with valid information, and input invalid information into the Email input. Click submit to confirm that the custom error message displays, and is animated correctly.
+    4. Replace email input with valid information, and input invalid information into the Questions textarea. Click submit to confirm that the custom error message displays, and is animated correctly.
+    3. Input all valid information and click 'Submit', to confirm that Email JS sends the email to the assigned inbox correctly, with status 200.
+
+4. Footer 
+    1. Repeat verification steps taken in home page testing.
+
+
+## 404 Page
+
+1. Type a non-existent destination in the URL to confirm 404 page displays upon trying to access page.
+2. Confirm image is appropriately sized on all devices.
+3. Collapse to mobile device size to confirm the border-right is hidden.
+4. Confirm all content is clearly displayed and centered on all device sizes.
+5. Confirm the logo link takes the user back to the website's home page.
+
+# Bugs
+
+
+
+
+
+
+    
+
+
+
+
+
 
 
 
