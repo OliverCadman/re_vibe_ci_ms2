@@ -439,11 +439,7 @@ function checkIntervalAnswer(e, questionIndex) {
   } else {
     wrongAnswerSound.play();
     livesRemaining--;
-    if (livesRemaining > 0) {
-      animateCSS(".speaker-icon", "wobble");
-    } else {
-      return null;
-    }
+      livesRemaining > 0 ? animateCSS(".speaker-icon", "wobble") : null;
 
     $(".lives-left-icon")[0].remove();
     $(".lives-left-alert")
@@ -491,11 +487,7 @@ function checkChordAnswer(e, questionIndex) {
     let wrongAnswer = new Audio("assets/sounds/wrong-answer.mp3");
     wrongAnswer.play();
     livesRemaining--;
-    if (livesRemaining > 0) {
-      animateCSS(".speaker-icon", "wobble");
-    } else {
-      return null;
-    }
+    livesRemaining > 0 ? animateCSS('.speaker-icon', 'wobble') : null;
     $(".lives-left-icon")[0].remove();
     $(".lives-left-alert")
       .fadeIn(1000)
