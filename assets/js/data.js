@@ -1247,7 +1247,7 @@ const chordList = [
   },
   {
     // Ab Major
-    frequency1: 233.08,
+    frequency1: 207.65,
     frequency2: 261.63,
     frequency3: 311.13,
     chord: "Major",
@@ -1294,7 +1294,7 @@ const chordList = [
   {
     frequency1: 185,
     frequency2: 233.08,
-    frequency3: 311.13,
+    frequency3: 277.18,
     chord: "Major",
     image: "assets/images/chords/major-triads/f-sharp-major-triad.png",
     name: "F# Major Triad",
