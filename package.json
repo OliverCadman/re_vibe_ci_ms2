@@ -23,7 +23,5 @@
     "@babel/node": "^7.14.7",
     "@babel/preset-env": "^7.14.7"
   },
-  "dependencies": {
-    "tone": "^14.7.77"
-  }
+  "dependencies": {}
 }

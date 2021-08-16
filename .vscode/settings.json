@@ -23,5 +23,5 @@
    "files.autoSave": "off",
    "workbench.colorTheme": "Oceanic Next (dimmed bg)",
    "editor.defaultFormatter": "HookyQR.beautify",
-   "liveServer.settings.port": 5501
+   "liveServer.settings.port": 5502
 }
