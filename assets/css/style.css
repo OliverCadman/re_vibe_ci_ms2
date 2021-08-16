@@ -470,7 +470,6 @@ Referenced from Animate CSS : "https://animate.style/" */
   float: left;
   clear: both;
   border-radius: 50%;
-  shape-outside: ellipse(50% 50%);
   margin-right: 10px;
 }
 
@@ -546,6 +545,7 @@ Referenced from Animate CSS : "https://animate.style/" */
 .practice-tips-image {
   width: 150px;
   shape-outside: ellipse(50% 50%);
+  -webkit-shape-outside:  ellipse(50% 50%);
 }
 
 
@@ -671,7 +671,6 @@ legend {
   color:#23272a;
   background-color: #eeeeee;
   box-shadow: 1px 2px 3px rgba(255, 255, 255, 0.178);
-  border: 3px solid #eeeeee;
 }
 
 .back-home-btn:hover {
@@ -691,7 +690,7 @@ legend {
   }
 
   .logo {
-    margin-bottom: 1.3rem 0;
+    margin-bottom: 1.3rem;
   }
 
   .ear-training h2 {
@@ -735,7 +734,7 @@ legend {
   /* Game Section */
 
   #game-section {
-    padding-top: 92px;
+    padding-top: 100px;
   }
 
   .instructions-wrapper p:last-child {
@@ -794,7 +793,8 @@ legend {
 
 #click-icon-alert {
   width: 25%;
- 
+  shape-outside: ellipse(50% 50%);
+  -webkit-shape-outside: ellipse(50% 50%);
 }
 
 /* -------------- Practice Tips Page --------------- */
@@ -834,7 +834,7 @@ legend {
     margin-left: 0;
   }
 
-  .contact-lessons-wrapper h4 {
+  .contact-lessons-wrapper h2 {
     font-weight: bold;
     font-family: "Roboto Condensed", sans-serif;
     text-transform: uppercase;
@@ -874,7 +874,6 @@ legend {
   }
 
   button[type="submit"] {
-    border: 2px solid #23272a;
     background-color: #23272a;
     color: #fafaf9;
   }
@@ -926,6 +925,9 @@ legend {
 
   /* ---- Game Section ----  */
 
+    #game-section {
+    padding-top: 110px;
+  }
 
   #game-container {
     height: 550px;
@@ -1139,7 +1141,6 @@ legend {
   color:#23272a;
   background-color: #eeeeee;
   box-shadow: 1px 2px 3px rgba(255, 255, 255, 0.178);
-  border: 3px solid #eeeeee;
 }
 
 .back-home-btn:hover {
@@ -1148,11 +1149,6 @@ legend {
   transition: 0.3s ease-in-out;
   transform: scale(1.1)
 }
-}
-
-/* Media Query - iPad Pro Device Size: Referenced from 'https://fjorgedigital.com/insights/blog/how-can-i-target-only-an-ipad-pro/' */
-@media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5) {
-  
 }
 
 @media screen and (min-width: 1100px) {
