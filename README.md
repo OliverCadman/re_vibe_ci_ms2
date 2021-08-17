@@ -465,7 +465,7 @@ This code was referenced from [Stack Overflow - Popup Modal by Browser Session](
 
 After unsuccessfully experimenting with ways to play the sounds and create answers (with the correct answer pushed into the list of the correct answers), research was undertaken to find a clean way to gather the intervals and chords used in each training session.  The developer ultimately referenced another ear training website on Github, which used a for loop to gather the collection of questions used for their ear trainer. This method was adopted and used in the runIntervalGame and runChordGame functions, found in main.js.
 
-This code can be found [here]('https://github.com/mmaynar1/ear-trainer/blob/master/ear-trainer/main.js), at line 23.
+This code can be found [here](https://github.com/mmaynar1/ear-trainer/blob/master/ear-trainer/main.js), at line 23.
 
 ### Bootstrap Modals and Contact Form
 
