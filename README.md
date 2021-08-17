@@ -3,6 +3,66 @@
 
 The website features a welcome page, a home page holding the training platform, a page featuring tips to practice ear training, and a contact page for users to submit feedback/questions to the site owner. 
 
+# Table of Contents
+
+* [UX](#UX)
+   * [Strategy](#Strategy)
+      * [Vision](#Vision)
+      * [Site Owner Goals](#Site-Owner-Goals)
+      * [Target Audience](#Target-Audience)
+      * [User Stories](#User-Stories)
+         * [Visitors](#Visitors)
+         * [In or Out?](#In-or-Out)
+   * [Scope](#Scope)
+   * [Structure](#Structure)
+   * [Skeleton](#Skeleton)
+   * [Surface](#Surface)
+      * [General Considerations](#General-Considerations)
+      * [Colour Palette](#Colour-Palette)
+      * [Fonts](#Fonts)
+      * [Images](#Images)
+* [Features](#Features)
+   * [Global Features](#Global-Features)
+      * [Navbar](#Navbar)
+      * [Footer](#Footer)
+   * [Title Page](#Title-Page)
+   * [Home Page](#Home-Page)
+      * [Graphical User Interface](#Graphical-User-Interface)
+   * [Practice Tips Page](#Practice-Tips-Page)
+   * [Contact Page](#Contact-Page)
+   * [404 Page](#404-Page)
+   * [Features for Future Implementation](#Features-for-Future-Implementation)
+* [Technologies Used](#Technologies-Used)
+   * [JavaScript Libraries Used](#JavaScript-Libraries-Used)
+* [Testing](#Testing)
+* [Credits](#Credits)
+   * [Code](#Code)
+      * [ToneJS Synthesizers](#ToneJS-Synthesizers)
+      * [AnimateCSS](#AnimateCSS)
+      * [Shuffling the Answers](#Shuffling-the-Answers)
+      * [VivusJS Animations](#VivusJS-Animations)
+      * [Hamburger Icon Animation](#Hamburger-Icon-Animation)
+      * [Session Storage in safari-modal-alert.js](#Session-Storage-in-safari-modal-alert.js)
+      * [For Loop to Generate Intervals/Answers](#For-Loop-to-generate-Intervals/Answers)
+      * [Bootstrap Modals and Contact Form](#Bootstrap-Modals-and-Contact-Form)
+      * [CSS 'Shape-Outside' Property](#CSS-'Shape-Outside'-Property)
+   * [Frequencies for Intervals and Chords](#Frequencies-for-Intervals-and-Chords)
+   * [Text Content](#Text-Content)
+      * [Home Page Text](#Home-Page-Text)
+      * [Practice Tips Page Text](#Practice-Tips-Page-Text)
+      * [Contact Page Text](#Contact-Page-Text)
+      * [404 Page Text](#404-Page-Text)
+   * [Images](#Images)
+      * [Home Page Images](#Home-Page-Images)
+      * [Practice Tips Page Images](#Practice-Tips-Page-Images)
+      * [Contact Page Images](#Contact-Page-Images)
+      * [404 Page Images](#404-Page-Images)
+   * [Videos](#Videos)
+   * [Icons](#Icons)
+* [Deployment](#Deployment)
+   * [Running the Project Locally](#Running-the-Project-Locally)
+* [Acknowledgements](#Acknowledgements)
+
 ## UX
 
 ### Strategy
@@ -183,7 +243,7 @@ The colour theme for the GUI is, in contrast, relatively bright. This contrast w
 
 Since the primary consideration of the colour choices was centered around the Home Page, the colour palette of the Practice Tips, Contact and 404 Page were ultimately determined by these initial considerations.
 
-### Colour Palette
+#### Colour Palette
 
 ![Color Palette Used For Website](assets/images/readme-images/revibe-color-palette.png)
 
@@ -199,13 +259,13 @@ Since the primary consideration of the colour choices was centered around the Ho
 
 * #EEEEEE - This is the color used for the links and hamburger icon in the Navbar, the text content in Home Page and header section of the Practice Tips page, and also for the buttons featured in the Home Page's GUI. It was also used as the background color for the practice tip cards in the Practice Tips page, and the contact form in the Contact page. 
 
-### Fonts
+#### Fonts
 
 * Work Sans - This is the primary font used for the re:Vibe logo, the buttons in the GUI, and most of the text content in the website, and for the links in the navigation bar. It was chosen for it's neutrality and sleek aspect which is pleasing to the eye, and when coloured using #EEEEEE, compliments the dark backgrounds nicely.
 
 * Roboto Condensed - This was chosen as a secondary font, used in the headers in the GUI (Interval Trainer & Chord Identifier). It was also used as the sub-header for the card 'Learn Piano' in the website's Contact Page. The font was chosen to provide a variation, and emphasis between the roles of features in the website.
 
-### Images
+#### Images
 
 The re:Vibe website makes heavy use of vector images. The vector image used in the GUI was created using Adobe Illustrator, and was designed to mimic a stage with two speakers and representation of a spotlight which 'shines' on the buttons that the user interacts with.
 
@@ -312,7 +372,7 @@ The second section features a simple bootstrap contact form, sat in a light back
 
 A 404 Page is displayed in the event that the user visits a page of the website that doesn't exist. A short message is featured to inform the user that the page isn't found, along with a vector graphic of someone singing badly to their friend, who is covering their ears. A short friendly message is featured next, along with a button to take the user back to the home page.
 
-## Features for future implementation
+## Features for Future Implementation
 
 1. Difficulty modes - To give the user the option to select either Beginner, Intermediate or Advanced level interval/chord recognition training. 
 
@@ -362,15 +422,19 @@ The primary languages used in the development of this project include HTML, CSS 
 
 * [EmailJS CDN](https://www.emailjs.com/) - The EmailJS service was used to provide emailing functionality to the website's Contact form.
 
+# Testing
+
+Testing Information can be found in a seperate [TESTING.md file](TESTING.md)
+
 # Credits
 
 ## Code
 
-### Tone JS Synthesizers 
+### ToneJS Synthesizers 
 
 The developer used ToneJS [Tone.Synth()](https://tonejs.github.io/docs/14.7.77/Synth) and [Tone.PolySynth()](https://tonejs.github.io/docs/14.7.77/PolySynth) to create the synthesizers used to play the sounds in the Interval Trainer and Chord Identifier games, respectively. The [ToneJS API Docs](https://tonejs.github.io/docs/14.7.77/index.html) was referenced to create these synthesizers.
 
-### Animate CSS
+### AnimateCSS
 
 The project's main.js file includes a promise-based function provided by  to animate the speaker when a correct or incorrect answer is submitted. The code was referenced from the [animateCSS API Docs](https://animate.style/)
 
@@ -379,11 +443,11 @@ The project's main.js file includes a promise-based function provided by  to ani
 The Fisher-Yates algorithm was used to shuffle the list of answers which are displayed upon each question. This method was found on [Stack OverFlow - How To Randomize Shuffle a JavaScript Array](https://stackoverflow.com/questions/2450954
 /how-to-randomize-shuffle-a-javascript-array).
 
-### Vivus JS Animations
+### VivusJS Animations
 
 The animation used in the website's landing page was referenced from the [Vivus JS API Docs](https://github.com/maxwellito/vivus)
 
-### Animating the Hamburger Icon
+### Hamburger Icon Animation
 
 Animation for the website's hamburger icon was created from CSS transitions and JavaScript. The code was referenced from YouTube:
 
@@ -417,15 +481,19 @@ Two areas of the website make use of the CSS 'shape-outside- property, in conjun
 
 ## Text Content
 
-### Home Page 
+### Home Page Text
 
 All text content featured in the home page was created by the developer.
 
-### Practice Tips Page
+### Practice Tips Page Text
 
 The text content featured in the header and practice tip cards was created from a combination of the developer and [musical-u-learn](https://www.musical-u.com/learn/10-musical-ear-training-tips-for-the-adult-beginner/)
 
-### Contact Page
+### Contact Page Text
+
+All text content featured in the home page was created by the developer.
+
+### 404 Page Text
 
 All text content featured in the home page was created by the developer.
 
@@ -435,11 +503,11 @@ All text content featured in the home page was created by the developer.
 
 The image used as the re:Vibe logo was adopted from [Amazon Media](https://m.media-amazon.com/images/I/513xWcLhbNL._AC_SX450_.jpg)
 
-### Home Page
+### Home Page Images
 
 The background for the Home Page GUI was created by the developer.
 
-### Practice Tips Page
+### Practice Tips Page Images
 
 The hero image featured in the header was taken, and edited, from an album cover by pianist Kiefer - 
 
@@ -447,11 +515,11 @@ The hero image featured in the header was taken, and edited, from an album cover
 
 The vector images featured in each practice tip card was taken from [Vecteezy](https://www.vecteezy.com/) and [Shutterstock](https://www.shutterstock.com/).
 
-### Contact Page
+### Contact Page Images
 
 The vector used as the Contact page's hero image was taken from [Vecteezy](https://www.vecteezy.com/)
 
-### 404 Page
+### 404 Page Images
 
 The vector featured on the 404 Page was taken from [Shutterstock](https://www.shutterstock.com/)
 
@@ -463,6 +531,59 @@ The embedded videos featured in the Practice Tips sidebar were supplied [YouTube
 
 All icons (excluding the hamburger icon) used throughout the website were supplied by [FontAwesome](https://fontawesome.com/)
 
+# Deployment
+
+This project was developed using the Visual Studio Code 2 IDE, and committed and pushed to GitHub using the VSCode2 integrated terminal.
+
+In order to run this project through GitHub pages, take the following steps:
+
+* Navigate to [this repository](https://github.com/OliverCadman/re_vibe_ci_ms2), which contains all files needed to run the project.
+![Deploy re:Vibe project - first step](assets/images/readme-images/readme-deploy-1.png)
+* From the row of menu tabs listed along the top of the repository towards the top of the page, select the last menu item, named 'Settings'.
+![Deploy re:Vibe project - second step](assets/images/readme-images/readme-deploy-2.png)
+* Scroll down the Settings page and select the tab named 'Pages', listed down the left hand side of the page.
+![Deploy re:Vibe project - third step](assets/images/readme-images/readme-deploy-3.png)
+* Under Source, open the dropdown list labelled 'None'.
+![Deploy re:Vibe project - fourth step](assets/images/readme-images/readme-deploy-4.png)
+* Select the master branch, and click Save. The website is now deployed!
+![Deploy re:Vibe project - final step](assets/images/readme-images/readme-deploy-5.png)
+* Once saved, the website's URL link will be displayed above, with the message ' Your site is published at https://olivercadman.github.io/re_vibe_ci_ms2/'. Click the link to enter the website!
+
+## Running the project locally
+
+In order to run this project on GitPod, you will need:
+
+* A GitHub account. If you don't have one already, you can [create one here](https://github.com/join).
+* A Google Chrome Browser
+
+If you are using GitPod for the first time, you will need to then follow these steps:
+
+1. Install [the GitPod browser extension for Google Chrome](https://chrome.google.com/webstore/detail/gitpod-dev-environments-i/dodmmooeoklaejobgleioelladacbeki?hl=en).
+2. Login to GitPod using your GitHub account details.
+3. Navigate to the [project's GitHub repository](https://github.com/OliverCadman/re_vibe_ci_ms2).
+4. Click the green 'Gitpod' button to the right hand of the page.
+5. This will open your Gitpod workspace, where you can start working on the repository's files on your local machine.
+
+For those who would rather use their own local IDE (such as VSCode, Sublime Text or PyCharm), follow these steps:
+
+1. Navigate to the [project repository](https://github.com/OliverCadman/re_vibe_ci_ms2).
+2. In the list of buttons above the collection of the repository's files, select 'Code'.
+3. Copy the HTTPS URL to your clipboard.
+4. Open your integrated terminal inside your preferred IDE.
+5. Change directory "cd" or make a new directory "mkdir DIRECTORY-NAME" to contain the repository's files.
+6. Type 'git clone', then paste the URL that you copied to your clipboard in step 3.
+7. Hit Enter, and the repository's folders and files will be cloned into your chosen directory.
+8. Finally, navigate to the cloned files and have fun coding!
+
+# Acknowledgements
+
+* Inspiration for this project came from the developer's love of music, and excitement of using their knowledge to be creative, and learn with JavaScript.
+
+* Thanks to my mentor Adegbenga Adeye for guiding me through the refinement of the design and implementation stages of the project's life. 
+
+* Thanks to my friends, bandmates and the Slack community for testing my application and offering their opinions and advice.
+
+Thanks to anyone for taking the time to look at my work. I wish you all the best.
 
 
 
@@ -483,9 +604,8 @@ All icons (excluding the hamburger icon) used throughout the website were suppli
 
 
 
-# Testing
 
-Testing Information can be found in a seperate [TESTING.md file](TESTING.md)
+
 
 
 
