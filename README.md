@@ -328,6 +328,44 @@ A 404 Page is displayed in the event that the user visits a page of the website 
 
 5. Sign Up/Login functionality - The ability for the user to create a profile and save their games and results to track their progress, and also register their results to the re:Vibe leaderboard.
 
+# Technologies Used
+
+The primary languages used in the development of this project include HTML, CSS and Javascript.
+
+* [Visual Studio Code 2](https://code.visualstudio.com/) - The IDE used to develop this project is Microsoft's Visual Studio Code 2.
+
+* [Bootstrap 5 CDN](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - The Bootstrap 5 framework was imported via CDN, to provide responsiveness to website. Bootstrap 5 was also utilised for creating the buttons and contact form.
+
+* [popper.js](https://popper.js.org/) - PopperJS was used in conjunction with Bootstrap 5, to provide responsiveness to the website's NavBar.
+
+* [FontAwesome CDN](https://fontawesome.com/) - The FontAwesome library was used to create the social media icons, and the icons used in the Home Page's GUI.
+
+* [Google Fonts](https://fonts.google.com/) - The fonts used in the website were supplied by Google Font's library.
+
+* [animateCSS CDN](https://animate.style/) - animateCSS library was used to animate the GUI's speaker icon and countdown, as well as the display of all bootstrap modal windows.
+
+* [remove.bg] - This technology was used to remove the background of the vector image used in the website's 404 page.
+
+* [tinypng.com](https://tinypng.com/) - TinyPNG was used to compress the larger images used in the website, to improve the page's load time and performance, without losing image quality.
+
+## JavaScript Libraries Used
+
+* [jQuery CDN](https://jquery.com/download/) - The website makes heavy use of jQuery in it's main.js file, particularly for the hiding and showing of the elements used in the Home Page GUI.
+
+* [ToneJS CDN](https://tonejs.github.io/) - The WebAudio framework ToneJS was imported via CDN, to be used to build the two synthesizers that create the tones used in the re:Vibe gameplay.
+
+* [VivusJS CDN](https://maxwellito.github.io/vivus/) - The Vivus JS Animation Library was used to provide animation to the website's landing page.
+
+* [EmailJS CDN](https://www.emailjs.com/) - The EmailJS service was used to provide emailing functionality to the website's Contact form.
+
+
+
+
+
+
+
+
+
 # Testing
 
 Testing Information can be found in a seperate [TESTING.md file](TESTING.md)
