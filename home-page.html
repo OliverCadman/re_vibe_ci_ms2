@@ -4,14 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Home Page featuring training platform for re:Vibe"
-    />
-    <meta
-      name="keywords"
-      content=" re:Vibe, ear training, music, music practice, intervals, chords, aural training"
-    />
+    <meta name="description" content="Home Page featuring training platform for re:Vibe"/>
+    <meta name="keywords" content=" re:Vibe, ear training, music, music practice, intervals, chords, aural training"/>
     <meta name="author" content="Oliver Cadman" />
     <!--Bootstrap CDN -->
     <link
@@ -20,20 +14,22 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"
+    ></script>
+    <!-- Animate CSS CDN -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
     <!-- FontAwesome CDN-->
     <script
       src="https://kit.fontawesome.com/8363d21662.js"
       crossorigin="anonymous"
     ></script>
+    <!-- ToneJS CDN -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.26/Tone.js"
       integrity="sha512-+esjJ8NSEfoB5Sr8R7jTcYxCR1Bd6q9C+WQC0JA2UXVPT8Mlo/TJqqyp0qeeoxFzkAaa8t6tZCHLGmw3oNI2Qg=="
@@ -50,6 +46,7 @@
       <div class="container-fluid">
         <a href="home-page.html" class="navbar-brand">
           <div class="logo">
+            <!-- SVG of Ear Logo. Used full SVG code with path tag to allow for colour fill.-->
             <svg
               id="ear-drawing"
               xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +110,7 @@
             re:Vibe
           </div>
         </a>
-        <!--Hamburger-->
+        <!--Animated Hamburger Icon -->
         <div
           class="hamburger-icon navbar-toggler"
           data-bs-toggle="collapse"
@@ -123,10 +120,9 @@
           aria-label="Toggle navigation links"
           data-bs-target="#navbarResponsive"
         >
-          <div class="hamburger-inner">
-          
-          </div>
+          <div class="hamburger-inner"></div>
         </div>
+        <!-- Collapsible Navbar -->
         <div class="collapse navbar-collapse p-0" id="navbarResponsive">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -142,7 +138,7 @@
         </div>
       </div>
     </nav>
-    <!-- Game Section -->
+    <!------- Game Section ------->
     <section>
       <!-- Header -->
       <div class="container-fluid" id="game-section">
@@ -176,27 +172,20 @@
                   type="button"
                   id="interval-trainer-btn"
                   data-type="interval-trainer"
-                  class="btn btn-light game-selection-btn"
-                >
+                  class="btn btn-light game-selection-btn">
                   Interval Trainer
                 </button>
                 <button
                   type="button"
                   id="chord-identifier-btn"
                   data-type="chord-identifier"
-                  class="btn btn-light game-selection-btn"
-                >
+                  class="btn btn-light game-selection-btn">
                   Chord Identifier
                 </button>
               </div>
               <!-- Speaker Icon -->
               <div class="speaker-icon-wrapper justify-content-center">
-                <span
-                  ><i
-                    class="fas fa-volume-up speaker-icon"
-                    id="replay-question"
-                  ></i
-                ></span>
+                <span><i class="fas fa-volume-up speaker-icon" id="replay-question"></i></span>
               </div>
               <!--Empty div to be filled with content generated in countDown function, in assets/js/main.js -->
               <!-- Counts down from 3 before game starts -->
@@ -214,9 +203,8 @@
               </div>
             </div>
           </div>
-          <div
-            class="col-12 col-lg-3 order-1 order-md-2 order-lg-3 text-md-center"
-          >
+          <div class="col-12 col-lg-3 order-1 order-md-2 order-lg-3 text-md-center">
+          <!-------- Instructions Text Content ---------->
             <div class="instructions-container">
               <div class="instructions-wrapper">
                 <p>
@@ -240,10 +228,7 @@
     </section>
     <!-- Completed Game and Game Over Modals. Animated using Animate CSS. Referenced from "https://animate.style/" -->
     <aside>
-      <div
-        class="modal animate__animated animate__zoomIn"
-        id="completed-game-modal"
-      >
+      <div class="modal animate__animated animate__zoomIn" id="completed-game-modal">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -255,40 +240,25 @@
               </div>
               <p>Here is a list of your correct answers:</p>
 
-              <div class="display-correct-answers">
+              <div class="display-correct-answers" id="no-correct-answer-msg">
                 <!-- Text content generated in main.js -->
               </div>
             </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-dark play-again-btn"
-                data-dismiss="modal"
-              >
+              <button type="button" class="btn btn-dark play-again-btn" data-dismiss="modal">
                 Play Again
               </button>
-              <button
-                type="button"
-                class="btn btn-dark change-game-mode-btn"
-                data-dismiss="modal"
-              >
+              <button type="button" class="btn btn-dark change-game-mode-btn" data-dismiss="modal">
                 <!-- Text content generated in main.js-->
               </button>
-              <button
-                type="button"
-                class="btn btn-dark close-modal-btn"
-                data-dismiss="modal"
-              >
+              <button type="button" class="btn btn-dark close-modal-btn" data-dismiss="modal">
                 Close
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="modal animate__animated animate__zoomInDown"
-        id="game-over-modal"
-      >
+      <div class="modal animate__animated animate__zoomInDown" id="game-over-modal">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -302,18 +272,10 @@
               <!--Text content generated in main.js-->
             </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-dark play-again-btn"
-                data-dismiss="modal"
-              >
+              <button type="button" class="btn btn-dark play-again-btn" data-dismiss="modal">
                 Try Again
               </button>
-              <button
-                type="button"
-                class="btn btn-dark close-modal-btn"
-                data-dismiss="modal"
-              >
+              <button type="button" class="btn btn-dark close-modal-btn" data-dismiss="modal">
                 Close
               </button>
             </div>
@@ -321,12 +283,7 @@
         </div>
       </div>
       <!-- Alert Popup for Safari Users -->
-      <div
-        class="modal animate__animated animate__zoomIn"
-        id="safari-alert-modal"
-        role="dialog"
-        tabindex="-1"
-      >
+      <div class="modal animate__animated animate__zoomIn" id="safari-alert-modal" role="dialog" tabindex="-1">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -368,41 +325,21 @@
           <div class="col-12">
             <p>Developed by Oliver Cadman</p>
           </div>
-          <div
-            class="col-12 d-flex justify-content-center footer-icons-wrapper"
-          >
+          <div class="col-12 d-flex justify-content-center footer-icons-wrapper">
             <div class="footer-icons">
               <ul>
                 <li>
-                  <span
-                    ><a
-                      href="https://www.github.com/OliverCadman"
-                      target="_blank"
-                      rel="noopener"
-                      ><i class="fab fa-github"></i></a
-                  ></span>
+                  <span><a href="https://www.github.com/OliverCadman" target="_blank" rel="noopener"><i class="fab fa-github"></i></a></span>
                 </li>
               </ul>
               <ul>
                 <li>
-                  <span
-                    ><a
-                      href="https://www.instagram.com/oliplays_piano"
-                      target="_blank"
-                      rel="noopener"
-                      ><i class="fab fa-instagram"></i></a
-                  ></span>
+                  <span><a href="https://www.instagram.com/oliplays_piano" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></span>
                 </li>
               </ul>
               <ul>
                 <li>
-                  <span
-                    ><a
-                      href="https://www.facebook.com/oliver.cadman"
-                      target="_blank"
-                      rel="noopener"
-                      ><i class="fab fa-facebook"></i></a
-                  ></span>
+                  <span><a href="https://www.facebook.com/oliver.cadman" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a></span>
                 </li>
               </ul>
             </div>
