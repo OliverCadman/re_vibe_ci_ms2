@@ -14,8 +14,6 @@ let correctAnswerList = [];
 let answerCountdown;
 let gameType;
 
-
-
 // Preload mp3 files that accompany answers and game over modal displays
 correctAnswerSound = new Audio("assets/sounds/correct-answer.mp3");
 correctAnswerSound.preload = "auto";
@@ -178,10 +176,14 @@ function runIntervalGame() {
   questions = [];
   questionCount = 10;
   questionIndex = 0;
+
+  /* For loop to gather collection of 10 intervals.
+  Code referenced from: 
+  https://github.com/mmaynar1/ear-trainer/blob/master/ear-trainer/main.js (line 23) */
   for (let question = 0; question < questionCount; question++) {
     let intervals = getInterval();
     questions[question] = intervals;
-    console.log(intervals.interval);
+    console.log(intervals.interval); // Console log present to allow for testing and grading.
   }
 
   nextInterval(questionIndex);
@@ -265,10 +267,13 @@ function runChordGame() {
   questionCount = 10;
   questionIndex = 0;
 
+  /* For loop to gather collection of 10 chords.
+  Code referenced from: 
+  https://github.com/mmaynar1/ear-trainer/blob/master/ear-trainer/main.js (line 23) */
   for (let question = 0; question < questionCount; question++) {
     let chords = getChord();
     questions[question] = chords;
-    console.log(chords.chord);
+    console.log(chords.chord); // Console log present to allow for testing and grading.
   }
 
   nextChord(questionIndex);
@@ -439,7 +444,7 @@ function checkIntervalAnswer(e, questionIndex) {
   } else {
     wrongAnswerSound.play();
     livesRemaining--;
-      livesRemaining > 0 ? animateCSS(".speaker-icon", "wobble") : null;
+    livesRemaining > 0 ? animateCSS(".speaker-icon", "wobble") : null;
 
     $(".lives-left-icon")[0].remove();
     $(".lives-left-alert")
@@ -487,7 +492,7 @@ function checkChordAnswer(e, questionIndex) {
     let wrongAnswer = new Audio("assets/sounds/wrong-answer.mp3");
     wrongAnswer.play();
     livesRemaining--;
-    livesRemaining > 0 ? animateCSS('.speaker-icon', 'wobble') : null;
+    livesRemaining > 0 ? animateCSS(".speaker-icon", "wobble") : null;
     $(".lives-left-icon")[0].remove();
     $(".lives-left-alert")
       .fadeIn(1000)
@@ -621,11 +626,12 @@ function gameOver() {
 
   /* Maps over array of correct answers and displays
   name and image of chord in modal */
-  correctAnswerList.map((answer) => {
-    let answerDisplay = document.getElementsByClassName(
-      "display-correct-answers"
-    )[1];
-    answerDisplay.innerHTML += `
+  if (correctAnswerList.length < 0) {
+    correctAnswerList.map((answer) => {
+      let answerDisplay = document.getElementsByClassName(
+        "display-correct-answers"
+      )[1];
+      answerDisplay.innerHTML += `
     <div class="correct-answer">
     <p>${answer.name}</p>
     <figure><img class="notation-image"
@@ -633,10 +639,16 @@ function gameOver() {
     alt="Image of notation for correct answer"></figure>
     </div>`;
 
-    return answerDisplay;
-  });
-
-  resetGlobalVariables();
+      return answerDisplay;
+    });
+  } else {
+    let answerDisplay = document.getElementsByClassName(
+      "display-correct-answers"
+    )[1];
+    answerDisplay.style.display = "block";
+    answerDisplay.innerHTML = `<p>No correct answers!<p>
+                               <p>Don't worry, you can try as many times as you like.<p>`;
+  }
 
   $(".play-again-btn")
     .off("click")
@@ -648,6 +660,8 @@ function gameOver() {
   $(".close-modal-btn").on("click", () => {
     $("#game-over-modal").modal("hide");
   });
+
+  resetGlobalVariables();
 }
 
 // Uses random number to access index of intervalList array
