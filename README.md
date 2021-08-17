@@ -348,6 +348,10 @@ The primary languages used in the development of this project include HTML, CSS 
 
 * [tinypng.com](https://tinypng.com/) - TinyPNG was used to compress the larger images used in the website, to improve the page's load time and performance, without losing image quality.
 
+* [Adobe Illustrator](https://www.adobe.com/uk/products/illustrator/free-trial-download.html) - The background used in the Home Page GUI was created using Adobe Illustrator.
+
+* [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop/free-trial-download.html) - The hero image used for the Practice Tips page was edited using Adobe Photoshop.
+
 ## JavaScript Libraries Used
 
 * [jQuery CDN](https://jquery.com/download/) - The website makes heavy use of jQuery in it's main.js file, particularly for the hiding and showing of the elements used in the Home Page GUI.
@@ -357,6 +361,119 @@ The primary languages used in the development of this project include HTML, CSS 
 * [VivusJS CDN](https://maxwellito.github.io/vivus/) - The Vivus JS Animation Library was used to provide animation to the website's landing page.
 
 * [EmailJS CDN](https://www.emailjs.com/) - The EmailJS service was used to provide emailing functionality to the website's Contact form.
+
+# Credits
+
+## Code
+
+### Tone JS Synthesizers 
+
+The developer used ToneJS [Tone.Synth()](https://tonejs.github.io/docs/14.7.77/Synth) and [Tone.PolySynth()](https://tonejs.github.io/docs/14.7.77/PolySynth) to create the synthesizers used to play the sounds in the Interval Trainer and Chord Identifier games, respectively. The [ToneJS API Docs](https://tonejs.github.io/docs/14.7.77/index.html) was referenced to create these synthesizers.
+
+### Animate CSS
+
+The project's main.js file includes a promise-based function provided by  to animate the speaker when a correct or incorrect answer is submitted. The code was referenced from the [animateCSS API Docs](https://animate.style/)
+
+### Shuffling the Answers
+
+The Fisher-Yates algorithm was used to shuffle the list of answers which are displayed upon each question. This method was found on [Stack OverFlow - How To Randomize Shuffle a JavaScript Array](https://stackoverflow.com/questions/2450954
+/how-to-randomize-shuffle-a-javascript-array).
+
+### Vivus JS Animations
+
+The animation used in the website's landing page was referenced from the [Vivus JS API Docs](https://github.com/maxwellito/vivus)
+
+### Animating the Hamburger Icon
+
+Animation for the website's hamburger icon was created from CSS transitions and JavaScript. The code was referenced from YouTube:
+
+[Animated Hamburger Menu Tutorial](https://www.youtube.com/watch?v=dIyVTjJAkLw&t=336s)
+
+### Session Storage in safari-modal-alert.js
+
+The website includes a modal alert which displays on load of the Home Page, to alert iOS Safari users that they may need to click the speaker icon once in order to hear the sounds, upon playing the first game. The developer deemed it was important that this modal only fired once, and wouldn't fire again if the user returned to the home page from another page on the website. 
+
+This code was referenced from [Stack Overflow - Popup Modal by Browser Session](https://stackoverflow.com/questions/59660094/popup-modal-by-browser-session )
+
+### For Loop to generate Intervals/Answers
+
+After unsuccessfully experimenting with ways to play the sounds and create answers (with the correct answer pushed into the list of the correct answers), research was undertaken to find a clean way to gather the intervals and chords used in each training session.  The developer ultimately referenced another ear training website on Github, which used a for loop to gather the collection of questions used for their ear trainer. This method was adopted and used in the runIntervalGame and runChordGame functions, found in main.js.
+
+This code can be found [here]('https://github.com/mmaynar1/ear-trainer/blob/master/ear-trainer/main.js), at line 23.
+
+### Bootstrap Modals and Contact Form
+
+The code used to create the website's [Modals](https://getbootstrap.com/docs/4.0/components/modal/) and [Contact Form](https://getbootstrap.com/docs/4.0/components/forms/) is referenced from the [Bootstrap 5 API Docs](https://getbootstrap.com/docs/4.0/getting-started/introduction/).
+
+### CSS 'Shape-Outside' Property
+
+Two areas of the website make use of the CSS 'shape-outside- property, in conjunction with float properties. This code was referenced from a YouTube Tutorial:
+
+[Wrap text around any image or shape that you want!](https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s)
+
+## Frequencies for Intervals and Chords
+
+[Physics of Music - Notes](https://pages.mtu.edu/~suits/notefreqs.html) was referenced to gather all the numeric frequencies used in the intervalList and chordList object arrays, found in data.js.
+
+## Text Content
+
+### Home Page 
+
+All text content featured in the home page was created by the developer.
+
+### Practice Tips Page
+
+The text content featured in the header and practice tip cards was created from a combination of the developer and [musical-u-learn](https://www.musical-u.com/learn/10-musical-ear-training-tips-for-the-adult-beginner/)
+
+### Contact Page
+
+All text content featured in the home page was created by the developer.
+
+## Images
+
+### Ear Logo
+
+The image used as the re:Vibe logo was adopted from [Amazon Media](https://m.media-amazon.com/images/I/513xWcLhbNL._AC_SX450_.jpg)
+
+### Home Page
+
+The background for the Home Page GUI was created by the developer.
+
+### Practice Tips Page
+
+The hero image featured in the header was taken, and edited, from an album cover by pianist Kiefer - 
+
+[Kiefer - Between Days Album Cover](https://www.stonesthrow.com/news/kiefer-between-days/)
+
+The vector images featured in each practice tip card was taken from [Vecteezy](https://www.vecteezy.com/) and [Shutterstock](https://www.shutterstock.com/).
+
+### Contact Page
+
+The vector used as the Contact page's hero image was taken from [Vecteezy](https://www.vecteezy.com/)
+
+### 404 Page
+
+The vector featured on the 404 Page was taken from [Shutterstock](https://www.shutterstock.com/)
+
+## Videos
+
+The embedded videos featured in the Practice Tips sidebar were supplied [YouTube](https://www.youtube.com)
+
+## Icons
+
+All icons (excluding the hamburger icon) used throughout the website were supplied by [FontAwesome](https://fontawesome.com/)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
