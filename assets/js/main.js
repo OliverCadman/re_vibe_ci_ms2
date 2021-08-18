@@ -1,9 +1,9 @@
 /*jshint esversion: 6 */
 
+/* Initialise Global Variables */
 let questions;
 let questionIndex;
 let questionCount;
-let userAnswer;
 let correctAnswerSound;
 let wrongAnswerSound;
 let gameCompleteJingle;
@@ -12,6 +12,7 @@ let correctAnswersRemaining;
 let livesRemaining;
 let correctAnswerList = [];
 let answerCountdown;
+let answerDisplay;
 let gameType;
 
 // Preload mp3 files that accompany answers and game over modal displays
@@ -166,13 +167,6 @@ function runIntervalGame() {
   }
   livesLeftContainer.innerHTML = livesLeft;
 
-  /* Clears list of correct answers in completed game modal
-  when 'Play Again' button was clicked */
-  let answerDisplay = document.getElementsByClassName(
-    "display-correct-answers"
-  )[0];
-  answerDisplay.innerHTML = "";
-
   questions = [];
   questionCount = 10;
   questionIndex = 0;
@@ -255,13 +249,6 @@ function runChordGame() {
     livesLeft += `<span><i class="fas fa-user lives-left-icon"></i></span>`;
   }
   livesLeftContainer.innerHTML = livesLeft;
-
-  /* Clears list of correct answers in completed game modal
-  when 'Play Again' button was clicked */
-  let answerDisplay = document.getElementsByClassName(
-    "display-correct-answers"
-  )[0];
-  answerDisplay.innerHTML = "";
 
   questions = [];
   questionCount = 10;
@@ -420,7 +407,8 @@ function showImage(imageURL, name) {
 
 // Checks value of user input against interval played
 function checkIntervalAnswer(e, questionIndex) {
-  userAnswer = e.target.textContent;
+  console.log(correctAnswerList);
+  let userAnswer = e.target.textContent;
 
   if (userAnswer === questions[questionIndex].interval) {
     correctAnswerSound.play();
@@ -465,7 +453,8 @@ function checkIntervalAnswer(e, questionIndex) {
 
 // Checks value of user input against chord played
 function checkChordAnswer(e, questionIndex) {
-  userAnswer = e.target.textContent;
+  console.log(correctAnswerList)
+  let userAnswer = e.target.textContent;
 
   if (userAnswer === questions[questionIndex].chord) {
     let correctAnswer = new Audio("assets/sounds/correct-answer.mp3");
@@ -536,7 +525,7 @@ function gameComplete() {
   /* Maps over array of correct answers and displays
 name and image of chord in modal */
   correctAnswerList.map((answer) => {
-    let answerDisplay = document.getElementsByClassName(
+    answerDisplay = document.getElementsByClassName(
       "display-correct-answers"
     )[0];
     answerDisplay.innerHTML += `
@@ -573,6 +562,7 @@ name and image of chord in modal */
       gameType = "chord-identifier";
       readyGame(gameType);
       $("#completed-game-modal").modal("hide");
+      resetGlobalVariables();
     });
   } else {
     changeModeButton.html("Try our Interval Trainer");
@@ -580,6 +570,7 @@ name and image of chord in modal */
       gameType = "interval-trainer";
       readyGame(gameType);
       $("#completed-game-modal").modal("hide");
+      resetGlobalVariables();
     });
   }
 
@@ -588,15 +579,19 @@ name and image of chord in modal */
   $(".play-again-btn")
     .off("click")
     .on("click", () => {
+      answerDisplay.innerHTML = '';
       countDown(gameType);
       $("#completed-game-modal").modal("hide");
+      resetGlobalVariables();
     });
 
   $(".close-modal-btn").on("click", () => {
+    answerDisplay.innerHTML  = '';
     $("#completed-game-modal").modal("hide");
+    resetGlobalVariables();
   });
 
-  resetGlobalVariables();
+  
 }
 
 // Runs when user loses all three lives
@@ -623,14 +618,15 @@ function gameOver() {
   $(".game-selection-button-container").show();
 
   gameOverJingle.play();
-
+  console.log(correctAnswerList)
   /* Maps over array of correct answers and displays
   name and image of chord in modal */
-  if (correctAnswerList.length < 0) {
+  if (correctAnswerList.length > 0) {
     correctAnswerList.map((answer) => {
-      let answerDisplay = document.getElementsByClassName(
+      answerDisplay = document.getElementsByClassName(
         "display-correct-answers"
-      )[1];
+        )[1];
+      answerDisplay.style.display = "grid";
       answerDisplay.innerHTML += `
     <div class="correct-answer">
     <p>${answer.name}</p>
@@ -641,27 +637,32 @@ function gameOver() {
 
       return answerDisplay;
     });
-  } else {
-    let answerDisplay = document.getElementsByClassName(
+  } else if (correctAnswerList.length === 0) {
+    answerDisplay = document.getElementsByClassName(
       "display-correct-answers"
     )[1];
     answerDisplay.style.display = "block";
     answerDisplay.innerHTML = `<p>No correct answers!<p>
                                <p>Don't worry, you can try as many times as you like.<p>`;
+      
   }
 
   $(".play-again-btn")
     .off("click")
     .on("click", () => {
+      answerDisplay.innerHTML = '';
       countDown(gameType);
       $("#game-over-modal").modal("hide");
+      resetGlobalVariables();
     });
 
   $(".close-modal-btn").on("click", () => {
+    answerDisplay.innerHTML = '';
     $("#game-over-modal").modal("hide");
+    resetGlobalVariables();
   });
 
-  resetGlobalVariables();
+  
 }
 
 // Uses random number to access index of intervalList array
