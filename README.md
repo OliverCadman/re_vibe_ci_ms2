@@ -540,15 +540,15 @@ This project was developed using the Visual Studio Code 2 IDE, and committed and
 In order to run this project through GitHub pages, take the following steps:
 
 * Navigate to [this repository](https://github.com/OliverCadman/re_vibe_ci_ms2), which contains all files needed to run the project.
-![Deploy re:Vibe project - first step](assets/images/readme-images/readme-deploy-1.png)
+![Deploy re:Vibe project - first step](assets/images/readme-images/revibe-deploy-1.png)
 * From the row of menu tabs listed along the top of the repository towards the top of the page, select the last menu item, named 'Settings'.
-![Deploy re:Vibe project - second step](assets/images/readme-images/readme-deploy-2.png)
+![Deploy re:Vibe project - second step](assets/images/readme-images/revibe-deploy-2.png)
 * Scroll down the Settings page and select the tab named 'Pages', listed down the left hand side of the page.
-![Deploy re:Vibe project - third step](assets/images/readme-images/readme-deploy-3.png)
+![Deploy re:Vibe project - third step](assets/images/readme-images/revibe-deploy-3.png)
 * Under Source, open the dropdown list labelled 'None'.
-![Deploy re:Vibe project - fourth step](assets/images/readme-images/readme-deploy-4.png)
+![Deploy re:Vibe project - fourth step](assets/images/readme-images/revibe-deploy-4.png)
 * Select the master branch, and click Save. The website is now deployed!
-![Deploy re:Vibe project - final step](assets/images/readme-images/readme-deploy-5.png)
+![Deploy re:Vibe project - final step](assets/images/readme-images/revibe-deploy-5.png)
 * Once saved, the website's URL link will be displayed above, with the message ' Your site is published at https://olivercadman.github.io/re_vibe_ci_ms2/'. Click the link to enter the website!
 
 ## Running the project locally
