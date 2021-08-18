@@ -559,6 +559,7 @@ name and image of chord in modal */
   if (gameType === "interval-trainer") {
     changeModeButton.html("Try our Chord Identifier");
     changeModeButton.on("click", function () {
+      answerDisplay.innerHTML = '';
       gameType = "chord-identifier";
       readyGame(gameType);
       $("#completed-game-modal").modal("hide");
@@ -567,6 +568,7 @@ name and image of chord in modal */
   } else {
     changeModeButton.html("Try our Interval Trainer");
     changeModeButton.on("click", function () {
+      answerDisplay.innerHTML = '';
       gameType = "interval-trainer";
       readyGame(gameType);
       $("#completed-game-modal").modal("hide");
