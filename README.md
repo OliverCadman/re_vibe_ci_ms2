@@ -330,7 +330,7 @@ https://user-images.githubusercontent.com/79907183/129479466-b6d55d4b-d305-4834-
 
 
 
-If the user answers all 10 intervals/chords correctly, a congratulatory bootstrap modal window is displayed, with a short congratulatory message along with information on how many lives they had remaining when they completed the game. Additionally, a list of the correctly identified intervals/chords is displayed in a window for the user to browse at their will. At the bottom of the modal, the two buttons are featured, inviting the user to play the game again (which initiates the countdown when clicked) or close the modal window and browse at their will, or pick another game mode.
+If the user answers all 10 intervals/chords correctly, a congratulatory bootstrap modal window is displayed, with a short congratulatory message along with information on how many lives they had remaining when they completed the game. Additionally, a list of the correctly identified intervals/chords is displayed in a window for the user to browse at their will. At the bottom of the modal, three buttons are featured, inviting the user to play the game again (which initiates the countdown when clicked), pick another game mode, or close the modal window and browse the website at their will.
 
 A short, cheerful jingle is played to represent that the game is complete.
 
@@ -527,7 +527,7 @@ The vector featured on the 404 Page was taken from [Shutterstock](https://www.sh
 
 ## Videos
 
-The embedded videos featured in the Practice Tips sidebar were supplied [YouTube](https://www.youtube.com)
+The embedded videos featured in the Practice Tips sidebar were supplied by [YouTube](https://www.youtube.com)
 
 ## Icons
 
