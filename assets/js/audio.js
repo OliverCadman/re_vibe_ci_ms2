@@ -1,5 +1,6 @@
 /*jshint esversion: 8 */
 
+// Function uses ToneJS library to create sounds for Interval Trainer mode
 function createInterval(frequency1, frequency2) {
   const synth = new Tone.Synth();
 
@@ -14,12 +15,6 @@ function createInterval(frequency1, frequency2) {
     type: "lowpass",
     rolloff: -24,
   });
-
-  // const reverb = new Tone.Reverb({
-  //   decay: 3,
-  //   wet: 0.8,
-  //   preDelay: 0.1,
-  // });
 
   synth.chain(filter, Tone.Destination);
 
@@ -36,6 +31,7 @@ function createInterval(frequency1, frequency2) {
   }
 }
 
+// Function uses ToneJS library to create sounds for Chord Identifier mode
 function createChord(frequency1, frequency2, frequency3, frequency4) {
   const envelope = new Tone.AmplitudeEnvelope({
     attack: 0.8,
