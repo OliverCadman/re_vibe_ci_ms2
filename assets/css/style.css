@@ -43,6 +43,15 @@ and Contact pages */
   color: #eeeeee;
 }
 
+/* ------ Title Page ------ */
+
+.enter-btn {
+  margin-top: 20px;
+  color: #eeeeee;
+  background-color:rgb(25, 25, 25);
+  font-size: 1.5rem;
+  border: 3px solid #eeeeee;
+}
 /* ----------- Navigation Bar (Global CSS) ------------ */
 
 .navbar {
@@ -961,10 +970,9 @@ Link: https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s */
 
 /* ------- iPad Pro Device size media query ------- */
 @media only screen
-and (min-device-width: 1024px)
-and (max-device-width: 1024px)
-and (orientation: portrait)
-and (-webkit-min-device-pixel-ratio: 2) {
+and (min-width: 1024px)
+and (max-width: 1024px)
+and (orientation: portrait) {
 
   /* Overrides Bootstrap utility classes that are 
   applied to desktop sizes as well as iPad Pro size */
@@ -1079,6 +1087,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 /* Media Query - Laptop Device Size and up */
 @media screen and (min-width: 992px) {
+
+  /* ----- Title Page ----- */
+  .enter-btn:hover {
+    color: #e7782d;
+  }
   /* ---- Navigation Bar ---- */
 
   .navbar-brand {
