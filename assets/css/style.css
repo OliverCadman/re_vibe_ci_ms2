@@ -494,6 +494,10 @@ Referenced from Animate CSS : "https://animate.style/" */
   overflow: auto;
 }
 
+#no-correct-answers {
+  margin-top: 20px;
+}
+
 /* --------------- Practice Tips Page ------------------ */
 
 .practice-tips-container {
@@ -966,11 +970,11 @@ Link: https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s */
 
   #answer-container {
     margin-bottom: 30px;
-    top: 70%;
+    top: 75%;
   }
 
   .answer-btn {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 
 
@@ -985,10 +989,16 @@ Link: https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s */
     margin-left: 5px;
   }
 
+  .lives-left-icon {
+    font-size: 1.75rem !important
+  }
+
   .lives-left-alert {
   left: 35%;
 
-}
+  }
+
+
 
   
   .game-selection-btn,
@@ -1193,7 +1203,7 @@ Link: https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s */
   }
 
   .lives-left-icon {
-    font-size: 2.4rem !important;
+    font-size: 2.4rem;
   }
 
   .speaker-icon-wrapper {
