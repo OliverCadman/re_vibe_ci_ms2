@@ -968,6 +968,36 @@ Link: https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s */
 
 }
 
+@media screen and (min-width: 1920px) and (max-width: 1920px) {
+
+  .header-quote {
+    font-size: 6rem;
+  }
+  #game-container {
+    height: 100vh !important;
+  }
+
+  #game-mode-header {
+    font-size: 5rem;
+  }
+
+  .answer-btn {
+    font-size: 2rem !important;
+  }
+
+  #countdown {
+    font-size: 3rem;
+  }
+
+  .lives-left-icon {
+    font-size: 2.5rem !important;
+  }
+
+  .correct-answers {
+    font-size: 2rem !important;
+  }
+}
+
 /* ------- iPad Pro Device size media query ------- */
 @media only screen
 and (min-width: 1024px)
@@ -1008,7 +1038,7 @@ and (orientation: portrait) {
 
   .game-selection-btn,
   #begin-training-btn {
-    font-size: 2rem !important;
+    font-size: 2rem;
   }
 
   #answer-container {
@@ -1020,7 +1050,7 @@ and (orientation: portrait) {
   }
 
   .lives-left-icon {
-    font-size: 4rem !important;
+    font-size: 4rem;
   }
 
   .instructions-wrapper {
@@ -1159,13 +1189,9 @@ and (orientation: portrait) {
     right: 20px;
   }
 
-  #lives-left-container i {
-    font-size: 1.6rem;
-    margin-left: 5px;
-  }
-
   .lives-left-icon {
-    font-size: 1.75rem !important
+    font-size: 1.75rem;
+    margin-left: 5px;
   }
 
   .lives-left-alert {
@@ -1326,7 +1352,7 @@ and (orientation: portrait) {
   background-color: #23272a;
   color: #e7782d;
   transition: 0.3s ease-in-out;
-  transform: scale(1.1)
+  transform: scale(1.1);
 }
 }
 
@@ -1335,9 +1361,13 @@ and (orientation: portrait) {
 
   /* ----------- Home Page/Game Section -------------- */
  #game-container {
-   height: 600px !important;
-   background-size: 100% !important;
+   height: 600px;
+   background-size: 100%;
  }
+
+ .game-mode
+
+
 
  /* ------------ Contact Page ------------ */
  #contact-hero {
@@ -1347,7 +1377,7 @@ and (orientation: portrait) {
 } 
 
 /* Media query for large desktop screens */
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1600px) and (max-width: 1600px) {
 
   /* ------------- Home Page/Game Section -------------- */
 
