@@ -414,6 +414,8 @@ The primary languages used in the development of this project include HTML, CSS 
 
 * [Adobe Photoshop](https://www.adobe.com/uk/products/photoshop/free-trial-download.html) - The hero image used for the Practice Tips page was edited using Adobe Photoshop.
 
+* [Real Favicon Generator](https://realfavicongenerator.net/) - The Real Favicon Generator was used to add favicons to all pages of the website.
+
 ## JavaScript Libraries Used
 
 * [jQuery CDN](https://jquery.com/download/) - The website makes heavy use of jQuery in it's main.js file, particularly for the hiding and showing of the elements used in the Home Page GUI.
