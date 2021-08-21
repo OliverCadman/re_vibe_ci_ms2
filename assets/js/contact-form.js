@@ -38,9 +38,9 @@ function validateForm(contactForm) {
     errorMessage[1].innerHTML = "";
   }
 
-  if (questionsAreaInput.length < 50) {
+  if (questionsAreaInput.length < 1) {
     errorMessage[2].style.padding = "5px";
-    errorMessage[2].innerHTML = `Please enter more than 50 characters`;
+    errorMessage[2].innerHTML = `Please enter a question/comment. Don't be shy!`;
     return false;
   } else {
     errorMessage[2].style.padding = "0px";
