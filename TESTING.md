@@ -54,10 +54,6 @@
             * [Home Page Best Practice Issues](#Home-Page-Best-Practice-Issues)
 * [Further Testing](#Further-Testing)
 
-
-
-
-
 # Testing
 
 ## Markup Validation
@@ -91,6 +87,9 @@ The Jigsaw validator also threw some warnings with regards to some properties th
 * '-webkit-shape-outside' - This property was applied to elements with the 'shape-outside' property, to ensure cross-browser compatibility.
 
 Since the warning states that the properties are an unknown vendor extension, it was surmised that these properties are unknown to the Jigsaw validator, and so were not seriously violating any best-practice priniciples. To confirm this definitively, the website was tested on all main browsers, and no issues were found.
+
+Additionally, a warning was thrown with regards to the imported Google Fonts added at the top of the Custom CSS file. This was unexpected, as the same method of importing Google Fonts was used for the Milestone Project 1. When validating the code using Jigsaw for this project, there were no warnings with regards to this method of importing Google Fonts.
+
 
 ### JS Hint Validation
 
