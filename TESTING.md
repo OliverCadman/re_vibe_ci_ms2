@@ -33,15 +33,17 @@
     * [Practice Tips Page](#Practice-Tips-Page)
     * [Contact Page](#Contact-Page)
     * [404 Page](#404-page)
+    * [iPad Pro - Bootstrap Class Override](#iPad-Pro---Bootstrap-Class-Override)
 * [Bugs](#Bugs)
     * [Fixed Bugs](#Fixed-Bugs)
         * [Using the WebAudio API](#Using-the-WebAudio-API)
         * [runIntervalGame() and runChordGame() functions](#runIntervalGame()-and-runChordGame()-functions)
         * [Replay interval](#Replay-interval)
-        * [iOS Safari Audio Context Suspended](#iOS-Safari-Audio-Context-Suspended)
+        * [Answer List Display Bug](#Answer-List-Display-Bug)
 
     * [Unfixed Bugs](#Unfixed-Bugs)
         * [ScriptProcessorNode Deprecation](#ScriptProcessorNode-Deprecation)
+        * [iOS Safari Audio Context Suspended](#iOS-Safari-Audio-Context-Suspended)
 * [Lighthouse Testing](#Lighthouse-Testing)
     * [Title Page](#Title-Page)
     * [Home Page](#Home-Page)
@@ -440,6 +442,9 @@ or
     4. Confirm there is sufficient margin between practice tip cards, on all screen sizes.
     5. Confirm there is sufficient margin between the side bar and the main body, on laptop screen sizes and up.
 
+4. Video Resources Section
+    1. Collapse to mobile screen size and iPad device size to confirm each video spans full width of the viewport.
+
 4. Footer
     1. Repeat verification steps taken in home page testing.
 
@@ -476,6 +481,10 @@ or
 3. Collapse to mobile device size to confirm the border-right is hidden.
 4. Confirm all content is clearly displayed and centered on all device sizes.
 5. Confirm the logo link takes the user back to the website's home page.
+
+## iPad Pro - Bootstrap Class Override
+
+Upon testing the positioning of each page's elements on the iPad Pro screen size, it was discovered that the bootstrap col utility classes applied to laptop/desktop were also being applied to the iPad Pro device. However the iPad Pro screen width wasn't quite large enough to be able to accommodate the content without looking too busy. Therefore, I overrided those classes in the Custom CSS iPad Pro media query, using extra classes 'ipad-pro-override...' applied to the the specific divs in question on each page. This ensured that the overriding of bootstrap classes would only apply to the one div, rather than all the divs on each page sharing the same bootstrap class.
 
 # Bugs
 
@@ -530,19 +539,42 @@ $("#replay-question")
 
 This code ensured that the click event's 'garbage' was collected, and that only the chord/interval in question is replayed.
 
-### iOS Safari Audio Context Suspended
+### Answer List Display Bug
 
-When beginning the game on Chrome and Firefox browsers, the sounds were played as expected. However, when using iOS Safari, the sound wasn't being played after the countdown had finished. Upon inspecting the console, an error message was displayed stating that the Audio Context was suspended, and the user needed to interact with the page for the Audio Context to run. This is a UX measure that all browsers have implemented, to ensure that the user isn't barraged with unwanted sound upon visiting a website. However, in this case, the user has interacted with the website, and is expected a sound to be played.
+Upon repetitions of the game, the window in the Completed Game/Game Over modal used to display the answers behaved unexpectedly. 
 
-To fix this bug, the following code was inputted into the audio.js file:
+When playing the game through until the game was complete, I selected Play Again, and answered some answers correctly, then lost all lives. In the Game Over modal window, the message informing that there was no correct answers was present, as well as the list of correct answers. 
 
-`if (Tone.context.state === "suspended") {
-    Tone.context.state = "running";
-  } else {
-    Tone.context.state = "running";
-  }`
+Furthermore, when playing the game and losing all lives upon repetition, the Game Over modal’s correct answer list display was ‘remembering’ the answers for the previous games, as well as displaying the correct answers for the current game.
 
-This resulted in the sound being played immediately after the countdown, on the iOS Safari Browser.
+To deal with this, I invoked the resetGlobalVariable function within the click event of each button in the modal window, as before doing this, the function was in the same scope as the map method to display the list of correct answers. Putting this function inside each click event, along with setting the answerDisplay.innerHTML to an empty string inside the click event, has seemed to have squashed this bug.
+
+This bug spurred me to test the running of the game based on the variety of outcomes and actions that are possible, to thoroughly test whether this bug was well and truly squashed. Below is a chronological outline of the patterns of game play that were undertaken.
+
+1. Select Interval Trainer Mode > Begin Training > Complete Game
+2. Play Again > Select three correct answers > Lose all Lives
+3. Try Again > Lose all Lives
+4. Try Again > Complete Game
+5. Try Again > Lose all Lives
+6. Try Again > Complete Game
+7. Select Chord Trainer Mode > Begin Training > Complete Game
+8. Play Again > Lose all Lives
+9. Try Again > Select three correct answers > Lose all Lives
+10. Try Again > Lose all Lives
+11. Try Again > Complete Game
+12. Select Interval Trainer Mode > Begin Training > Complete Game
+13. Play Again > Lose all Lives
+14. Try Again > Answer 3 questions correctly > Lose all Lives
+15. Try Again > Complete Game
+16. Close Modal > Select Interval Trainer Mode from GUI > Begin Training > Complete Game
+17. Close Modal > Select Interval Trainer Mode from GUI > Begin Training > Lose all Lives
+19. Close Modal > Select Interval Trainer Mode from GUI > Begin Training > answer 3 questions correctly > Lose all Lives
+20. Close Modal > Select Chord Identifier Mode from GUI > Begin Training > Complete Game
+21. Close Modal > Select Chord Identifier Mode from GUI > Begin Training > Lose all Lives
+22. Close Modal > Select Chord Identifier Mode from GUI > Answer 3 questions correctly > Lose all Lives
+
+After testing all of these iterations of game play in order, the answer display was displaying correctly, each time the Completed Game or Game Over modals were displayed. From here, I was confident that the bug was indeed squashed.
+
 
 ## Unfixed Bugs
 
@@ -555,6 +587,24 @@ When using the ToneJS library, a warning is shown in the console:
 Upon investigation, it was found that the warning was being thrown by an assignment of ToneJS' 'analyser' feature, which is assigned to the function `nativeAudioContext.createScriptProcessorNode()`.
 
 The developer doesn't have an analyser assigned to their audio context, so it is their hope that this warning doesn't directly impact the functionality of their website. Furthermore, the developer is using the latest version of ToneJS (version 14.8.6), and the developer discovered that in version 14.7.39, ToneJS had added the AudioWorkletNode constructors to their context. 
+
+### iOS Safari Audio Context Suspended
+
+When beginning the game on Chrome and Firefox browsers, the sounds were played as expected. However, when using iOS Safari, the sound wasn't being played after the countdown had finished. Upon inspecting the console, an error message was displayed stating that the Audio Context was suspended, and the user needed to interact with the page for the Audio Context to run. This is a UX measure that all browsers have implemented, to ensure that the user isn't barraged with unwanted sound upon visiting a website. However, in this case, the user has interacted with the website, and is expected a sound to be played.
+
+In an attempt to fix this bug, the following code was inputted into the audio.js file:
+
+`if (Tone.context.state === "suspended") {
+    Tone.context.state = "running";
+  } else {
+    Tone.context.state = "running";
+  }`
+
+It was expected that this would allow Safari to run the context in the event that it is suspended. However, the issue persisted. 
+
+As a temporary workaround, I added a bootstrap modal to be displayed on load of home-page.html, to alert any visitors using Safari that they might not hear the sounds when the game starts, and if that is the case, click the speaker icon once, and the sounds will play for the rest of the game with no trouble. I regret and appreciate that this bug doesn’t contribute to a completely smooth user experience, however efforts have been made to remedy this by use of a modal alert on page load, clearly stating to the user that they might need to take an action in order to hear the sound. 
+
+This is of course only a stop-gap, and the intention is certainly to find the way to squash the bug as soon as possible, to allow the user a completely smooth user experience.
 
 # Lighthouse Testing
 
