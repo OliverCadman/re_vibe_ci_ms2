@@ -48,6 +48,7 @@ The website features a welcome page, a home page holding the training platform, 
       * [For Loop to Generate Intervals/Answers](#For-Loop-to-generate-Intervals/Answers)
       * [Bootstrap Modals and Contact Form](#Bootstrap-Modals-and-Contact-Form)
       * [CSS 'Shape-Outside' Property](#CSS-'Shape-Outside'-Property)
+      * [Real Favicon Generator](#Real-Favicon-Generator)
    * [Frequencies for Intervals and Chords](#Frequencies-for-Intervals-and-Chords)
    * [Text Content](#Text-Content)
       * [Home Page Text](#Home-Page-Text)
@@ -482,6 +483,9 @@ Two areas of the website make use of the CSS 'shape-outside- property, in conjun
 ## Frequencies for Intervals and Chords
 
 [Physics of Music - Notes](https://pages.mtu.edu/~suits/notefreqs.html) was referenced to gather all the numeric frequencies used in the intervalList and chordList object arrays, found in data.js.
+
+## Real Favicon Generator
+[Real Favicon Generator](https://realfavicongenerator.net/)'s code was copied from their website, and imported between the header tags of all HTML files in the repository.
 
 ## Text Content
 
