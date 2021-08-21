@@ -240,15 +240,12 @@ ul li a.active {
   color: #eeeeee;
 }
 
-
-
 .game-selection-button-container {
-   display: flex;
-   height: 100%;
+  display: flex;
+  height: 90%;
   align-items: center;
   justify-content: center;
   margin-bottom: 50px;
-
 }
 
 .game-selection-button-wrapper {
@@ -733,7 +730,7 @@ legend {
   }
 
   .navbar-nav li a {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 
   ul li a.active {
@@ -745,6 +742,11 @@ legend {
 
   #game-section {
     padding-top: 100px;
+  }
+
+  .instructions-wrapper {
+    font-size: 1.1rem;
+    padding: 0 1rem;
   }
 
   .instructions-wrapper p:last-child {
@@ -759,11 +761,6 @@ legend {
     text-decoration: underline;
   }
 
-  .quote-source {
-    font-family: "Work Sans", sans-serif;
-    font-weight: 100;
-  }
-
   #game-container {
     background-size: 100%;
     height: 65vh;
@@ -773,22 +770,25 @@ legend {
   font-size: 3rem;
   width: 40%;
   top: 0;
-  
-}
+  }
 
-.speaker-icon {
-    font-size: 4rem;
+  .speaker-icon {
+    font-size: 6rem;
+  }
+
+  #answer-container {
+    top: 75%;
   }
 
   .answer-btn,
   .game-selection-btn,
   #begin-training-btn,
   .correct-answers {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 
   .lives-left-icon {
-    font-size: 2rem;
+    font-size: 2.3rem;
     margin-left: 5px;
   }
 
@@ -1261,7 +1261,7 @@ Link: https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s */
   }
 
   #answer-container {
-    top: 60%;
+    top: 73%;
   }
 
   #game-container {
@@ -1321,7 +1321,7 @@ Link: https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s */
   }
 
   #answer-container {
-    top: 60%;
+    top: 65%;
   }
  
   .lives-left-alert {
@@ -1393,6 +1393,10 @@ Link: https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s */
 
   #begin-training-btn {
     font-size: .95rem;
+  }
+
+  #answer-container {
+    top: 65%;
   }
 
   .answer-btn {
