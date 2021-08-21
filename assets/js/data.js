@@ -348,7 +348,7 @@ const intervalList = [
     frequency1: 311.13,
     frequency2: 369.99,
     interval: "Minor Third",
-    image: "assets/images/intervals/intervals-e-flat/e-flat-octave.png",
+    image: "assets/images/intervals/intervals-e-flat/e-flat-minor-third.png",
     name: "Eb Minor Third",
   },
   // E Flat Major Third
@@ -1712,7 +1712,7 @@ const chordList = [
     frequency1: 185,
     frequency2: 233.08,
     frequency3: 277.18,
-    frequency4: 329.23,
+    frequency4: 349.23,
     chord: "Major 7",
     image: "assets/images/chords/major-sevenths/f-sharp-major-7.png",
     name: "F# Major 7",
