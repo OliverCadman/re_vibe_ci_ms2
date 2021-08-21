@@ -435,6 +435,12 @@ function checkIntervalAnswer(e, questionIndex) {
     livesRemaining > 0 ? animateCSS(".speaker-icon", "wobble") : null;
 
     $(".lives-left-icon")[0].remove();
+    if(livesRemaining === 1) {
+      $(".lives-left-icon").css({ color: "red" });
+    } else {
+      $(".lives-left-icon").css({ color: "yellow" });
+    }
+    
     $(".lives-left-alert")
       .fadeIn(300)
       .html(
@@ -483,6 +489,11 @@ function checkChordAnswer(e, questionIndex) {
     livesRemaining--;
     livesRemaining > 0 ? animateCSS(".speaker-icon", "wobble") : null;
     $(".lives-left-icon")[0].remove();
+    if (livesRemaining === 1) {
+      $(".lives-left-icon").css({ color: "red" });
+    } else {
+      $(".lives-left-icon").css({ color: "yellow" });
+    }
     $(".lives-left-alert")
       .fadeIn(1000)
       .html(
@@ -629,6 +640,8 @@ function gameOver() {
         "display-correct-answers"
         )[1];
       answerDisplay.style.display = "grid";
+      answerDisplay.style.textDecoration = "underline";
+      answerDisplay.style.borderBottom = "2px solid #eeeeee"
       answerDisplay.innerHTML += `
     <div class="correct-answer">
     <p>${answer.name}</p>
@@ -644,8 +657,9 @@ function gameOver() {
       "display-correct-answers"
     )[1];
     answerDisplay.style.display = "block";
-    answerDisplay.innerHTML = `<p>No correct answers!<p>
-                               <p>Don't worry, you can try as many times as you like.<p>`;
+    answerDisplay.style.textDecoration = "none";
+    answerDisplay.innerHTML = `<div id="no-correct-answers"><p>No correct answers!<p>
+                               <p>Don't worry, you can try as many times as you like.<p></div>`;
       
   }
 
