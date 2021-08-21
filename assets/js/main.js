@@ -40,11 +40,8 @@ function loadGame() {
   correctAnswersRemaining = 10;
 
   $(".game-selection-button-container").show();
-
   $(".lives-left-alert").hide();
-
   $(".speaker-icon").hide();
-
   $("#lives-left-container").hide();
 
   $(".opaque-overlay")
@@ -116,10 +113,9 @@ function countDown(gameType) {
   let counter = 3;
 
   $(".game-selection-button-container").hide();
-
   $("#begin-training-btn").hide();
-
   $(".countdown-wrapper").show();
+
   // Display opaque overlay when user begins training
   $(".hide-overlay")
     .removeAttr("class", "hide-overlay")
@@ -177,7 +173,6 @@ function runIntervalGame() {
   for (let question = 0; question < questionCount; question++) {
     let intervals = getInterval();
     questions[question] = intervals;
-    console.log(intervals.interval); // Console log present to allow for testing and grading.
   }
 
   nextInterval(questionIndex);
@@ -189,13 +184,9 @@ function nextInterval(currentInterval) {
   $(".speaker-icon").show();
 
   answerCountdown = document.getElementsByClassName("correct-answers")[0];
-
   answerCountdown.innerHTML = `Correct Answers Remaining: ${correctAnswersRemaining}`;
-
   let answerOptions = getIntervalAnswers(questions[currentInterval]);
-
   let answerContainer = document.getElementById("answer-container");
-
   let answerButtons = "";
 
   // clears answer buttons ready for next question
@@ -260,7 +251,6 @@ function runChordGame() {
   for (let question = 0; question < questionCount; question++) {
     let chords = getChord();
     questions[question] = chords;
-    console.log(chords.chord); // Console log present to allow for testing and grading.
   }
 
   nextChord(questionIndex);
@@ -276,7 +266,6 @@ function nextChord(currentChord) {
   /* Initialize question index and pass it
   into questions object array to access relative index */
   let answerOptions = getChordAnswers(questions[currentChord]);
-
   let answerContainer = document.getElementById("answer-container");
 
   let answerButtons = "";
@@ -407,7 +396,6 @@ function showImage(imageURL, name) {
 
 // Checks value of user input against interval played
 function checkIntervalAnswer(e, questionIndex) {
-  console.log(correctAnswerList);
   let userAnswer = e.target.textContent;
 
   if (userAnswer === questions[questionIndex].interval) {
@@ -435,12 +423,12 @@ function checkIntervalAnswer(e, questionIndex) {
     livesRemaining > 0 ? animateCSS(".speaker-icon", "wobble") : null;
 
     $(".lives-left-icon")[0].remove();
-    if(livesRemaining === 1) {
+    if (livesRemaining === 1) {
       $(".lives-left-icon").css({ color: "red" });
     } else {
       $(".lives-left-icon").css({ color: "yellow" });
     }
-    
+
     $(".lives-left-alert")
       .fadeIn(300)
       .html(
@@ -459,7 +447,6 @@ function checkIntervalAnswer(e, questionIndex) {
 
 // Checks value of user input against chord played
 function checkChordAnswer(e, questionIndex) {
-  console.log(correctAnswerList)
   let userAnswer = e.target.textContent;
 
   if (userAnswer === questions[questionIndex].chord) {
@@ -512,9 +499,7 @@ function checkChordAnswer(e, questionIndex) {
 // Runs when user answers all questions correctly
 function gameComplete() {
   $("#completed-game-modal").modal("show");
-
   $("#answer-container").empty();
-
   $("#correct-answers-remaining").hide();
 
   $("#begin-training-btn")
@@ -557,7 +542,7 @@ name and image of chord in modal */
     );
   } else {
     $("#congratulations-message").html(
-      `Well done. Congratulations! You completed the game with
+      `Well done. You completed the game with
            ${livesRemaining} life remaining!`
     );
   }
@@ -570,7 +555,7 @@ name and image of chord in modal */
   if (gameType === "interval-trainer") {
     changeModeButton.html("Try our Chord Identifier");
     changeModeButton.on("click", function () {
-      answerDisplay.innerHTML = '';
+      answerDisplay.innerHTML = "";
       gameType = "chord-identifier";
       readyGame(gameType);
       $("#completed-game-modal").modal("hide");
@@ -579,7 +564,7 @@ name and image of chord in modal */
   } else {
     changeModeButton.html("Try our Interval Trainer");
     changeModeButton.on("click", function () {
-      answerDisplay.innerHTML = '';
+      answerDisplay.innerHTML = "";
       gameType = "interval-trainer";
       readyGame(gameType);
       $("#completed-game-modal").modal("hide");
@@ -592,28 +577,24 @@ name and image of chord in modal */
   $(".play-again-btn")
     .off("click")
     .on("click", () => {
-      answerDisplay.innerHTML = '';
+      answerDisplay.innerHTML = "";
       countDown(gameType);
       $("#completed-game-modal").modal("hide");
       resetGlobalVariables();
     });
 
   $(".close-modal-btn").on("click", () => {
-    answerDisplay.innerHTML  = '';
+    answerDisplay.innerHTML = "";
     $("#completed-game-modal").modal("hide");
     resetGlobalVariables();
   });
-
-  
 }
 
 // Runs when user loses all three lives
 function gameOver() {
   $(".speaker-icon").hide();
   $("#answer-container").empty();
-
   $("#correct-answers-remaining").hide();
-
   $("#game-over-modal").modal("show");
 
   $("#begin-training-btn")
@@ -631,17 +612,16 @@ function gameOver() {
   $(".game-selection-button-container").show();
 
   gameOverJingle.play();
-  console.log(correctAnswerList)
   /* Maps over array of correct answers and displays
   name and image of chord in modal */
   if (correctAnswerList.length > 0) {
     correctAnswerList.map((answer) => {
       answerDisplay = document.getElementsByClassName(
         "display-correct-answers"
-        )[1];
+      )[1];
       answerDisplay.style.display = "grid";
       answerDisplay.style.textDecoration = "underline";
-      answerDisplay.style.borderBottom = "2px solid #eeeeee"
+      answerDisplay.style.borderBottom = "2px solid #eeeeee";
       answerDisplay.innerHTML += `
     <div class="correct-answer">
     <p>${answer.name}</p>
@@ -660,32 +640,28 @@ function gameOver() {
     answerDisplay.style.textDecoration = "none";
     answerDisplay.innerHTML = `<div id="no-correct-answers"><p>No correct answers!<p>
                                <p>Don't worry, you can try as many times as you like.<p></div>`;
-      
   }
 
   $(".play-again-btn")
     .off("click")
     .on("click", () => {
-      answerDisplay.innerHTML = '';
+      answerDisplay.innerHTML = "";
       countDown(gameType);
       $("#game-over-modal").modal("hide");
       resetGlobalVariables();
     });
 
   $(".close-modal-btn").on("click", () => {
-    answerDisplay.innerHTML = '';
+    answerDisplay.innerHTML = "";
     $("#game-over-modal").modal("hide");
     resetGlobalVariables();
   });
-
-  
 }
 
 // Uses random number to access index of intervalList array
 function getInterval() {
   let randomIndex = getRandomIntervalIndex();
   let randomInterval = intervalList[randomIndex];
-
   return randomInterval;
 }
 
@@ -709,7 +685,6 @@ function resetGlobalVariables() {
 // Generates a random number between 0 and 144;
 function getRandomIntervalIndex() {
   let randomIndex = Math.ceil(Math.random() * 143);
-
   return randomIndex;
 }
 
@@ -723,14 +698,12 @@ function getRandomChordIndex() {
 function getChord() {
   let randomIndex = getRandomChordIndex();
   let randomChord = chordList[randomIndex];
-
   return randomChord;
 }
 
 // Accessing frequency properties of random interval
 function playInterval(interval) {
   let firstNote = interval.frequency1;
-
   let secondNote = interval.frequency2;
 
   // Animate speaker icon when interval plays
