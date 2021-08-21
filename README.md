@@ -407,7 +407,7 @@ The primary languages used in the development of this project include HTML, CSS 
 
 * [animateCSS CDN](https://animate.style/) - animateCSS library was used to animate the GUI's speaker icon and countdown, as well as the display of all bootstrap modal windows.
 
-* [remove.bg] - This technology was used to remove the background of the vector image used in the website's 404 page.
+* [remove.bg](https://www.remove.bg/) - This technology was used to remove the background of the vector image used in the website's 404 page.
 
 * [tinypng.com](https://tinypng.com/) - TinyPNG was used to compress the larger images used in the website, to improve the page's load time and performance, without losing image quality.
 
