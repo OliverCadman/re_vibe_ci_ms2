@@ -1453,16 +1453,16 @@ and (orientation: portrait) {
     font-size: 1.6rem;
   }
 
+  .lives-left-alert {
+    left: 39%;
+  }
+
   .speaker-icon {
     font-size: 7rem;
   }
 
   #game-mode-header {
     font-size: 5rem;
-  }
-
-  #answer-container {
-    top: 80%;
   }
 
   .answer-btn {
