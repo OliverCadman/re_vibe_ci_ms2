@@ -488,12 +488,17 @@ Referenced from Animate CSS : "https://animate.style/" */
   font-weight: 200;
 }
 
+/* Shape outside property referenced from YouTube video:
+Title: Wrap text around any image or shape you want!
+Link: https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s */
 #click-icon-alert {
   width: 35%;
   float: left;
   clear: both;
   border-radius: 50%;
   margin-right: 10px;
+  shape-outside: ellipse(50% 50%);
+  -webkit-shape-outside: ellipse(50% 50%);
 }
 
 .correct-answer {
@@ -854,14 +859,8 @@ legend {
 
 /* Page Load Alert Modal */
 
-/* Shape outside property referenced from YouTube video:
-Title: Wrap text around any image or shape you want!
-Link: https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s */
-
 #click-icon-alert {
   width: 25%;
-  shape-outside: ellipse(50% 50%);
-  -webkit-shape-outside: ellipse(50% 50%);
 }
 
 /* -------------- Practice Tips Page --------------- */
