@@ -48,6 +48,7 @@ The website features a welcome page, a home page holding the training platform, 
       * [For Loop to Generate Intervals/Answers](#For-Loop-to-generate-Intervals/Answers)
       * [Bootstrap Modals and Contact Form](#Bootstrap-Modals-and-Contact-Form)
       * [CSS 'Shape-Outside' Property](#CSS-'Shape-Outside'-Property)
+      * [Sticky Footer](#Sticky-Footer)
       * [Real Favicon Generator](#Real-Favicon-Generator)
    * [Frequencies for Intervals and Chords](#Frequencies-for-Intervals-and-Chords)
    * [Text Content](#Text-Content)
@@ -397,6 +398,8 @@ The primary languages used in the development of this project include HTML, CSS 
 
 * [Visual Studio Code 2](https://code.visualstudio.com/) - The IDE used to develop this project is Microsoft's Visual Studio Code 2.
 
+* [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - The developer made heavy use of Google Chrome DevTools during the development of the project, to ensure responsivity across all common device sizes. 
+
 * [Bootstrap 5 CDN](https://getbootstrap.com/docs/5.0/getting-started/introduction/) - The Bootstrap 5 framework was imported via CDN, to provide responsiveness to website. Bootstrap 5 was also utilised for creating the buttons and contact form.
 
 * [popper.js](https://popper.js.org/) - PopperJS was used in conjunction with Bootstrap 5, to provide responsiveness to the website's NavBar.
@@ -479,6 +482,14 @@ The code used to create the website's [Modals](https://getbootstrap.com/docs/4.0
 Two areas of the website make use of the CSS 'shape-outside- property, in conjunction with float properties. This code was referenced from a YouTube Tutorial:
 
 [Wrap text around any image or shape that you want!](https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s)
+
+### Sticky Footer 
+
+On larger desktop monitor viewport sizes, a sticky footer was required to account for the pages where there wasn't enough content to keep the footer pushed down. 
+
+A flexbox technique was applied, referenced from a YouTube Tutorial:
+
+[Easy Sticky Footer - Stop a Footer from Floating Up a Short Page](https://www.youtube.com/watch?v=yc2olxLgKLk&t=131s)
 
 ## Frequencies for Intervals and Chords
 
