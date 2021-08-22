@@ -433,8 +433,8 @@ function checkIntervalAnswer(e, questionIndex) {
       .fadeIn(300)
       .html(
         livesRemaining === 1
-          ? `${livesRemaining} life remaining!`
-          : `${livesRemaining} lives remaining!`
+          ? `<p>${livesRemaining} life remaining!</p>`
+          : `<p>${livesRemaining} lives remaining!</p>`
       )
       .fadeOut(1750);
   }
@@ -485,8 +485,8 @@ function checkChordAnswer(e, questionIndex) {
       .fadeIn(1000)
       .html(
         livesRemaining === 1
-          ? `${livesRemaining} life remaining!`
-          : `${livesRemaining} lives remaining!`
+          ? `<p>${livesRemaining} life remaining!</p>`
+          : `<p>${livesRemaining} lives remaining!</p>`
       )
       .fadeOut(1000);
   }
