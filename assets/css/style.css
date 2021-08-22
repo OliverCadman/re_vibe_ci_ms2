@@ -4,7 +4,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Krub:wght@300;500;600&display=swap");
 
 /* Global CSS application */
+html {
+  height: 100%;
+}
+
+/* Flex display to provide sticky footer, particularly for larger desktop monitors.
+Code referenced from YouTube Tutorial:
+Title: Easy sticky footer - stop a footer from floating up a short page!
+Link: https://www.youtube.com/watch?v=yc2olxLgKLk */
 body {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
 }
@@ -15,11 +25,13 @@ body {
   margin: 0 auto;
 }
 
-.hide-overlay {
+/* Countdown wrapper class manipulated in main.js file */
+#hide-countdown {
   display: none;
 }
 
-#hide-countdown {
+/* Opaque overlay class manipulated in main.js file */
+.hide-overlay {
   display: none;
 }
 
@@ -417,6 +429,7 @@ ul li a.active {
 footer {
   padding-top: 10px;
   background-color: #23272a;
+  margin-top: auto;
 }
 
 footer p {
@@ -714,7 +727,6 @@ legend {
 }
 
 .back-home-btn {
- 
   font-size: 1.5rem;
   color:#23272a;
   background-color: #eeeeee;
@@ -776,7 +788,7 @@ legend {
 
   ul li a.active {
   color: #e7782d;
-}
+  }
 
 
   /* ---------- Home Page/Game Section ------------ */
@@ -968,36 +980,6 @@ Link: https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s */
 
 }
 
-@media screen and (min-width: 1920px) and (max-width: 1920px) {
-
-  .header-quote {
-    font-size: 6rem;
-  }
-  #game-container {
-    height: 100vh !important;
-  }
-
-  #game-mode-header {
-    font-size: 5rem;
-  }
-
-  .answer-btn {
-    font-size: 2rem !important;
-  }
-
-  #countdown {
-    font-size: 3rem;
-  }
-
-  .lives-left-icon {
-    font-size: 2.5rem !important;
-  }
-
-  .correct-answers {
-    font-size: 2rem !important;
-  }
-}
-
 /* ------- iPad Pro Device size media query ------- */
 @media only screen
 and (min-width: 1024px)
@@ -1158,6 +1140,10 @@ and (orientation: portrait) {
     flex-direction: column;
     justify-content: center;
     height: 100%;
+  }
+
+  .instructions-wrapper {
+    padding: 0;
   }
 
   .instructions-wrapper p:last-child {
@@ -1429,6 +1415,139 @@ and (orientation: portrait) {
   }
   
 }
+
+/* Media Query for extra-large desktop monitors */
+@media screen and (min-width: 1920px) and (max-width: 1920px) {
+
+  /* ------------ NavBar ------------- */
+
+  .navbar-brand {
+    font-size: 4rem;
+  }
+
+  .navbar-nav li a {
+    font-size: 3rem;
+  }
+
+  /* ------------ Home Page/Game Section ----------- */
+
+  .header-quote {
+    font-size: 6rem;
+  }
+
+  .instructions-wrapper {
+    font-size: 1.5rem;
+  }
+  #game-container {
+    height: 900px !important ;
+  }
+
+  .game-selection-btn {
+    font-size: 2rem !important;
+  }
+
+  #begin-training-btn {
+    font-size: 2rem !important;
+  }
+
+  .notation-name {
+    font-size: 1.6rem;
+  }
+
+  .speaker-icon {
+    left: 100%;
+  }
+
+  #game-mode-header {
+    font-size: 5rem;
+  }
+
+  .answer-btn {
+    font-size: 2rem !important;
+  }
+
+  #countdown {
+    font-size: 3rem;
+  }
+
+  .lives-left-icon {
+    font-size: 2.5rem !important;
+  }
+
+  .correct-answers {
+    font-size: 2rem !important;
+  }
+
+  /* ----------- Footer ------------ */
+
+  .footer-icons {
+    padding: 30px;
+  }
+
+  .footer-icons ul {
+    font-size: 3rem;
+    margin: 0 30px;
+  }
+
+  .developer-info {
+    font-size: 1.5rem;
+  }
+
+  /* ----------- Practice Tips Page -------------- */
+
+  .practice-tips-header h1 {
+    font-size: 5rem;
+  }
+
+  .lead-summary {
+    font-size: 1.6rem;
+    padding: 20px;
+  }
+
+  .practice-tips-hero {
+    width: 100%;
+  }
+
+  .practice-tips-body {
+    padding: 0 30px;
+  }
+
+  .practice-tip-wrapper {
+    font-size: 1.5rem;
+    min-height: 600px;
+    padding: 30px;
+  }
+
+  .practice-tip-header {
+    font-size: 2.5rem;
+  }
+
+  /* ----------- Contact Page ------------ */
+
+  .contact-form-section {
+    padding-top: 140px;
+  }
+
+  .contact-header h1 {
+    font-size: 5rem !important;
+  }
+
+  .contact-brief-wrapper,
+  .contact-lessons-wrapper {
+    font-size: 1.5rem;
+  }
+  
+  #contact-hero {
+    width: 100% !important;
+  }
+
+  .contact-form-container {
+    height: 57vh;
+    padding:
+    }
+
+}
+
 
 /* Adjusting Game Container background image size for mobile device sizes listed in Chrome DevTools. */
 /* iPhone 6/7/8 Plus */
