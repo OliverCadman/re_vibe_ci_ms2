@@ -664,6 +664,7 @@ Link: https://www.youtube.com/watch?v=sifXs4XVK7g&t=276s */
 }
 
 button[type="submit"] {
+  font-family: "Work Sans", sans-serif;
   background-color: #fafaf9;
   border: none;
   color: #23272a;
@@ -1280,7 +1281,6 @@ and (orientation: portrait) {
   }
 
   button[type="submit"]:hover {
-    border: 2px solid #23272a;
     color: #e7782d;
   }
 

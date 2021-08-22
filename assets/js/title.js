@@ -10,7 +10,7 @@ $(document).ready(function () {
 });
 
 
-/* VivusJS Library Used to create drawing animation with SVGs */
+/* VivusJS Library used to create drawing animation with SVGs */
 const earAnimation = new Vivus("ear-drawing", { duration: 150 });
 
 const logoAnimation = new Vivus("logo-heading", {
