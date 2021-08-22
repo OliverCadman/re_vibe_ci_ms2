@@ -328,7 +328,7 @@ ul li a.active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  --animate-duration: 0.9s;
+  --animate-duration: 0.9s; /* animateCSS property */
   width: 50%;
   border-radius: 5px;
   text-align: center;
@@ -533,7 +533,6 @@ Referenced from Animate CSS : "https://animate.style/" */
 .practice-tips-hero {
   width: 300px;
 }
-
 
 .lead-summary {
   color: #eeeeee;
@@ -1092,10 +1091,6 @@ and (orientation: portrait) {
   .contact-brief-wrapper {
     padding: 20px;
   }
-
-
-
-
 }
 
 /* Media Query - Laptop Device Size and up */
@@ -1115,7 +1110,6 @@ and (orientation: portrait) {
     font-size: 2.3rem;
   }
   
-
   .nav-link:hover {
     color: #e7782d;
   }
@@ -1438,6 +1432,11 @@ and (orientation: portrait) {
   .instructions-wrapper {
     font-size: 1.5rem;
   }
+
+  #game-section {
+    padding-top: 130px;
+  }
+
   #game-container {
     height: 900px !important ;
   }
@@ -1455,11 +1454,15 @@ and (orientation: portrait) {
   }
 
   .speaker-icon {
-    left: 100%;
+    font-size: 7rem;
   }
 
   #game-mode-header {
     font-size: 5rem;
+  }
+
+  #answer-container {
+    top: 80%;
   }
 
   .answer-btn {
@@ -1791,9 +1794,8 @@ and (orientation: portrait) {
   .lives-left-alert {
   left: 35%;
 
-}
+  }
 
-  
   .speaker-icon-wrapper {
     top: 40%;
   }
@@ -1894,7 +1896,7 @@ and (orientation: portrait) {
   .lives-left-alert {
   left: 34%;
 
-}
+  }
 
   .correct-answers {
     font-size: 1rem;
