@@ -1546,8 +1546,7 @@ and (orientation: portrait) {
 
   .contact-form-container {
     height: 57vh;
-    padding:
-    }
+  }
 
 }
 
@@ -1732,7 +1731,6 @@ and (orientation: portrait) {
     top: 10px;
   }
 
-
   /* ---------- Contact Page ------------ */
 
   .contact-brief-wrapper {
@@ -1757,7 +1755,6 @@ and (orientation: portrait) {
   .correct-answers {
     font-size: 1rem;
   }
-
 
   #game-mode-header {
     top: 0;
