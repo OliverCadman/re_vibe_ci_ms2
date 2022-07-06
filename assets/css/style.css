@@ -1344,15 +1344,23 @@ and (orientation: portrait) {
    background-size: 100%;
  }
 
- .game-mode
-
-
 
  /* ------------ Contact Page ------------ */
  #contact-hero {
    width: 100%;
  }
 
+} 
+
+@media screen and (min-width: 1536px) {
+  #game-container {
+    height: 620px;
+    background-size: 90%;
+  }
+
+  #game-mode-header {
+    margin-left: 3rem;
+  }
 } 
 
 /* Media query for large desktop screens */
