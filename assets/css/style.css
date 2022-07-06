@@ -1352,6 +1352,42 @@ and (orientation: portrait) {
 
 } 
 
+@media screen and (min-width: 1400px) {
+  #game-container {
+    height: 580px;
+    background-size: 83%;
+  }
+
+  #game-mode-header {
+    margin-left: 4rem;
+  }
+}
+
+@media screen and (min-width: 1366px) and (min-height: 768px) {
+  #game-container {
+    height: 530px;
+    background-size: 80%;
+  }
+
+  #game-mode-header {
+    margin-left: 5rem;
+    margin-top: 1rem;
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 1400px) and (min-height: 900px) {
+  #game-container {
+    height: 650px;
+    background-size: 100%;
+  }
+
+  #game-mode-header {
+    margin-left: 1rem;
+    font-size: 3rem;
+  }
+}
+
 @media screen and (min-width: 1536px) {
   #game-container {
     height: 620px;
@@ -1360,6 +1396,17 @@ and (orientation: portrait) {
 
   #game-mode-header {
     margin-left: 3rem;
+  }
+} 
+
+@media screen and (min-width: 1680px) and (min-height: 1050px) {
+  #game-container {
+    height: 780px;
+    background-size: 100%;
+  }
+
+  #game-mode-header {
+    margin-left: 1rem;
   }
 } 
 
