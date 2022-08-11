@@ -1366,7 +1366,7 @@ and (orientation: portrait) {
 
 @media screen and (min-width: 1366px) and (min-height: 768px) {
   #game-container {
-    height: 530px;
+    height: 550px;
     background-size: 80%;
   }
 
