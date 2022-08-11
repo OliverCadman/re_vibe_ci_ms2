@@ -184,7 +184,7 @@ ul li a.active {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #23272a;
+
 }
 
 .ear-training {
@@ -1352,9 +1352,23 @@ and (orientation: portrait) {
 
 } 
 
+@media screen and (min-width: 1280px) {
+  #game-container {
+    height: 770px;
+  }
+
+  .begin-training {
+    top: 50%;
+  }
+
+  .game-selection-button-container {
+    height: 75%;
+  }
+}
+
 @media screen and (min-width: 1400px) {
   #game-container {
-    height: 580px;
+    height: 750px;
     background-size: 83%;
   }
 
@@ -1365,7 +1379,7 @@ and (orientation: portrait) {
 
 @media screen and (min-width: 1366px) and (min-height: 768px) {
   #game-container {
-    height: 530px;
+    height: 600px;
     background-size: 80%;
   }
 
